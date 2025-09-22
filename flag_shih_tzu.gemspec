@@ -23,18 +23,16 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter Boling", "Patryk Peszko", "Sebastian Roebke", "David Anderson", "Tim Payton"]
   spec.email = ["floss@glatzo.com"]
 
-  spec.summary  = %q{🏁 Bit fields for ActiveRecord}
-  spec.description = <<-EODOC
-🏁 Bit fields for ActiveRecord:
+  spec.summary = "🏁 Bit fields for ActiveRecord"
+  spec.description = "🏁 Bit fields for ActiveRecord:
 This spec lets you use a single integer column in an ActiveRecord model
 to store a collection of boolean attributes (flags). Each flag can be used
 almost in the same way you would use any boolean attribute on an
 ActiveRecord object.
-EODOC
-
-  spec.homepage = "https://github.com/pboling/flag_shih_tzu"
-  spec.licenses = ['MIT']
-  spec.required_ruby_version = '>= 1.9.3'
+"
+  spec.homepage = "https://github.com/galtzo-floss/flag_shih_tzu"
+  spec.licenses = ["MIT"]
+  spec.required_ruby_version = ">= 1.9.3"
 
   # Linux distros often package gems and securely certify them independent
   #   of the official RubyGem certification process. Allowed via ENV["SKIP_GEM_SIGNING"]
