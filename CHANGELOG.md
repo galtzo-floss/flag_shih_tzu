@@ -1,6 +1,34 @@
-# HEAD - UNRELEASED
+# Changelog
 
-* Work merged into master branch goes here until it is released.
+[![SemVer 2.0.0][📌semver-img]][📌semver] [![Keep-A-Changelog 1.0.0][📗keep-changelog-img]][📗keep-changelog]
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog][📗keep-changelog],
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html),
+and [yes][📌major-versions-not-sacred], platform and engine support are part of the [public API][📌semver-breaking].
+Please file a bug if you notice a violation of semantic versioning.
+
+[📌semver]: https://semver.org/spec/v2.0.0.html
+[📌semver-img]: https://img.shields.io/badge/semver-2.0.0-FFDD67.svg?style=flat
+[📌semver-breaking]: https://github.com/semver/semver/issues/716#issuecomment-869336139
+[📌major-versions-not-sacred]: https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html
+[📗keep-changelog]: https://keepachangelog.com/en/1.0.0/
+[📗keep-changelog-img]: https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat
+
+## [Unreleased]
+
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
 
 # Version 0.3.23 - NOV.30.2018
 
@@ -9,7 +37,7 @@
 # Version 0.3.22 - SEP.18.2018
 
 * When #selected_flags= passed with nil it clears flag bits, by xpol
-  - This makes flag_shih_tzu behave like Rails: converts empty array to nil.
+    - This makes flag_shih_tzu behave like Rails: converts empty array to nil.
 
 # Version 0.3.21 - SEP.09.2018
 
@@ -119,8 +147,8 @@
 
 * Fix Travis Build & Add Rails 4 by Peter M. Goldstein
 * Implemented update_flag! by Peter Boling (see https://github.com/pboling/flag_shih_tzu/issues/27)
-  - sets a flag on a record without triggering callbacks or validations
-  - optionally syncs the instance with new flag value, by default it does not.
+    - sets a flag on a record without triggering callbacks or validations
+    - optionally syncs the instance with new flag value, by default it does not.
 * Update gemspec by Peter Boling
 
 # Version 0.3.4 - JUN.20.2013
@@ -148,14 +176,14 @@
 * Adds skip column check option :check_for_column - from arturaz
 * Adds a 'smart' set_flag_sql method which will auto determine the correct column for the given flag - from arturaz
 * Changes the behavior of sql_set_for_flag to not use table names in the generated SQL
-  - because it didn't actually work before
-  - Now there is a test ensuring that the generated SQL can be executed by a real DB
-  - This improved sql_set_for_flag underlies the public set_flag_sql method
+    - because it didn't actually work before
+    - Now there is a test ensuring that the generated SQL can be executed by a real DB
+    - This improved sql_set_for_flag underlies the public set_flag_sql method
 
 # Version 0.3.1 - NOV.06.2012
 
 * Adds new methods (for a flag column named 'bar', with many individual flags within) - from ddidier
-  - all_bar, selected_bar, select_all_bar, unselect_all_bar, selected_bar=(selected_flags), has_bar?
+    - all_bar, selected_bar, select_all_bar, unselect_all_bar, selected_bar=(selected_flags), has_bar?
 
 # Version 0.3.0 - NOV.05.2012 - first version maintained by Peter Boling
 

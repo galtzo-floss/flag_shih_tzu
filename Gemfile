@@ -1,16 +1,31 @@
-source "http://rubygems.org"
+# frozen_string_literal: true
 
-# SO the gem can run the simple test suite against the raw bundled gems without the complex BUNDLE_GEMFILE setup
-gem "sqlite3", :platforms => [:ruby]
-
-# Specify your gem's dependencies in flag_shih_tzu.gemspec
-gemspec
 source "https://rubygems.org"
+
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
+
+#### IMPORTANT #######################################################
+# Gemfile is for local development ONLY; Gemfile is NOT loaded in CI #
+####################################################### IMPORTANT ####
+
+# Include dependencies from <gem name>.gemspec
+gemspec
+
+# Debugging
 eval_gemfile "gemfiles/modular/debug.gemfile"
+
+# Code Coverage
 eval_gemfile "gemfiles/modular/coverage.gemfile"
+
+# Linting
 eval_gemfile "gemfiles/modular/style.gemfile"
+
+# Documentation
 eval_gemfile "gemfiles/modular/documentation.gemfile"
+
+# Optional
 eval_gemfile "gemfiles/modular/optional.gemfile"
+
+### Std Lib Extracted Gems
 eval_gemfile "gemfiles/modular/x_std_libs.gemfile"

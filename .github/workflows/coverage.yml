@@ -1,0 +1,127 @@
+name: Test Coverage
+
+permissions:
+  contents: read
+  pull-requests: write
+  id-token: write
+
+env:
+  K_SOUP_COV_MIN_BRANCH: 100
+  K_SOUP_COV_MIN_LINE: 100
+  K_SOUP_COV_MIN_HARD: true
+  K_SOUP_COV_FORMATTERS: "xml,rcov,lcov,tty"
+  K_SOUP_COV_DO: true
+  K_SOUP_COV_MULTI_FORMATTERS: true
+  K_SOUP_COV_COMMAND_NAME: "Test Coverage"
+
+on:
+  push:
+    branches:
+      - 'main'
+      - '*-stable'
+    tags:
+      - '!*' # Do not execute on tags
+  pull_request:
+    branches:
+      - '*'
+  # Allow manually triggering the workflow.
+  workflow_dispatch:
+
+# Cancels all previous workflow runs for the same branch that have not yet completed.
+concurrency:
+  # The concurrency group contains the workflow name and the branch name.
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  coverage:
+    if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
+    name: Code Coverage on ${{ matrix.ruby }}@current
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
+    env: # $BUNDLE_GEMFILE must be set at job level, so it is set for all steps
+      BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.gemfile }}.gemfile
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Coverage
+          - ruby: "ruby"
+            appraisal: "coverage"
+            exec_cmd: "rake test"
+            gemfile: "Appraisal.root"
+            rubygems: latest
+            bundler: latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Ruby & RubyGems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "${{ matrix.ruby }}"
+          rubygems: "${{ matrix.rubygems }}"
+          bundler: "${{ matrix.bundler }}"
+          bundler-cache: false
+
+      # Raw `bundle` will use the BUNDLE_GEMFILE set to matrix.gemfile (i.e. Appraisal.root)
+      # We need to do this first to get appraisal installed.
+      # NOTE: This does not use the primary Gemfile at all.
+      - name: Install Root Appraisal
+        run: bundle
+      - name: Appraisal for ${{ matrix.appraisal }}
+        run: bundle exec appraisal ${{ matrix.appraisal }} bundle
+      - name: Tests for ${{ matrix.ruby }}@current via ${{ matrix.exec_cmd }}
+        run: bundle exec appraisal ${{ matrix.appraisal }} bundle exec ${{ matrix.exec_cmd }}
+
+      # Do SaaS coverage uploads first
+      - name: Upload coverage to Coveralls
+        if: ${{ !env.ACT }}
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: ${{ matrix.experimental != 'false' }}
+
+      - name: Upload coverage to QLTY
+        if: ${{ !env.ACT }}
+        uses: qltysh/qlty-action/coverage@main
+        with:
+          token: ${{secrets.QLTY_COVERAGE_TOKEN}}
+          files: coverage/.resultset.json
+        continue-on-error: ${{ matrix.experimental != 'false' }}
+
+      # Build will fail here if coverage upload fails
+      #   which will hopefully be noticed for the lack of code coverage comments
+      - name: Upload coverage to CodeCov
+        if: ${{ !env.ACT }}
+        uses: codecov/codecov-action@v5
+        with:
+          use_oidc: true
+          fail_ci_if_error: false # optional (default = false)
+          files: coverage/lcov.info,coverage/coverage.xml
+          verbose: true # optional (default = false)
+
+      # Then PR comments
+      - name: Code Coverage Summary Report
+        if: ${{ !env.ACT && github.event_name == 'pull_request' }}
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: ./coverage/coverage.xml
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: '100 100'
+        continue-on-error: ${{ matrix.experimental != 'false' }}
+
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: ${{ !env.ACT && github.event_name == 'pull_request' }}
+        with:
+          recreate: true
+          path: code-coverage-results.md
+        continue-on-error: ${{ matrix.experimental != 'false' }}
