@@ -240,7 +240,7 @@ tokens:
     name: "Peter H. Boling"                 # Full display name. Example: Ada Lovelace. ENV: KJ_AUTHOR_NAME. Auto-seeded from gemspec authors.first
     given_names: "Peter H."   # Given/personal names only. Example: Ada. ENV: KJ_AUTHOR_GIVEN_NAMES. Auto-seeded when AUTHOR:NAME can be split
     family_names: "Boling" # Family/surname only. Example: Lovelace. ENV: KJ_AUTHOR_FAMILY_NAMES. Auto-seeded when AUTHOR:NAME can be split
-    email: "floss@glatzo.com"               # Primary public email address. Example: floss@galtzo.com. ENV: KJ_AUTHOR_EMAIL. Auto-seeded from gemspec email.first
+    email: "floss@galtzo.com"               # Primary public email address. Example: floss@galtzo.com. ENV: KJ_AUTHOR_EMAIL. Auto-seeded from gemspec email.first
     domain: "galtzo.com"             # Bare domain only, no scheme, no email. Example: galtzo.com. ENV: KJ_AUTHOR_DOMAIN. Auto-seeded from AUTHOR:EMAIL
     orcid: "0009-0008-8519-441X"                                # ORCID identifier only, not the full URL. Example: 0000-0001-2345-6789. ENV: KJ_AUTHOR_ORCID
 
