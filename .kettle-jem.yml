@@ -195,6 +195,16 @@ appraisal_matrix:
 #   org_and_project => related-org,ruby,org,project
 readme:
   top_logos: related-org,ruby,org
+  # README badges managed by the template.
+  badges:
+    # FOSSA license/security status badge.
+    # false - omit the badge (default)
+    # true  - derive project id from the GitHub repository slug
+    # string or mapping project/project_id/slug - explicit FOSSA project id
+    #
+    # Example:
+    # fossa: git+github.com/pboling/example
+    fossa: git+github.com/pboling/flag_shih_tzu
   preserve_sections:
   - synopsis
   - configuration
