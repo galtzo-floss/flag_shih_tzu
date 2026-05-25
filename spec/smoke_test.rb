@@ -11,9 +11,14 @@ else
 end
 require "flag_shih_tzu"
 
+adapter = "sqlite3"
+if RUBY_PLATFORM == "java" && Gem::Version.new(ActiveRecord::VERSION::STRING) < Gem::Version.new("7.2")
+  adapter = "jdbcsqlite3"
+end
+
 # Set up database
 ActiveRecord::Base.establish_connection(
-  adapter: RUBY_PLATFORM == "java" ? "jdbcsqlite3" : "sqlite3",
+  adapter: adapter,
   database: ":memory:"
 )
 

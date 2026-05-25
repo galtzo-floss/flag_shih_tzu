@@ -196,7 +196,8 @@ RSpec.describe FlagShihTzu do
 
       context "named scopes" do
         def assert_where_value(expected, scope)
-          actual = scope.where_clause.ast.expr
+          ast = scope.where_clause.ast
+          actual = ast.respond_to?(:expr) ? ast.expr : ast
           expect(actual).to eq(expected)
         end
 
@@ -369,7 +370,8 @@ RSpec.describe FlagShihTzu do
             .to eq('("spaceships_with_custom_flags_column"."bits" not in (2,3))')
 
           def assert_where_value(expected, scope)
-            actual = scope.where_clause.ast.expr
+            ast = scope.where_clause.ast
+            actual = ast.respond_to?(:expr) ? ast.expr : ast
             expect(actual).to eq(expected)
           end
 
@@ -435,4 +437,3 @@ RSpec.describe FlagShihTzu do
     end
   end
 end
-

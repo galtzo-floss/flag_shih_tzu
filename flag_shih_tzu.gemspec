@@ -134,7 +134,9 @@ ActiveRecord object.
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
   # Dev, Test, & Release Tasks
-  spec.add_development_dependency("kettle-dev", "~> 2.0", ">= 2.0.1")      # ruby >= 2.3.0
+  if Gem.ruby_version >= Gem::Version.new("2.4")
+    spec.add_development_dependency("kettle-dev", "~> 2.0", ">= 2.0.1")    # ruby >= 2.4.0
+  end
 
   # Security
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
@@ -176,6 +178,8 @@ ActiveRecord object.
   spec.add_development_dependency("combustion", "~> 1.3")                           # ruby >= 2.3
   if RUBY_PLATFORM == "java"
     spec.add_development_dependency("activerecord-jdbcsqlite3-adapter", ">= 1.3")
+  elsif Gem.ruby_version < Gem::Version.new("2.5")
+    spec.add_development_dependency("sqlite3", "~> 1.4")                            # ruby >= 2.4
   else
     spec.add_development_dependency("sqlite3", ">= 1.4")                            # ruby >= 2.3, >= 2.1 for AR 8.x
   end
