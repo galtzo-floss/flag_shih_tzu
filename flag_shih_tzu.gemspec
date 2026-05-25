@@ -174,10 +174,13 @@ ActiveRecord object.
   spec.add_development_dependency("rspec", "~> 3.0")                                # ruby >= 2.3
   spec.add_development_dependency("rspec-rails", ">= 3.0")                          # ruby >= 2.3
   spec.add_development_dependency("combustion", "~> 1.3")                           # ruby >= 2.3
-  spec.add_development_dependency("sqlite3", ">= 1.4")                              # ruby >= 2.3, >= 2.1 for AR 8.x
+  if RUBY_PLATFORM == "java"
+    spec.add_development_dependency("activerecord-jdbcsqlite3-adapter", ">= 1.3")
+  else
+    spec.add_development_dependency("sqlite3", ">= 1.4")                            # ruby >= 2.3, >= 2.1 for AR 8.x
+  end
   spec.add_development_dependency('activerecord', '>= 2.3.0')
   spec.add_development_dependency('bundler')
-  spec.add_development_dependency('rdoc', '~> 6.5') # v6 requires Ruby 2.2+
   spec.add_development_dependency('test-unit', '>= 3')
   spec.add_development_dependency('wwtd', '>= 1')
 end

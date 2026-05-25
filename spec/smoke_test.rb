@@ -2,13 +2,18 @@
 
 # Simple test without Combustion to verify basic setup
 require "bundler/setup"
+require "logger"
 require "active_record"
-require "sqlite3"
+if RUBY_PLATFORM == "java"
+  require "activerecord-jdbcsqlite3-adapter"
+else
+  require "sqlite3"
+end
 require "flag_shih_tzu"
 
 # Set up database
 ActiveRecord::Base.establish_connection(
-  adapter: "sqlite3",
+  adapter: RUBY_PLATFORM == "java" ? "jdbcsqlite3" : "sqlite3",
   database: ":memory:"
 )
 
@@ -41,4 +46,3 @@ puts "✓ Can reload spaceship"
 puts "✓ Warpdrive after reload: #{spaceship.warpdrive}"
 
 puts "\n✅ Basic setup works! Now setting up full RSpec suite..."
-

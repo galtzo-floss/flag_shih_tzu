@@ -42,6 +42,12 @@ Please file a bug if you notice a violation of semantic versioning.
   local kettle-jem install path.
 - Restored project-specific README sections lost during templating, including
   the Alternatives section and the updated RailsBling URL from PR #104.
+- Fixed CI appraisals by loading `logger` before ActiveRecord 6.x, keeping
+  documentation-only `rdoc` out of the gemspec, and using JRuby's sqlite
+  adapter when running on JRuby.
+- Removed the advanced CodeQL workflow because repository default setup is
+  already enabled.
+- Added the missing RuboCop Gradual baseline required by style CI.
 
 ### Security
 

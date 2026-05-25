@@ -14,14 +14,19 @@ rescue LoadError
 end
 
 require "bundler/setup"
+require "logger"
 require "active_record"
-require "sqlite3"
+if RUBY_PLATFORM == "java"
+  require "activerecord-jdbcsqlite3-adapter"
+else
+  require "sqlite3"
+end
 require "rspec"
 require "flag_shih_tzu"
 
 # Set up database connection
 ActiveRecord::Base.establish_connection(
-  adapter: "sqlite3",
+  adapter: RUBY_PLATFORM == "java" ? "jdbcsqlite3" : "sqlite3",
   database: ":memory:"
 )
 
@@ -68,4 +73,3 @@ RSpec.configure do |config|
     end
   end
 end
-

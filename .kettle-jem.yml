@@ -197,6 +197,8 @@ readme:
   top_logos: related-org,ruby,project
   # README badges managed by the template.
   badges:
+    disabled:
+    - codeql
     # FOSSA license/security status badge.
     # false - omit the badge (default)
     # true  - derive project id from the GitHub repository slug
@@ -410,6 +412,9 @@ files:
   ".github":
     copilot_instructions.md:
       strategy: accept_template
+    workflows:
+      codeql-analysis.yml:
+        strategy: keep_destination
   gemfiles:
     modular:
       templating.gemfile:
