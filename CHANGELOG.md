@@ -64,6 +64,8 @@ Please file a bug if you notice a violation of semantic versioning.
   JRuby.
 - Fixed JRuby gemspec validation by avoiding duplicate `rspec-rails`
   development dependency declarations.
+- Fixed Ruby 2.3 setup by avoiding `rackup`, whose available versions require
+  Ruby 2.4 or newer.
 - Fixed older TruffleRuby CI dependency drift by keeping it below the Rails
   releases that pull native `psych` and `json` versions it cannot compile.
 - Normalized Arel where-clause assertions across ActiveRecord 6.0 and newer.
