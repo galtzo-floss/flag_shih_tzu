@@ -60,7 +60,8 @@ Please file a bug if you notice a violation of semantic versioning.
 - Added legacy CI dependency constraints for Ruby 2.3, Ruby 2.4, and modern
   JRuby appraisal bundles.
 - Fixed Ruby 2.4 and JRuby CI dependency drift by pinning the Rack split below
-  Rack 3 on Ruby 2.4 and using the JDBC sqlite adapter on JRuby.
+  Rack 3 on Ruby 2.4 and using a coherent ActiveRecord/JDBC sqlite stack on
+  JRuby.
 - Fixed older TruffleRuby CI dependency drift by keeping it below the Rails
   releases that pull native `psych` and `json` versions it cannot compile.
 - Normalized Arel where-clause assertions across ActiveRecord 6.0 and newer.
