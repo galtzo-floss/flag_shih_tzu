@@ -149,7 +149,7 @@ ActiveRecord object.
 
   # Testing
   spec.add_development_dependency("appraisal2", "~> 3.0", ">= 3.0.6")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
-  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.1")             # ruby >= 2.3
+  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.1") if Gem.ruby_version >= Gem::Version.new("2.4")
 
   # Releasing
   spec.add_development_dependency("ruby-progressbar", "~> 1.13")                    # ruby >= 0
@@ -179,7 +179,7 @@ ActiveRecord object.
   if RUBY_PLATFORM == "java"
     spec.add_development_dependency("activerecord-jdbcsqlite3-adapter", ">= 1.3")
   elsif Gem.ruby_version < Gem::Version.new("2.5")
-    spec.add_development_dependency("sqlite3", ">= 1.4", "< 1.6")                   # ruby >= 2.4
+    spec.add_development_dependency("sqlite3", ">= 1.4", "< 1.5")                   # ruby >= 2.4
   else
     spec.add_development_dependency("sqlite3", ">= 1.4")                            # ruby >= 2.3, >= 2.1 for AR 8.x
   end

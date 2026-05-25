@@ -4,7 +4,7 @@
 require "bundler/setup"
 require "logger"
 require "active_record"
-if RUBY_PLATFORM == "java"
+if RUBY_PLATFORM == "java" && Gem::Version.new(ActiveRecord::VERSION::STRING) < Gem::Version.new("7.2")
   require "activerecord-jdbcsqlite3-adapter"
 else
   require "sqlite3"

@@ -52,6 +52,11 @@ Please file a bug if you notice a violation of semantic versioning.
   config and letting the shared coverage config own `SimpleCov.start`.
 - Reset coverage gates to the current covered baseline so coverage CI hard
   fails on regressions without requiring unreachable 100% coverage.
+- Fixed Ruby 2.3 CI by running `rspec` directly because current `kettle-test`
+  requires Ruby 2.4 or newer.
+- Fixed Ruby 2.4 dependency resolution by capping `sqlite3` below 1.5.
+- Fixed modern JRuby CI by avoiding the legacy JDBC adapter shim on
+  ActiveRecord 7.2 and newer.
 - Removed the obsolete JRuby 9.1 workflow because it is pinned by
   `ruby/setup-ruby` to Bundler 1, which cannot install from `gem.coop`.
 - Removed the advanced CodeQL workflow because repository default setup is

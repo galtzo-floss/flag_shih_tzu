@@ -417,6 +417,8 @@ files:
         strategy: keep_destination
       jruby-9.1.yml:
         strategy: keep_destination
+      ruby-2.3.yml:
+        strategy: keep_destination
   gemfiles:
     modular:
       templating.gemfile:
