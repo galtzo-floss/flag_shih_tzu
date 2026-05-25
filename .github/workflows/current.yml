@@ -39,7 +39,7 @@ jobs:
           # Ruby 4.0
           - ruby: "ruby"
             appraisal: "current"
-            exec_cmd: "rake minitest"
+            exec_cmd: "kettle-test"
             rubygems: latest
             bundler: latest
 

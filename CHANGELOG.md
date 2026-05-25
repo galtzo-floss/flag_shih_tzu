@@ -18,15 +18,27 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ## [Unreleased]
 
+### Added
+
 ### Changed
 
 - Applied the current kettle-jem template, including appraisal-isolated CI
   workflows and generated project metadata.
 - Switched ActiveRecord framework CI to generated Appraisal2 appraisals with
   a destination-specific sqlite support gemfile.
+- Added the salvaged RSpec/Combustion suite and kettle-jem-appraisals
+  ActiveRecord bucket matrix from the older workspace copy.
 - Pinned ActiveRecord framework gemfiles to their intended minor series.
 - Constrained sqlite in framework appraisals to the adapter range required by
   ActiveRecord 7.x.
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
 
 # Version 0.3.23 - NOV.30.2018
 

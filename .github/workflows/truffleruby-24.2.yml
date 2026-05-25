@@ -40,7 +40,7 @@ jobs:
           # truffleruby-24.2 (targets Ruby 3.3 compatibility)
           - ruby: "truffleruby-24.2"
             appraisal: "ruby-3-3"
-            exec_cmd: "rake minitest"
+            exec_cmd: "kettle-test"
             rubygems: default
             bundler: default
 

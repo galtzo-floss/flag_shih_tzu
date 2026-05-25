@@ -39,7 +39,7 @@ jobs:
           # jruby-9.2 (targets Ruby 2.5 compatibility)
           - ruby: "jruby-9.2"
             appraisal: "ruby-2-5"
-            exec_cmd: "rake minitest"
+            exec_cmd: "kettle-test"
             rubygems: default
             bundler: default
 

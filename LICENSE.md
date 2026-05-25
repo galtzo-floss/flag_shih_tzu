@@ -23,7 +23,7 @@ Copyright (c) 2011 Arturas Slajus
 Copyright (c) 2011 Musy Bite
 Copyright (c) 2011, 2014 Tim Liner
 Copyright (c) 2012-2013 David DIDIER
-Copyright (c) 2012-2015, 2017-2018, 2026 Peter Boling
+Copyright (c) 2012-2015, 2017-2018, 2026 Peter H. Boling
 Copyright (c) 2012 Tatsuhiko Miyagawa
 Copyright (c) 2013 Blake Thomson
 Copyright (c) 2013 Keith Pitty
@@ -42,5 +42,6 @@ Copyright (c) 2018 xpol
 Copyright (c) 2018 Yusuke Ebihara
 Copyright (c) 2019 Amy Martin
 Copyright (c) 2022 funwarioisii
+Copyright (c) 2025 Aboling0
 Copyright (c) 2025 Annibelle Boling
 Copyright (c) 2025 horiken

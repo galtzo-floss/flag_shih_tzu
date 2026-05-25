@@ -177,7 +177,7 @@ Your picture could be here!
 
 Made with [contributors-img][🖐contrib-rocks].
 
-Also see GitLab Contributors: [https://gitlab.com/pboling/flag_shih_tzu/-/graphs/main][🚎contributors-gl]
+Also see GitLab Contributors: [https://gitlab.com/galtzo-floss/flag_shih_tzu/-/graphs/main][🚎contributors-gl]
 
 ## For Maintainers
 
@@ -228,15 +228,15 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 14. Run `bundle exec rake release` which will create a git tag for the version,
     push git commits and tags, and push the `.gem` file to the gem host configured in the gemspec.
 
-[📜src-gl]: https://gitlab.com/pboling/flag_shih_tzu/-/tree/main/gems/flag_shih_tzu
-[📜src-cb]: https://codeberg.org/pboling/flag_shih_tzu/src/branch/main/gems/flag_shih_tzu
-[📜src-gh]: https://github.com/pboling/flag_shih_tzu/tree/main/gems/flag_shih_tzu
-[🧪build]: https://github.com/pboling/flag_shih_tzu/actions
-[🤝conduct]: https://github.com/pboling/flag_shih_tzu/blob/main/CODE_OF_CONDUCT.md
+[📜src-gl]: https://gitlab.com/galtzo-floss/flag_shih_tzu
+[📜src-cb]: https://codeberg.org/galtzo-floss/flag_shih_tzu
+[📜src-gh]: https://github.com/galtzo-floss/flag_shih_tzu
+[🧪build]: https://github.com/galtzo-floss/flag_shih_tzu/actions
+[🤝conduct]: https://github.com/galtzo-floss/flag_shih_tzu/blob/main/CODE_OF_CONDUCT.md
 [🖐contrib-rocks]: https://contrib.rocks
-[🖐contributors]: https://github.com/pboling/flag_shih_tzu/graphs/contributors
-[🚎contributors-gl]: https://gitlab.com/pboling/flag_shih_tzu/-/graphs/main
-[🖐contributors-img]: https://contrib.rocks/image?repo=pboling/flag_shih_tzu
+[🖐contributors]: https://github.com/galtzo-floss/flag_shih_tzu/graphs/contributors
+[🚎contributors-gl]: https://gitlab.com/galtzo-floss/flag_shih_tzu/-/graphs/main
+[🖐contributors-img]: https://contrib.rocks/image?repo=galtzo-floss/flag_shih_tzu
 [💎gem-coop]: https://gem.coop
 [🔒️rubygems-security-guide]: https://guides.rubygems.org/security/#building-gems
 [🔒️rubygems-checksums-pr]: https://github.com/rubygems/rubygems/pull/6022

@@ -2,4 +2,6 @@
 gem "activerecord", ">= 2.3.0" # ruby >= 3.2.0
 gem "bundler", ">= 0" # ruby >= 3.2.0
 gem "rdoc", "~> 6.5" # ruby >= 2.6.0
+gem "rspec-rails", ">= 3.0" # ruby >= 3.0.0
+gem "sqlite3", ">= 1.4" # ruby >= 3.2
 # <</kettle-jem:generated>>

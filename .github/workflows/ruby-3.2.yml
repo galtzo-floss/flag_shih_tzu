@@ -36,7 +36,7 @@ jobs:
           # Ruby 3.2
           - ruby: "ruby-3.2"
             appraisal: "ruby-3-2"
-            exec_cmd: "rake minitest"
+            exec_cmd: "kettle-test"
             rubygems: latest
             bundler: latest
 

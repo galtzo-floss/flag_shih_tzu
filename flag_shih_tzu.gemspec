@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.name        = "flag_shih_tzu"
   spec.version = gem_version
   spec.authors     = ["Peter Boling", "Patryk Peszko", "Sebastian Roebke", "David Anderson", "Tim Payton"]
-  spec.email       = 'peter.boling@gmail.com'
+  spec.email       = ["floss@galtzo.com"]
 
   spec.summary     = %q{🏁 Bit fields for ActiveRecord}
   spec.description = <<-EODOC
@@ -37,7 +37,7 @@ to store a collection of boolean attributes (flags). Each flag can be used
 almost in the same way you would use any boolean attribute on an
 ActiveRecord object.
   EODOC
-  spec.homepage    = "https://github.com/pboling/flag_shih_tzu"
+  spec.homepage    = "https://github.com/galtzo-floss/flag_shih_tzu"
   spec.licenses = ["MIT"]
   spec.required_ruby_version = '>= 1.9.3'
 
@@ -59,12 +59,12 @@ ActiveRecord object.
     end
   end
 
-  spec.metadata["homepage_uri"] = "https://github.com/pboling/flag_shih_tzu"
+  spec.metadata["homepage_uri"] = "https://github.com/galtzo-floss/flag_shih_tzu"
   spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
   spec.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/#{spec.name}/#{spec.version}"
-  spec.metadata["funding_uri"] = "https://github.com/sponsors/pboling"
+  spec.metadata["funding_uri"] = "https://github.com/sponsors/galtzo-floss"
   spec.metadata["wiki_uri"] = "#{spec.homepage}/wiki"
   spec.metadata["news_uri"] = "https://www.railsbling.com/tags/#{spec.name}"
   spec.metadata["discord_uri"] = "https://discord.gg/3qme4XHNKN"
@@ -171,6 +171,10 @@ ActiveRecord object.
   # See: https://github.com/vcr/vcr/issues/1057
   # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
   # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
+  spec.add_development_dependency("rspec", "~> 3.0")                                # ruby >= 2.3
+  spec.add_development_dependency("rspec-rails", ">= 3.0")                          # ruby >= 2.3
+  spec.add_development_dependency("combustion", "~> 1.3")                           # ruby >= 2.3
+  spec.add_development_dependency("sqlite3", ">= 1.4")                              # ruby >= 2.3, >= 2.1 for AR 8.x
   spec.add_development_dependency('activerecord', '>= 2.3.0')
   spec.add_development_dependency('bundler')
   spec.add_development_dependency('rdoc', '~> 6.5') # v6 requires Ruby 2.2+
