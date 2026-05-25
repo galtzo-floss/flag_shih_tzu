@@ -195,6 +195,15 @@ appraisal_matrix:
 #   org_and_project => related-org,ruby,org,project
 readme:
   top_logos: related-org,ruby,org
+  preserve_sections:
+  - synopsis
+  - configuration
+  - basic usage
+  - running the gem tests
+  - authors
+  - how you can help!
+  - 2012 change of ownership and 0.3.x release notes
+  - alternatives
   # Optional package-family README block.
   # Supported values: structuredmerge
   # Leave unset for standalone kettle-rb gems and most projects.

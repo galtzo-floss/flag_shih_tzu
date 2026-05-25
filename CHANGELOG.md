@@ -40,6 +40,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Generated the curated local binstubs, including `bin/rake`, from the current
   local kettle-jem install path.
+- Restored project-specific README sections lost during templating, including
+  the Alternatives section and the updated RailsBling URL from PR #104.
 
 ### Security
 
