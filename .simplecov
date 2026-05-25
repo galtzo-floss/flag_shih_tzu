@@ -4,6 +4,7 @@
 # flag_shih_tzu will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
 
+require "kettle-soup-cover"
 require "kettle/soup/cover/config"
 
 # Minimum coverage thresholds are set by kettle-soup-cover.

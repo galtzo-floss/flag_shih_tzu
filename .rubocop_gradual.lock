@@ -27,7 +27,7 @@
     [447, 11, 13, "Layout/ArgumentAlignment: Use one level of indentation for arguments following the first line of a multi-line method call.", 3505727522],
     [448, 11, 26, "Layout/ArgumentAlignment: Use one level of indentation for arguments following the first line of a multi-line method call.", 2872330858]
   ],
-  "flag_shih_tzu.gemspec:3848186529": [
+  "flag_shih_tzu.gemspec:3851947835": [
     [27, 12, 7, "Layout/ExtraSpacing: Unnecessary spacing detected.", 394119301],
     [27, 20, 1, "Layout/SpaceAroundOperators: Operator `=` should be surrounded by a single space.", 177560],
     [29, 15, 4, "Layout/ExtraSpacing: Unnecessary spacing detected.", 2085287685],
@@ -74,8 +74,8 @@
   "gemfiles/modular/activerecord/r3/v8.0.gemfile:1960901258": [
     [5, 1, 1, "Layout/TrailingEmptyLines: 1 trailing blank lines detected.", 177583]
   ],
-  "gemfiles/modular/activerecord_support.gemfile:1300293504": [
-    [3, 26, 13, "Style/HashSyntax: Use the new Ruby 1.9 hash syntax.", 2883990320]
+  "gemfiles/modular/activerecord_support.gemfile:3622935610": [
+    [3, 35, 13, "Style/HashSyntax: Use the new Ruby 1.9 hash syntax.", 2883990320]
   ],
   "lib/flag_shih_tzu.rb:31622810": [
     [13, 3, 281, "Style/ClassMethodsDefinitions: Use `class << self` to define a class method.", 3055381186],
@@ -482,11 +482,11 @@
     [51, 1, 55, "RSpec/Output: Do not write to stdout in specs.", 189523176],
     [53, 1, 64, "RSpec/Output: Do not write to stdout in specs.", 736735761]
   ],
-  "spec/spec_helper.rb:3921183046": [
-    [16, 1, 23, "Packaging/BundlerSetupInTests: Using `bundler/setup` in tests is redundant. Consider removing it.", 1885211110],
-    [35, 3, 20, "Style/TrailingCommaInArguments: Put a comma after the last parameter of a multiline method call.", 1157350587],
-    [61, 5, 71, "RSpec/Output: Do not write to stdout in specs.", 449262686],
-    [65, 3, 20, "RSpec/HookArgument: Omit the default `:each` argument for RSpec hooks.", 3886685782]
+  "spec/spec_helper.rb:4255861709": [
+    [13, 1, 23, "Packaging/BundlerSetupInTests: Using `bundler/setup` in tests is redundant. Consider removing it.", 1885211110],
+    [32, 3, 20, "Style/TrailingCommaInArguments: Put a comma after the last parameter of a multiline method call.", 1157350587],
+    [58, 5, 71, "RSpec/Output: Do not write to stdout in specs.", 449262686],
+    [62, 3, 20, "RSpec/HookArgument: Omit the default `:each` argument for RSpec hooks.", 3886685782]
   ],
   "spec/support/models.rb:3891589976": [
     [8, 13, 13, "Layout/ArgumentAlignment: Use one level of indentation for arguments following the first line of a multi-line method call.", 3505727522],

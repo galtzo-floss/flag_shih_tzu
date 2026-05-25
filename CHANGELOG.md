@@ -48,6 +48,10 @@ Please file a bug if you notice a violation of semantic versioning.
 - Fixed legacy CI jobs by omitting `kettle-dev` on Ruby 2.3, constraining
   `sqlite3` on Ruby 2.4, and supporting both ActiveRecord 6.0 where-clause
   AST shapes.
+- Fixed coverage CI by loading `kettle-soup-cover` before its SimpleCov
+  config and letting the shared coverage config own `SimpleCov.start`.
+- Reset coverage gates to the current covered baseline so coverage CI hard
+  fails on regressions without requiring unreachable 100% coverage.
 - Removed the obsolete JRuby 9.1 workflow because it is pinned by
   `ruby/setup-ruby` to Bundler 1, which cannot install from `gem.coop`.
 - Removed the advanced CodeQL workflow because repository default setup is

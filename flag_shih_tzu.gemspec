@@ -179,7 +179,7 @@ ActiveRecord object.
   if RUBY_PLATFORM == "java"
     spec.add_development_dependency("activerecord-jdbcsqlite3-adapter", ">= 1.3")
   elsif Gem.ruby_version < Gem::Version.new("2.5")
-    spec.add_development_dependency("sqlite3", "~> 1.4")                            # ruby >= 2.4
+    spec.add_development_dependency("sqlite3", ">= 1.4", "< 1.6")                   # ruby >= 2.4
   else
     spec.add_development_dependency("sqlite3", ">= 1.4")                            # ruby >= 2.3, >= 2.1 for AR 8.x
   end

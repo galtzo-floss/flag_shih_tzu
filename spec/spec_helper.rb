@@ -3,11 +3,8 @@
 # For code coverage, must be required before all application / gem / library code.
 begin
   unless ENV["NOCOVER"]
-    require "simplecov"
-    SimpleCov.start do
-      add_filter "/spec/"
-      add_filter "/test/"
-    end
+    require "kettle-soup-cover"
+    require "simplecov" if Kettle::Soup::Cover::DO_COV
   end
 rescue LoadError
   # SimpleCov is optional
