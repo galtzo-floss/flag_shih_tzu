@@ -1,0 +1,80 @@
+name: Activerecord CI
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - "main"
+      - "*-stable"
+    tags:
+      - "!*" # Do not execute on tags
+  pull_request:
+    branches:
+      - "*"
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  test:
+    if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
+    name: Specs ${{ matrix.ruby }}@${{ matrix.framework.framework_version }}
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ endsWith(matrix.ruby, 'head') }}
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/Appraisal.root.gemfile
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+          - "3.1"
+          - "3.2"
+          - "3.3"
+          - "3.4"
+        rubygems:
+          - default
+        bundler:
+          - default
+        framework:
+          - framework_version: "7.0"
+            appraisal: "activerecord-7-0"
+          - framework_version: "7.1"
+            appraisal: "activerecord-7-1"
+          - framework_version: "7.2"
+            appraisal: "activerecord-7-2"
+          - framework_version: "8.0"
+            appraisal: "activerecord-8-0"
+        exclude:
+          - ruby: "3.1"
+            framework:
+              framework_version: "8.0"
+              appraisal: "activerecord-8-0"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Ruby & RubyGems
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
+        with:
+          ruby-version: "${{ matrix.ruby }}"
+          rubygems: "${{ matrix.rubygems }}"
+          bundler: "${{ matrix.bundler }}"
+          bundler-cache: true
+
+      - name: "[Attempt 1] Appraisal for ${{ matrix.ruby }}@${{ matrix.framework.framework_version }}"
+        id: bundleAppraisalAttempt1
+        run: bundle exec appraisal ${{ matrix.framework.appraisal }} install
+        continue-on-error: true
+
+      - name: "[Attempt 2] Appraisal for ${{ matrix.ruby }}@${{ matrix.framework.framework_version }}"
+        id: bundleAppraisalAttempt2
+        if: ${{ steps.bundleAppraisalAttempt1.outcome == 'failure' }}
+        run: bundle exec appraisal ${{ matrix.framework.appraisal }} install
+
+      - name: Tests for ${{ matrix.ruby }}@${{ matrix.framework.framework_version }}
+        run: bundle exec appraisal ${{ matrix.framework.appraisal }} bundle exec rake minitest

@@ -1,12 +1,52 @@
-test/debug.log
-test/flag_shih_tzu_plugin.sqlite3.db
-coverage
-.idea
+# Build Artifacts
+/pkg/
+/tmp/*
+!/tmp/.gitignore
 *.gem
-.bundle
-Gemfile.lock
-gemfiles/*.lock
-pkg/*
-rdoc/*
+
+# Bundler
+/vendor/bundle/
+/.bundle/
+/gemfiles/*.lock
+/gemfiles/.bundle/
+/gemfiles/.bundle/config
+/gemfiles/vendor/
+Appraisal.*.gemfile.lock
+
+# Specs
+.rspec_status
+/coverage/
+/spec/reports/
+/results/
+.output.txt
+
+# Documentation
+/.yardoc/
+/_yardoc/
+/rdoc/
+/doc/
+
+# Ruby Version Managers (RVM, rbenv, etc)
+# Ignored because we currently use mise.toml
+.rvmrc
 .ruby-version
 .ruby-gemset
+.tool-versions
+
+# Benchmarking
+/measurement/
+
+# Debugger detritus
+.byebug_history
+
+# Local environment overrides (KEY=value, loaded by mise via dotenvy)
+.env.local
+
+# OS Detritus
+.DS_Store
+
+# Editors
+*~
+
+# Sentinels
+.floss_funding.*.lock
