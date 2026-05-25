@@ -178,17 +178,21 @@ ActiveRecord object.
   spec.add_development_dependency("rspec-rails", ">= 3.0")                          # ruby >= 2.3
   spec.add_development_dependency("combustion", "~> 1.3")                           # ruby >= 2.3
   if RUBY_PLATFORM == "java"
-    if Gem.ruby_version >= Gem::Version.new("3.1")
-      spec.add_development_dependency("sqlite3", ">= 2.0")
-    else
-      spec.add_development_dependency("activerecord-jdbcsqlite3-adapter", ">= 1.3")
-    end
+    spec.add_development_dependency("activerecord", ">= 2.3.0", "< 7.2")
+    spec.add_development_dependency("activerecord-jdbcsqlite3-adapter", ">= 1.3")
+  elsif RUBY_ENGINE == "truffleruby" && Gem.ruby_version < Gem::Version.new("3.3")
+    spec.add_development_dependency("activerecord", ">= 2.3.0", "< 7.1")
+    spec.add_development_dependency("sqlite3", ">= 1.4", "< 1.5")
   elsif Gem.ruby_version < Gem::Version.new("2.5")
+    spec.add_development_dependency("activerecord", ">= 2.3.0")
+    spec.add_development_dependency("rack", "< 3")
+    spec.add_development_dependency("rack-session", "< 2")
+    spec.add_development_dependency("rackup", "< 2")
     spec.add_development_dependency("sqlite3", ">= 1.4", "< 1.5")                   # ruby >= 2.4
   else
+    spec.add_development_dependency("activerecord", ">= 2.3.0")
     spec.add_development_dependency("sqlite3", ">= 1.4")                            # ruby >= 2.3, >= 2.1 for AR 8.x
   end
-  spec.add_development_dependency('activerecord', '>= 2.3.0')
   spec.add_development_dependency('bundler')
   spec.add_development_dependency('test-unit', '>= 3')
   spec.add_development_dependency('wwtd', '>= 1')
