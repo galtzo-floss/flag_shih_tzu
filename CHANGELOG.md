@@ -57,6 +57,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Fixed Ruby 2.4 dependency resolution by capping `sqlite3` below 1.5.
 - Fixed modern JRuby CI by avoiding the legacy JDBC adapter shim on
   ActiveRecord 7.2 and newer.
+- Added legacy CI dependency constraints for Ruby 2.3, Ruby 2.4, and modern
+  JRuby appraisal bundles.
+- Normalized Arel where-clause assertions across ActiveRecord 6.0 and newer.
 - Removed the obsolete JRuby 9.1 workflow because it is pinned by
   `ruby/setup-ruby` to Bundler 1, which cannot install from `gem.coop`.
 - Removed the advanced CodeQL workflow because repository default setup is

@@ -442,6 +442,7 @@ DEPENDENCIES
   require_bench (~> 1.0, >= 1.0.4)
   rspec (~> 3.0)
   rspec-rails (>= 3.0)
+  rspec_junit_formatter (~> 0.6)
   rubocop-lts (~> 2.0)
   rubocop-on-rbs (~> 2.0)
   rubocop-packaging (~> 0.6, >= 0.6.0)

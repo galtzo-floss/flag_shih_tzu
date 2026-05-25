@@ -197,7 +197,13 @@ RSpec.describe FlagShihTzu do
       context "named scopes" do
         def assert_where_value(expected, scope)
           ast = scope.where_clause.ast
-          actual = ast.respond_to?(:expr) ? ast.expr : ast
+          actual = if ast.respond_to?(:expr)
+            ast.expr
+          elsif ast.respond_to?(:children) && ast.children.one? && ast.children.first.respond_to?(:expr)
+            ast.children.first.expr
+          else
+            ast
+          end
           expect(actual).to eq(expected)
         end
 
@@ -371,7 +377,13 @@ RSpec.describe FlagShihTzu do
 
           def assert_where_value(expected, scope)
             ast = scope.where_clause.ast
-            actual = ast.respond_to?(:expr) ? ast.expr : ast
+            actual = if ast.respond_to?(:expr)
+              ast.expr
+            elsif ast.respond_to?(:children) && ast.children.one? && ast.children.first.respond_to?(:expr)
+              ast.children.first.expr
+            else
+              ast
+            end
             expect(actual).to eq(expected)
           end
 
