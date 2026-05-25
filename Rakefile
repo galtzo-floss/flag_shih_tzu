@@ -1,48 +1,120 @@
-require 'rake'
-require 'rake/testtask'
-require 'rdoc/task'
+# frozen_string_literal: true
 
-require 'bundler'
-Bundler::GemHelper.install_tasks
+# kettle-jem:freeze
+# To retain chunks of comments & code during flag_shih_tzu templating:
+# Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
+# flag_shih_tzu will then preserve content between those markers across template runs.
+# kettle-jem:unfreeze
 
-desc 'Default: run unit tests.'
-task default: :test
+# flag_shih_tzu Rakefile v7.0.0 - 2026-05-25
+# Ruby 2.3 (Safe Navigation) or higher required
+#
+# See LICENSE.md for license information.
+#
+# Copyright (c) 2026 Peter H. Boling (galtzo.com)
+#
+# Expected to work in any project that uses Bundler.
+#
+# Sets up tasks for appraisal2, floss_funding, kettle-jem, kettle-dev, rspec, minitest, rubocop_gradual, reek, yard, and stone_checksums.
+#
+# rake appraisal:install                      # Install Appraisal gemfiles (initial setup...
+# rake appraisal:reset                        # Delete Appraisal lockfiles (gemfiles/*.gemfile.lock)
+# rake appraisal:update                       # Update Appraisal gemfiles and run RuboCop...
+# rake bench                                  # Run all benchmarks (alias for bench:run)
+# rake bench:list                             # List available benchmark scripts
+# rake bench:run                              # Run all benchmark scripts (skips on CI)
+# rake build:generate_checksums               # Generate both SHA256 & SHA512 checksums i...
+# rake bundle:audit:check                     # Checks the Gemfile.lock for insecure depe...
+# rake bundle:audit:update                    # Updates the bundler-audit vulnerability d...
+# rake ci:act[opt]                            # Run 'act' with a selected workflow
+# rake coverage                               # Run specs w/ coverage and open results in...
+# rake default                                # Default tasks aggregator
+# rake install                                # Build and install flag_shih_tzu-1.0.0.gem in...
+# rake install:local                          # Build and install flag_shih_tzu-1.0.0.gem in...
+# rake kettle:jem:install                     # Internal target used by `kettle-jem install`
+# rake kettle:jem:selftest                    # Self-test: template flag_shih_tzu against itse...
+# rake kettle:jem:template                    # Internal target used by `kettle-jem template`
+# rake reek                                   # Check for code smells
+# rake reek:update                            # Run reek and store the output into the RE...
+# rake release[remote]                        # Create tag v1.0.0 and build and push kett...
+# rake rubocop_gradual                        # Run RuboCop Gradual
+# rake rubocop_gradual:autocorrect            # Run RuboCop Gradual with autocorrect (onl...
+# rake rubocop_gradual:autocorrect_all        # Run RuboCop Gradual with autocorrect (saf...
+# rake rubocop_gradual:check                  # Run RuboCop Gradual to check the lock file
+# rake rubocop_gradual:force_update           # Run RuboCop Gradual to force update the l...
+# rake rubocop_gradual_debug                  # Run RuboCop Gradual
+# rake rubocop_gradual_debug:autocorrect      # Run RuboCop Gradual with autocorrect (onl...
+# rake rubocop_gradual_debug:autocorrect_all  # Run RuboCop Gradual with autocorrect (saf...
+# rake rubocop_gradual_debug:check            # Run RuboCop Gradual to check the lock file
+# rake rubocop_gradual_debug:force_update     # Run RuboCop Gradual to force update the l...
+# rake spec                                   # Run RSpec code examples
+# rake test                                   # Run tests
+# rake yard                                   # Generate YARD Documentation
+#
 
-desc 'Test the flag_shih_tzu plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
+# :nocov:
+require "bundler/gem_tasks" if !Dir[File.join(__dir__, "*.gemspec")].empty?
+# :nocov:
+
+require "rake/testtask"
+
+# Define a base default task early so other files can enhance it.
+desc "Default tasks aggregator"
+
+task :default do
+  puts "Default task complete."
 end
 
-desc 'Generate documentation for the flag_shih_tzu plugin.'
-RDoc::Task.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'FlagShihTzu'
-  rdoc.options << '--line-numbers'
-  rdoc.rdoc_files.include('README.rdoc')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+# External gems that define tasks - add here!
+begin
+  require "kettle/dev"
+  Kettle::Dev.install_tasks unless Kettle::Dev::RUNNING_AS == "rake"
+rescue LoadError
+  warn("NOTE: kettle-dev isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
 end
 
-if defined?(Reek) # No Reek on JRuby
-  require 'reek/rake/task'
-  Reek::Rake::Task.new do |t|
-    t.fail_on_error = true
-    t.verbose = false
-    t.source_files = 'lib/**/*.rb'
+### DUPLICATE DRIFT TASKS
+begin
+  require "kettle/drift"
+  Kettle::Drift.install_tasks
+rescue LoadError
+  desc("(stub) kettle:drift:check is unavailable")
+  task("kettle:drift:check") do
+    warn("NOTE: kettle-drift isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
+  end
+  desc("(stub) kettle:drift:update is unavailable")
+  task("kettle:drift:update") do
+    warn("NOTE: kettle-drift isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
+  end
+  desc("(stub) kettle:drift:force_update is unavailable")
+  task("kettle:drift:force_update") do
+    warn("NOTE: kettle-drift isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
+  end
+  desc("(stub) kettle:drift is unavailable")
+  task("kettle:drift" => "kettle:drift:update")
+end
+
+### TEMPLATING TASKS
+# These tasks are installed for the `kettle-jem` executable. Run templating
+# through `kettle-jem template` or `kettle-jem install`; the executable prepares
+# the environment and then delegates here when rake orchestration is needed.
+begin
+  require "kettle/jem"
+  Kettle::Jem.install_tasks
+rescue LoadError
+  desc("(stub) kettle:jem:selftest is unavailable")
+  task("kettle:jem:selftest") do
+    warn("NOTE: kettle-jem isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
   end
 end
 
-if defined?(Roodi) # No Roodi on JRuby
-  require 'roodi_task'
-  RoodiTask.new do |t|
-    t.verbose = false
-  end
-end
-
-namespace :test do
-  desc 'Test against all supported ActiveRecord versions'
-  task :all do
-    sh "bin/test.bash"
+### RELEASE TASKS
+# Setup stone_checksums
+begin
+  require "stone_checksums"
+rescue LoadError
+  desc("(stub) build:generate_checksums is unavailable")
+  task("build:generate_checksums") do
+    warn("NOTE: stone_checksums isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
   end
 end

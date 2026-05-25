@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+quiet=false
+bundle_args=(install)
+
+for arg in "$@"; do
+  case "$arg" in
+	--quiet)
+	  quiet=true
+	  bundle_args+=(--quiet)
+	  ;;
+	-h|--help)
+	  cat <<'USAGE'
+Usage: bin/setup [--quiet]
+
+Options:
+  --quiet   Pass --quiet to bundle install and suppress shell tracing.
+USAGE
+	  exit 0
+	  ;;
+	*)
+	  printf 'bin/setup: unknown option: %s\n' "$arg" >&2
+	  exit 2
+	  ;;
+  esac
+done
+
+if [ "$quiet" != "true" ]; then
+  set -vx
+fi
+
+bundle "${bundle_args[@]}"
+
+# Do any other automated setup that you need to do here
