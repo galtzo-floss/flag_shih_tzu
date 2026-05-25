@@ -38,6 +38,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Generated the curated local binstubs, including `bin/rake`, from the current
+  local kettle-jem install path.
+
 ### Security
 
 # Version 0.3.23 - NOV.30.2018
