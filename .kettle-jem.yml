@@ -194,7 +194,7 @@ appraisal_matrix:
 #   project => related-org,ruby,project
 #   org_and_project => related-org,ruby,org,project
 readme:
-  top_logos: related-org,ruby,org
+  top_logos: related-org,ruby,project
   # README badges managed by the template.
   badges:
     # FOSSA license/security status badge.
