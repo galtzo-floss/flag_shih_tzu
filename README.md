@@ -452,6 +452,53 @@ Spaceship.shields       # :conditions => "(spaceships.flags & 2 = 2)"
 Spaceship.not_shields   # :conditions => "(spaceships.flags & 2 = 0)"
 ```
 
+### Deprecating or removing flags
+
+Flag values are stored as bits in one integer. Removing a flag from the
+`has_flags` declaration does not clear that bit from existing rows.
+
+For example, an old version of the model may have this declaration:
+
+```ruby
+has_flags 1 => :warpdrive,
+  2 => :shields
+```
+
+If a row has both flags enabled, its integer value is `3`. If a later version of
+the model removes `:shields`:
+
+```ruby
+has_flags 1 => :warpdrive
+```
+
+the row still has `flags = 3`. With the default `:bit_operator` query mode,
+`Spaceship.warpdrive` still matches that row because it asks whether bit 1 is
+set. With legacy `:in_list` mode, the same scope would only know about the
+remaining `:warpdrive` flag and would generate a value-list query equivalent to
+`flags in (1)`, which would not match the row.
+
+Recommended removal path:
+
+1. Stop using the flag in application behavior, but leave it declared while old
+   rows may still contain the bit.
+2. If you want to reserve the bit position, rename the flag to a tombstone name
+   such as `:_deprecated_shields` and do not reuse that bit.
+3. If you want to remove the bit entirely, deploy a data cleanup while the flag
+   is still declared:
+
+```ruby
+Spaceship.where(Spaceship.shields_condition).update_all(
+  Spaceship.set_flag_sql(:shields, false),
+)
+```
+
+4. After the cleanup has run everywhere and no old app processes still refer to
+   the flag, remove it from `has_flags`.
+
+Do not reuse a removed flag's bit position for a different meaning unless you
+have first cleared that bit from every persisted row. Reusing uncleared bits
+turns old data into false positives for the new flag.
+
 ### Updating flag column by raw sql
 
 If you need to do mass updates without initializing object for each row, you can

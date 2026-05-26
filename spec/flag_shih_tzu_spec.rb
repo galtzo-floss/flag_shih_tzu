@@ -421,6 +421,34 @@ RSpec.describe FlagShihTzu do
           expect(Spaceship.not_warpdrive.not_shields.count).to eq(0)
         end
 
+        it "keeps remaining flag scopes correct after another flag is removed from the model" do
+          Spaceship.create!(warpdrive: true, shields: true)
+          model = Class.new(ActiveRecord::Base) do
+            self.table_name = "spaceships"
+            include FlagShihTzu
+
+            has_flags 1 => :warpdrive
+          end
+
+          expect(model.first.flags).to eq(3)
+          expect(model.first.warpdrive?).to be(true)
+          expect(model.warpdrive.count).to eq(1)
+        end
+
+        it "documents the legacy in_list behavior when another flag is removed from the model" do
+          Spaceship.create!(warpdrive: true, shields: true)
+          model = Class.new(ActiveRecord::Base) do
+            self.table_name = "spaceships"
+            include FlagShihTzu
+
+            has_flags 1 => :warpdrive, flag_query_mode: :in_list
+          end
+
+          expect(model.first.flags).to eq(3)
+          expect(model.first.warpdrive?).to be(true)
+          expect(model.warpdrive.count).to eq(0)
+        end
+
         it "returns the correct condition with chained flags" do
           expect(Spaceship.chained_flags_condition("flags", :warpdrive, :shields))
             .to eq('("spaceships"."flags" & 1 = 1 AND "spaceships"."flags" & 2 = 2)')

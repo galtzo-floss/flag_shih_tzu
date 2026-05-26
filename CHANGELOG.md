@@ -22,6 +22,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Added `table_alias:` support to generated `not_<flag>_condition` SQL helper
   methods, matching the existing alias support for positive flag conditions.
+- Added documentation for safely deprecating or removing flags without
+  corrupting the meaning of existing bit values.
 - Added first-class project metadata, documentation links, funding links, and
   gem signing metadata to the gemspec.
 
