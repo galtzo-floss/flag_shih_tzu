@@ -26,15 +26,40 @@ module FlagShihTzu
   }.freeze
   FLAG_COLUMN_ONLY_ASSIGNMENT_ADAPTERS = ["postgis", "postgresql", "sqlite", "sqlite3"].freeze
 
-  class << self
-    attr_accessor :default_check_for_column
-    attr_accessor :default_flag_query_mode
+  class Configuration
+    attr_accessor :default_check_for_column,
+      :default_flag_query_mode
 
+    def initialize
+      @default_check_for_column = DEFAULT_CHECK_FOR_COLUMN
+      @default_flag_query_mode = DEFAULT_FLAG_QUERY_MODE
+    end
+  end
+
+  CONFIGURATION = Configuration.new
+
+  class << self
     def included(base)
       base.extend(ClassMethods)
       base.class_attribute(:flag_options) unless defined?(base.flag_options)
       base.class_attribute(:flag_mapping) unless defined?(base.flag_mapping)
       base.class_attribute(:flag_columns) unless defined?(base.flag_columns)
+    end
+
+    def default_check_for_column
+      CONFIGURATION.default_check_for_column
+    end
+
+    def default_check_for_column=(value)
+      CONFIGURATION.default_check_for_column = value
+    end
+
+    def default_flag_query_mode
+      CONFIGURATION.default_flag_query_mode
+    end
+
+    def default_flag_query_mode=(value)
+      CONFIGURATION.default_flag_query_mode = value
     end
   end
 
@@ -705,9 +730,6 @@ To turn off this warning set check_for_column: false in has_flags definition her
   def determine_flag_colmn_for(flag)
     self.class.determine_flag_colmn_for(flag)
   end
-
-  self.default_check_for_column = DEFAULT_CHECK_FOR_COLUMN
-  self.default_flag_query_mode = DEFAULT_FLAG_QUERY_MODE
 end
 
 FlagShihTzu::Version.class_eval do

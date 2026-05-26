@@ -193,14 +193,14 @@ RSpec.describe FlagShihTzu do
             self.table_name = "spaceships"
             include FlagShihTzu
 
-            has_flags(1 => :warpdrive, 2 => :shields, flag_query_mode: :unknown)
+            has_flags(1 => :warpdrive, 2 => :shields, :flag_query_mode => :unknown)
           end
 
           expect { model.warpdrive_condition }.to raise_error(FlagShihTzu::NoSuchFlagQueryModeException)
         end
 
         it "allows the global default query mode to be overridden" do
-          FlagShihTzu.default_flag_query_mode = :in_list
+          described_class.default_flag_query_mode = :in_list
           model = Class.new(ActiveRecord::Base) do
             self.table_name = "spaceships"
             include FlagShihTzu
@@ -441,7 +441,7 @@ RSpec.describe FlagShihTzu do
             self.table_name = "spaceships"
             include FlagShihTzu
 
-            has_flags 1 => :warpdrive, flag_query_mode: :in_list
+            has_flags 1 => :warpdrive, :flag_query_mode => :in_list
           end
 
           expect(model.first.flags).to eq(3)

@@ -6,4 +6,3 @@ module FlagShihTzu
   end
   VERSION = Version::VERSION # Traditional Constant Location
 end
-

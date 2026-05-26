@@ -505,7 +505,7 @@ RSpec.describe FlagShihTzu do
     end
 
     it "allows the global default column check to be enabled" do
-      FlagShihTzu.default_check_for_column = true
+      described_class.default_check_for_column = true
 
       klass = Class.new(ActiveRecord::Base) do
         self.table_name = "spaceships_without_flags_column"

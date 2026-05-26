@@ -65,13 +65,15 @@ RSpec.configure do |config|
   config.around do |example|
     default_check_for_column = FlagShihTzu.default_check_for_column
     default_flag_query_mode = FlagShihTzu.default_flag_query_mode
-    ActiveRecord::Base.connection.transaction do
-      example.run
-      raise ActiveRecord::Rollback
+    begin
+      ActiveRecord::Base.connection.transaction do
+        example.run
+        raise ActiveRecord::Rollback
+      end
+    ensure
+      FlagShihTzu.default_check_for_column = default_check_for_column
+      FlagShihTzu.default_flag_query_mode = default_flag_query_mode
     end
-  ensure
-    FlagShihTzu.default_check_for_column = default_check_for_column
-    FlagShihTzu.default_flag_query_mode = default_flag_query_mode
   end
 
   # Custom matcher for comparing arrays without order
