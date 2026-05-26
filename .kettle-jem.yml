@@ -89,6 +89,13 @@ engines:
 - ruby
 - jruby
 - truffleruby
+# Ruby version policy.
+ruby:
+  # Lowest MRI Ruby version for generated CI workflows, Appraisals, and
+  # test/development dependency assumptions. This is intentionally separate
+  # from the gemspec required_ruby_version, which describes the published
+  # runtime contract. Effective CI minimum is max(gemspec minimum, this value).
+  test_minimum: "2.4"
 # Repository URL topology.
 # This is independent from templates.profile. A gem may use the full template
 # while still living as a sub-project inside a monorepo.

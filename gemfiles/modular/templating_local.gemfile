@@ -43,13 +43,14 @@ kettle_rb_local_gems = %w[
   kettle-dev kettle-test kettle-soup-cover kettle-drift
 ]
 declared_gems = instance_variable_get(:@dependencies).to_a.map(&:name)
+smorg_rb_local_gems_to_eval = smorg_rb_local_gems - %w[flag_shih_tzu] - declared_gems
 kettle_rb_local_gems_to_eval = kettle_rb_local_gems - %w[flag_shih_tzu] - declared_gems
 
 # export VENDORED_GEMS=
 platform :mri do
   if ENV.fetch("SMORG_RB_DEV", "false").casecmp("false") != 0
     eval_nomono_gems(
-      gems: smorg_rb_local_gems,
+      gems: smorg_rb_local_gems_to_eval,
       prefix: "SMORG_RB",
       path_env: "SMORG_RB_DEV",
       vendored_gems_env: "VENDORED_GEMS",

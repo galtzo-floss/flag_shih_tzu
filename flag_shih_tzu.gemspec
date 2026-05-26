@@ -125,18 +125,16 @@ ActiveRecord object.
   #       However, development dependencies in gemspec will install on
   #       all versions of Ruby that will run in CI.
   #       This gem, and its gemspec runtime dependencies, will install on Ruby down to 1.9.3.
-  #       This gem, and its gemspec development dependencies, will install on Ruby down to 2.3.
+  #       This gem, and its gemspec development dependencies, will install on Ruby down to 2.4.
   #       Thus, dev dependencies in gemspec must have
   #
-  #       required_ruby_version ">= 2.3" (or lower)
+  #       required_ruby_version ">= 2.4" (or lower)
   #
   #       Development dependencies that require strictly newer Ruby versions should be in a "gemfile",
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
   # Dev, Test, & Release Tasks
-  if Gem.ruby_version >= Gem::Version.new("2.4")
-    spec.add_development_dependency("kettle-dev", "~> 2.0", ">= 2.0.1")    # ruby >= 2.4.0
-  end
+  spec.add_development_dependency("kettle-dev", "~> 2.0", ">= 2.0.1")      # ruby >= 2.4.0
 
   # Security
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
@@ -149,8 +147,7 @@ ActiveRecord object.
 
   # Testing
   spec.add_development_dependency("appraisal2", "~> 3.0", ">= 3.0.6")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
-  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.1") if Gem.ruby_version >= Gem::Version.new("2.4")
-  spec.add_development_dependency("rspec_junit_formatter", "~> 0.6")
+  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.1")             # ruby >= 2.4
 
   # Releasing
   spec.add_development_dependency("ruby-progressbar", "~> 1.13")                    # ruby >= 0
@@ -174,38 +171,9 @@ ActiveRecord object.
   # See: https://github.com/vcr/vcr/issues/1057
   # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
   # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
+  spec.add_development_dependency("rspec_junit_formatter", "~> 0.6")
   spec.add_development_dependency("rspec", "~> 3.0")                                # ruby >= 2.3
-  if RUBY_PLATFORM == "java"
-    spec.add_development_dependency("rspec-rails", ">= 3.0", "< 4.0")
-  elsif RUBY_ENGINE == "truffleruby" && Gem.ruby_version < Gem::Version.new("3.3")
-    spec.add_development_dependency("rspec-rails", ">= 5.0", "< 6.0")
-  elsif Gem.ruby_version < Gem::Version.new("2.5")
-    spec.add_development_dependency("rspec-rails", ">= 3.0", "< 4.0")
-  else
-    spec.add_development_dependency("rspec-rails", ">= 3.0")                        # ruby >= 2.3
-  end
   spec.add_development_dependency("combustion", "~> 1.3")                           # ruby >= 2.3
-  if RUBY_PLATFORM == "java"
-    spec.add_development_dependency("activerecord", ">= 4.2", "< 5.0")
-    spec.add_development_dependency("activerecord-jdbcsqlite3-adapter", ">= 1.3")
-    spec.add_development_dependency("bigdecimal", ">= 1")
-    spec.add_development_dependency("railties", ">= 4.2", "< 5.0")
-  elsif RUBY_ENGINE == "truffleruby" && Gem.ruby_version < Gem::Version.new("3.3")
-    spec.add_development_dependency("activerecord", ">= 5.2", "< 7.1")
-    spec.add_development_dependency("sqlite3", ">= 1.4", "< 1.5")
-  elsif Gem.ruby_version < Gem::Version.new("2.4")
-    spec.add_development_dependency("activerecord", ">= 2.3.0")
-    spec.add_development_dependency("sqlite3", ">= 1.4", "< 1.5")
-  elsif Gem.ruby_version < Gem::Version.new("2.5")
-    spec.add_development_dependency("activerecord", ">= 2.3.0")
-    spec.add_development_dependency("rack", "< 3")
-    spec.add_development_dependency("rack-session", "< 2")
-    spec.add_development_dependency("rackup", "< 2")
-    spec.add_development_dependency("sqlite3", ">= 1.4", "< 1.5")                   # ruby >= 2.4
-  else
-    spec.add_development_dependency("activerecord", ">= 2.3.0")
-    spec.add_development_dependency("sqlite3", ">= 1.4")                            # ruby >= 2.3, >= 2.1 for AR 8.x
-  end
   spec.add_development_dependency('bundler')
   spec.add_development_dependency('test-unit', '>= 3')
   spec.add_development_dependency('wwtd', '>= 1')

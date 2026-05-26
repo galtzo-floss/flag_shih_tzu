@@ -158,17 +158,21 @@ mise exec -C /path/to/project -- env K_SOUP_COV_MIN_HARD=false bundle exec kettl
 
 ### Template Management (kettle-jem)
 
-Run the kettle-jem templater to sync project files with the latest template:
+Run the full kettle-jem installer to sync project files with the latest template
+and regenerate local finishing artifacts such as binstubs:
 
 ```bash
 # Standard run (quiet, non-interactive — the default)
-mise exec -C /path/to/project -- env K_JEM_TEMPLATING=true bundle exec kettle-jem template
+mise exec -C /path/to/project -- env K_JEM_TEMPLATING=true bundle exec kettle-jem install
 
 # Verbose output (see per-file detail)
-mise exec -C /path/to/project -- env K_JEM_TEMPLATING=true KETTLE_JEM_VERBOSE=true bundle exec kettle-jem template
+mise exec -C /path/to/project -- env K_JEM_TEMPLATING=true KETTLE_JEM_VERBOSE=true bundle exec kettle-jem install
 
 # Interactive mode (prompt before each change)
-mise exec -C /path/to/project -- env K_JEM_TEMPLATING=true bundle exec kettle-jem template --interactive
+mise exec -C /path/to/project -- env K_JEM_TEMPLATING=true bundle exec kettle-jem install --interactive
+
+# Scoped file update only; skips install finishing steps
+mise exec -C /path/to/project -- env K_JEM_TEMPLATING=true bundle exec kettle-jem template --only README.md
 ```
 
 Use the `kettle-jem` executable as the public entrypoint. The

@@ -246,14 +246,6 @@ GEM
       ruby_engine (~> 2.0)
       ruby_version (~> 1.0)
       version_gem (~> 1.1, >= 1.1.8)
-    rspec-rails (8.0.4)
-      actionpack (>= 7.2)
-      activesupport (>= 7.2)
-      railties (>= 7.2)
-      rspec-core (>= 3.13.0, < 5.0.0)
-      rspec-expectations (>= 3.13.0, < 5.0.0)
-      rspec-mocks (>= 3.13.0, < 5.0.0)
-      rspec-support (>= 3.13.0, < 5.0.0)
     rspec-stubbed_env (1.0.4)
     rspec-support (3.13.7)
     rspec_junit_formatter (0.6.0)
@@ -441,7 +433,6 @@ DEPENDENCIES
   reek (~> 6.5)
   require_bench (~> 1.0, >= 1.0.4)
   rspec (~> 3.0)
-  rspec-rails (>= 3.0)
   rspec_junit_formatter (~> 0.6)
   rubocop-lts (~> 2.0)
   rubocop-on-rbs (~> 2.0)
@@ -456,7 +447,7 @@ DEPENDENCIES
   test-unit (>= 3)
   wwtd (>= 1)
   yaml-converter (~> 0.1)
-  yard (~> 0.9, >= 0.9.37)
+  yard (~> 0.9, >= 0.9.44)
   yard-fence (~> 0.9, >= 0.9.1)
   yard-junk (~> 0.1, >= 0.1.0)
   yard-relative_markdown_links (~> 0.6)
@@ -555,7 +546,6 @@ CHECKSUMS
   rspec-expectations (3.13.5) sha256=33a4d3a1d95060aea4c94e9f237030a8f9eae5615e9bd85718fe3a09e4b58836
   rspec-mocks (3.13.8) sha256=086ad3d3d17533f4237643de0b5c42f04b66348c28bf6b9c2d3f4a3b01af1d47
   rspec-pending_for (0.1.20) sha256=2130c6c959d05b61de1955e7dd986418aec4888b6f80f0711a1f88540a09d3cb
-  rspec-rails (8.0.4) sha256=06235692fc0892683d3d34977e081db867434b3a24ae0dd0c6f3516bad4e22df
   rspec-stubbed_env (1.0.4) sha256=647886e16338bc4028fd18dde07944c945f773cc65afaa258930196da780e70f
   rspec-support (3.13.7) sha256=0640e5570872aafefd79867901deeeeb40b0c9875a36b983d85f54fb7381c47c
   rspec_junit_formatter (0.6.0) sha256=40dde674e6ae4e6cc0ff560da25497677e34fefd2338cc467a8972f602b62b15
