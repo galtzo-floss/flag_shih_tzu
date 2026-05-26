@@ -143,6 +143,10 @@ workflows:
   # Default command used by generated test workflows.
   # ENV override: KJ_EXEC_CMD
   exec_cmd: kettle-test
+  standard_appraisal_gemfiles:
+  - modular/activerecord_runtime.gemfile
+  - modular/activerecord_support.gemfile
+  - modular/combustion.gemfile
   # Include VCR/WebMock recording modular gemfiles in generated Appraisals.
   # Enable only for projects that actually require recording support.
   recording: false
@@ -153,6 +157,7 @@ appraisal_matrix:
   standard_appraisal_role: runtime_dependency
   appraisal_gemfiles:
   - modular/activerecord_support.gemfile
+  - modular/combustion.gemfile
   gems:
     tier1:
     - name: activerecord
@@ -405,6 +410,8 @@ patterns:
 # Only files that need overrides belong here. Everything else defaults to merge.
 files:
   AGENTS.md:
+    strategy: accept_template
+  Appraisal.root.gemfile:
     strategy: accept_template
   ".github":
     copilot_instructions.md:

@@ -29,9 +29,9 @@ Gem::Specification.new do |spec|
   spec.authors     = ["Peter Boling", "Patryk Peszko", "Sebastian Roebke", "David Anderson", "Tim Payton"]
   spec.email       = ["floss@galtzo.com"]
 
-  spec.summary     = %q{🏁 Bit fields for ActiveRecord}
+  spec.summary     = %q{🍲 Bit fields for ActiveRecord}
   spec.description = <<-EODOC
-🏁 Bit fields for ActiveRecord:
+🍲 Bit fields for ActiveRecord:
 This gem lets you use a single integer column in an ActiveRecord model
 to store a collection of boolean attributes (flags). Each flag can be used
 almost in the same way you would use any boolean attribute on an
@@ -64,7 +64,7 @@ ActiveRecord object.
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
   spec.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/#{spec.name}/#{spec.version}"
-  spec.metadata["funding_uri"] = "https://github.com/sponsors/galtzo-floss"
+  spec.metadata["funding_uri"] = "https://github.com/sponsors/pboling"
   spec.metadata["wiki_uri"] = "#{spec.homepage}/wiki"
   spec.metadata["news_uri"] = "https://www.railsbling.com/tags/#{spec.name}"
   spec.metadata["discord_uri"] = "https://discord.gg/3qme4XHNKN"
@@ -173,7 +173,6 @@ ActiveRecord object.
   # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
   spec.add_development_dependency("rspec_junit_formatter", "~> 0.6")
   spec.add_development_dependency("rspec", "~> 3.0")                                # ruby >= 2.3
-  spec.add_development_dependency("combustion", "~> 1.3")                           # ruby >= 2.3
   spec.add_development_dependency('bundler')
   spec.add_development_dependency('test-unit', '>= 3')
   spec.add_development_dependency('wwtd', '>= 1')

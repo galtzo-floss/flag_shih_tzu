@@ -41,7 +41,5 @@ Copyright (c) 2018 Peter Boling
 Copyright (c) 2018 xpol
 Copyright (c) 2018 Yusuke Ebihara
 Copyright (c) 2019 Amy Martin
-Copyright (c) 2022 funwarioisii
-Copyright (c) 2025 Aboling0
 Copyright (c) 2025 Annibelle Boling
 Copyright (c) 2025 horiken

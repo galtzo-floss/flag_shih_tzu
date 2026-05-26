@@ -7,7 +7,7 @@
 [🖼️galtzo-floss-flag_shih_tzu-i]: https://logos.galtzo.com/assets/images/galtzo-floss/flag_shih_tzu/avatar-192px.svg
 [🖼️galtzo-floss-flag_shih_tzu]: https://github.com/galtzo-floss/flag_shih_tzu
 
-# 🏁 FlagShihTzu
+# 🍲 FlagShihTzu
 
 [![Version][👽versioni]][👽version] [![GitHub tag (latest SemVer)][⛳️tag-img]][⛳️tag] [![License: MIT][📄license-img]][📄license] [![Downloads Rank][👽dl-ranki]][👽dl-rank] [![CodeCov Test Coverage][🏀codecovi]][🏀codecov] [![Coveralls Test Coverage][🏀coveralls-img]][🏀coveralls] [![QLTY Test Coverage][🏀qlty-covi]][🏀qlty-cov] [![QLTY Maintainability][🏀qlty-mnti]][🏀qlty-mnt] [![CI Heads][🚎3-hd-wfi]][🚎3-hd-wf] [![CI Runtime Dependencies @ HEAD][🚎12-crh-wfi]][🚎12-crh-wf] [![CI Current][🚎11-c-wfi]][🚎11-c-wf] [![CI Truffle Ruby][🚎9-t-wfi]][🚎9-t-wf] [![CI JRuby][🚎10-j-wfi]][🚎10-j-wf] [![Deps Locked][🚎13-🔒️-wfi]][🚎13-🔒️-wf] [![Deps Unlocked][🚎14-🔓️-wfi]][🚎14-🔓️-wf] [![CI Test Coverage][🚎2-cov-wfi]][🚎2-cov-wf] [![CI Style][🚎5-st-wfi]][🚎5-st-wf] [![Apache SkyWalking Eyes License Compatibility Check][🚎15-🪪-wfi]][🚎15-🪪-wf] [![FOSSA Status][🧪fossa-img]][🧪fossa]
 
@@ -730,8 +730,6 @@ See [LICENSE.md][📄license] for the official copyright notice.
 - Copyright (c) 2018 xpol
 - Copyright (c) 2018 Yusuke Ebihara
 - Copyright (c) 2019 Amy Martin
-- Copyright (c) 2022 funwarioisii
-- Copyright (c) 2025 Aboling0
 - Copyright (c) 2025 Annibelle Boling
 - Copyright (c) 2025 horiken
 
@@ -772,9 +770,9 @@ Thanks for RTFM. ☺️
 [🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/galtzo-floss?style=for-the-badge
 [🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/galtzo-floss?style=for-the-badge
 [🖇osc]: https://opencollective.com/galtzo-floss
-[🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-galtzo-floss.svg?style=social&logo=github
-[🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-galtzo-floss-blue?style=for-the-badge&logo=github
-[🖇sponsor]: https://github.com/sponsors/galtzo-floss
+[🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
+[🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-pboling-blue?style=for-the-badge&logo=github
+[🖇sponsor]: https://github.com/sponsors/pboling
 [🖇polar-img]: https://img.shields.io/badge/polar-donate-a51611.svg?style=flat
 [🖇polar]: https://polar.sh/pboling
 [🖇kofi-img]: https://img.shields.io/badge/ko--fi-%E2%9C%93-a51611.svg?style=flat
@@ -821,10 +819,10 @@ Thanks for RTFM. ☺️
 [💖💁🏼‍♂️devto-img]: https://img.shields.io/badge/dev.to-0A0A0A?style=flat&logo=devdotto&logoColor=white
 [💖💁🏼‍♂️aboutme]: https://about.me/peter.boling
 [💖💁🏼‍♂️aboutme-img]: https://img.shields.io/badge/about.me-0A0A0A?style=flat&logo=aboutme&logoColor=white
-[💖🧊berg]: https://codeberg.org/galtzo-floss
-[💖🐙hub]: https://github.org/galtzo-floss
+[💖🧊berg]: https://codeberg.org/pboling
+[💖🐙hub]: https://github.org/pboling
 [💖🛖hut]: https://sr.ht/~galtzo/
-[💖🧪lab]: https://gitlab.com/galtzo-floss
+[💖🧪lab]: https://gitlab.com/pboling
 [👨🏼‍🏫expsup-upwork]: https://www.upwork.com/freelancers/~014942e9b056abdf86?mp_source=share
 [👨🏼‍🏫expsup-upwork-img]: https://img.shields.io/badge/UpWork-13544E?style=for-the-badge&logo=Upwork&logoColor=white
 [👨🏼‍🏫expsup-codementor]: https://www.codementor.io/peterboling?utm_source=github&utm_medium=button&utm_term=peterboling&utm_campaign=github
@@ -974,9 +972,9 @@ Thanks for RTFM. ☺️
 | Field | Value |
 |---|---|
 | Package | flag_shih_tzu |
-| Description | 🏁 Bit fields for ActiveRecord:<br>This gem lets you use a single integer column in an ActiveRecord model<br>to store a collection of boolean attributes (flags). Each flag can be used<br>almost in the same way you would use any boolean attribute on an<br>ActiveRecord object. |
+| Description | 🍲 Bit fields for ActiveRecord:<br>This gem lets you use a single integer column in an ActiveRecord model<br>to store a collection of boolean attributes (flags). Each flag can be used<br>almost in the same way you would use any boolean attribute on an<br>ActiveRecord object. |
 | Homepage | https://github.com/galtzo-floss/flag_shih_tzu |
 | Source | https://github.com/galtzo-floss/flag_shih_tzu/tree/v0.3.23 |
 | License | `MIT` |
-| Funding | https://github.com/sponsors/galtzo-floss, https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/flag_shih_tzu, https://www.buymeacoffee.com/pboling |
+| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/flag_shih_tzu, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->

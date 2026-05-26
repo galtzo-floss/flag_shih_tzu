@@ -45,6 +45,10 @@ Please file a bug if you notice a violation of semantic versioning.
 - Fixed CI appraisals by loading `logger` before ActiveRecord 6.x, keeping
   documentation-only `rdoc` out of the gemspec, and using JRuby's sqlite
   adapter when running on JRuby.
+- Fixed collapsed ActiveRecord appraisals by separating the broad ActiveRecord
+  runtime dependency from the shared sqlite adapter support gemfile, and moved
+  `combustion` out of the gemspec into appraisal-specific modular gemfiles so
+  it resolves with each appraisal's ActiveRecord constraints.
 - Fixed legacy CI jobs by omitting `kettle-dev` on Ruby 2.3, constraining
   `sqlite3` on Ruby 2.4, and supporting both ActiveRecord 6.0 where-clause
   AST shapes.
