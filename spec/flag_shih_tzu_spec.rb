@@ -75,6 +75,25 @@ RSpec.describe FlagShihTzu do
           expect(model.warpdrive).to be(true)
         end
 
+        it "allows Ruby keywords to be used as flag names" do
+          klass = Class.new(ActiveRecord::Base) do
+            self.table_name = "spaceships"
+            include FlagShihTzu
+
+            has_flags({1 => :end})
+          end
+
+          model = klass.new
+
+          expect(model.end).to be(false)
+          expect(model.not_end).to be(true)
+
+          model.end = true
+
+          expect(model.end).to be(true)
+          expect(model.not_end).to be(false)
+        end
+
         it "raises an exception when flag name method is defined by FlagShihTzu if strict" do
           expect do
             Class.new(ActiveRecord::Base) do

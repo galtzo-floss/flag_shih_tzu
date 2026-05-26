@@ -79,6 +79,8 @@ Please file a bug if you notice a violation of semantic versioning.
   SQL identifiers.
 - Avoided repeated method redefinition warnings when flags are declared across
   multiple columns.
+- Fixed generated negative readers for flag names that are Ruby keywords, such
+  as `:end`.
 - Normalized generated SQL condition behavior across supported ActiveRecord
   versions, including ActiveRecord 6.0 where-clause AST differences.
 
