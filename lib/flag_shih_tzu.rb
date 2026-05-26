@@ -78,6 +78,7 @@ module FlagShihTzu
           flag_query_mode: FlagShihTzu.default_flag_query_mode,
           strict: false,
           check_for_column: FlagShihTzu.default_check_for_column,
+          allow_overwrite: false,
         }.update(opts)
       if !valid_flag_column_name?(opts[:column])
         warn(%[FlagShihTzu says: Please use a String to designate column names! I see you here: #{caller(1..1).first}])
@@ -121,8 +122,12 @@ To turn off this warning set check_for_column: false in has_flags definition her
         # next if method already defined by flag_shih_tzu
         next if flag_mapping[colmn][flag_name] & (1 << (flag_key - 1))
         if method_defined?(flag_name)
-          raise ArgumentError,
-            %[has_flags: flag name #{flag_name} already defined, please choose different name]
+          if opts[:allow_overwrite]
+            remove_existing_flag_methods(flag_name)
+          else
+            raise ArgumentError,
+              %[has_flags: flag name #{flag_name} already defined, please choose different name]
+          end
         end
 
         flag_mapping[colmn][flag_name] = 1 << (flag_key - 1)
@@ -372,6 +377,27 @@ To turn off this warning set check_for_column: false in has_flags definition her
     end
 
     private
+
+    def remove_existing_flag_methods(flag_name)
+      generated_flag_method_names(flag_name).each do |method_name|
+        remove_method(method_name) if method_defined?(method_name, false)
+      end
+    end
+
+    def generated_flag_method_names(flag_name)
+      [
+        flag_name,
+        "#{flag_name}?".to_sym,
+        "#{flag_name}=".to_sym,
+        "not_#{flag_name}".to_sym,
+        "not_#{flag_name}?".to_sym,
+        "not_#{flag_name}=".to_sym,
+        "#{flag_name}_changed?".to_sym,
+        "saved_change_to_#{flag_name}?".to_sym,
+        "#{flag_name}!".to_sym,
+        "not_#{flag_name}!".to_sym,
+      ]
+    end
 
     def flag_full_column_name(table, column)
       "#{flag_quote_table_name(table)}.#{flag_quote_column_name(column)}"

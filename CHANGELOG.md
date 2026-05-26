@@ -31,6 +31,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Added array and hash assignment support to flag column writers, so calls like
   `record.update!(flags: [:warpdrive, :shields])` can set multiple flags
   without magic bit-field integers.
+- Added the `:allow_overwrite` option to `has_flags` for callers that
+  intentionally want generated flag methods to replace existing instance
+  methods.
 
 ### Changed
 

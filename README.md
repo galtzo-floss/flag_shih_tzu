@@ -184,6 +184,15 @@ the position of the bit being used to enable or disable the flag.
 That is why the plugin forces you to set them explicitly.
 The values are symbols for the flags being created.
 
+If a flag name conflicts with an existing instance method, `has_flags` raises
+an error by default. To intentionally replace the existing method with
+FlagShihTzu's generated flag methods, pass `:allow_overwrite => true`:
+
+```ruby
+has_flags 1 => :warpdrive,
+  :allow_overwrite => true
+```
+
 
 ### Bit Fields: How it stores the values
 

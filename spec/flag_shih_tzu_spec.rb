@@ -52,6 +52,29 @@ RSpec.describe FlagShihTzu do
           end.to raise_error(ArgumentError)
         end
 
+        it "allows an existing method to be overwritten when requested" do
+          klass = nil
+
+          expect do
+            klass = Class.new(ActiveRecord::Base) do
+              self.table_name = "spaceships"
+              include FlagShihTzu
+
+              def warpdrive
+                "custom"
+              end
+
+              has_flags({1 => :warpdrive}, allow_overwrite: true)
+            end
+          end.not_to output.to_stderr
+
+          model = klass.new
+
+          expect(model.warpdrive).to be(false)
+          model.warpdrive = true
+          expect(model.warpdrive).to be(true)
+        end
+
         it "raises an exception when flag name method is defined by FlagShihTzu if strict" do
           expect do
             Class.new(ActiveRecord::Base) do
