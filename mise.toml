@@ -5,7 +5,7 @@
 DEBUG = "false"
 FLOSS_CFG_FUND_DEBUG = "false"
 FLOSS_CFG_FUND_LOGFILE = "tmp/log/debug.log"
-FUNDING_ORG = ""
+FUNDING_ORG = "galtzo-floss"
 KJ_CB_USER = "pboling"
 KJ_GH_USER = "pboling"
 KJ_GL_USER = "pboling"
@@ -22,7 +22,7 @@ K_SOUP_COV_MIN_LINE = "89"
 K_SOUP_COV_MULTI_FORMATTERS = "true"
 K_SOUP_COV_OPEN_BIN = ""
 MAX_ROWS = "1"
-OPENCOLLECTIVE_HANDLE = ""
+OPENCOLLECTIVE_HANDLE = "galtzo-floss"
 RUBOCOP_LTS_LOCAL = "false"
 _.file = { path = ".env.local", redact = true }
 _.path = ["exe", "bin"]
