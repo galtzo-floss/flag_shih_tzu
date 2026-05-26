@@ -59,7 +59,7 @@ What is a ["Shih Tzu"](http://en.wikipedia.org/wiki/Shih_Tzu)?
 | Works with Truffle Ruby | [![Truffle Ruby 22.3 Compat][💎truby-22.3i]][🚎truby-22.3-wf] [![Truffle Ruby 23.0 Compat][💎truby-23.0i]][🚎truby-23.0-wf] [![Truffle Ruby 23.1 Compat][💎truby-23.1i]][🚎truby-23.1-wf] <br/> [![Truffle Ruby 24.2 Compat][💎truby-24.2i]][🚎truby-24.2-wf] [![Truffle Ruby 25.0 Compat][💎truby-25.0i]][🚎truby-25.0-wf] [![Truffle Ruby current Compat][💎truby-c-i]][🚎9-t-wf]|
 | Works with MRI Ruby 4 | [![Ruby 4.0 Compat][💎ruby-4.0i]][🚎11-c-wf] [![Ruby current Compat][💎ruby-c-i]][🚎11-c-wf] [![Ruby HEAD Compat][💎ruby-headi]][🚎3-hd-wf]|
 | Works with MRI Ruby 3 | [![Ruby 3.0 Compat][💎ruby-3.0i]][🚎ruby-3.0-wf] [![Ruby 3.1 Compat][💎ruby-3.1i]][🚎ruby-3.1-wf] [![Ruby 3.2 Compat][💎ruby-3.2i]][🚎ruby-3.2-wf] [![Ruby 3.3 Compat][💎ruby-3.3i]][🚎ruby-3.3-wf] [![Ruby 3.4 Compat][💎ruby-3.4i]][🚎ruby-3.4-wf]|
-| Works with MRI Ruby 2 | ![Ruby 2.0 Compat][💎ruby-2.0i] ![Ruby 2.1 Compat][💎ruby-2.1i] ![Ruby 2.2 Compat][💎ruby-2.2i] <br/> [![Ruby 2.3 Compat][💎ruby-2.3i]][🚎ruby-2.3-wf] [![Ruby 2.4 Compat][💎ruby-2.4i]][🚎ruby-2.4-wf] [![Ruby 2.5 Compat][💎ruby-2.5i]][🚎ruby-2.5-wf] [![Ruby 2.6 Compat][💎ruby-2.6i]][🚎ruby-2.6-wf] [![Ruby 2.7 Compat][💎ruby-2.7i]][🚎ruby-2.7-wf]|
+| Works with MRI Ruby 2 | ![Ruby 2.0 Compat][💎ruby-2.0i] ![Ruby 2.1 Compat][💎ruby-2.1i] ![Ruby 2.2 Compat][💎ruby-2.2i] <br/> [![Ruby 2.4 Compat][💎ruby-2.4i]][🚎ruby-2.4-wf] [![Ruby 2.5 Compat][💎ruby-2.5i]][🚎ruby-2.5-wf] [![Ruby 2.6 Compat][💎ruby-2.6i]][🚎ruby-2.6-wf] [![Ruby 2.7 Compat][💎ruby-2.7i]][🚎ruby-2.7-wf]|
 | Support & Community | [![Join Me on Daily.dev's RubyFriends][✉️ruby-friends-img]][✉️ruby-friends] [![Live Chat on Discord][✉️discord-invite-img-ftb]][✉️discord-invite] [![Get help from me on Upwork][👨🏼‍🏫expsup-upwork-img]][👨🏼‍🏫expsup-upwork] [![Get help from me on Codementor][👨🏼‍🏫expsup-codementor-img]][👨🏼‍🏫expsup-codementor] |
 | Source | [![Source on GitLab.com][📜src-gl-img]][📜src-gl] [![Source on CodeBerg.org][📜src-cb-img]][📜src-cb] [![Source on Github.com][📜src-gh-img]][📜src-gh] [![The best SHA: dQw4w9WgXcQ!][🧮kloc-img]][🧮kloc] |
 | Documentation | [![Current release on RubyDoc.info][📜docs-cr-rd-img]][🚎yard-current] [![YARD on Galtzo.com][📜docs-head-rd-img]][🚎yard-head] [![Maintainer Blog][🚂maint-blog-img]][🚂maint-blog] [![GitLab Wiki][📜gl-wiki-img]][📜gl-wiki] [![GitHub Wiki][📜gh-wiki-img]][📜gh-wiki] |
@@ -454,6 +454,96 @@ has_flags 1 => :warpdrive,
           :check_for_column => false
 ```
 
+## 🧪 Running the gem tests
+
+The current test harness is RSpec/Combustion based:
+
+```console
+bin/rake spec
+```
+
+For appraisal-specific checks, run through Appraisal with
+`Appraisal.root.gemfile` so Bundler does not load the root development Gemfile:
+
+```console
+BUNDLE_GEMFILE=Appraisal.root.gemfile bundle exec appraisal kja-ar-8-0-r3 bundle exec kettle-test
+```
+
+Older development workflows used `bin/test.bash`, RVM, and hand-managed
+database setup. That script is still present for historical reference, but the
+templated CI path is now the Appraisal/RSpec flow.
+
+## 👥 Authors
+
+[Peter Boling](https://github.com/pboling),
+[Patryk Peszko](https://github.com/ppeszko),
+[Sebastian Roebke](https://github.com/boosty),
+[David Anderson](https://github.com/alpinegizmo),
+[Tim Payton](https://github.com/dizzy42)
+and a helpful group of
+[contributors](https://github.com/galtzo-floss/flag_shih_tzu/contributors).
+Thanks!
+
+Find out more about Peter Boling's work at
+[RailsBling.com](https://railsbling.com/).
+
+Find out more about XING at their
+[Devblog](https://devblog.xing.com/).
+
+## 🛠 How you can help!
+
+Take a look at the `REEK` backlog and start fixing things. Once you complete a
+change, run the tests. See "Running the gem tests".
+
+If the tests pass, refresh the `REEK` backlog through the rake task:
+
+```console
+bin/rake reek:update
+```
+
+Follow the instructions in "Contributing" below.
+
+## 🕰 2012 Change of Ownership and 0.3.X Release Notes
+
+FlagShihTzu was originally a [XING AG](https://www.xing.com/) project.
+[Peter Boling](https://peterboling.com) was a long time contributor and watcher
+of the project.
+
+In September 2012 XING transferred ownership of the project to Peter Boling.
+Peter Boling had been maintaining a fork with extended capabilities. These
+additional features became a part of the 0.3 line. The 0.2 line of the gem will
+remain true to XING's original. The 0.3 line aims to maintain complete parity
+and compatibility with XING's original as well. I will continue to monitor other
+forks for original ideas and improvements. Pull requests are welcome, but please
+rebase your work onto the current main branch to make integration easier.
+
+More information on the changes for 0.3.X:
+[galtzo-floss/flag_shih_tzu/wiki/Changes-for-0.3.x](https://github.com/galtzo-floss/flag_shih_tzu/wiki/Changes-for-0.3.x)
+
+## Alternatives
+
+I discovered in October 2015 that Michael Grosser had created a competing tool,
+`bitfields`, way back in 2010, exactly a year after this tool was created. It
+was a very surreal moment, as I had thought this was the only game in town and
+it was when I began using and hacking on it. Once I got over that moment I
+became excited, because competition makes things better, right? So, now I am
+looking forward to a shootout some lazy Saturday. Until then there's this:
+https://railsbling.com/flag_shih_tzu/why-use-flag_shih_tzu/
+
+There is little that `bitfields` does better. The code is [less efficient](https://github.com/grosser/bitfields/blob/master/lib/bitfields.rb#L186 "recalculating and throwing away much of the result in many places"),
+albeit more readable, not as well tested, has almost zero inline documentation,
+and simply can't do many of the things I've built into `flag_shih_tzu`. If you
+are still on legacy Ruby or legacy Rails, or using JRuby, then use
+`flag_shih_tzu`. If you need multiple flag columns on a single model, use
+`flag_shih_tzu`.
+
+Will there ever be a merb/rails-like love fest between the projects? It would
+be interesting. I like his name better. I like my features better. I like some
+of his code better, and some of my code better. I've been wanting to do a full
+rewrite of `flag_shih_tzu` ever since I inherited the project from
+[XING](https://github.com/xing), but I haven't had time. So I don't know.
+
+
 ## 🦷 FLOSS Funding
 
 While galtzo-floss tools are free software and will always be, the project would benefit immensely from some funding.
@@ -768,7 +858,6 @@ Thanks for RTFM. ☺️
 [🏀codecovi]: https://codecov.io/gh/galtzo-floss/flag_shih_tzu/graph/badge.svg
 [🏀coveralls]: https://coveralls.io/github/galtzo-floss/flag_shih_tzu?branch=main
 [🏀coveralls-img]: https://coveralls.io/repos/github/galtzo-floss/flag_shih_tzu/badge.svg?branch=main
-[🚎ruby-2.3-wf]: https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-2.3.yml
 [🚎ruby-2.4-wf]: https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-2.4.yml
 [🚎ruby-2.5-wf]: https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-2.5.yml
 [🚎ruby-2.6-wf]: https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-2.6.yml
@@ -809,7 +898,6 @@ Thanks for RTFM. ☺️
 [💎ruby-2.0i]: https://img.shields.io/badge/Ruby-2.0_(%F0%9F%9A%ABCI)-AABBCC?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-2.1i]: https://img.shields.io/badge/Ruby-2.1_(%F0%9F%9A%ABCI)-AABBCC?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-2.2i]: https://img.shields.io/badge/Ruby-2.2_(%F0%9F%9A%ABCI)-AABBCC?style=for-the-badge&logo=ruby&logoColor=white
-[💎ruby-2.3i]: https://img.shields.io/badge/Ruby-2.3-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-2.4i]: https://img.shields.io/badge/Ruby-2.4-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-2.5i]: https://img.shields.io/badge/Ruby-2.5-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-2.6i]: https://img.shields.io/badge/Ruby-2.6-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
