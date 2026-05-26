@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.authors     = ["Peter Boling", "Patryk Peszko", "Sebastian Roebke", "David Anderson", "Tim Payton"]
   spec.email       = ["floss@galtzo.com"]
 
-  spec.summary     = %q{🍲 Bit fields for ActiveRecord}
+  spec.summary     = "🍲 Bit fields for ActiveRecord"
   spec.description = <<-EODOC
 🍲 Bit fields for ActiveRecord:
 This gem lets you use a single integer column in an ActiveRecord model
@@ -140,7 +140,7 @@ ActiveRecord object.
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
 
   # Tasks
-  spec.add_development_dependency('rake', '>= 0.9')
+  spec.add_development_dependency("rake", ">= 0.9")
 
   # Debugging
   spec.add_development_dependency("require_bench", "~> 1.0", ">= 1.0.4")            # ruby >= 2.2.0
@@ -171,9 +171,9 @@ ActiveRecord object.
   # See: https://github.com/vcr/vcr/issues/1057
   # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
   # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
-  spec.add_development_dependency("rspec_junit_formatter", "~> 0.6")
+  spec.add_development_dependency("bundler", ">= 2.3")
   spec.add_development_dependency("rspec", "~> 3.0")                                # ruby >= 2.3
-  spec.add_development_dependency('bundler')
-  spec.add_development_dependency('test-unit', '>= 3')
-  spec.add_development_dependency('wwtd', '>= 1')
+  spec.add_development_dependency("rspec_junit_formatter", "~> 0.6")
+  spec.add_development_dependency("test-unit", ">= 3")
+  spec.add_development_dependency("wwtd", ">= 1")
 end
