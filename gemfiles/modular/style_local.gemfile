@@ -8,9 +8,9 @@
 
 require "nomono/bundler" unless defined?(Nomono)
 
-local_gems = %w[rubocop-lts rubocop-lts-rspec rubocop-ruby1_9 standard-rubocop-lts]
+local_gems = %w[rubocop-lts rubocop-lts-rspec rubocop-ruby2_4 standard-rubocop-lts]
 
-# export VENDORED_GEMS=rubocop-lts,rubocop-lts-rspec,rubocop-ruby1_9,standard-rubocop-lts
+# export VENDORED_GEMS=rubocop-lts,rubocop-lts-rspec,rubocop-ruby2_4,standard-rubocop-lts
 platform :mri do
   eval_nomono_gems(
     gems: local_gems,

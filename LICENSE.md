@@ -28,14 +28,12 @@ Copyright (c) 2012 Tatsuhiko Miyagawa
 Copyright (c) 2013 Blake Thomson
 Copyright (c) 2013 Keith Pitty
 Copyright (c) 2013 Peter M. Goldstein
-Copyright (c) 2013 Sebastian Korfmann
 Copyright (c) 2013 Thomas Jachmann
 Copyright (c) 2014 Alexander Tipugin
 Copyright (c) 2014, 2017-2018, 2025 Jonathan del Strother
 Copyright (c) 2015 Ivan
 Copyright (c) 2015 jfcaiceo
 Copyright (c) 2016 Xinran Xiao
-Copyright (c) 2017 Juanito Fatas
 Copyright (c) 2017 shiro16
 Copyright (c) 2018 Peter Boling
 Copyright (c) 2018 xpol

@@ -124,7 +124,7 @@ ActiveRecord object.
   #       visibility and discoverability.
   #       However, development dependencies in gemspec will install on
   #       all versions of Ruby that will run in CI.
-  #       This gem, and its gemspec runtime dependencies, will install on Ruby down to 1.9.3.
+  #       This gem, and its gemspec runtime dependencies, will install on Ruby down to 2.4.
   #       This gem, and its gemspec development dependencies, will install on Ruby down to 2.4.
   #       Thus, dev dependencies in gemspec must have
   #

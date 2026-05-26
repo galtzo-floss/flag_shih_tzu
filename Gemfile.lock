@@ -220,8 +220,8 @@ GEM
       parallel (~> 1.10)
       rainbow (>= 2.2.2, < 4.0)
       rubocop (~> 1.0)
-    rubocop-lts (2.1.1)
-      rubocop-ruby1_9 (>= 2.0.4, < 3)
+    rubocop-lts (12.1.1)
+      rubocop-ruby2_4 (>= 2.0.3, < 3)
       standard-rubocop-lts (>= 1.0.3, < 3)
       version_gem (>= 1.1.2, < 3)
     rubocop-md (1.2.4)
@@ -244,7 +244,7 @@ GEM
     rubocop-rspec (3.9.0)
       lint_roller (~> 1.1)
       rubocop (~> 1.81)
-    rubocop-ruby1_9 (2.0.6)
+    rubocop-ruby2_4 (2.0.5)
       rubocop-gradual (~> 0.3, >= 0.3.1)
       rubocop-md (~> 1.2)
       rubocop-rake (~> 0.6)
@@ -382,11 +382,11 @@ DEPENDENCIES
   require_bench (~> 1.0, >= 1.0.4)
   rspec (~> 3.0)
   rspec_junit_formatter (~> 0.6)
-  rubocop-lts (~> 2.0)
+  rubocop-lts (~> 12.0)
   rubocop-on-rbs (~> 2.0)
   rubocop-packaging (~> 0.6, >= 0.6.0)
   rubocop-rspec (~> 3.6)
-  rubocop-ruby1_9
+  rubocop-ruby2_4
   ruby-progressbar (~> 1.13)
   sqlite3
   standard (>= 1.50)
@@ -486,14 +486,14 @@ CHECKSUMS
   rubocop (1.84.2) sha256=5692cea54168f3dc8cb79a6fe95c5424b7ea893c707ad7a4307b0585e88dbf5f
   rubocop-ast (1.49.1) sha256=4412f3ee70f6fe4546cc489548e0f6fcf76cafcfa80fa03af67098ffed755035
   rubocop-gradual (0.3.6) sha256=d70505a81b63f95ff7d987afe66adf559c53708e4abf06328f6e6026b6571993
-  rubocop-lts (2.1.1) sha256=b82fd4f9e64022b70014f478865829e95c60e46387349c5f5b911ee98717d61c
+  rubocop-lts (12.1.1) sha256=9a59702b7d34a3f7ddae0890d41a1b3d4d7530efe0733d33bd85d1407cb36fe0
   rubocop-md (1.2.4) sha256=3e481bb08e2d7479eeba3d02359737074f58dd5694f7a57de4ad8d807fdaf6ff
   rubocop-on-rbs (2.0.0) sha256=ce74d1b3d5daead19f4b611623656c185821dfc9aed9c7079bb1e5d7d7c464be
   rubocop-packaging (0.6.0) sha256=fb92bd0fb48e6f8cdb1648d2249b0cd51c2497dcc87340132d22f01edbf558a7
   rubocop-performance (1.26.1) sha256=cd19b936ff196df85829d264b522fd4f98b6c89ad271fa52744a8c11b8f71834
   rubocop-rake (0.7.1) sha256=3797f2b6810c3e9df7376c26d5f44f3475eda59eb1adc38e6f62ecf027cbae4d
   rubocop-rspec (3.9.0) sha256=8fa70a3619408237d789aeecfb9beef40576acc855173e60939d63332fdb55e2
-  rubocop-ruby1_9 (2.0.6) sha256=699974a84cc705be5ea5fc786c98bd9949beaab42d3f316617c6c6578ad408b3
+  rubocop-ruby2_4 (2.0.5) sha256=e1eda8f219809a36c121969791fc5fadc7109206dccd630dc8db5cbb002357cf
   rubocop-shopify (2.18.0) sha256=dafa25e5617ce4600ff86b1de3d5b78e43ab3d58cc5729df38e492b8e10294eb
   rubocop-thread_safety (0.7.3) sha256=067cdd52fbf5deffc18995437e45b5194236eaff4f71de3375a1f6052e48f431
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33

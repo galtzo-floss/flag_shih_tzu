@@ -77,7 +77,7 @@
 # Set this to a single emoji that represents your gem. Examples: 🪙 🔑 🛠️ 🔮
 # This key is REQUIRED. kettle-jem will abort if it is absent.
 # ENV override: KJ_PROJECT_EMOJI
-project_emoji: 🏁
+project_emoji: 🍲
 # Engines this project supports.
 # List the Ruby engines that your gem targets. kettle-jem uses this to decide
 # which CI workflows, README compatibility rows, and badge references to
@@ -96,6 +96,11 @@ ruby:
   # from the gemspec required_ruby_version, which describes the published
   # runtime contract. Effective CI minimum is max(gemspec minimum, this value).
   test_minimum: "2.4"
+# RubyGems packaging/runtime shape.
+rubygems:
+  # Published runtime Ruby floor used for generated gemspec metadata and README
+  # compatibility text.
+  min_ruby: "2.4"
 # Repository URL topology.
 # This is independent from templates.profile. A gem may use the full template
 # while still living as a sub-project inside a monorepo.
@@ -378,9 +383,9 @@ defaults:
 #   from the gemspec via safe derivation. After that, destination values win.
 tokens:
   forge:
-    gh_user: "galtzo-floss"     # GitHub username only, no @, no URL. Used for GitHub Sponsors and profile links. ENV: KJ_GH_USER
-    gl_user: "galtzo-floss"     # GitLab username only, no @, no URL. Used for profile links. ENV: KJ_GL_USER
-    cb_user: "galtzo-floss"     # Codeberg username only, no @, no URL. Used for profile links. ENV: KJ_CB_USER
+    gh_user: "pboling"     # GitHub username only, no @, no URL. Used for GitHub Sponsors and profile links. ENV: KJ_GH_USER
+    gl_user: "pboling"     # GitLab username only, no @, no URL. Used for profile links. ENV: KJ_GL_USER
+    cb_user: "pboling"     # Codeberg username only, no @, no URL. Used for profile links. ENV: KJ_CB_USER
     sh_user: "galtzo"          # SourceHut username only, no leading ~, no URL. Used as https://sr.ht/~<value>/. ENV: KJ_SH_USER
   author:
     name: "Peter H. Boling"                   # Full display name. Example: Ada Lovelace. ENV: KJ_AUTHOR_NAME. Auto-seeded from gemspec authors.first
