@@ -39,9 +39,10 @@ ActiveRecord object.
 
 The benefits:
 
-* No migrations needed for new boolean attributes. This helps a lot
+* No schema migrations needed for new boolean attributes. This helps a lot
   if you have very large db-tables, on which you want to avoid `ALTER TABLE`
-  whenever possible.
+  whenever possible. Data migrations that set newly added flags still need
+  deploy-safe query behavior, described below.
 * Only the one integer column needs to be indexed.
 * [Bitwise Operations][bitwise_operation] are fast!
 
@@ -318,12 +319,12 @@ Spaceship.flag_columns      # [:features, :crew]
 The following named scopes become available:
 
 ```ruby
-Spaceship.warpdrive         # :conditions => "(spaceships.flags in (1,3,5,7))"
-Spaceship.not_warpdrive     # :conditions => "(spaceships.flags not in (1,3,5,7))"
-Spaceship.shields           # :conditions => "(spaceships.flags in (2,3,6,7))"
-Spaceship.not_shields       # :conditions => "(spaceships.flags not in (2,3,6,7))"
-Spaceship.electrolytes      # :conditions => "(spaceships.flags in (4,5,6,7))"
-Spaceship.not_electrolytes  # :conditions => "(spaceships.flags not in (4,5,6,7))"
+Spaceship.warpdrive         # :conditions => "(spaceships.flags & 1 = 1)"
+Spaceship.not_warpdrive     # :conditions => "(spaceships.flags & 1 = 0)"
+Spaceship.shields           # :conditions => "(spaceships.flags & 2 = 2)"
+Spaceship.not_shields       # :conditions => "(spaceships.flags & 2 = 0)"
+Spaceship.electrolytes      # :conditions => "(spaceships.flags & 4 = 4)"
+Spaceship.not_electrolytes  # :conditions => "(spaceships.flags & 4 = 0)"
 ```
 
 If you do not want the named scopes to be defined, set the
@@ -361,32 +362,74 @@ The following class methods may support you when manually building
 ActiveRecord conditions:
 
 ```ruby
-Spaceship.warpdrive_condition         # "(spaceships.flags in (1,3,5,7))"
-Spaceship.not_warpdrive_condition     # "(spaceships.flags not in (1,3,5,7))"
-Spaceship.shields_condition           # "(spaceships.flags in (2,3,6,7))"
-Spaceship.not_shields_condition       # "(spaceships.flags not in (2,3,6,7))"
-Spaceship.electrolytes_condition      # "(spaceships.flags in (4,5,6,7))"
-Spaceship.not_electrolytes_condition  # "(spaceships.flags not in (4,5,6,7))"
+Spaceship.warpdrive_condition         # "(spaceships.flags & 1 = 1)"
+Spaceship.not_warpdrive_condition     # "(spaceships.flags & 1 = 0)"
+Spaceship.shields_condition           # "(spaceships.flags & 2 = 2)"
+Spaceship.not_shields_condition       # "(spaceships.flags & 2 = 0)"
+Spaceship.electrolytes_condition      # "(spaceships.flags & 4 = 4)"
+Spaceship.not_electrolytes_condition  # "(spaceships.flags & 4 = 0)"
 ```
 
 These methods also accept a `:table_alias` option that can be used when
 generating SQL that references the same table more than once:
 ```ruby
-Spaceship.shields_condition(table_alias: "evil_spaceships") # "(evil_spaceships.flags in (2,3,6,7))"
+Spaceship.shields_condition(table_alias: "evil_spaceships") # "(evil_spaceships.flags & 2 = 2)"
 ```
 
 
 ### Choosing a query mode
 
-While the default way of building the SQL conditions uses an `IN()` list
-(as shown above), this approach will not work well for a high number of flags,
-as the value list for `IN()` grows.
+By default, FlagShihTzu builds SQL conditions with bit operators:
+
+```ruby
+Spaceship.warpdrive_condition # "(spaceships.flags & 1 = 1)"
+```
+
+This is the safest default when flags are added over time. An `IN()` list can
+only match the flag combinations known to the currently running process. During
+a rolling deploy, old application processes may still know about only these
+flags:
+
+```ruby
+has_flags 1 => :warpdrive,
+  2 => :shields
+```
+
+Those old processes would build a `:warpdrive` condition like `flags in (1,3)`.
+If the new deploy adds `3 => :premium` and a migration sets that new bit on
+existing rows, a row with `warpdrive` and `premium` becomes `flags = 5`. The old
+`IN()` condition no longer matches it even though the `warpdrive` bit is still
+set. A bit-operator condition such as `flags & 1 = 1` continues to match the
+row correctly.
+
+The drawback is that due to the [bitwise operation][bitwise_operation] being done on the SQL side,
+this query may not use an index on the flags column as effectively as a small
+`IN()` list.
+
+If your application values that query shape and you can guarantee that new
+flags are not set while old app code may still be running, you can opt back
+into the legacy mode globally:
+
+```ruby
+FlagShihTzu.default_flag_query_mode = :in_list
+```
+
+Or per `has_flags` declaration:
+
+```ruby
+has_flags 1 => :warpdrive,
+  2 => :shields,
+  :flag_query_mode => :in_list
+```
+
+The legacy `:in_list` mode may perform well for a small fixed set of flags,
+but it does not work well for a high number of flags, as the value list for
+`IN()` grows.
 
 For MySQL, depending on your MySQL settings, this can even hit the
 `max_allowed_packet` limit with the generated query, or the similar query length maximum for PostgreSQL.
 
-In this case, consider changing the flag query mode to `:bit_operator`
-instead of `:in_list`, like so:
+The `:bit_operator` mode remains available explicitly:
 
 ```ruby
 has_flags 1 => :warpdrive,
@@ -408,9 +451,6 @@ Spaceship.not_warpdrive # :conditions => "(spaceships.flags & 1 = 0)"
 Spaceship.shields       # :conditions => "(spaceships.flags & 2 = 2)"
 Spaceship.not_shields   # :conditions => "(spaceships.flags & 2 = 0)"
 ```
-
-The drawback is that due to the [bitwise operation][bitwise_operation] being done on the SQL side,
-this query can not use an index on the flags column.
 
 ### Updating flag column by raw sql
 

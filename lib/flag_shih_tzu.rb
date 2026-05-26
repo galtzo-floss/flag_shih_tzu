@@ -9,6 +9,7 @@ module FlagShihTzu
   TRUE_VALUES = [true, 1, "1", "t", "T", "true", "TRUE"]
 
   DEFAULT_COLUMN_NAME = "flags"
+  DEFAULT_FLAG_QUERY_MODE = :bit_operator
   FLAG_ADAPTER_CLASS_NAMES = {
     "mysql" => "Mysql2Adapter",
     "mysql2" => "Mysql2Adapter",
@@ -25,6 +26,8 @@ module FlagShihTzu
   FLAG_COLUMN_ONLY_ASSIGNMENT_ADAPTERS = ["postgis", "postgresql", "sqlite", "sqlite3"].freeze
 
   class << self
+    attr_accessor :default_flag_query_mode
+
     def included(base)
       base.extend(ClassMethods)
       base.class_attribute(:flag_options) unless defined?(base.flag_options)
@@ -45,7 +48,7 @@ module FlagShihTzu
         {
           named_scopes: true,
           column: DEFAULT_COLUMN_NAME,
-          flag_query_mode: :in_list, # or :bit_operator
+          flag_query_mode: FlagShihTzu.default_flag_query_mode,
           strict: false,
           check_for_column: true,
         }.update(opts)
@@ -316,6 +319,16 @@ To turn off this warning set check_for_column: false in has_flags definition her
     end
 
     def chained_flags_condition(colmn = DEFAULT_COLUMN_NAME, *args)
+      if flag_options[colmn][:flag_query_mode] == :bit_operator
+        conditions = args.map do |flag|
+          flag, enabled = flag_enabled_query(flag)
+          check_flag(flag, colmn)
+          flag_value = flag_mapping[colmn][flag]
+          "#{flag_full_column_name(table_name, colmn)} & #{flag_value} = #{enabled ? flag_value : 0}"
+        end
+        return %[(#{conditions.join(" AND ")})]
+      end
+
       %[(#{flag_full_column_name(table_name, colmn)} in (#{chained_flags_values(colmn, *args).join(",")}))]
     end
 
@@ -379,6 +392,13 @@ To turn off this warning set check_for_column: false in has_flags definition her
       name.to_s.split(".").map { |part| %("#{part.gsub('"', '""')}") }.join(".")
     end
 
+    def flag_enabled_query(flag)
+      flag_name = flag.to_s
+      return [flag_name.delete_prefix("not_").to_sym, false] if flag_name.start_with?("not_")
+
+      [flag, true]
+    end
+
     def flag_value_range_for_column(colmn)
       max = flag_mapping[colmn].values.max
       Range.new(0, (2 * max) - 1)
@@ -387,17 +407,13 @@ To turn off this warning set check_for_column: false in has_flags definition her
     def chained_flags_values(colmn, *args)
       val = flag_value_range_for_column(colmn).to_a
       args.each do |flag|
-        neg = false
-        if flag.to_s =~ /^not_/
-          neg = true
-          flag = flag.to_s.sub(/^not_/, "").to_sym
-        end
+        flag, enabled = flag_enabled_query(flag)
         check_flag(flag, colmn)
         flag_values = sql_in_for_flag(flag, colmn)
-        val = if neg
-          val - flag_values
-        else
+        val = if enabled
           val & flag_values
+        else
+          val - flag_values
         end
       end
       val
@@ -687,6 +703,8 @@ To turn off this warning set check_for_column: false in has_flags definition her
   def determine_flag_colmn_for(flag)
     self.class.determine_flag_colmn_for(flag)
   end
+
+  self.default_flag_query_mode = DEFAULT_FLAG_QUERY_MODE
 end
 
 FlagShihTzu::Version.class_eval do

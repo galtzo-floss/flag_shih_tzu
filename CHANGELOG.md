@@ -27,6 +27,11 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- **BREAKING**: Changed the default `flag_query_mode` from `:in_list` to
+  `:bit_operator` so generated flag SQL remains correct during rolling deploys
+  that add and set new flags. Applications that need the legacy query shape can
+  set `FlagShihTzu.default_flag_query_mode = :in_list` or pass
+  `flag_query_mode: :in_list` to `has_flags`.
 - Updated project ownership and documentation links from `pboling` to
   `galtzo-floss`.
 - Raised the effective minimum installable Ruby version to Ruby 2.2 through

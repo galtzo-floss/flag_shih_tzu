@@ -63,10 +63,13 @@ RSpec.configure do |config|
 
   # Wrap each test in a transaction
   config.around do |example|
+    default_flag_query_mode = FlagShihTzu.default_flag_query_mode
     ActiveRecord::Base.connection.transaction do
       example.run
       raise ActiveRecord::Rollback
     end
+  ensure
+    FlagShihTzu.default_flag_query_mode = default_flag_query_mode
   end
 
   # Custom matcher for comparing arrays without order

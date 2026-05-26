@@ -89,48 +89,48 @@ RSpec.describe FlagShihTzu do
 
       context "with SQL condition methods" do
         it "defines a sql condition method for flag enabled" do
-          expect(Spaceship.warpdrive_condition).to eq('("spaceships"."flags" in (1,3,5,7))')
-          expect(Spaceship.shields_condition).to eq('("spaceships"."flags" in (2,3,6,7))')
-          expect(Spaceship.electrolytes_condition).to eq('("spaceships"."flags" in (4,5,6,7))')
+          expect(Spaceship.warpdrive_condition).to eq('("spaceships"."flags" & 1 = 1)')
+          expect(Spaceship.shields_condition).to eq('("spaceships"."flags" & 2 = 2)')
+          expect(Spaceship.electrolytes_condition).to eq('("spaceships"."flags" & 4 = 4)')
         end
 
         it "defines a sql condition method for flag enabled with missing flags" do
-          expect(SpaceshipWithMissingFlags.warpdrive_condition).to eq('("spaceships"."flags" in (1,3,5,7))')
-          expect(SpaceshipWithMissingFlags.electrolytes_condition).to eq('("spaceships"."flags" in (4,5,6,7))')
+          expect(SpaceshipWithMissingFlags.warpdrive_condition).to eq('("spaceships"."flags" & 1 = 1)')
+          expect(SpaceshipWithMissingFlags.electrolytes_condition).to eq('("spaceships"."flags" & 4 = 4)')
         end
 
         it "accepts a table alias option for sql condition method" do
           expect(Spaceship.warpdrive_condition(table_alias: "old_spaceships"))
-            .to eq('("old_spaceships"."flags" in (1,3,5,7))')
+            .to eq('("old_spaceships"."flags" & 1 = 1)')
         end
 
         it "defines a sql condition method for flag enabled with 2 columns" do
           expect(SpaceshipWith2CustomFlagsColumn.warpdrive_condition)
-            .to eq('("spaceships_with_2_custom_flags_column"."bits" in (1,3))')
+            .to eq('("spaceships_with_2_custom_flags_column"."bits" & 1 = 1)')
           expect(SpaceshipWith2CustomFlagsColumn.hyperspace_condition)
-            .to eq('("spaceships_with_2_custom_flags_column"."bits" in (2,3))')
+            .to eq('("spaceships_with_2_custom_flags_column"."bits" & 2 = 2)')
           expect(SpaceshipWith2CustomFlagsColumn.jeanlucpicard_condition)
-            .to eq('("spaceships_with_2_custom_flags_column"."commanders" in (1,3))')
+            .to eq('("spaceships_with_2_custom_flags_column"."commanders" & 1 = 1)')
           expect(SpaceshipWith2CustomFlagsColumn.dajanatroj_condition)
-            .to eq('("spaceships_with_2_custom_flags_column"."commanders" in (2,3))')
+            .to eq('("spaceships_with_2_custom_flags_column"."commanders" & 2 = 2)')
         end
 
         it "defines a sql condition method for flag not enabled" do
-          expect(Spaceship.not_warpdrive_condition).to eq('("spaceships"."flags" not in (1,3,5,7))')
-          expect(Spaceship.not_shields_condition).to eq('("spaceships"."flags" not in (2,3,6,7))')
-          expect(Spaceship.not_electrolytes_condition).to eq('("spaceships"."flags" not in (4,5,6,7))')
+          expect(Spaceship.not_warpdrive_condition).to eq('("spaceships"."flags" & 1 = 0)')
+          expect(Spaceship.not_shields_condition).to eq('("spaceships"."flags" & 2 = 0)')
+          expect(Spaceship.not_electrolytes_condition).to eq('("spaceships"."flags" & 4 = 0)')
         end
 
         it "defines a sql condition method for flag not enabled with missing flags" do
           expect(SpaceshipWithMissingFlags.not_warpdrive_condition)
-            .to eq('("spaceships"."flags" not in (1,3,5,7))')
+            .to eq('("spaceships"."flags" & 1 = 0)')
           expect(SpaceshipWithMissingFlags.not_electrolytes_condition)
-            .to eq('("spaceships"."flags" not in (4,5,6,7))')
+            .to eq('("spaceships"."flags" & 4 = 0)')
         end
 
         it "accepts a table alias option for not sql condition method" do
           expect(Spaceship.not_warpdrive_condition(table_alias: "old_spaceships"))
-            .to eq('("old_spaceships"."flags" not in (1,3,5,7))')
+            .to eq('("old_spaceships"."flags" & 1 = 0)')
         end
 
         it "generates sql condition for flag with custom table name and default query mode" do
@@ -141,7 +141,7 @@ RSpec.describe FlagShihTzu do
             true,
             "custom_spaceships",
           ))
-            .to eq('("custom_spaceships"."flags" in (1,3,5,7))')
+            .to eq('("custom_spaceships"."flags" & 1 = 1)')
         end
 
         it "generates sql condition for flag with in_list query mode" do
@@ -155,6 +155,17 @@ RSpec.describe FlagShihTzu do
             .to eq('("spaceships"."flags" in (1,3))')
         end
 
+        it "generates negative sql condition for flag with in_list query mode" do
+          expect(SpaceshipWithInListQueryMode.send(
+            :sql_condition_for_flag,
+            :warpdrive,
+            "flags",
+            false,
+            "spaceships",
+          ))
+            .to eq('("spaceships"."flags" not in (1,3))')
+        end
+
         it "generates sql condition for flag with bit_operator query mode" do
           expect(SpaceshipWithBitOperatorQueryMode.send(
             :sql_condition_for_flag,
@@ -164,6 +175,40 @@ RSpec.describe FlagShihTzu do
             "spaceships",
           ))
             .to eq('("spaceships"."flags" & 1 = 1)')
+        end
+
+        it "generates negative sql condition for flag with bit_operator query mode" do
+          expect(SpaceshipWithBitOperatorQueryMode.send(
+            :sql_condition_for_flag,
+            :warpdrive,
+            "flags",
+            false,
+            "spaceships",
+          ))
+            .to eq('("spaceships"."flags" & 1 = 0)')
+        end
+
+        it "raises when configured with an unknown query mode" do
+          model = Class.new(ActiveRecord::Base) do
+            self.table_name = "spaceships"
+            include FlagShihTzu
+
+            has_flags(1 => :warpdrive, 2 => :shields, flag_query_mode: :unknown)
+          end
+
+          expect { model.warpdrive_condition }.to raise_error(FlagShihTzu::NoSuchFlagQueryModeException)
+        end
+
+        it "allows the global default query mode to be overridden" do
+          FlagShihTzu.default_flag_query_mode = :in_list
+          model = Class.new(ActiveRecord::Base) do
+            self.table_name = "spaceships"
+            include FlagShihTzu
+
+            has_flags(1 => :warpdrive, 2 => :shields)
+          end
+
+          expect(model.warpdrive_condition).to eq('("spaceships"."flags" in (1,3))')
         end
 
         it "generates sql_in_for_flag" do
@@ -178,7 +223,7 @@ RSpec.describe FlagShihTzu do
         it "quotes generated flag SQL without checking out a connection" do
           expect(Spaceship).not_to receive(:connection)
 
-          expect(Spaceship.warpdrive_condition).to eq('("spaceships"."flags" in (1,3,5,7))')
+          expect(Spaceship.warpdrive_condition).to eq('("spaceships"."flags" & 1 = 1)')
           expect(Spaceship.send(:sql_set_for_flag, :warpdrive, "flags"))
             .to eq('"flags" = "spaceships"."flags" | 1')
         end
@@ -194,13 +239,13 @@ RSpec.describe FlagShihTzu do
 
         it "defines a sql condition method for flag enabled with 2 columns not enabled" do
           expect(SpaceshipWith2CustomFlagsColumn.not_warpdrive_condition)
-            .to eq('("spaceships_with_2_custom_flags_column"."bits" not in (1,3))')
+            .to eq('("spaceships_with_2_custom_flags_column"."bits" & 1 = 0)')
           expect(SpaceshipWith2CustomFlagsColumn.not_hyperspace_condition)
-            .to eq('("spaceships_with_2_custom_flags_column"."bits" not in (2,3))')
+            .to eq('("spaceships_with_2_custom_flags_column"."bits" & 2 = 0)')
           expect(SpaceshipWith2CustomFlagsColumn.not_jeanlucpicard_condition)
-            .to eq('("spaceships_with_2_custom_flags_column"."commanders" not in (1,3))')
+            .to eq('("spaceships_with_2_custom_flags_column"."commanders" & 1 = 0)')
           expect(SpaceshipWith2CustomFlagsColumn.not_dajanatroj_condition)
-            .to eq('("spaceships_with_2_custom_flags_column"."commanders" not in (2,3))')
+            .to eq('("spaceships_with_2_custom_flags_column"."commanders" & 2 = 0)')
         end
 
         it "defines a sql condition method for flag enabled using bit operators" do
@@ -232,15 +277,15 @@ RSpec.describe FlagShihTzu do
         end
 
         it "defines a named scope for flag enabled" do
-          assert_where_value('("spaceships"."flags" in (1,3,5,7))', Spaceship.warpdrive)
-          assert_where_value('("spaceships"."flags" in (2,3,6,7))', Spaceship.shields)
-          assert_where_value('("spaceships"."flags" in (4,5,6,7))', Spaceship.electrolytes)
+          assert_where_value('("spaceships"."flags" & 1 = 1)', Spaceship.warpdrive)
+          assert_where_value('("spaceships"."flags" & 2 = 2)', Spaceship.shields)
+          assert_where_value('("spaceships"."flags" & 4 = 4)', Spaceship.electrolytes)
         end
 
         it "defines a named scope for flag not enabled" do
-          assert_where_value('("spaceships"."flags" not in (1,3,5,7))', Spaceship.not_warpdrive)
-          assert_where_value('("spaceships"."flags" not in (2,3,6,7))', Spaceship.not_shields)
-          assert_where_value('("spaceships"."flags" not in (4,5,6,7))', Spaceship.not_electrolytes)
+          assert_where_value('("spaceships"."flags" & 1 = 0)', Spaceship.not_warpdrive)
+          assert_where_value('("spaceships"."flags" & 2 = 0)', Spaceship.not_shields)
+          assert_where_value('("spaceships"."flags" & 4 = 0)', Spaceship.not_electrolytes)
         end
 
         it "defines a dynamic column value helpers for flags" do
@@ -250,38 +295,38 @@ RSpec.describe FlagShihTzu do
 
         it "defines a named scope for flag enabled with 2 columns" do
           assert_where_value(
-            '("spaceships_with_2_custom_flags_column"."bits" in (1,3))',
+            '("spaceships_with_2_custom_flags_column"."bits" & 1 = 1)',
             SpaceshipWith2CustomFlagsColumn.warpdrive,
           )
           assert_where_value(
-            '("spaceships_with_2_custom_flags_column"."bits" in (2,3))',
+            '("spaceships_with_2_custom_flags_column"."bits" & 2 = 2)',
             SpaceshipWith2CustomFlagsColumn.hyperspace,
           )
           assert_where_value(
-            '("spaceships_with_2_custom_flags_column"."commanders" in (1,3))',
+            '("spaceships_with_2_custom_flags_column"."commanders" & 1 = 1)',
             SpaceshipWith2CustomFlagsColumn.jeanlucpicard,
           )
           assert_where_value(
-            '("spaceships_with_2_custom_flags_column"."commanders" in (2,3))',
+            '("spaceships_with_2_custom_flags_column"."commanders" & 2 = 2)',
             SpaceshipWith2CustomFlagsColumn.dajanatroj,
           )
         end
 
         it "defines a named scope for flag not enabled with 2 columns" do
           assert_where_value(
-            '("spaceships_with_2_custom_flags_column"."bits" not in (1,3))',
+            '("spaceships_with_2_custom_flags_column"."bits" & 1 = 0)',
             SpaceshipWith2CustomFlagsColumn.not_warpdrive,
           )
           assert_where_value(
-            '("spaceships_with_2_custom_flags_column"."bits" not in (2,3))',
+            '("spaceships_with_2_custom_flags_column"."bits" & 2 = 0)',
             SpaceshipWith2CustomFlagsColumn.not_hyperspace,
           )
           assert_where_value(
-            '("spaceships_with_2_custom_flags_column"."commanders" not in (1,3))',
+            '("spaceships_with_2_custom_flags_column"."commanders" & 1 = 0)',
             SpaceshipWith2CustomFlagsColumn.not_jeanlucpicard,
           )
           assert_where_value(
-            '("spaceships_with_2_custom_flags_column"."commanders" not in (2,3))',
+            '("spaceships_with_2_custom_flags_column"."commanders" & 2 = 0)',
             SpaceshipWith2CustomFlagsColumn.not_dajanatroj,
           )
         end
@@ -378,11 +423,18 @@ RSpec.describe FlagShihTzu do
 
         it "returns the correct condition with chained flags" do
           expect(Spaceship.chained_flags_condition("flags", :warpdrive, :shields))
-            .to eq('("spaceships"."flags" in (3,7))')
+            .to eq('("spaceships"."flags" & 1 = 1 AND "spaceships"."flags" & 2 = 2)')
           expect(Spaceship.chained_flags_condition("flags", :warpdrive, :shields, :electrolytes))
-            .to eq('("spaceships"."flags" in (7))')
+            .to eq('("spaceships"."flags" & 1 = 1 AND "spaceships"."flags" & 2 = 2 AND "spaceships"."flags" & 4 = 4)')
           expect(Spaceship.chained_flags_condition("flags", :not_warpdrive, :shields))
-            .to eq('("spaceships"."flags" in (2,6))')
+            .to eq('("spaceships"."flags" & 1 = 0 AND "spaceships"."flags" & 2 = 2)')
+        end
+
+        it "uses value-list SQL for chained flags in in_list mode" do
+          expect(SpaceshipWithInListQueryMode.chained_flags_condition("flags", :warpdrive, :shields))
+            .to eq('("spaceships"."flags" in (3))')
+          expect(SpaceshipWithInListQueryMode.chained_flags_condition("flags", :not_warpdrive, :shields))
+            .to eq('("spaceships"."flags" in (2))')
         end
 
         it "returns the correct number of items with chained flags" do
@@ -415,13 +467,13 @@ RSpec.describe FlagShihTzu do
 
           expect(spaceship.flags("bits")).to eq(3)
           expect(SpaceshipWithCustomFlagsColumn.warpdrive_condition)
-            .to eq('("spaceships_with_custom_flags_column"."bits" in (1,3))')
+            .to eq('("spaceships_with_custom_flags_column"."bits" & 1 = 1)')
           expect(SpaceshipWithCustomFlagsColumn.not_warpdrive_condition)
-            .to eq('("spaceships_with_custom_flags_column"."bits" not in (1,3))')
+            .to eq('("spaceships_with_custom_flags_column"."bits" & 1 = 0)')
           expect(SpaceshipWithCustomFlagsColumn.hyperspace_condition)
-            .to eq('("spaceships_with_custom_flags_column"."bits" in (2,3))')
+            .to eq('("spaceships_with_custom_flags_column"."bits" & 2 = 2)')
           expect(SpaceshipWithCustomFlagsColumn.not_hyperspace_condition)
-            .to eq('("spaceships_with_custom_flags_column"."bits" not in (2,3))')
+            .to eq('("spaceships_with_custom_flags_column"."bits" & 2 = 0)')
 
           def assert_where_value(expected, scope)
             ast = scope.where_clause.ast
@@ -436,19 +488,19 @@ RSpec.describe FlagShihTzu do
           end
 
           assert_where_value(
-            '("spaceships_with_custom_flags_column"."bits" in (1,3))',
+            '("spaceships_with_custom_flags_column"."bits" & 1 = 1)',
             SpaceshipWithCustomFlagsColumn.warpdrive,
           )
           assert_where_value(
-            '("spaceships_with_custom_flags_column"."bits" not in (1,3))',
+            '("spaceships_with_custom_flags_column"."bits" & 1 = 0)',
             SpaceshipWithCustomFlagsColumn.not_warpdrive,
           )
           assert_where_value(
-            '("spaceships_with_custom_flags_column"."bits" in (2,3))',
+            '("spaceships_with_custom_flags_column"."bits" & 2 = 2)',
             SpaceshipWithCustomFlagsColumn.hyperspace,
           )
           assert_where_value(
-            '("spaceships_with_custom_flags_column"."bits" not in (2,3))',
+            '("spaceships_with_custom_flags_column"."bits" & 2 = 0)',
             SpaceshipWithCustomFlagsColumn.not_hyperspace,
           )
         end
