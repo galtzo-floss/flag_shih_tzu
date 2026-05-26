@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: FlagShihTzu
+  
+    &mdash; Documentation by YARD 0.9.44
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css" type="text/css">
+
+<script type="text/javascript">
+  pathId = "FlagShihTzu";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (F)</a> &raquo;
+    
+    
+    <span class="title">FlagShihTzu</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: FlagShihTzu
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/flag_shih_tzu.rb<span class="defines">,<br>
+  lib/flag_shih_tzu/version.rb</span>
+
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="FlagShihTzu/ClassMethods.html" title="FlagShihTzu::ClassMethods (module)">ClassMethods</a></span>, <span class='object_link'><a href="FlagShihTzu/Version.html" title="FlagShihTzu::Version (module)">Version</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="FlagShihTzu/BooleanEncoder.html" title="FlagShihTzu::BooleanEncoder (class)">BooleanEncoder</a></span>, <span class='object_link'><a href="FlagShihTzu/Configuration.html" title="FlagShihTzu::Configuration (class)">Configuration</a></span>, <span class='object_link'><a href="FlagShihTzu/DuplicateFlagColumnException.html" title="FlagShihTzu::DuplicateFlagColumnException (class)">DuplicateFlagColumnException</a></span>, <span class='object_link'><a href="FlagShihTzu/IncorrectFlagColumnException.html" title="FlagShihTzu::IncorrectFlagColumnException (class)">IncorrectFlagColumnException</a></span>, <span class='object_link'><a href="FlagShihTzu/InvalidFlagValueException.html" title="FlagShihTzu::InvalidFlagValueException (class)">InvalidFlagValueException</a></span>, <span class='object_link'><a href="FlagShihTzu/NoSuchFlagException.html" title="FlagShihTzu::NoSuchFlagException (class)">NoSuchFlagException</a></span>, <span class='object_link'><a href="FlagShihTzu/NoSuchFlagQueryModeException.html" title="FlagShihTzu::NoSuchFlagQueryModeException (class)">NoSuchFlagQueryModeException</a></span>, <span class='object_link'><a href="FlagShihTzu/TriStateEncoder.html" title="FlagShihTzu::TriStateEncoder (class)">TriStateEncoder</a></span>
+    
+  
+</p>
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="TRUE_VALUES-constant" class="">TRUE_VALUES =
+          <div class="docstring">
+  <div class="discussion">
+    <p>taken from ActiveRecord::ConnectionAdapters::Column</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='kw'>true</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>t</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>T</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>true</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TRUE</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="FALSE_VALUES-constant" class="">FALSE_VALUES =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='kw'>false</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>f</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>F</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>false</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FALSE</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="NIL_VALUES-constant" class="">NIL_VALUES =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nil</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NULL</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>null</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="DEFAULT_COLUMN_NAME-constant" class="">DEFAULT_COLUMN_NAME =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>flags</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="DEFAULT_CHECK_FOR_COLUMN-constant" class="">DEFAULT_CHECK_FOR_COLUMN =
+          
+        </dt>
+        <dd><pre class="code"><span class='kw'>false</span></pre></dd>
+      
+        <dt id="DEFAULT_FLAG_QUERY_MODE-constant" class="">DEFAULT_FLAG_QUERY_MODE =
+          
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:bit_operator</span></pre></dd>
+      
+        <dt id="DEFAULT_VALUE_MODE-constant" class="">DEFAULT_VALUE_MODE =
+          
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:boolean</span></pre></dd>
+      
+        <dt id="DEFAULT_BIT_WIDTH-constant" class="">DEFAULT_BIT_WIDTH =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+        <dt id="FLAG_ADAPTER_CLASS_NAMES-constant" class="">FLAG_ADAPTER_CLASS_NAMES =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mysql</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Mysql2Adapter</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mysql2</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Mysql2Adapter</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>postgis</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PostgreSQLAdapter</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>postgresql</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PostgreSQLAdapter</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sqlite</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SQLite3Adapter</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sqlite3</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SQLite3Adapter</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>trilogy</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TrilogyAdapter</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="FLAG_ADAPTER_REQUIRE_NAMES-constant" class="">FLAG_ADAPTER_REQUIRE_NAMES =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mysql</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mysql2</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>postgis</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>postgresql</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="FLAG_COLUMN_ONLY_ASSIGNMENT_ADAPTERS-constant" class="">FLAG_COLUMN_ONLY_ASSIGNMENT_ADAPTERS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>jdbcsqlite3</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>postgis</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>postgresql</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sqlite</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sqlite3</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="CONFIGURATION-constant" class="">CONFIGURATION =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="FlagShihTzu/Configuration.html" title="FlagShihTzu::Configuration (class)">Configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="FlagShihTzu/Configuration.html#initialize-instance_method" title="FlagShihTzu::Configuration#initialize (method)">new</a></span></span></pre></dd>
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    <p>Traditional Constant Location</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="FlagShihTzu/Version.html" title="FlagShihTzu::Version (module)">Version</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="FlagShihTzu/Version.html#VERSION-constant" title="FlagShihTzu::Version::VERSION (constant)">VERSION</a></span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_check_for_column-class_method" title="default_check_for_column (class method)">.<strong>default_check_for_column</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_check_for_column=-class_method" title="default_check_for_column= (class method)">.<strong>default_check_for_column=</strong>(value)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_flag_query_mode-class_method" title="default_flag_query_mode (class method)">.<strong>default_flag_query_mode</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_flag_query_mode=-class_method" title="default_flag_query_mode= (class method)">.<strong>default_flag_query_mode=</strong>(value)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#included-class_method" title="included (class method)">.<strong>included</strong>(base)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+    
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_flags-instance_method" title="#all_flags (instance method)">#<strong>all_flags</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#as_flag_collection-instance_method" title="#as_flag_collection (instance method)">#<strong>as_flag_collection</strong>(colmn = DEFAULT_COLUMN_NAME, *args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use with a checkbox form builder, like rails’ or simple_form’s :selected_flags, used in the example below, is a method defined   by flag_shih_tzu for bulk setting flags like this:.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#attributes_with_flags-instance_method" title="#attributes_with_flags (instance method)">#<strong>attributes_with_flags</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chained_flags_with_signature-instance_method" title="#chained_flags_with_signature (instance method)">#<strong>chained_flags_with_signature</strong>(colmn = DEFAULT_COLUMN_NAME, *args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use with chained_flags_with to find records with specific flags   set to the same values as on this record.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clear_flag-instance_method" title="#clear_flag (instance method)">#<strong>clear_flag</strong>(flag, colmn = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Performs the bitwise operation so the flag will return +nil+ when supported.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#disable_flag-instance_method" title="#disable_flag (instance method)">#<strong>disable_flag</strong>(flag, colmn = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Performs the bitwise operation so the flag will return +false+.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enable_flag-instance_method" title="#enable_flag (instance method)">#<strong>enable_flag</strong>(flag, colmn = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Performs the bitwise operation so the flag will return +true+.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flag_disabled%3F-instance_method" title="#flag_disabled? (instance method)">#<strong>flag_disabled?</strong>(flag, colmn = nil)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flag_enabled%3F-instance_method" title="#flag_enabled? (instance method)">#<strong>flag_enabled?</strong>(flag, colmn = nil)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flags-instance_method" title="#flags (instance method)">#<strong>flags</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flags=-instance_method" title="#flags= (instance method)">#<strong>flags=</strong>(value)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flags_as_attributes-instance_method" title="#flags_as_attributes (instance method)">#<strong>flags_as_attributes</strong>(colmn = nil, *args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_flag%3F-instance_method" title="#has_flag? (instance method)">#<strong>has_flag?</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#select_all_flags-instance_method" title="#select_all_flags (instance method)">#<strong>select_all_flags</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#selected_flags-instance_method" title="#selected_flags (instance method)">#<strong>selected_flags</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#selected_flags=-instance_method" title="#selected_flags= (instance method)">#<strong>selected_flags=</strong>(chosen_flags)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Useful for a form builder use selected_#column= for custom column names.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_flags-instance_method" title="#set_flags (instance method)">#<strong>set_flags</strong>(value, colmn = DEFAULT_COLUMN_NAME)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unselect_all_flags-instance_method" title="#unselect_all_flags (instance method)">#<strong>unselect_all_flags</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_flag!-instance_method" title="#update_flag! (instance method)">#<strong>update_flag!</strong>(flag, value, update_instance = false)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>returns true if successful third parameter allows you to specify that <code>self</code> should   also have its in-memory flag attribute updated.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+    
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="default_check_for_column-class_method">
+  
+    .<strong>default_check_for_column</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_check_for_column'>default_check_for_column</span>
+  <span class='const'><span class='object_link'><a href="#CONFIGURATION-constant" title="FlagShihTzu::CONFIGURATION (constant)">CONFIGURATION</a></span></span><span class='period'>.</span><span class='id identifier rubyid_default_check_for_column'>default_check_for_column</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="default_check_for_column=-class_method">
+  
+    .<strong>default_check_for_column=</strong>(value)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_check_for_column='>default_check_for_column=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="#CONFIGURATION-constant" title="FlagShihTzu::CONFIGURATION (constant)">CONFIGURATION</a></span></span><span class='period'>.</span><span class='id identifier rubyid_default_check_for_column'><span class='object_link'><a href="#default_check_for_column-class_method" title="FlagShihTzu.default_check_for_column (method)">default_check_for_column</a></span></span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="default_flag_query_mode-class_method">
+  
+    .<strong>default_flag_query_mode</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_flag_query_mode'>default_flag_query_mode</span>
+  <span class='const'><span class='object_link'><a href="#CONFIGURATION-constant" title="FlagShihTzu::CONFIGURATION (constant)">CONFIGURATION</a></span></span><span class='period'>.</span><span class='id identifier rubyid_default_flag_query_mode'>default_flag_query_mode</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="default_flag_query_mode=-class_method">
+  
+    .<strong>default_flag_query_mode=</strong>(value)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_flag_query_mode='>default_flag_query_mode=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="#CONFIGURATION-constant" title="FlagShihTzu::CONFIGURATION (constant)">CONFIGURATION</a></span></span><span class='period'>.</span><span class='id identifier rubyid_default_flag_query_mode'><span class='object_link'><a href="#default_flag_query_mode-class_method" title="FlagShihTzu.default_flag_query_mode (method)">default_flag_query_mode</a></span></span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="included-class_method">
+  
+    .<strong>included</strong>(base)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_base'>base</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_base'>base</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="FlagShihTzu/ClassMethods.html" title="FlagShihTzu::ClassMethods (module)">ClassMethods</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_base'>base</span><span class='period'>.</span><span class='id identifier rubyid_class_attribute'>class_attribute</span><span class='lparen'>(</span><span class='symbol'>:flag_options</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_base'>base</span><span class='period'>.</span><span class='id identifier rubyid_flag_options'>flag_options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_base'>base</span><span class='period'>.</span><span class='id identifier rubyid_class_attribute'>class_attribute</span><span class='lparen'>(</span><span class='symbol'>:flag_mapping</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_base'>base</span><span class='period'>.</span><span class='id identifier rubyid_flag_mapping'>flag_mapping</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_base'>base</span><span class='period'>.</span><span class='id identifier rubyid_class_attribute'>class_attribute</span><span class='lparen'>(</span><span class='symbol'>:flag_columns</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_base'>base</span><span class='period'>.</span><span class='id identifier rubyid_flag_columns'>flag_columns</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="all_flags-instance_method">
+  
+    #<strong>all_flags</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+887
+888
+889</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 887</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all_flags'>all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_flag_mapping'>flag_mapping</span><span class='lbracket'>[</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="as_flag_collection-instance_method">
+  
+    #<strong>as_flag_collection</strong>(colmn = DEFAULT_COLUMN_NAME, *args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use with a checkbox form builder, like rails’ or simple_form’s<br />
+:selected_flags, used in the example below, is a method defined<br />
+  by flag_shih_tzu for bulk setting flags like this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_form_for'>form_for</span> <span class='ivar'>@user</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
+  <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_collection_check_boxes'>collection_check_boxes</span><span class='lparen'>(</span><span class='symbol'>:selected_flags</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_as_flag_collection'>as_flag_collection</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>flags</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='symbol'>:sent_warm_up_email</span><span class='comma'>,</span>
+        <span class='symbol'>:not_follow_up_called</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='symbol'>:first</span><span class='comma'>,</span>
+    <span class='symbol'>:last</span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+975
+976
+977
+978
+979
+980</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 975</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_as_flag_collection'>as_flag_collection</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_flags_to_collect'>flags_to_collect</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>?</span> <span class='id identifier rubyid_all_flags'>all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_args'>args</span>
+  <span class='id identifier rubyid_collect_flags'>collect_flags</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_flags_to_collect'>flags_to_collect</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_memo'>memo</span><span class='comma'>,</span> <span class='id identifier rubyid_flag'>flag</span><span class='op'>|</span>
+    <span class='id identifier rubyid_memo'>memo</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_flag_enabled?'>flag_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="attributes_with_flags-instance_method">
+  
+    #<strong>attributes_with_flags</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+992
+993
+994
+995
+996</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 992</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_attributes_with_flags'>attributes_with_flags</span>
+  <span class='id identifier rubyid_flags_as_attributes'>flags_as_attributes</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_enabled'>enabled</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_attrs'>attrs</span><span class='op'>|</span>
+    <span class='id identifier rubyid_attrs'>attrs</span><span class='lbracket'>[</span><span class='id identifier rubyid_flag'>flag</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_enabled'>enabled</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="chained_flags_with_signature-instance_method">
+  
+    #<strong>chained_flags_with_signature</strong>(colmn = DEFAULT_COLUMN_NAME, *args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use with chained_flags_with to find records with specific flags<br />
+  set to the same values as on this record.<br />
+For a record that has sent_warm_up_email = true and the other flags false:</p>
+
+<pre class="code ruby"><code class="ruby">user.chained_flags_with_signature
+=&gt; [:sent_warm_up_email,
+    :not_follow_up_called,
+    :not_sent_final_email,
+    :not_scheduled_appointment]
+User.chained_flags_with(&quot;flags&quot;, *user.chained_flags_with_signature)
+=&gt; the set of Users that have the same flags set as user.
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 950</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_chained_flags_with_signature'>chained_flags_with_signature</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_flags_to_collect'>flags_to_collect</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>?</span> <span class='id identifier rubyid_all_flags'>all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_args'>args</span>
+  <span class='id identifier rubyid_truthy_and_chosen'>truthy_and_chosen</span> <span class='op'>=</span>
+    <span class='id identifier rubyid_selected_flags'>selected_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_flag'>flag</span><span class='op'>|</span> <span class='id identifier rubyid_flags_to_collect'>flags_to_collect</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_truthy_and_chosen'>truthy_and_chosen</span><span class='period'>.</span><span class='id identifier rubyid_concat'>concat</span><span class='lparen'>(</span>
+    <span class='id identifier rubyid_collect_flags'>collect_flags</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_flags_to_collect'>flags_to_collect</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_memo'>memo</span><span class='comma'>,</span> <span class='id identifier rubyid_flag'>flag</span><span class='op'>|</span>
+      <span class='id identifier rubyid_memo'>memo</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>not_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_flag'>flag</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='kw'>unless</span> <span class='id identifier rubyid_truthy_and_chosen'>truthy_and_chosen</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span>
+    <span class='kw'>end</span><span class='comma'>,</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="clear_flag-instance_method">
+  
+    #<strong>clear_flag</strong>(flag, colmn = nil)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Performs the bitwise operation so the flag will return +nil+ when supported.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+847
+848
+849
+850
+851
+852</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 847</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_clear_flag'>clear_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='id identifier rubyid_determine_flag_colmn_for'>determine_flag_colmn_for</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_check_flag'>check_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_set_flag_value'>set_flag_value</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="disable_flag-instance_method">
+  
+    #<strong>disable_flag</strong>(flag, colmn = nil)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Performs the bitwise operation so the flag will return +false+.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+839
+840
+841
+842
+843
+844</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 839</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_disable_flag'>disable_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='id identifier rubyid_determine_flag_colmn_for'>determine_flag_colmn_for</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_check_flag'>check_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_set_flag_value'>set_flag_value</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="enable_flag-instance_method">
+  
+    #<strong>enable_flag</strong>(flag, colmn = nil)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Performs the bitwise operation so the flag will return +true+.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+831
+832
+833
+834
+835
+836</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 831</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enable_flag'>enable_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='id identifier rubyid_determine_flag_colmn_for'>determine_flag_colmn_for</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_check_flag'>check_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_set_flag_value'>set_flag_value</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flag_disabled?-instance_method">
+  
+    #<strong>flag_disabled?</strong>(flag, colmn = nil)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+861
+862
+863
+864
+865
+866</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 861</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flag_disabled?'>flag_disabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='id identifier rubyid_determine_flag_colmn_for'>determine_flag_colmn_for</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_check_flag'>check_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_flag_encoder_for_column'>flag_encoder_for_column</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_disabled_value'>disabled_value</span><span class='lparen'>(</span><span class='id identifier rubyid_flags'>flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_flag_mapping'>flag_mapping</span><span class='lbracket'>[</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_flag'>flag</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flag_enabled?-instance_method">
+  
+    #<strong>flag_enabled?</strong>(flag, colmn = nil)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+854
+855
+856
+857
+858
+859</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 854</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flag_enabled?'>flag_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='id identifier rubyid_determine_flag_colmn_for'>determine_flag_colmn_for</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_check_flag'>check_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_flag_encoder_for_column'>flag_encoder_for_column</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_flags'>flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_flag_mapping'>flag_mapping</span><span class='lbracket'>[</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_flag'>flag</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flags-instance_method">
+  
+    #<strong>flags</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+868
+869
+870</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 868</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flags'>flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='int'>0</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flags=-instance_method">
+  
+    #<strong>flags=</strong>(value)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+872
+873
+874</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 872</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flags='>flags=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_set_flags'>set_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flags_as_attributes-instance_method">
+  
+    #<strong>flags_as_attributes</strong>(colmn = nil, *args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+982
+983
+984
+985
+986
+987
+988
+989
+990</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 982</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flags_as_attributes'>flags_as_attributes</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_columns'>columns</span> <span class='op'>=</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_flag_columns'>flag_columns</span> <span class='op'>:</span> <span class='lbracket'>[</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_columns'>columns</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_column'>column</span><span class='comma'>,</span> <span class='id identifier rubyid_memo'>memo</span><span class='op'>|</span>
+    <span class='id identifier rubyid_flags_to_collect'>flags_to_collect</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>?</span> <span class='id identifier rubyid_all_flags'>all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_column'>column</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_args'>args</span>
+    <span class='id identifier rubyid_flags_to_collect'>flags_to_collect</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_flag'>flag</span><span class='op'>|</span>
+      <span class='id identifier rubyid_memo'>memo</span><span class='lbracket'>[</span><span class='id identifier rubyid_flag'>flag</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_flag_enabled?'>flag_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_column'>column</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="has_flag?-instance_method">
+  
+    #<strong>has_flag?</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+915
+916
+917</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 915</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_has_flag?'>has_flag?</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='rparen'>)</span>
+  <span class='op'>!</span><span class='id identifier rubyid_selected_flags'>selected_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="select_all_flags-instance_method">
+  
+    #<strong>select_all_flags</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+903
+904
+905
+906
+907</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 903</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_select_all_flags'>select_all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_all_flags'>all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_flag'>flag</span><span class='op'>|</span>
+    <span class='id identifier rubyid_enable_flag'>enable_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="selected_flags-instance_method">
+  
+    #<strong>selected_flags</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+891
+892
+893
+894
+895</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 891</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_selected_flags'>selected_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_all_flags'>all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+    <span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_flag_name'>flag_name</span><span class='op'>|</span> <span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_flag_name'>flag_name</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_flag_name'>flag_name</span> <span class='op'>:</span> <span class='kw'>nil</span> <span class='rbrace'>}</span>
+    <span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="selected_flags=-instance_method">
+  
+    #<strong>selected_flags=</strong>(chosen_flags)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Useful for a form builder<br />
+use selected_#column= for custom column names.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+899
+900
+901</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 899</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_selected_flags='>selected_flags=</span><span class='lparen'>(</span><span class='id identifier rubyid_chosen_flags'>chosen_flags</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_set_selected_flags'>set_selected_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_chosen_flags'>chosen_flags</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_flags-instance_method">
+  
+    #<strong>set_flags</strong>(value, colmn = DEFAULT_COLUMN_NAME)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 876</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_flags'>set_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_value'>value</span>
+  <span class='kw'>when</span> <span class='const'>Array</span>
+    <span class='id identifier rubyid_set_selected_flags'>set_selected_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>Hash</span>
+    <span class='id identifier rubyid_set_flag_attributes'>set_flag_attributes</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="unselect_all_flags-instance_method">
+  
+    #<strong>unselect_all_flags</strong>(colmn = DEFAULT_COLUMN_NAME)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+909
+910
+911
+912
+913</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 909</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_unselect_all_flags'>unselect_all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_all_flags'>all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_flag'>flag</span><span class='op'>|</span>
+    <span class='id identifier rubyid_disable_flag'>disable_flag</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_flag!-instance_method">
+  
+    #<strong>update_flag!</strong>(flag, value, update_instance = false)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>returns true if successful<br />
+third parameter allows you to specify that <code>self</code> should<br />
+  also have its in-memory flag attribute updated.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 922</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update_flag!'>update_flag!</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_update_instance'>update_instance</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_flag_value'>flag_value</span> <span class='op'>=</span> <span class='id identifier rubyid_normalized_flag_value'>normalized_flag_value</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_determine_flag_colmn_for'>determine_flag_colmn_for</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sql'>sql</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_set_flag_sql'>set_flag_sql</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_flag_value'>flag_value</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_update_instance'>update_instance</span>
+    <span class='id identifier rubyid_set_flag_value'>set_flag_value</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_flag_value'>flag_value</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>VERSION</span><span class='op'>::</span><span class='const'>MAJOR</span> <span class='op'>&lt;=</span> <span class='int'>3</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span>
+      <span class='period'>.</span><span class='id identifier rubyid_update_all'>update_all</span><span class='lparen'>(</span><span class='id identifier rubyid_sql'>sql</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_primary_key'>primary_key</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='int'>1</span>
+  <span class='kw'>else</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span>
+      <span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_primary_key'>primary_key</span><span class='embexpr_end'>}</span><span class='tstring_content'> = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_update_all'>update_all</span><span class='lparen'>(</span><span class='id identifier rubyid_sql'>sql</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='int'>1</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue May 26 03:36:24 2026 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.44 (ruby-4.0.5).
+</div>
+
+    </div>
+  </body>
+</html>

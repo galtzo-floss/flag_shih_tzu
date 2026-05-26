@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.0] - 2026-05-26
+
+- TAG: [v1.0.0][1.0.0t]
+- COVERAGE: 90.95% -- 412/453 lines in 3 files
+- BRANCH COVERAGE: 76.76% -- 142/185 branches in 3 files
+- 27.78% documented
+
+### Added
+
 - Added `table_alias:` support to generated `not_<flag>_condition` SQL helper
   methods, matching the existing alias support for positive flag conditions.
 - Added documentation for safely deprecating or removing flags without
@@ -66,8 +85,6 @@ Please file a bug if you notice a violation of semantic versioning.
   JRuby, TruffleRuby, and ActiveRecord releases through ActiveRecord 8.0.
 - Modernized `validates_presence_of_flags` integration for current
   ActiveModel error APIs.
-
-### Deprecated
 
 ### Removed
 
@@ -116,10 +133,12 @@ Please file a bug if you notice a violation of semantic versioning.
 * Added Rails 5.1 to travis.
 
 # Version 0.3.18 - APR.30.2017
+
 * Switched from Fixnum to Integer for Ruby 2.4 happiness
 * Fixed build for all supported Ruby and Rails versions in supported matrix
 
 # Version 0.3.17 - APR.29.2017
+
 * Improved compatibility with Rails 5.0
 * Fixed warnings about Fixnums
 * Fixed compatibility with SQLlite
@@ -262,3 +281,7 @@ Please file a bug if you notice a violation of semantic versioning.
 * Complete Ruby 1.9(\.[^1]) and Rails 3.2.X compatibility
 
 # Version 0.2.3 - last version maintained by XING AG
+
+[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/galtzo-floss/flag_shih_tzu/compare/baaff102ad48e6c5b4bfb3efb088cec82fa1ddb4...v1.0.0
+[1.0.0t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.0

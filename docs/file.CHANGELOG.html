@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: CHANGELOG
+  
+    &mdash; Documentation by YARD 0.9.44
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css" type="text/css">
+
+<script type="text/javascript">
+  pathId = "CHANGELOG";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: CHANGELOG</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'><h1 id="changelog">Changelog</h1>
+
+<p><a href="https://semver.org/spec/v2.0.0.html"><img src="https://img.shields.io/badge/semver-2.0.0-FFDD67.svg?style=flat" alt="SemVer 2.0.0"></a> <a href="https://keepachangelog.com/en/1.0.0/"><img src="https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat" alt="Keep-A-Changelog 1.0.0"></a></p>
+
+<p>All notable changes to this project will be documented in this file.</p>
+
+<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,<br>
+and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>,<br>
+and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
+Please file a bug if you notice a violation of semantic versioning.</p>
+
+<h2 id="unreleased">[Unreleased]</h2>
+
+<h3 id="added">Added</h3>
+
+<ul>
+  <li>Added <code>table_alias:</code> support to generated <code>not_&lt;flag&gt;_condition</code> SQL helper<br>
+methods, matching the existing alias support for positive flag conditions.</li>
+  <li>Added documentation for safely deprecating or removing flags without<br>
+corrupting the meaning of existing bit values.</li>
+  <li>Added <code>flags_as_attributes</code>, <code>attributes_with_flags</code>, and generated<br>
+<code>&lt;column&gt;_as_attributes</code> helpers for reading flag bits as boolean attributes.</li>
+  <li>Added first-class project metadata, documentation links, funding links, and<br>
+gem signing metadata to the gemspec.</li>
+  <li>Added array and hash assignment support to flag column writers, so calls like<br>
+<code>record.update!(flags: [:warpdrive, :shields])</code> can set multiple flags<br>
+without magic bit-field integers.</li>
+  <li>Added <code>value_mode:</code>, <code>bit_width:</code>, and <code>encoder:</code> options to <code>has_flags</code>,<br>
+including built-in <code>value_mode: :tri_state</code> storage for flags that can be<br>
+<code>true</code>, <code>false</code>, or <code>nil</code>. This feature was inspired by PR #56 from Shivang<br>
+Yadav.</li>
+  <li>Added the <code>:allow_overwrite</code> option to <code>has_flags</code> for callers that<br>
+intentionally want generated flag methods to replace existing instance<br>
+methods.</li>
+</ul>
+
+<h3 id="changed">Changed</h3>
+
+<ul>
+  <li>
+<strong>BREAKING</strong>: Changed the default <code>flag_query_mode</code> from <code>:in_list</code> to<br>
+<code>:bit_operator</code> so generated flag SQL remains correct during rolling deploys<br>
+that add and set new flags. Applications that need the legacy query shape can<br>
+set <code>FlagShihTzu.default_flag_query_mode = :in_list</code> or pass<br>
+<code>flag_query_mode: :in_list</code> to <code>has_flags</code>.</li>
+  <li>
+<strong>BREAKING</strong>: Changed flag column validation from opt-out to opt-in at model<br>
+load time. <code>has_flags</code> no longer checks the database by default, avoiding<br>
+failures and warnings during setup, migration, seed, asset, and test boot<br>
+tasks. Applications that want the legacy guardrail can set<br>
+<code>FlagShihTzu.default_check_for_column = true</code> or pass<br>
+<code>check_for_column: true</code> to <code>has_flags</code>.</li>
+  <li>
+<strong>BREAKING</strong>: Changed custom FlagShihTzu error classes to inherit from<br>
+<code>StandardError</code> instead of <code>Exception</code>, so normal <code>rescue</code> blocks can handle<br>
+them.</li>
+  <li>
+<strong>BREAKING</strong>: Changed flag column writers to interpret Array values as the<br>
+complete selected flag set and Hash values as partial boolean flag updates.<br>
+Raw integer assignment remains supported.</li>
+  <li>Updated project ownership and documentation links from <code>pboling</code> to<br>
+<code>galtzo-floss</code>.</li>
+  <li>Raised the effective minimum installable Ruby version to Ruby 2.2 through<br>
+the new <code>version_gem</code> runtime dependency.</li>
+  <li>Expanded the maintained compatibility matrix to cover modern Ruby,<br>
+JRuby, TruffleRuby, and ActiveRecord releases through ActiveRecord 8.0.</li>
+  <li>Modernized <code>validates_presence_of_flags</code> integration for current<br>
+ActiveModel error APIs.</li>
+</ul>
+
+<h3 id="deprecated">Deprecated</h3>
+
+<h3 id="removed">Removed</h3>
+
+<ul>
+  <li>Removed the obsolete Travis CI setup and legacy appraisal files for<br>
+ActiveRecord 2.3 through 5.1.</li>
+  <li>Removed Ruby 2.3 and JRuby 9.1 from the tested release matrix.</li>
+</ul>
+
+<h3 id="fixed">Fixed</h3>
+
+<ul>
+  <li>Restored project-specific README sections lost during templating, including<br>
+the Alternatives section and the updated RailsBling URL from PR #104.</li>
+  <li>Avoided checking out an Active Record connection while quoting generated flag<br>
+SQL identifiers.</li>
+  <li>Avoided repeated method redefinition warnings when flags are declared across<br>
+multiple columns.</li>
+  <li>Fixed generated negative readers for flag names that are Ruby keywords, such<br>
+as <code>:end</code>.</li>
+  <li>Normalized generated SQL condition behavior across supported ActiveRecord<br>
+versions, including ActiveRecord 6.0 where-clause AST differences.</li>
+</ul>
+
+<h3 id="security">Security</h3>
+
+<h1 id="version-0323---nov302018">Version 0.3.23 - NOV.30.2018</h1>
+
+<ul>
+  <li>Avoid establishing a database connection unless necessary by Jonathan del Strother</li>
+</ul>
+
+<h1 id="version-0322---sep182018">Version 0.3.22 - SEP.18.2018</h1>
+
+<ul>
+  <li>When #selected_flags= passed with nil it clears flag bits, by xpol
+    <ul>
+      <li>This makes flag_shih_tzu behave like Rails: converts empty array to nil.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="version-0321---sep092018">Version 0.3.21 - SEP.09.2018</h1>
+
+<ul>
+  <li>Make required minimum Ruby version explicit: 1.9.3 and up by Peter Boling</li>
+  <li>Support Rails 5.2 by Peter Boling</li>
+  <li>Add Ruby 2.5 to build, and update/fix build by Peter Boling</li>
+</ul>
+
+<h1 id="version-0320---sep082018">Version 0.3.20 - SEP.08.2018</h1>
+
+<ul>
+  <li>Fix generated instance methods. by xpol</li>
+  <li>Support Rails 5.1 saved_change by shiro16</li>
+</ul>
+
+<h1 id="version-0319---may152017">Version 0.3.19 - MAY.15.2017</h1>
+
+<ul>
+  <li>Fixed a bug in Rails 5 support.</li>
+  <li>Added Rails 5.1 to travis.</li>
+</ul>
+
+<h1 id="version-0318---apr302017">Version 0.3.18 - APR.30.2017</h1>
+<ul>
+  <li>Switched from Fixnum to Integer for Ruby 2.4 happiness</li>
+  <li>Fixed build for all supported Ruby and Rails versions in supported matrix</li>
+</ul>
+
+<h1 id="version-0317---apr292017">Version 0.3.17 - APR.29.2017</h1>
+<ul>
+  <li>Improved compatibility with Rails 5.0</li>
+  <li>Fixed warnings about Fixnums</li>
+  <li>Fixed compatibility with SQLlite</li>
+  <li>Added Ruby 2.3, and 2.4 to the Travis Matrix</li>
+  <li>Removed JRuby 1.7 from the Travis Matrix</li>
+</ul>
+
+<h1 id="version-0316---jan162017">Version 0.3.16 - JAN.16.2017</h1>
+
+<ul>
+  <li>Fix complex custom sql queries with multiple references to the column by vegetaras</li>
+  <li>Improved documentation and compatibility matrix  by Peter Boling</li>
+</ul>
+
+<h1 id="version-0315---oct112015">Version 0.3.15 - OCT.11.2015</h1>
+
+<ul>
+  <li>Fixed testing for all supported environments by Peter Boling</li>
+  <li>Testing on Travis: added Ruby jruby-9.0.1.0 by Peter Boling</li>
+  <li>Documented compatibility matrix in table in README by Peter Boling</li>
+</ul>
+
+<h1 id="version-0314---oct082015">Version 0.3.14 - OCT.08.2015</h1>
+
+<ul>
+  <li>Allow use without ActiveRecord (experimental) by jfcaiceo</li>
+  <li>Many net-zero code cleanups to follow Ruby Style Guide</li>
+  <li>Improved local testing script rake test:all</li>
+  <li>Testing on Travis: added Ruby 1.9.3, 2.1.5, 2.2.3, jruby-1.7.0</li>
+  <li>Testing on Travis: removed Ruby 2.1.2</li>
+</ul>
+
+<h1 id="version-0313---mar132015">Version 0.3.13 - MAR.13.2015</h1>
+
+<ul>
+  <li>
+    <p>methods for use with form builders like simple_form by Peter Boling</p>
+
+    <ul>
+      <li>chained_flags_with_signature</li>
+      <li>chained_#{colmn}_with_signature</li>
+      <li>as_flag_collection</li>
+      <li>as_#{colmn.singularize}_collection</li>
+      <li>selected_flags=</li>
+      <li>selected_#{colmn}= (already existed)</li>
+    </ul>
+  </li>
+  <li>Testing on Travis: added Ruby 2.2.1</li>
+  <li>Testing on Travis: removed Ruby 1.9.2</li>
+</ul>
+
+<h1 id="version-0312---oct012014">Version 0.3.12 - OCT.01.2014</h1>
+
+<ul>
+  <li>Improve testing instructions in readme by Peter Boling</li>
+  <li>fix check_flag_column to return false after warn by Peter Boling</li>
+  <li>bash script for running complete test suite on Ruby 1.9.3 and Ruby 2.1.2 by Peter Boling</li>
+  <li>Improve documentation in readme by trliner</li>
+  <li>use aliases to make attribute reader methods more DRY by trliner</li>
+  <li>add negative attribute reader and writer methods for improved interoperability with simple_form and formtastic by trliner</li>
+  <li>Adds specs for ActiveRecord version 4.1 by Peter Boling</li>
+  <li>Use Kernel#warn instead of puts by Peter Boling</li>
+</ul>
+
+<h1 id="version-0311---jul092014">Version 0.3.11 - JUL.09.2014</h1>
+
+<ul>
+  <li>Rename some ambigously-named methods mixed into AR::Base by jdelStrother</li>
+  <li>Add dynamic “.*_values_for” helpers by atipugin</li>
+</ul>
+
+<h1 id="version-0310---nov262013">Version 0.3.10 - NOV.26.2013</h1>
+
+<ul>
+  <li>Can run tests without coverage by specifying NOCOVER=true by Peter Boling</li>
+  <li>Improved test coverage by Peter Boling</li>
+  <li>Improved documentation by Peter Boling</li>
+  <li>Readme converted to Markdown by Peter Boling</li>
+</ul>
+
+<h1 id="version-039---nov252013">Version 0.3.9 - NOV.25.2013</h1>
+
+<ul>
+  <li>Removed runtime dependency on active record and active support by Peter Boling</li>
+  <li>Fixed Coveralls Configuration by Peter Boling</li>
+  <li>Improved Readme by Peter Boling</li>
+</ul>
+
+<h1 id="version-038---nov242013">Version 0.3.8 - NOV.24.2013</h1>
+
+<ul>
+  <li>Improved Readme / Documentation by Peter Boling</li>
+  <li>Added Badges by Peter Boling</li>
+  <li>Configured Coveralls by Peter Boling</li>
+  <li>Added Code Climate, Coveralls, Gemnasium, and Version Badges by Peter Boling</li>
+</ul>
+
+<h1 id="version-037---oct252013">Version 0.3.7 - OCT.25.2013</h1>
+
+<ul>
+  <li>Change <code>sql_in_for_flag</code> to consider values from the range [0, 2 * max - 1] by Blake Thomson</li>
+</ul>
+
+<h1 id="version-036---aug292013">Version 0.3.6 - AUG.29.2013</h1>
+
+<ul>
+  <li>Allow use with any gem manager by Peter Boling</li>
+  <li>No need to alter Ruby’s load path by Peter Boling</li>
+</ul>
+
+<h1 id="version-035---aug062013">Version 0.3.5 - AUG.06.2013</h1>
+
+<ul>
+  <li>Fix Travis Build &amp; Add Rails 4 by Peter M. Goldstein</li>
+  <li>Implemented update_flag! by Peter Boling (see https://github.com/pboling/flag_shih_tzu/issues/27)
+    <ul>
+      <li>sets a flag on a record without triggering callbacks or validations</li>
+      <li>optionally syncs the instance with new flag value, by default it does not.</li>
+    </ul>
+  </li>
+  <li>Update gemspec by Peter Boling</li>
+</ul>
+
+<h1 id="version-034---jun202013">Version 0.3.4 - JUN.20.2013</h1>
+
+<ul>
+  <li>Allow non sequential flag numbers by Thomas Jachmann</li>
+  <li>Report correct source location for class_evaled methods. by Sebastian Korfmann</li>
+  <li>Implemented chained_flags_with, which allows optimizing the bit search by Tatsuhiko Miyagawa</li>
+  <li>[bugfix] flag_options[colmn][:column] is symbol, it causes error undefined method `length’ for nil:NilClass by Artem Pisarev</li>
+  <li>Validator raises an error if the validated column is not a flags column. by David DIDIER</li>
+  <li>Allow multiple include by Peter Goldstein</li>
+  <li>fix a deprecation warning in rails4 by Mose</li>
+  <li>Add flag_keys convenience method. by Keith Pitty</li>
+  <li>[bugfix] Column names provided as symbols fully work now, as they are converted to strings by Peter Boling</li>
+  <li>[bugfix issues/28] Since 0.3.0 flags no longer work in a class using an alternative database connection by Peter Boling</li>
+  <li>[bugfix issues/7] Breaks db:create rake task by Peter Boling</li>
+  <li>convenience methods now have default parameter so <code>all_flags</code> works with arity 0. by Peter Boling</li>
+  <li>Many more tests, including arity tests by Peter Boling</li>
+</ul>
+
+<h1 id="version-033---jun202013">Version 0.3.3 - JUN.20.2013</h1>
+
+<ul>
+  <li>Does not exist.</li>
+</ul>
+
+<h1 id="version-032---nov062012">Version 0.3.2 - NOV.06.2012</h1>
+
+<ul>
+  <li>Adds skip column check option :check_for_column - from arturaz</li>
+  <li>Adds a ‘smart’ set_flag_sql method which will auto determine the correct column for the given flag - from arturaz</li>
+  <li>Changes the behavior of sql_set_for_flag to not use table names in the generated SQL
+    <ul>
+      <li>because it didn’t actually work before</li>
+      <li>Now there is a test ensuring that the generated SQL can be executed by a real DB</li>
+      <li>This improved sql_set_for_flag underlies the public set_flag_sql method</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="version-031---nov062012">Version 0.3.1 - NOV.06.2012</h1>
+
+<ul>
+  <li>Adds new methods (for a flag column named ‘bar’, with many individual flags within) - from ddidier
+    <ul>
+      <li>all_bar, selected_bar, select_all_bar, unselect_all_bar, selected_bar=(selected_flags), has_bar?</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="version-030---nov052012---first-version-maintained-by-peter-boling">Version 0.3.0 - NOV.05.2012 - first version maintained by Peter Boling</h1>
+
+<ul>
+  <li>ClassWithHasFlags.set_#{flag_name}_sql # Returns the sql string for setting a flag for use in customized SQL</li>
+  <li>ClassWithHasFlags.unset_#{flag_name}_sql # Returns the sql string for unsetting a flag for use in customized SQL</li>
+  <li>ClassWithHasFlags.flag_columns # Returns the column_names used by FlagShihTzu as bit fields</li>
+  <li>has_flags :strict =&gt; true # DuplicateFlagColumnException raised when a single DB column is declared as a flag column twice</li>
+  <li>Less verbosity for expected conditions when the DB connection for the class is unavailable.</li>
+  <li>Tests for additional features, but does not change any behavior of 0.2.3 / 0.2.4 by default.</li>
+  <li>Easily migrate from 0.2.3 and 0.2.4. Goal is no code changes required. Minor version bump to encourage caution.</li>
+</ul>
+
+<h1 id="version-024---nov052012---released-last-few-changes-from-xing-master">Version 0.2.4 - NOV.05.2012 - released last few changes from XING master</h1>
+
+<ul>
+  <li>Fix deprecation warning for set_table_name</li>
+  <li>Optional bang methods</li>
+  <li>Complete Ruby 1.9(.[^1]) and Rails 3.2.X compatibility</li>
+</ul>
+
+<h1 id="version-023---last-version-maintained-by-xing-ag">Version 0.2.3 - last version maintained by XING AG</h1>
+</div></div>
+
+      <div id="footer">
+  Generated on Tue May 26 03:36:24 2026 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.44 (ruby-4.0.5).
+</div>
+
+    </div>
+  </body>
+</html>

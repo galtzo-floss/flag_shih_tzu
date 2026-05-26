@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.44
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css" type="text/css">
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'><p><a href="https://discord.gg/3qme4XHNKN"><img src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg" alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0"></a> <a href="https://www.ruby-lang.org/"><img src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg" alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu"><img src="https://logos.galtzo.com/assets/images/galtzo-floss/flag_shih_tzu/avatar-192px.svg" alt="flag_shih_tzu Logo by Aboling0, CC BY-SA 4.0"></a></p>
+
+<h1 id="-flagshihtzu">🏁 FlagShihTzu</h1>
+
+<p><a href="https://bestgems.org/gems/flag_shih_tzu"><img src="https://img.shields.io/gem/v/flag_shih_tzu.svg" alt="Version"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/releases"><img src="https://img.shields.io/github/tag/galtzo-floss/flag_shih_tzu.svg" alt="GitHub tag (latest SemVer)"></a> <a href="LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-259D6C.svg" alt="License: MIT"></a> <a href="https://bestgems.org/gems/flag_shih_tzu"><img src="https://img.shields.io/gem/rd/flag_shih_tzu.svg" alt="Downloads Rank"></a> <a href="https://codecov.io/gh/galtzo-floss/flag_shih_tzu"><img src="https://codecov.io/gh/galtzo-floss/flag_shih_tzu/graph/badge.svg" alt="CodeCov Test Coverage"></a> <a href="https://coveralls.io/github/galtzo-floss/flag_shih_tzu?branch=main"><img src="https://coveralls.io/repos/github/galtzo-floss/flag_shih_tzu/badge.svg?branch=main" alt="Coveralls Test Coverage"></a> <a href="https://qlty.sh/gh/galtzo-floss/projects/flag_shih_tzu/metrics/code?sort=coverageRating"><img src="https://qlty.sh/gh/galtzo-floss/projects/flag_shih_tzu/coverage.svg" alt="QLTY Test Coverage"></a> <a href="https://qlty.sh/gh/galtzo-floss/projects/flag_shih_tzu"><img src="https://qlty.sh/gh/galtzo-floss/projects/flag_shih_tzu/maintainability.svg" alt="QLTY Maintainability"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/heads.yml"><img src="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/heads.yml/badge.svg" alt="CI Heads"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/dep-heads.yml"><img src="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/dep-heads.yml/badge.svg" alt="CI Runtime Dependencies @ HEAD"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/current.yml"><img src="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/current.yml/badge.svg" alt="CI Current"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/truffle.yml"><img src="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/truffle.yml/badge.svg" alt="CI Truffle Ruby"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/jruby.yml"><img src="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/jruby.yml/badge.svg" alt="CI JRuby"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/locked_deps.yml"><img src="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/locked_deps.yml/badge.svg" alt="Deps Locked"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/unlocked_deps.yml"><img src="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/unlocked_deps.yml/badge.svg" alt="Deps Unlocked"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/coverage.yml"><img src="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/coverage.yml/badge.svg" alt="CI Test Coverage"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/style.yml"><img src="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/style.yml/badge.svg" alt="CI Style"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/license-eye.yml"><img src="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/license-eye.yml/badge.svg" alt="Apache SkyWalking Eyes License Compatibility Check"></a> <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fpboling%2Fflag_shih_tzu?ref=badge_shield"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpboling%2Fflag_shih_tzu.svg?type=shield" alt="FOSSA Status"></a></p>
+
+<p><code>if ci_badges.map(&amp;:color).detect { it != "green"}</code> ☝️ <a href="https://discord.gg/3qme4XHNKN">let me know</a>, as I may have missed the <a href="https://discord.gg/3qme4XHNKN">discord notification</a>.</p>
+
+<hr>
+
+<p><code>if ci_badges.map(&amp;:color).all? { it == "green"}</code> 👇️ send money so I can do more of this. FLOSS maintenance is now my full-time job.</p>
+
+<p><a href="https://opencollective.com/galtzo-floss#backer"><img src="https://opencollective.com/galtzo-floss/backers/badge.svg?style=flat" alt="OpenCollective Backers"></a> <a href="https://opencollective.com/galtzo-floss#sponsor"><img src="https://opencollective.com/galtzo-floss/sponsors/badge.svg?style=flat" alt="OpenCollective Sponsors"></a> <a href="https://github.com/sponsors/pboling"><img src="https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&amp;logo=github" alt="Sponsor Me on Github"></a> <a href="https://liberapay.com/pboling/donate"><img src="https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay&amp;color=a51611&amp;style=flat" alt="Liberapay Goal Progress"></a> <a href="https://www.paypal.com/paypalme/peterboling"><img src="https://img.shields.io/badge/donate-paypal-a51611.svg?style=flat&amp;logo=paypal" alt="Donate on PayPal"></a> <a href="https://www.buymeacoffee.com/pboling"><img src="https://img.shields.io/badge/buy_me_a_coffee-%E2%9C%93-a51611.svg?style=flat" alt="Buy me a coffee"></a> <a href="https://polar.sh/pboling"><img src="https://img.shields.io/badge/polar-donate-a51611.svg?style=flat" alt="Donate on Polar"></a> <a href="https://ko-fi.com/pboling"><img src="https://img.shields.io/badge/ko--fi-%E2%9C%93-a51611.svg?style=flat" alt="Donate at ko-fi.com"></a></p>
+
+<details>
+ <summary>👣 How will this project approach the September 2025 hostile takeover of RubyGems? 🚑️</summary>
+
+I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-takeover-of-rubygems-my-thoughts-5hlo).
+
+</details>
+
+<h2 id="-synopsis">🌻 Synopsis</h2>
+
+<p>An extension for <a href="https://rubygems.org/gems/activerecord">ActiveRecord</a><br>
+to store a collection of boolean attributes in a single integer column<br>
+as a [bit field][bit_field].</p>
+
+<p>This gem lets you use a single integer column in an ActiveRecord model<br>
+to store a collection of boolean attributes (flags). Each flag can be used<br>
+almost in the same way you would use any boolean attribute on an<br>
+ActiveRecord object.</p>
+
+<p>The benefits:</p>
+
+<ul>
+  <li>No schema migrations needed for new boolean attributes. This helps a lot<br>
+if you have very large db-tables, on which you want to avoid <code>ALTER TABLE</code><br>
+whenever possible. Data migrations that set newly added flags still need<br>
+deploy-safe query behavior, described below.</li>
+  <li>Only the one integer column needs to be indexed.</li>
+  <li>[Bitwise Operations][bitwise_operation] are fast!</li>
+</ul>
+
+<p>Using FlagShihTzu, you can add new boolean attributes whenever you want,<br>
+without needing any migration. Just add a new flag to the <code>has_flags</code> call.</p>
+
+<p>What is a <a href="http://en.wikipedia.org/wiki/Shih_Tzu">“Shih Tzu”</a>?</p>
+
+<h2 id="-info-you-can-shake-a-stick-at">💡 Info you can shake a stick at</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tokens to Remember</th>
+      <th>
+<a href="https://bestgems.org/gems/flag_shih_tzu"><img src="https://img.shields.io/badge/name-flag__shih__tzu-3C2D2D.svg?style=square&amp;logo=rubygems&amp;logoColor=red" alt="Gem name"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu"><img src="https://img.shields.io/badge/namespace-FlagShihTzu-3C2D2D.svg?style=square&amp;logo=ruby&amp;logoColor=white" alt="Gem namespace"></a>
+</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Works with JRuby</td>
+      <td>
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/jruby-9.2.yml"><img src="https://img.shields.io/badge/JRuby-9.2-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=red" alt="JRuby 9.2 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/jruby-9.3.yml"><img src="https://img.shields.io/badge/JRuby-9.3-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=red" alt="JRuby 9.3 Compat"></a> <br> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/jruby-9.4.yml"><img src="https://img.shields.io/badge/JRuby-9.4-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=red" alt="JRuby 9.4 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/jruby.yml"><img src="https://img.shields.io/badge/JRuby-current-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=green" alt="JRuby current Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/heads.yml"><img src="https://img.shields.io/badge/JRuby-HEAD-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=blue" alt="JRuby HEAD Compat"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Works with Truffle Ruby</td>
+      <td>
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/truffleruby-22.3.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-22.3-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 22.3 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/truffleruby-23.0.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-23.0-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 23.0 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/truffleruby-23.1.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-23.1-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 23.1 Compat"></a> <br> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/truffleruby-24.2.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-24.2-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 24.2 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/truffleruby-25.0.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-25.0-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 25.0 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/truffle.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-current-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=green" alt="Truffle Ruby current Compat"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Works with MRI Ruby 4</td>
+      <td>
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/current.yml"><img src="https://img.shields.io/badge/Ruby-4.0-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 4.0 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/current.yml"><img src="https://img.shields.io/badge/Ruby-current-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=green" alt="Ruby current Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/heads.yml"><img src="https://img.shields.io/badge/Ruby-HEAD-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=blue" alt="Ruby HEAD Compat"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Works with MRI Ruby 3</td>
+      <td>
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-3.0.yml"><img src="https://img.shields.io/badge/Ruby-3.0-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 3.0 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-3.1.yml"><img src="https://img.shields.io/badge/Ruby-3.1-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 3.1 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-3.2.yml"><img src="https://img.shields.io/badge/Ruby-3.2-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 3.2 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-3.3.yml"><img src="https://img.shields.io/badge/Ruby-3.3-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 3.3 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-3.4.yml"><img src="https://img.shields.io/badge/Ruby-3.4-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 3.4 Compat"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Works with MRI Ruby 2</td>
+      <td>
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-2.4.yml"><img src="https://img.shields.io/badge/Ruby-2.4-DF00CA?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 2.4 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-2.5.yml"><img src="https://img.shields.io/badge/Ruby-2.5-DF00CA?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 2.5 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-2.6.yml"><img src="https://img.shields.io/badge/Ruby-2.6-DF00CA?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 2.6 Compat"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/actions/workflows/ruby-2.7.yml"><img src="https://img.shields.io/badge/Ruby-2.7-DF00CA?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 2.7 Compat"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Support &amp; Community</td>
+      <td>
+<a href="https://app.daily.dev/squads/rubyfriends"><img src="https://img.shields.io/badge/daily.dev-%F0%9F%92%8E_Ruby_Friends-0A0A0A?style=for-the-badge&amp;logo=dailydotdev&amp;logoColor=white" alt="Join Me on Daily.dev's RubyFriends"></a> <a href="https://discord.gg/3qme4XHNKN"><img src="https://img.shields.io/discord/1373797679469170758?style=for-the-badge&amp;logo=discord" alt="Live Chat on Discord"></a> <a href="https://www.upwork.com/freelancers/~014942e9b056abdf86?mp_source=share"><img src="https://img.shields.io/badge/UpWork-13544E?style=for-the-badge&amp;logo=Upwork&amp;logoColor=white" alt="Get help from me on Upwork"></a> <a href="https://www.codementor.io/peterboling?utm_source=github&amp;utm_medium=button&amp;utm_term=peterboling&amp;utm_campaign=github"><img src="https://img.shields.io/badge/CodeMentor-Get_Help-1abc9c?style=for-the-badge&amp;logo=CodeMentor&amp;logoColor=white" alt="Get help from me on Codementor"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Source</td>
+      <td>
+<a href="https://gitlab.com/galtzo-floss/flag_shih_tzu"><img src="https://img.shields.io/badge/GitLab-FBA326?style=for-the-badge&amp;logo=Gitlab&amp;logoColor=orange" alt="Source on GitLab.com"></a> <a href="https://codeberg.org/galtzo-floss/flag_shih_tzu"><img src="https://img.shields.io/badge/CodeBerg-4893CC?style=for-the-badge&amp;logo=CodeBerg&amp;logoColor=blue" alt="Source on CodeBerg.org"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu"><img src="https://img.shields.io/badge/GitHub-238636?style=for-the-badge&amp;logo=Github&amp;logoColor=green" alt="Source on Github.com"></a> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://img.shields.io/badge/KLOC-5.053-FFDD67.svg?style=for-the-badge&amp;logo=YouTube&amp;logoColor=blue" alt="The best SHA: dQw4w9WgXcQ!"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Documentation</td>
+      <td>
+<a href="http://rubydoc.info/gems/flag_shih_tzu"><img src="https://img.shields.io/badge/RubyDoc-Current_Release-943CD2?style=for-the-badge&amp;logo=readthedocs&amp;logoColor=white" alt="Current release on RubyDoc.info"></a> <a href="https://flag-shih-tzu.galtzo.com"><img src="https://img.shields.io/badge/YARD_on_Galtzo.com-HEAD-943CD2?style=for-the-badge&amp;logo=readthedocs&amp;logoColor=white" alt="YARD on Galtzo.com"></a> <a href="http://www.railsbling.com/tags/flag_shih_tzu"><img src="https://img.shields.io/badge/blog-railsbling-0093D0.svg?style=for-the-badge&amp;logo=rubyonrails&amp;logoColor=orange" alt="Maintainer Blog"></a> <a href="https://gitlab.com/galtzo-floss/flag_shih_tzu/-/wikis/home"><img src="https://img.shields.io/badge/wiki-gitlab-943CD2.svg?style=for-the-badge&amp;logo=gitlab&amp;logoColor=white" alt="GitLab Wiki"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/wiki"><img src="https://img.shields.io/badge/wiki-github-943CD2.svg?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="GitHub Wiki"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Compliance</td>
+      <td>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-259D6C.svg" alt="License: MIT"></a> <a href="https://www.apache.org/legal/resolved.html#category-a"><img src="https://img.shields.io/badge/Apache_Compatible:_Category_A-%E2%9C%93-259D6C.svg?style=flat&amp;logo=Apache" alt="Apache license compatibility: Category A"></a> <a href="https://www.ilo.org/declaration/lang--en/index.htm"><img src="https://img.shields.io/badge/ILO_Fundamental_Principles-%E2%9C%93-259D6C.svg?style=flat" alt="📄ilo-declaration-img"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/blob/main/SECURITY.md"><img src="https://img.shields.io/badge/security-policy-259D6C.svg?style=flat" alt="Security Policy"></a> <a href="https://github.com/galtzo-floss/flag_shih_tzu/blob/main/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor_Covenant-2.1-259D6C.svg" alt="Contributor Covenant 2.1"></a> <a href="https://semver.org/spec/v2.0.0.html"><img src="https://img.shields.io/badge/semver-2.0.0-259D6C.svg?style=flat" alt="SemVer 2.0.0"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Style</td>
+      <td>
+<a href="https://github.com/rubocop-lts/rubocop-lts"><img src="https://img.shields.io/badge/code_style_&amp;_linting-rubocop--lts-34495e.svg?plastic&amp;logo=ruby&amp;logoColor=white" alt="Enforced Code Style Linter"></a> <a href="https://keepachangelog.com/en/1.0.0/"><img src="https://img.shields.io/badge/keep--a--changelog-1.0.0-34495e.svg?style=flat" alt="Keep-A-Changelog 1.0.0"></a> <a href="https://gitmoji.dev"><img src="https://img.shields.io/badge/gitmoji_commits-%20%F0%9F%98%9C%20%F0%9F%98%8D-34495e.svg?style=flat-square" alt="Gitmoji Commits"></a> <a href="https://github.com/appraisal-rb/appraisal2"><img src="https://img.shields.io/badge/appraised_by-appraisal2-34495e.svg?plastic&amp;logo=ruby&amp;logoColor=white" alt="Compatibility appraised by: appraisal2"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Maintainer 🎖️</td>
+      <td>
+<a href="http://www.linkedin.com/in/peterboling"><img src="https://img.shields.io/badge/LinkedIn-Profile-0B66C2?style=flat&amp;logo=newjapanprowrestling" alt="Follow Me on LinkedIn"></a> <a href="https://ruby.social/@galtzo"><img src="https://img.shields.io/mastodon/follow/109447111526622197?domain=https://ruby.social&amp;style=flat&amp;logo=mastodon&amp;label=Ruby%20@galtzo" alt="Follow Me on Ruby.Social"></a> <a href="https://bsky.app/profile/galtzo.com"><img src="https://img.shields.io/badge/@galtzo.com-0285FF?style=flat&amp;logo=bluesky&amp;logoColor=white" alt="Follow Me on Bluesky"></a> <a href="http://www.railsbling.com/contact"><img src="https://img.shields.io/badge/Contact-Maintainer-0093D0.svg?style=flat&amp;logo=rubyonrails&amp;logoColor=red" alt="Contact Maintainer"></a> <a href="https://dev.to/galtzo"><img src="https://img.shields.io/badge/dev.to-0A0A0A?style=flat&amp;logo=devdotto&amp;logoColor=white" alt="My technical writing"></a>
+</td>
+    </tr>
+    <tr>
+      <td>
+<code>...</code> 💖</td>
+      <td>
+<a href="https://wellfound.com/u/peter-boling"><img src="https://img.shields.io/badge/peter--boling-orange?style=flat&amp;logo=wellfound" alt="Find Me on WellFound:"></a> <a href="https://www.crunchbase.com/person/peter-boling"><img src="https://img.shields.io/badge/peter--boling-purple?style=flat&amp;logo=crunchbase" alt="Find Me on CrunchBase"></a> <a href="https://linktr.ee/galtzo"><img src="https://img.shields.io/badge/galtzo-purple?style=flat&amp;logo=linktree" alt="My LinkTree"></a> <a href="https://about.me/peter.boling"><img src="https://img.shields.io/badge/about.me-0A0A0A?style=flat&amp;logo=aboutme&amp;logoColor=white" alt="More About Me"></a> <a href="https://codeberg.org/pboling">🧊</a> <a href="https://github.org/pboling">🐙</a> <a href="https://sr.ht/~galtzo/">🛖</a> <a href="https://gitlab.com/pboling">🧪</a>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="compatibility">Compatibility</h3>
+
+<p>Compatible with MRI Ruby 2.4+, and concordant releases of JRuby, and TruffleRuby.<br>
+CI workflows and Appraisals are generated for MRI Ruby 2.4+.<br>
+This test floor is configured by <code>ruby.test_minimum</code> in <code>.kettle-jem.yml</code> and<br>
+may be higher than the gem’s runtime compatibility floor when legacy Rubies are<br>
+not practical for the current toolchain.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>🚚 <em>Amazing</em> test matrix was brought to you by</th>
+      <th>🔎 appraisal2 🔎 and the color 💚 green 💚</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>👟 Check it out!</td>
+      <td>✨ <a href="https://github.com/appraisal-rb/appraisal2">github.com/appraisal-rb/appraisal2</a> ✨</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="federated-dvcs">Federated DVCS</h3>
+
+<details>
+  <summary>Find this repo on federated forges (Coming soon!)</summary>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Federated <a href="https://railsbling.com/posts/dvcs/put_the_d_in_dvcs/">DVCS</a> Repository</th>
+        <th>Status</th>
+        <th>Issues</th>
+        <th>PRs</th>
+        <th>Wiki</th>
+        <th>CI</th>
+        <th>Discussions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🧪 <a href="https://gitlab.com/galtzo-floss/flag_shih_tzu">galtzo-floss/flag_shih_tzu on GitLab</a>
+</td>
+        <td>The Truth</td>
+        <td><a href="https://gitlab.com/galtzo-floss/flag_shih_tzu/-/issues">💚</a></td>
+        <td><a href="https://gitlab.com/galtzo-floss/flag_shih_tzu/-/merge_requests">💚</a></td>
+        <td><a href="https://gitlab.com/galtzo-floss/flag_shih_tzu/-/wikis/home">💚</a></td>
+        <td>🐭 Tiny Matrix</td>
+        <td>➖</td>
+      </tr>
+      <tr>
+        <td>🧊 <a href="https://codeberg.org/galtzo-floss/flag_shih_tzu">galtzo-floss/flag_shih_tzu on CodeBerg</a>
+</td>
+        <td>An Ethical Mirror (<a href="https://donate.codeberg.org/">Donate</a>)</td>
+        <td><a href="https://codeberg.org/galtzo-floss/flag_shih_tzu/issues">💚</a></td>
+        <td><a href="https://codeberg.org/galtzo-floss/flag_shih_tzu/pulls">💚</a></td>
+        <td>➖</td>
+        <td>⭕️ No Matrix</td>
+        <td>➖</td>
+      </tr>
+      <tr>
+        <td>🐙 <a href="https://github.com/galtzo-floss/flag_shih_tzu">galtzo-floss/flag_shih_tzu on GitHub</a>
+</td>
+        <td>Another Mirror</td>
+        <td><a href="https://github.com/galtzo-floss/flag_shih_tzu/issues">💚</a></td>
+        <td><a href="https://github.com/galtzo-floss/flag_shih_tzu/pulls">💚</a></td>
+        <td><a href="https://github.com/galtzo-floss/flag_shih_tzu/wiki">💚</a></td>
+        <td>💯 Full Matrix</td>
+        <td><a href="https://github.com/galtzo-floss/flag_shih_tzu/discussions">💚</a></td>
+      </tr>
+      <tr>
+        <td>🎮️ <a href="https://discord.gg/3qme4XHNKN">Discord Server</a>
+</td>
+        <td><a href="https://discord.gg/3qme4XHNKN"><img src="https://img.shields.io/discord/1373797679469170758?style=for-the-badge&amp;logo=discord" alt="Live Chat on Discord"></a></td>
+        <td><a href="https://discord.gg/3qme4XHNKN">Let’s</a></td>
+        <td><a href="https://discord.gg/3qme4XHNKN">talk</a></td>
+        <td><a href="https://discord.gg/3qme4XHNKN">about</a></td>
+        <td><a href="https://discord.gg/3qme4XHNKN">this</a></td>
+        <td><a href="https://discord.gg/3qme4XHNKN">library!</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</details>
+
+<h3 id="enterprise-support-">Enterprise Support <a href="https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&amp;utm_medium=referral&amp;utm_campaign=readme"><img src="https://tidelift.com/badges/package/rubygems/flag_shih_tzu" alt="Tidelift"></a>
+</h3>
+
+<p>Available as part of the Tidelift Subscription.</p>
+
+<details>
+  <summary>Need enterprise-level guarantees?</summary>
+
+  <p>The maintainers of this and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source packages you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact packages you use.</p>
+
+  <p><a href="https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&amp;utm_medium=referral&amp;utm_campaign=readme"><img src="https://img.shields.io/badge/Tidelift_and_Sonar-Enterprise_Support-FD3456?style=for-the-badge&amp;logo=sonar&amp;logoColor=white" alt="Get help from me on Tidelift"></a></p>
+
+  <ul>
+    <li>💡Subscribe for support guarantees covering <em>all</em> your FLOSS dependencies</li>
+    <li>💡Tidelift is part of <a href="https://blog.tidelift.com/tidelift-joins-sonar">Sonar</a>
+</li>
+    <li>💡Tidelift pays maintainers to maintain the software you depend on!<br>📊<code>@</code>Pointy Haired Boss: An <a href="https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&amp;utm_medium=referral&amp;utm_campaign=readme">enterprise support</a> subscription is “<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">never gonna let you down</a>”, and <em>supports</em> open source maintainers</li>
+  </ul>
+
+  <p>Alternatively:</p>
+
+  <ul>
+    <li><a href="https://discord.gg/3qme4XHNKN"><img src="https://img.shields.io/discord/1373797679469170758?style=for-the-badge&amp;logo=discord" alt="Live Chat on Discord"></a></li>
+    <li><a href="https://www.upwork.com/freelancers/~014942e9b056abdf86?mp_source=share"><img src="https://img.shields.io/badge/UpWork-13544E?style=for-the-badge&amp;logo=Upwork&amp;logoColor=white" alt="Get help from me on Upwork"></a></li>
+    <li><a href="https://www.codementor.io/peterboling?utm_source=github&amp;utm_medium=button&amp;utm_term=peterboling&amp;utm_campaign=github"><img src="https://img.shields.io/badge/CodeMentor-Get_Help-1abc9c?style=for-the-badge&amp;logo=CodeMentor&amp;logoColor=white" alt="Get help from me on Codementor"></a></li>
+  </ul>
+
+</details>
+
+<h2 id="-installation">✨ Installation</h2>
+
+<p>Install the gem and add to the application’s Gemfile by executing:</p>
+
+<pre class="code language-console"><code class="language-console">bundle add flag_shih_tzu
+</code></pre>
+
+<p>If bundler is not being used to manage dependencies, install the gem by executing:</p>
+
+<pre class="code language-console"><code class="language-console">gem install flag_shih_tzu
+</code></pre>
+
+<h2 id="️-configuration">⚙️ Configuration</h2>
+
+<h2 id="-basic-usage">🔧 Basic Usage</h2>
+
+<p>FlagShihTzu assumes that your ActiveRecord model already has an [integer field][bit_field]<br>
+to store the flags, which should be defined to not allow <code>NULL</code> values and<br>
+should have a default value of <code>0</code>.</p>
+
+<h3 id="defaults-important">Defaults (Important)</h3>
+
+<ul>
+  <li>Due to the default of <code>0</code>, <em>all flags</em> are initially set to “false”).</li>
+  <li>For a default of true it will probably be easier in the long run to negate the flag’s meaning / name.<br>
+** Such as <code>switched_on</code> =&gt; <code>switched_off</code>
+</li>
+  <li>If you <strong>really</strong> want a different, non-zero, default value for a flag column, proceed <em>adroitly</em> with a different sql default for the flag column.</li>
+</ul>
+
+<h3 id="database-migration">Database Migration</h3>
+
+<p>I like to document the intent of the <code>flags</code> column in the migration when I can…</p>
+
+<pre class="code language-ruby"><code class="language-ruby">change_table :spaceships do |t|
+  t.integer(:flags, null: false, default: 0) # flag_shih_tzu-managed bit field
+  # Effective booleans which will be stored on the flags column:
+  # t.boolean      :warpdrive
+  # t.boolean      :shields
+  # t.boolean      :electrolytes
+end
+</code></pre>
+
+<h3 id="adding-to-the-model">Adding to the Model</h3>
+
+<pre class="code language-ruby"><code class="language-ruby">class Spaceship &lt; ActiveRecord::Base
+  include FlagShihTzu
+
+  has_flags 1 =&gt; :warpdrive,
+    2 =&gt; :shields,
+    3 =&gt; :electrolytes
+end
+</code></pre>
+
+<p><code>has_flags</code> takes a hash. The keys must be positive integers and represent<br>
+the position of the bit being used to enable or disable the flag.<br>
+<strong>The keys must not be changed once in use, or you will get incorrect results.</strong><br>
+That is why the plugin forces you to set them explicitly.<br>
+The values are symbols for the flags being created.</p>
+
+<p>If a flag name conflicts with an existing instance method, <code>has_flags</code> raises<br>
+an error by default. To intentionally replace the existing method with<br>
+FlagShihTzu’s generated flag methods, pass <code>:allow_overwrite =&gt; true</code>:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags 1 =&gt; :warpdrive,
+  :allow_overwrite =&gt; true
+</code></pre>
+
+<h3 id="bit-fields-how-it-stores-the-values">Bit Fields: How it stores the values</h3>
+
+<p>As said, FlagShihTzu uses a single integer column to store the values for all<br>
+the defined flags as a [bit field][bitfield].</p>
+
+<p>The bit position of a flag corresponds to the given key.</p>
+
+<p>This way, we can use [bitwise operators][bit_operation] on the stored integer value to set, unset<br>
+and check individual flags.</p>
+
+<pre class="code ruby"><code class="ruby">              `---+---+---+                +---+---+---`
+              |   |   |   |                |   |   |   |
+Bit position  | 3 | 2 | 1 |                | 3 | 2 | 1 |
+(flag key)    |   |   |   |                |   |   |   |
+              `---+---+---+                +---+---+---`
+              |   |   |   |                |   |   |   |
+Bit value     | 4 | 2 | 1 |                | 4 | 2 | 1 |
+              |   |   |   |                |   |   |   |
+              `---+---+---+                +---+---+---`
+              | e | s | w |                | e | s | w |
+              | l | h | a |                | l | h | a |
+              | e | i | r |                | e | i | r |
+              | c | e | p |                | c | e | p |
+              | t | l | d |                | t | l | d |
+              | r | d | r |                | r | d | r |
+              | o | s | i |                | o | s | i |
+              | l |   | v |                | l |   | v |
+              | y |   | e |                | y |   | e |
+              | t |   |   |                | t |   |   |
+              | e |   |   |                | e |   |   |
+              | s |   |   |                | s |   |   |
+              `---+---+---+                +---+---+---`
+              | 1 | 1 | 0 | = 4 ` 2 = 6    | 1 | 0 | 1 | = 4 ` 1 = 5
+              `---+---+---+                +---+---+---`
+</code></pre>
+
+<p>Read more about [bit fields][bit_field] here: http://en.wikipedia.org/wiki/Bit_field</p>
+
+<h3 id="flag-value-modes-and-custom-encoders">Flag value modes and custom encoders</h3>
+
+<p>By default, each flag uses boolean mode. This keeps the historical one-bit<br>
+storage format unchanged:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags 1 =&gt; :warpdrive,
+  2 =&gt; :shields
+</code></pre>
+
+<p>This is equivalent to:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags(
+  {1 =&gt; :warpdrive, 2 =&gt; :shields},
+  value_mode: :boolean,
+)
+</code></pre>
+
+<p>For flags that need <code>true</code>, <code>false</code>, and <code>nil</code>, use tri-state mode:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags(
+  {1 =&gt; :warpdrive, 2 =&gt; :shields},
+  value_mode: :tri_state,
+)
+</code></pre>
+
+<p>With <code>value_mode: :tri_state</code>, each flag is encoded in its own two-bit slot. A<br>
+flag can be enabled, disabled, or cleared to <code>nil</code>:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">enterprise.warpdrive = true
+enterprise.shields = nil
+
+enterprise.warpdrive      # true
+enterprise.shields        # nil
+enterprise.shields_nil?   # true
+</code></pre>
+
+<p>Generated SQL helpers also understand the nil state:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.warpdrive_condition      # flags &amp; 3 = 1
+Spaceship.not_warpdrive_condition  # flags &amp; 3 = 0
+Spaceship.warpdrive_nil_condition  # flags &amp; 3 = 3
+Spaceship.clear_warpdrive_sql      # clears the two-bit slot to nil
+</code></pre>
+
+<p>Changing an existing flag column from one-bit boolean storage to two-bit<br>
+tri-state storage changes the meaning of stored integers. Treat that as a data<br>
+migration, not a model-only change.</p>
+
+<p>Applications with specialized storage needs can provide a custom encoder:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags(
+  {1 =&gt; :warpdrive},
+  bit_width: 2,
+  encoder: MyFlagEncoder,
+)
+</code></pre>
+
+<p>The built-in value modes cover boolean one-bit storage and tri-state two-bit<br>
+storage. You can still pass <code>bit_width: 1</code> or <code>bit_width: 2</code> directly, but<br>
+<code>value_mode: :boolean</code> and <code>value_mode: :tri_state</code> are the preferred public<br>
+API. If you set <code>bit_width: 3</code> or higher, you must provide an encoder so<br>
+FlagShihTzu does not guess what the extra states mean.</p>
+
+<h3 id="using-a-custom-column-name">Using a custom column name</h3>
+
+<p>The default column name to store the flags is <code>flags</code>, but you can provide a<br>
+custom column name using the <code>:column</code> option. This allows you to use<br>
+different columns for separate flags:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags 1 =&gt; :warpdrive,
+  2 =&gt; :shields,
+  3 =&gt; :electrolytes,
+  :column =&gt; &quot;features&quot;
+
+has_flags 1 =&gt; :spock,
+  2 =&gt; :scott,
+  3 =&gt; :kirk,
+  :column =&gt; &quot;crew&quot;
+</code></pre>
+
+<h3 id="generated-boolean-patterned-instance-methods">Generated boolean patterned instance methods</h3>
+
+<p>Calling <code>has_flags</code>, as shown above on the ‘features’ column, creates the following instance methods<br>
+on Spaceship:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Spaceship</span><span class='comment'>#all_features # [:warpdrive, :shields, :electrolytes]
+</span><span class='const'>Spaceship</span><span class='comment'>#selected_features
+</span><span class='const'>Spaceship</span><span class='comment'>#select_all_features
+</span><span class='const'>Spaceship</span><span class='comment'>#unselect_all_features
+</span><span class='const'>Spaceship</span><span class='comment'>#selected_features=
+</span><span class='const'>Spaceship</span><span class='comment'>#features_as_attributes
+</span>
+<span class='const'>Spaceship</span><span class='comment'>#warpdrive
+</span><span class='const'>Spaceship</span><span class='comment'>#warpdrive?
+</span><span class='const'>Spaceship</span><span class='comment'>#warpdrive=
+</span><span class='const'>Spaceship</span><span class='comment'>#not_warpdrive
+</span><span class='const'>Spaceship</span><span class='comment'>#not_warpdrive?
+</span><span class='const'>Spaceship</span><span class='comment'>#not_warpdrive=
+</span><span class='const'>Spaceship</span><span class='comment'>#warpdrive_changed?
+</span><span class='const'>Spaceship</span><span class='comment'>#has_warpdrive?
+</span>
+<span class='const'>Spaceship</span><span class='comment'>#shields
+</span><span class='const'>Spaceship</span><span class='comment'>#shields?
+</span><span class='const'>Spaceship</span><span class='comment'>#shields=
+</span><span class='const'>Spaceship</span><span class='comment'>#not_shields
+</span><span class='const'>Spaceship</span><span class='comment'>#not_shields?
+</span><span class='const'>Spaceship</span><span class='comment'>#not_shields=
+</span><span class='const'>Spaceship</span><span class='comment'>#shields_changed?
+</span><span class='const'>Spaceship</span><span class='comment'>#has_shield?
+</span>
+<span class='const'>Spaceship</span><span class='comment'>#electrolytes
+</span><span class='const'>Spaceship</span><span class='comment'>#electrolytes?
+</span><span class='const'>Spaceship</span><span class='comment'>#electrolytes=
+</span><span class='const'>Spaceship</span><span class='comment'>#not_electrolytes
+</span><span class='const'>Spaceship</span><span class='comment'>#not_electrolytes?
+</span><span class='const'>Spaceship</span><span class='comment'>#not_electrolytes=
+</span><span class='const'>Spaceship</span><span class='comment'>#electrolytes_changed?
+</span><span class='const'>Spaceship</span><span class='comment'>#has_electrolyte?
+</span></code></pre>
+
+<h3 id="callbacks-and-validations">Callbacks and Validations</h3>
+
+<p>Optionally, you can set the <code>:bang_methods</code> option to true to also define the bang methods:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Spaceship</span><span class='comment'>#electrolytes!     # will save the bitwise equivalent of electrolytes = true on the record
+</span><span class='const'>Spaceship</span><span class='comment'>#not_electrolytes! # will save the bitwise equivalent of electrolytes = false on the record
+</span></code></pre>
+
+<p>which respectively enables or disables the electrolytes flag.</p>
+
+<p>The <code>:bang_methods</code> does not save the records to the database, meaning it <em>cannot</em> engage validations and callbacks.</p>
+
+<p>Alternatively, if you do want to <em>save a flag</em> to the database, while still avoiding validations and callbacks, use <code>update_flag!</code> which:</p>
+
+<ul>
+  <li>sets a flag on a database record without triggering callbacks or validations</li>
+  <li>optionally syncs the ruby instance with new flag value, by default it does not.</li>
+</ul>
+
+<p>Example:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">update_flag!(flag_name, flag_value, update_instance = false)
+</code></pre>
+
+<h3 id="generated-class-methods">Generated class methods</h3>
+
+<p>Calling <code>has_flags</code> as shown above creates the following class methods<br>
+on Spaceship:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.flag_columns      # [:features, :crew]
+</code></pre>
+
+<h3 id="generated-named-scopes">Generated named scopes</h3>
+
+<p>The following named scopes become available:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.warpdrive         # :conditions =&gt; &quot;(spaceships.flags &amp; 1 = 1)&quot;
+Spaceship.not_warpdrive     # :conditions =&gt; &quot;(spaceships.flags &amp; 1 = 0)&quot;
+Spaceship.shields           # :conditions =&gt; &quot;(spaceships.flags &amp; 2 = 2)&quot;
+Spaceship.not_shields       # :conditions =&gt; &quot;(spaceships.flags &amp; 2 = 0)&quot;
+Spaceship.electrolytes      # :conditions =&gt; &quot;(spaceships.flags &amp; 4 = 4)&quot;
+Spaceship.not_electrolytes  # :conditions =&gt; &quot;(spaceships.flags &amp; 4 = 0)&quot;
+</code></pre>
+
+<p>If you do not want the named scopes to be defined, set the<br>
+<code>:named_scopes</code> option to false when calling <code>has_flags</code>:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags 1 =&gt; :warpdrive, 2 =&gt; :shields, 3 =&gt; :electrolytes, :named_scopes =&gt; false
+</code></pre>
+
+<p>In a Rails 3+ application, FlagShihTzu will use <code>scope</code> internally to generate<br>
+the scopes. The option on <code>has_flags</code> is still named <code>:named_scopes</code> however.</p>
+
+<h3 id="examples-for-using-the-generated-methods">Examples for using the generated methods</h3>
+
+<pre class="code language-ruby"><code class="language-ruby">enterprise = Spaceship.new
+enterprise.warpdrive = true
+enterprise.shields = true
+enterprise.electrolytes = false
+enterprise.save
+
+if enterprise.shields?
+  # ...
+end
+
+Spaceship.warpdrive.find(:all)
+Spaceship.not_electrolytes.count
+</code></pre>
+
+<h3 id="setting-multiple-flags-through-the-column">Setting multiple flags through the column</h3>
+
+<p>The flag column writer accepts raw integer values, arrays, and hashes. Raw<br>
+integers are still written directly:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">enterprise.flags = 5
+</code></pre>
+
+<p>Assigning an array sets the column to exactly that selected set of flags:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">enterprise.update!(flags: [:warpdrive, :electrolytes])
+</code></pre>
+
+<p>Unmentioned flags are disabled. You can also include <code>:not_&lt;flag&gt;</code> tokens:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">enterprise.flags = [:warpdrive, :not_shields]
+</code></pre>
+
+<p>Assigning a hash updates only the mentioned flags and preserves the rest:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">enterprise.flags = {
+  warpdrive: true,
+  shields: false,
+}
+</code></pre>
+
+<p>Custom flag columns support the same forms through their column writer:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">enterprise.features = [:warpdrive]
+enterprise.crew = {spock: true, kirk: false}
+</code></pre>
+
+<h3 id="reading-flags-as-attributes">Reading flags as attributes</h3>
+
+<p>Flag values can be read as a hash of boolean attributes:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">enterprise.warpdrive = true
+enterprise.shields = false
+
+enterprise.flags_as_attributes
+# {:warpdrive =&gt; true, :shields =&gt; false, :electrolytes =&gt; false}
+</code></pre>
+
+<p>For a custom flag column, either pass the column name or use the generated<br>
+column-specific helper:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">enterprise.flags_as_attributes(&quot;features&quot;)
+enterprise.features_as_attributes
+</code></pre>
+
+<p>If you want Active Record’s normal attributes plus the virtual flag attributes,<br>
+use <code>attributes_with_flags</code>:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">enterprise.attributes_with_flags
+# {&quot;id&quot; =&gt; 1, &quot;features&quot; =&gt; 1, &quot;warpdrive&quot; =&gt; true, &quot;shields&quot; =&gt; false, ...}
+</code></pre>
+
+<h3 id="support-for-manually-building-conditions">Support for manually building conditions</h3>
+
+<p>The following class methods may support you when manually building<br>
+ActiveRecord conditions:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.warpdrive_condition         # &quot;(spaceships.flags &amp; 1 = 1)&quot;
+Spaceship.not_warpdrive_condition     # &quot;(spaceships.flags &amp; 1 = 0)&quot;
+Spaceship.shields_condition           # &quot;(spaceships.flags &amp; 2 = 2)&quot;
+Spaceship.not_shields_condition       # &quot;(spaceships.flags &amp; 2 = 0)&quot;
+Spaceship.electrolytes_condition      # &quot;(spaceships.flags &amp; 4 = 4)&quot;
+Spaceship.not_electrolytes_condition  # &quot;(spaceships.flags &amp; 4 = 0)&quot;
+</code></pre>
+
+<p>These methods also accept a <code>:table_alias</code> option that can be used when<br>
+generating SQL that references the same table more than once:</p>
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.shields_condition(table_alias: &quot;evil_spaceships&quot;) # &quot;(evil_spaceships.flags &amp; 2 = 2)&quot;
+</code></pre>
+
+<h3 id="choosing-a-query-mode">Choosing a query mode</h3>
+
+<p>By default, FlagShihTzu builds SQL conditions with bit operators:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.warpdrive_condition # &quot;(spaceships.flags &amp; 1 = 1)&quot;
+</code></pre>
+
+<p>This is the safest default when flags are added over time. An <code>IN()</code> list can<br>
+only match the flag combinations known to the currently running process. During<br>
+a rolling deploy, old application processes may still know about only these<br>
+flags:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags 1 =&gt; :warpdrive,
+  2 =&gt; :shields
+</code></pre>
+
+<p>Those old processes would build a <code>:warpdrive</code> condition like <code>flags in (1,3)</code>.<br>
+If the new deploy adds <code>3 =&gt; :premium</code> and a migration sets that new bit on<br>
+existing rows, a row with <code>warpdrive</code> and <code>premium</code> becomes <code>flags = 5</code>. The old<br>
+<code>IN()</code> condition no longer matches it even though the <code>warpdrive</code> bit is still<br>
+set. A bit-operator condition such as <code>flags &amp; 1 = 1</code> continues to match the<br>
+row correctly.</p>
+
+<p>The drawback is that due to the [bitwise operation][bitwise_operation] being done on the SQL side,<br>
+this query may not use an index on the flags column as effectively as a small<br>
+<code>IN()</code> list.</p>
+
+<p>If your application values that query shape and you can guarantee that new<br>
+flags are not set while old app code may still be running, you can opt back<br>
+into the legacy mode globally:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">FlagShihTzu.default_flag_query_mode = :in_list
+</code></pre>
+
+<p>Or per <code>has_flags</code> declaration:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags 1 =&gt; :warpdrive,
+  2 =&gt; :shields,
+  :flag_query_mode =&gt; :in_list
+</code></pre>
+
+<p>The legacy <code>:in_list</code> mode may perform well for a small fixed set of flags,<br>
+but it does not work well for a high number of flags, as the value list for<br>
+<code>IN()</code> grows.</p>
+
+<p>For MySQL, depending on your MySQL settings, this can even hit the<br>
+<code>max_allowed_packet</code> limit with the generated query, or the similar query length maximum for PostgreSQL.</p>
+
+<p>The <code>:bit_operator</code> mode remains available explicitly:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags 1 =&gt; :warpdrive,
+  2 =&gt; :shields,
+  :flag_query_mode =&gt; :bit_operator
+</code></pre>
+
+<p>This will modify the generated condition and named_scope methods to use bit<br>
+operators in the SQL instead of an <code>IN()</code> list:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.warpdrive_condition     # &quot;(spaceships.flags &amp; 1 = 1)&quot;,
+Spaceship.not_warpdrive_condition # &quot;(spaceships.flags &amp; 1 = 0)&quot;,
+Spaceship.shields_condition       # &quot;(spaceships.flags &amp; 2 = 2)&quot;,
+Spaceship.not_shields_condition   # &quot;(spaceships.flags &amp; 2 = 0)&quot;,
+
+Spaceship.warpdrive     # :conditions =&gt; &quot;(spaceships.flags &amp; 1 = 1)&quot;
+Spaceship.not_warpdrive # :conditions =&gt; &quot;(spaceships.flags &amp; 1 = 0)&quot;
+Spaceship.shields       # :conditions =&gt; &quot;(spaceships.flags &amp; 2 = 2)&quot;
+Spaceship.not_shields   # :conditions =&gt; &quot;(spaceships.flags &amp; 2 = 0)&quot;
+</code></pre>
+
+<h3 id="deprecating-or-removing-flags">Deprecating or removing flags</h3>
+
+<p>Flag values are stored as bits in one integer. Removing a flag from the<br>
+<code>has_flags</code> declaration does not clear that bit from existing rows.</p>
+
+<p>For example, an old version of the model may have this declaration:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags 1 =&gt; :warpdrive,
+  2 =&gt; :shields
+</code></pre>
+
+<p>If a row has both flags enabled, its integer value is <code>3</code>. If a later version of<br>
+the model removes <code>:shields</code>:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags 1 =&gt; :warpdrive
+</code></pre>
+
+<p>the row still has <code>flags = 3</code>. With the default <code>:bit_operator</code> query mode,<br>
+<code>Spaceship.warpdrive</code> still matches that row because it asks whether bit 1 is<br>
+set. With legacy <code>:in_list</code> mode, the same scope would only know about the<br>
+remaining <code>:warpdrive</code> flag and would generate a value-list query equivalent to<br>
+<code>flags in (1)</code>, which would not match the row.</p>
+
+<p>Recommended removal path:</p>
+
+<ol>
+  <li>Stop using the flag in application behavior, but leave it declared while old<br>
+rows may still contain the bit.</li>
+  <li>If you want to reserve the bit position, rename the flag to a tombstone name<br>
+such as <code>:_deprecated_shields</code> and do not reuse that bit.</li>
+  <li>If you want to remove the bit entirely, deploy a data cleanup while the flag<br>
+is still declared:</li>
+</ol>
+
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.where(Spaceship.shields_condition).update_all(
+  Spaceship.set_flag_sql(:shields, false),
+)
+</code></pre>
+
+<ol>
+  <li>After the cleanup has run everywhere and no old app processes still refer to<br>
+the flag, remove it from <code>has_flags</code>.</li>
+</ol>
+
+<p>Do not reuse a removed flag’s bit position for a different meaning unless you<br>
+have first cleared that bit from every persisted row. Reusing uncleared bits<br>
+turns old data into false positives for the new flag.</p>
+
+<h3 id="updating-flag-column-by-raw-sql">Updating flag column by raw sql</h3>
+
+<p>If you need to do mass updates without initializing object for each row, you can<br>
+use <code>#set_flag_sql</code> method on your class. Example:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.set_flag_sql(:warpdrive, true) # &quot;flags = flags | 1&quot;
+Spaceship.set_flag_sql(:shields, false)  # &quot;flags = flags &amp; ~2&quot;
+</code></pre>
+
+<p>And then use it in:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.update_all(Spaceship.set_flag_sql(:shields, false))
+</code></pre>
+
+<p>Beware that using multiple flag manipulation sql statements in the same query<br>
+probably will not have the desired effect (at least on sqlite3, not tested<br>
+on other databases), so you <em>should not</em> do this:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">Spaceship.update_all(&quot;#{Spaceship.set_flag_sql(:shields, false)},#{
+  Spaceship.set_flag_sql(:warpdrive, true)}&quot;)
+</code></pre>
+
+<p>General rule of thumb: issue only one flag update per update statement.</p>
+
+<h3 id="checking-flag-columns">Checking flag columns</h3>
+
+<p>By default, <code>has_flags</code> does not check the database while the model class is<br>
+being loaded. This keeps model loading safe during tasks such as <code>db:create</code>,<br>
+<code>db:migrate</code>, <code>db:setup</code>, <code>db:seed</code>, asset precompilation, and test bootstraps<br>
+where the database or table may not exist yet.</p>
+
+<p>If you want <code>has_flags</code> to verify that the flag column exists and is an integer<br>
+when the model is loaded, opt in per declaration:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">has_flags 1 =&gt; :warpdrive,
+  2 =&gt; :shields,
+  :check_for_column =&gt; true
+</code></pre>
+
+<p>Or opt in globally before models are loaded:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">FlagShihTzu.default_check_for_column = true
+</code></pre>
+
+<h2 id="-running-the-gem-tests">🧪 Running the gem tests</h2>
+
+<p>The current test harness is RSpec/Combustion based:</p>
+
+<pre class="code language-console"><code class="language-console">bin/rake spec
+</code></pre>
+
+<p>For appraisal-specific checks, run through Appraisal with<br>
+<code>Appraisal.root.gemfile</code> so Bundler does not load the root development Gemfile:</p>
+
+<pre class="code language-console"><code class="language-console">BUNDLE_GEMFILE=Appraisal.root.gemfile bundle exec appraisal kja-ar-8-0-r3 bundle exec kettle-test
+</code></pre>
+
+<p>Older development workflows used <code>bin/test.bash</code>, RVM, and hand-managed<br>
+database setup. That script is still present for historical reference, but the<br>
+templated CI path is now the Appraisal/RSpec flow.</p>
+
+<h2 id="-authors">👥 Authors</h2>
+
+<p><a href="https://github.com/pboling">Peter Boling</a>,<br>
+<a href="https://github.com/ppeszko">Patryk Peszko</a>,<br>
+<a href="https://github.com/boosty">Sebastian Roebke</a>,<br>
+<a href="https://github.com/alpinegizmo">David Anderson</a>,<br>
+<a href="https://github.com/dizzy42">Tim Payton</a><br>
+and a helpful group of<br>
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/contributors">contributors</a>.<br>
+Thanks!</p>
+
+<p>Find out more about Peter Boling’s work at<br>
+<a href="https://railsbling.com/">RailsBling.com</a>.</p>
+
+<p>Find out more about XING at their<br>
+<a href="https://devblog.xing.com/">Devblog</a>.</p>
+
+<h2 id="-how-you-can-help">🛠 How you can help!</h2>
+
+<p>Take a look at the <code>REEK</code> backlog and start fixing things. Once you complete a<br>
+change, run the tests. See “Running the gem tests”.</p>
+
+<p>If the tests pass, refresh the <code>REEK</code> backlog through the rake task:</p>
+
+<pre class="code language-console"><code class="language-console">bin/rake reek:update
+</code></pre>
+
+<p>Follow the instructions in “Contributing” below.</p>
+
+<h2 id="-2012-change-of-ownership-and-03x-release-notes">🕰 2012 Change of Ownership and 0.3.X Release Notes</h2>
+
+<p>FlagShihTzu was originally a <a href="https://www.xing.com/">XING AG</a> project.<br>
+<a href="https://peterboling.com">Peter Boling</a> was a long time contributor and watcher<br>
+of the project.</p>
+
+<p>In September 2012 XING transferred ownership of the project to Peter Boling.<br>
+Peter Boling had been maintaining a fork with extended capabilities. These<br>
+additional features became a part of the 0.3 line. The 0.2 line of the gem will<br>
+remain true to XING’s original. The 0.3 line aims to maintain complete parity<br>
+and compatibility with XING’s original as well. I will continue to monitor other<br>
+forks for original ideas and improvements. Pull requests are welcome, but please<br>
+rebase your work onto the current main branch to make integration easier.</p>
+
+<p>More information on the changes for 0.3.X:<br>
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/wiki/Changes-for-0.3.x">galtzo-floss/flag_shih_tzu/wiki/Changes-for-0.3.x</a></p>
+
+<h2 id="alternatives">Alternatives</h2>
+
+<p>I discovered in October 2015 that Michael Grosser had created a competing tool,<br>
+<code>bitfields</code>, way back in 2010, exactly a year after this tool was created. It<br>
+was a very surreal moment, as I had thought this was the only game in town and<br>
+it was when I began using and hacking on it. Once I got over that moment I<br>
+became excited, because competition makes things better, right? So, now I am<br>
+looking forward to a shootout some lazy Saturday. Until then there’s this:<br>
+https://railsbling.com/flag_shih_tzu/why-use-flag_shih_tzu/</p>
+
+<p>There is little that <code>bitfields</code> does better. The code is <a href="https://github.com/grosser/bitfields/blob/master/lib/bitfields.rb#L186" title="recalculating and throwing away much of the result in many places">less efficient</a>,<br>
+albeit more readable, not as well tested, has almost zero inline documentation,<br>
+and simply can’t do many of the things I’ve built into <code>flag_shih_tzu</code>. If you<br>
+are still on legacy Ruby or legacy Rails, or using JRuby, then use<br>
+<code>flag_shih_tzu</code>. If you need multiple flag columns on a single model, use<br>
+<code>flag_shih_tzu</code>.</p>
+
+<p>Will there ever be a merb/rails-like love fest between the projects? It would<br>
+be interesting. I like his name better. I like my features better. I like some<br>
+of his code better, and some of my code better. I’ve been wanting to do a full<br>
+rewrite of <code>flag_shih_tzu</code> ever since I inherited the project from<br>
+<a href="https://github.com/xing">XING</a>, but I haven’t had time. So I don’t know.</p>
+
+<h2 id="-floss-funding">🦷 FLOSS Funding</h2>
+
+<p>While galtzo-floss tools are free software and will always be, the project would benefit immensely from some funding.<br>
+Raising a monthly budget of… “dollars” would make the project more sustainable.</p>
+
+<p>We welcome both individual and corporate sponsors! We also offer a<br>
+wide array of funding channels to account for your preferences.<br>
+Currently, <a href="https://opencollective.com/galtzo-floss">Open Collective</a> is our preferred funding platform.</p>
+
+<p><strong>If you’re working in a company that’s making significant use of galtzo-floss tools we’d<br>
+appreciate it if you suggest to your company to become a galtzo-floss sponsor.</strong></p>
+
+<p>You can support the development of galtzo-floss tools via<br>
+<a href="https://github.com/sponsors/pboling">GitHub Sponsors</a>,<br>
+<a href="https://liberapay.com/pboling/donate">Liberapay</a>,<br>
+<a href="https://www.paypal.com/paypalme/peterboling">PayPal</a>,<br>
+<a href="https://opencollective.com/galtzo-floss">Open Collective</a><br>
+and <a href="https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&amp;utm_medium=referral&amp;utm_campaign=readme">Tidelift</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>📍 NOTE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>If doing a sponsorship in the form of donation is problematic for your company <br> from an accounting standpoint, we’d recommend the use of Tidelift, <br> where you can get a support-like subscription instead.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="open-collective-for-individuals">Open Collective for Individuals</h3>
+
+<p>Support us with a monthly donation and help us continue our activities. [<a href="https://opencollective.com/galtzo-floss#backer">Become a backer</a>]</p>
+
+<p>NOTE: <a href="https://github.com/galtzo-floss/flag_shih_tzu/blob/main/exe/kettle-readme-backers">kettle-readme-backers</a> updates this list every day, automatically.</p>
+
+<!-- OPENCOLLECTIVE-INDIVIDUALS:START -->
+<p>No backers yet. Be the first!<br>
+<!-- OPENCOLLECTIVE-INDIVIDUALS:END --></p>
+
+<h3 id="open-collective-for-organizations">Open Collective for Organizations</h3>
+
+<p>Become a sponsor and get your logo on our README on GitHub with a link to your site. [<a href="https://opencollective.com/galtzo-floss#sponsor">Become a sponsor</a>]</p>
+
+<p>NOTE: <a href="https://github.com/galtzo-floss/flag_shih_tzu/blob/main/exe/kettle-readme-backers">kettle-readme-backers</a> updates this list every day, automatically.</p>
+
+<!-- OPENCOLLECTIVE-ORGANIZATIONS:START -->
+<p>No sponsors yet. Be the first!<br>
+<!-- OPENCOLLECTIVE-ORGANIZATIONS:END --></p>
+
+<h3 id="another-way-to-support-open-source">Another way to support open-source</h3>
+
+<p>I’m driven by a passion to foster a thriving open-source community – a space where people can tackle complex problems, no matter how small. Revitalizing libraries that have fallen into disrepair, and building new libraries focused on solving real-world challenges, are my passions. I was recently affected by layoffs, and the tech jobs market is unwelcoming. I’m reaching out here because your support would significantly aid my efforts to provide for my family, and my farm (11 🐔 chickens, 2 🐶 dogs, 3 🐰 rabbits, 8 🐈‍ cats).</p>
+
+<p>If you work at a company that uses my work, please encourage them to support me as a corporate sponsor. My work on gems you use might show up in <code>bundle fund</code>.</p>
+
+<p>I’m developing a new library, <a href="https://github.com/galtzo-floss/floss_funding">floss_funding</a>, designed to empower open-source developers like myself to get paid for the work we do, in a sustainable way. Please give it a look.</p>
+
+<p><strong><a href="https://floss-funding.dev">Floss-Funding.dev</a>: 👉️ No network calls. 👉️ No tracking. 👉️ No oversight. 👉️ Minimal crypto hashing. 💡 Easily disabled nags</strong></p>
+
+<p><a href="https://opencollective.com/galtzo-floss#backer"><img src="https://opencollective.com/galtzo-floss/backers/badge.svg?style=flat" alt="OpenCollective Backers"></a> <a href="https://opencollective.com/galtzo-floss#sponsor"><img src="https://opencollective.com/galtzo-floss/sponsors/badge.svg?style=flat" alt="OpenCollective Sponsors"></a> <a href="https://github.com/sponsors/pboling"><img src="https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&amp;logo=github" alt="Sponsor Me on Github"></a> <a href="https://liberapay.com/pboling/donate"><img src="https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay&amp;color=a51611&amp;style=flat" alt="Liberapay Goal Progress"></a> <a href="https://www.paypal.com/paypalme/peterboling"><img src="https://img.shields.io/badge/donate-paypal-a51611.svg?style=flat&amp;logo=paypal" alt="Donate on PayPal"></a> <a href="https://www.buymeacoffee.com/pboling"><img src="https://img.shields.io/badge/buy_me_a_coffee-%E2%9C%93-a51611.svg?style=flat" alt="Buy me a coffee"></a> <a href="https://polar.sh/pboling"><img src="https://img.shields.io/badge/polar-donate-a51611.svg?style=flat" alt="Donate on Polar"></a> <a href="https://ko-fi.com/pboling"><img src="https://img.shields.io/badge/ko--fi-%E2%9C%93-a51611.svg?style=flat" alt="Donate to my FLOSS efforts at ko-fi.com"></a> <a href="https://patreon.com/galtzo"><img src="https://img.shields.io/badge/patreon-donate-a51611.svg?style=flat" alt="Donate to my FLOSS efforts using Patreon"></a></p>
+
+<h2 id="-security">🔐 Security</h2>
+
+<p>See <a href="https://github.com/galtzo-floss/flag_shih_tzu/blob/main/SECURITY.md">SECURITY.md</a>.</p>
+
+<h2 id="-contributing">🤝 Contributing</h2>
+
+<p>If you need some ideas of where to help, you could work on adding more code coverage,<br>
+or if it is already 💯 (see <a href="#code-coverage">below</a>) check <a href="https://github.com/galtzo-floss/flag_shih_tzu/issues">issues</a> or <a href="https://github.com/galtzo-floss/flag_shih_tzu/pulls">PRs</a>,<br>
+or use the gem and think about how it could be better.</p>
+
+<p>We <a href="https://keepachangelog.com/en/1.0.0/"><img src="https://img.shields.io/badge/keep--a--changelog-1.0.0-34495e.svg?style=flat" alt="Keep A Changelog"></a> so if you make changes, remember to update it.</p>
+
+<p>See <a href="https://github.com/galtzo-floss/flag_shih_tzu/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> for more detailed instructions.</p>
+
+<h3 id="-release-instructions">🚀 Release Instructions</h3>
+
+<p>See <a href="https://github.com/galtzo-floss/flag_shih_tzu/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+
+<h3 id="code-coverage">Code Coverage</h3>
+
+<details>
+  <summary>Coverage service badges</summary>
+
+  <p><a href="https://codecov.io/gh/galtzo-floss/flag_shih_tzu"><img src="https://codecov.io/gh/galtzo-floss/flag_shih_tzu/graph/badge.svg" alt="Coverage Graph"></a></p>
+
+  <p><a href="https://coveralls.io/github/galtzo-floss/flag_shih_tzu?branch=main"><img src="https://coveralls.io/repos/github/galtzo-floss/flag_shih_tzu/badge.svg?branch=main" alt="Coveralls Test Coverage"></a></p>
+
+  <p><a href="https://qlty.sh/gh/galtzo-floss/projects/flag_shih_tzu/metrics/code?sort=coverageRating"><img src="https://qlty.sh/gh/galtzo-floss/projects/flag_shih_tzu/coverage.svg" alt="QLTY Test Coverage"></a></p>
+
+</details>
+
+<h3 id="-code-of-conduct">🪇 Code of Conduct</h3>
+
+<p>Everyone interacting with this project’s codebases, issue trackers,<br>
+chat rooms and mailing lists agrees to follow the <a href="https://github.com/galtzo-floss/flag_shih_tzu/blob/main/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor_Covenant-2.1-259D6C.svg" alt="Contributor Covenant 2.1"></a>.</p>
+
+<h2 id="-contributors">🌈 Contributors</h2>
+
+<p><a href="https://github.com/galtzo-floss/flag_shih_tzu/graphs/contributors"><img src="https://contrib.rocks/image?repo=galtzo-floss/flag_shih_tzu" alt="Contributors"></a></p>
+
+<p>Made with <a href="https://contrib.rocks">contributors-img</a>.</p>
+
+<p>Also see GitLab Contributors: <a href="https://gitlab.com/galtzo-floss/flag_shih_tzu/-/graphs/main">https://gitlab.com/galtzo-floss/flag_shih_tzu/-/graphs/main</a></p>
+
+<details>
+ <summary>⭐️ Star History</summary>
+
+<a href="https://star-history.com/galtzo-floss/flag_shih_tzu&amp;Date">
+ <picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/flag_shih_tzu&amp;type=Date&amp;theme=dark"></source>
+ <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/flag_shih_tzu&amp;type=Date"></source>
+ <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=galtzo-floss/flag_shih_tzu&amp;type=Date">
+ </picture>
+</a>
+
+</details>
+
+<h2 id="-versioning">📌 Versioning</h2>
+
+<p>This library follows <a href="https://semver.org/spec/v2.0.0.html"><img src="https://img.shields.io/badge/semver-2.0.0-259D6C.svg?style=flat" alt="Semantic Versioning 2.0.0"></a> for its public API where practical.<br>
+For most applications, prefer the <a href="http://guides.rubygems.org/patterns/#pessimistic-version-constraint">Pessimistic Version Constraint</a> with two digits of precision.</p>
+
+<p>For example:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">spec.add_dependency(&quot;flag_shih_tzu&quot;, &quot;~&gt; 0.0&quot;)
+</code></pre>
+
+<details>
+  <summary>📌 Is "Platform Support" part of the public API? More details inside.</summary>
+
+  <p>Dropping support for a platform can be a breaking change for affected users.
+If a release changes supported platforms, it should be called out clearly in the changelog and versioned with that impact in mind.</p>
+
+  <p>To get a better understanding of how SemVer is intended to work over a project’s lifetime,
+read this article from the creator of SemVer:</p>
+
+  <ul>
+    <li><a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">“Major Version Numbers are Not Sacred”</a></li>
+  </ul>
+
+</details>
+
+<p>See <a href="https://github.com/galtzo-floss/flag_shih_tzu/blob/main/CHANGELOG.md">CHANGELOG.md</a> for a list of releases.</p>
+
+<h2 id="-license">📄 License</h2>
+
+<p>The gem is available as open source under the terms of<br>
+the <a href="MIT.md">MIT</a> <a href="MIT.md"><img src="https://img.shields.io/badge/License-MIT-259D6C.svg" alt="License: MIT"></a>.</p>
+
+<h3 id="-copyright">© Copyright</h3>
+
+<p>See <a href="LICENSE.md">LICENSE.md</a> for the official copyright notice.</p>
+
+<details>
+  <summary>Copyright holders</summary>
+
+  <ul>
+    <li>Copyright (c) 2009 Alto</li>
+    <li>Copyright (c) 2009-2012 boosty</li>
+    <li>Copyright (c) 2009-2010 Daniel Jagszent</li>
+    <li>Copyright (c) 2009-2010 ladislav.martincik</li>
+    <li>Copyright (c) 2009 Martin Stannard</li>
+    <li>Copyright (c) 2009-2011 pboling</li>
+    <li>Copyright (c) 2009 Sebastian Roebke</li>
+    <li>Copyright (c) 2009 Tobias Bielohlawek</li>
+    <li>Copyright (c) 2009 XING Engineering</li>
+    <li>Copyright (c) 2010 Joost Baaij</li>
+    <li>Copyright (c) 2010 Joost Baaij</li>
+    <li>Copyright (c) 2010 Ryan Wallace</li>
+    <li>Copyright (c) 2011 Arturas Slajus</li>
+    <li>Copyright (c) 2011 Musy Bite</li>
+    <li>Copyright (c) 2011, 2014 Tim Liner</li>
+    <li>Copyright (c) 2012-2013 David DIDIER</li>
+    <li>Copyright (c) 2012-2015, 2017-2018, 2026 Peter H. Boling</li>
+    <li>Copyright (c) 2012 Tatsuhiko Miyagawa</li>
+    <li>Copyright (c) 2013 Blake Thomson</li>
+    <li>Copyright (c) 2013 Keith Pitty</li>
+    <li>Copyright (c) 2013 Peter M. Goldstein</li>
+    <li>Copyright (c) 2013 Thomas Jachmann</li>
+    <li>Copyright (c) 2014 Alexander Tipugin</li>
+    <li>Copyright (c) 2014, 2017-2018, 2025 Jonathan del Strother</li>
+    <li>Copyright (c) 2015 Ivan</li>
+    <li>Copyright (c) 2015 jfcaiceo</li>
+    <li>Copyright (c) 2016 Xinran Xiao</li>
+    <li>Copyright (c) 2017 shiro16</li>
+    <li>Copyright (c) 2018 Peter Boling</li>
+    <li>Copyright (c) 2018 xpol</li>
+    <li>Copyright (c) 2018 Yusuke Ebihara</li>
+    <li>Copyright (c) 2019 Amy Martin</li>
+    <li>Copyright (c) 2025 Annibelle Boling</li>
+    <li>Copyright (c) 2025 horiken</li>
+  </ul>
+
+</details>
+
+<h2 id="-a-request-for-help">🤑 A request for help</h2>
+
+<p>Maintainers have teeth and need to pay their dentists.<br>
+After getting laid off in an RIF in March, and encountering difficulty finding a new one,<br>
+I began spending most of my time building open source tools.<br>
+I’m hoping to be able to pay for my kids’ health insurance this month,<br>
+so if you value the work I am doing, I need your support.<br>
+Please consider sponsoring me or the project.</p>
+
+<p>To join the community or get help 👇️ Join the Discord.</p>
+
+<p><a href="https://discord.gg/3qme4XHNKN"><img src="https://img.shields.io/discord/1373797679469170758?style=for-the-badge&amp;logo=discord" alt="Live Chat on Discord"></a></p>
+
+<p>To say “thanks!” ☝️ Join the Discord or 👇️ send money.</p>
+
+<p><a href="https://opencollective.com/galtzo-floss"><img src="https://img.shields.io/opencollective/all/galtzo-floss?style=for-the-badge" alt="Sponsor galtzo-floss/flag_shih_tzu on Open Source Collective"></a> 💌 <a href="https://github.com/sponsors/pboling"><img src="https://img.shields.io/badge/Sponsor_Me!-pboling-blue?style=for-the-badge&amp;logo=github" alt="Sponsor me on GitHub Sponsors"></a> 💌 <a href="https://liberapay.com/pboling/donate"><img src="https://img.shields.io/liberapay/goal/pboling.svg?style=for-the-badge&amp;logo=liberapay&amp;color=a51611" alt="Sponsor me on Liberapay"></a> 💌 <a href="https://www.paypal.com/paypalme/peterboling"><img src="https://img.shields.io/badge/donate-paypal-a51611.svg?style=for-the-badge&amp;logo=paypal&amp;color=0A0A0A" alt="Donate on PayPal"></a></p>
+
+<h3 id="please-give-the-project-a-star--">Please give the project a star ⭐ ♥.</h3>
+
+<p>Thanks for RTFM. ☺️</p>
+
+<!-- kettle-jem:metadata:start -->
+<p>| Field | Value |<br>
+|—|—|<br>
+| Package | flag_shih_tzu |<br>
+| Description | 🏁 Bit fields for ActiveRecord:<br>This gem lets you use a single integer column in an ActiveRecord model<br>to store a collection of boolean attributes (flags). Each flag can be used<br>almost in the same way you would use any boolean attribute on an<br>ActiveRecord object. |<br>
+| Homepage | https://github.com/galtzo-floss/flag_shih_tzu |<br>
+| Source | https://github.com/galtzo-floss/flag_shih_tzu/tree/v0.3.23 |<br>
+| License | <code>MIT</code> |<br>
+| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/flag_shih_tzu, https://www.buymeacoffee.com/pboling |<br>
+<!-- kettle-jem:metadata:end --></p>
+</div></div>
+
+      <div id="footer">
+  Generated on Tue May 26 03:36:24 2026 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.44 (ruby-4.0.5).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    flag_shih_tzu (0.3.23)
+    flag_shih_tzu (1.0.0)
       version_gem (~> 1.1, >= 1.1.9)
 
 GEM
@@ -433,7 +433,7 @@ CHECKSUMS
   dry-schema (1.16.0) sha256=cd3aaeabc0f1af66ec82a29096d4c4fb92a0a58b9dae29a22b1bbceb78985727
   dry-types (1.9.1) sha256=baebeecdb9f8395d6c9d227b62011279440943e3ef2468fe8ccc1ba11467f178
   erb (6.0.4) sha256=38e3803694be357fe2bfe312487c74beaf9fb4e5beb3e22498952fe1645b95d9
-  flag_shih_tzu (0.3.23)
+  flag_shih_tzu (1.0.0)
   gem_bench (2.0.5) sha256=0dc0fb44a5a5eb7b2f5c1c68a5b0164d72007132822c012bac3abe976b199ead
   gitmoji-regex (1.0.3) sha256=538c6f49f5af6dc36d1630edb89a5a66f6e14ec5850d7fd071e0331f940e553f
   i18n (1.14.8) sha256=285778639134865c5e0f6269e0b818256017e8cde89993fdfcbfb64d088824a5
