@@ -10,6 +10,10 @@ rescue LoadError
   # SimpleCov is optional
 end
 
+if Gem::Version.new(RUBY_VERSION) < Gem::Version.new("2.5")
+  require "backports/2.5.0/string/delete_prefix"
+end
+
 require "logger"
 require "active_record"
 if RUBY_PLATFORM == "java"

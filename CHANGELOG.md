@@ -39,7 +39,8 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 - Fixed the Ruby 2.4 appraisal by keeping Rack on the Ruby 2.4-compatible
-  Rack 2.1 line.
+  Rack 2.1 line and loading the Ruby 2.5 String prefix backport before
+  ActiveRecord boots.
 - Marked evergreen JRuby 10 workflows experimental while the ActiveRecord JDBC
   adapter stack is not compatible with JRuby 10.1.
 - Generated the curated local binstubs, including `bin/rake`, from the current

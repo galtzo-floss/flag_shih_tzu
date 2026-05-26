@@ -2,3 +2,6 @@
 
 # Rack 2.2.x still resolves on Ruby 2.4 but uses String#delete_prefix.
 gem "rack", "< 2.2"
+
+# Rails/Rack-adjacent gems can still call Ruby 2.5 String APIs on Ruby 2.4.
+gem "backports", ">= 3.25"
