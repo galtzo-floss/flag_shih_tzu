@@ -251,6 +251,7 @@ on Spaceship:
     Spaceship#select_all_features
     Spaceship#unselect_all_features
     Spaceship#selected_features=
+    Spaceship#features_as_attributes
 
     Spaceship#warpdrive
     Spaceship#warpdrive?
@@ -353,6 +354,34 @@ end
 
 Spaceship.warpdrive.find(:all)
 Spaceship.not_electrolytes.count
+```
+
+### Reading flags as attributes
+
+Flag values can be read as a hash of boolean attributes:
+
+```ruby
+enterprise.warpdrive = true
+enterprise.shields = false
+
+enterprise.flags_as_attributes
+# {:warpdrive => true, :shields => false, :electrolytes => false}
+```
+
+For a custom flag column, either pass the column name or use the generated
+column-specific helper:
+
+```ruby
+enterprise.flags_as_attributes("features")
+enterprise.features_as_attributes
+```
+
+If you want Active Record's normal attributes plus the virtual flag attributes,
+use `attributes_with_flags`:
+
+```ruby
+enterprise.attributes_with_flags
+# {"id" => 1, "features" => 1, "warpdrive" => true, "shields" => false, ...}
 ```
 
 

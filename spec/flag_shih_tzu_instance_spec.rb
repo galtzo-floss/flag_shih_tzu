@@ -188,6 +188,62 @@ RSpec.describe FlagShihTzu do
     end
   end
 
+  describe "flags_as_attributes methods" do
+    it "returns all default-column flags as boolean attributes" do
+      spaceship.warpdrive = true
+      spaceship.electrolytes = true
+
+      expect(spaceship.flags_as_attributes).to eq(
+        warpdrive: true,
+        shields: false,
+        electrolytes: true,
+      )
+    end
+
+    it "returns selected default-column flags as boolean attributes" do
+      spaceship.warpdrive = true
+      spaceship.electrolytes = true
+
+      expect(spaceship.flags_as_attributes("flags", :warpdrive, :shields)).to eq(
+        warpdrive: true,
+        shields: false,
+      )
+    end
+
+    it "returns custom-column flags as boolean attributes" do
+      small_spaceship.warpdrive = true
+
+      expect(small_spaceship.bits_as_attributes).to eq(
+        warpdrive: true,
+        hyperspace: false,
+      )
+    end
+
+    it "returns all flag columns as boolean attributes" do
+      big_spaceship.warpdrive = true
+      big_spaceship.dajanatroj = true
+
+      expect(big_spaceship.flags_as_attributes).to eq(
+        warpdrive: true,
+        hyperspace: false,
+        jeanlucpicard: false,
+        dajanatroj: true,
+      )
+    end
+
+    it "merges boolean flag values into Active Record attributes" do
+      spaceship.warpdrive = true
+      spaceship.electrolytes = true
+
+      expect(spaceship.attributes_with_flags).to include(
+        "flags" => 5,
+        "warpdrive" => true,
+        "shields" => false,
+        "electrolytes" => true,
+      )
+    end
+  end
+
   describe "select_all_flags methods" do
     it "defines a select_all_flags method with arity 1" do
       spaceship.select_all_flags("flags")

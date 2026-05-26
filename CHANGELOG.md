@@ -24,6 +24,8 @@ Please file a bug if you notice a violation of semantic versioning.
   methods, matching the existing alias support for positive flag conditions.
 - Added documentation for safely deprecating or removing flags without
   corrupting the meaning of existing bit values.
+- Added `flags_as_attributes`, `attributes_with_flags`, and generated
+  `<column>_as_attributes` helpers for reading flag bits as boolean attributes.
 - Added first-class project metadata, documentation links, funding links, and
   gem signing metadata to the gemspec.
 

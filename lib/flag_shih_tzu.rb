@@ -285,6 +285,10 @@ To turn off this warning set check_for_column: false in has_flags definition her
             as_flag_collection("#{colmn}", *args)
           end
 
+          def #{colmn}_as_attributes(*args)
+            flags_as_attributes("#{colmn}", *args)
+          end
+
         EVAL
       end
 
@@ -712,6 +716,22 @@ To turn off this warning set check_for_column: false in has_flags definition her
     flags_to_collect = args.empty? ? all_flags(colmn) : args
     collect_flags(*flags_to_collect) do |memo, flag|
       memo << [flag, flag_enabled?(flag, colmn)]
+    end
+  end
+
+  def flags_as_attributes(colmn = nil, *args)
+    columns = colmn.nil? ? self.class.flag_columns : [colmn]
+    columns.each_with_object({}) do |column, memo|
+      flags_to_collect = args.empty? ? all_flags(column) : args
+      flags_to_collect.each do |flag|
+        memo[flag] = flag_enabled?(flag, column)
+      end
+    end
+  end
+
+  def attributes_with_flags
+    flags_as_attributes.each_with_object(attributes.dup) do |(flag, enabled), attrs|
+      attrs[flag.to_s] = enabled
     end
   end
 
