@@ -14,8 +14,8 @@ Many paths lead to being a sponsor or a backer of this project. Are you on such 
 [🖇osc-backers-i]: https://opencollective.com//backers/badge.svg?style=flat
 [🖇osc-sponsors]: https://opencollective.com/#sponsor
 [🖇osc-sponsors-i]: https://opencollective.com//sponsors/badge.svg?style=flat
-[🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
-[🖇sponsor]: https://github.com/sponsors/pboling
+[🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-galtzo-floss.svg?style=social&logo=github
+[🖇sponsor]: https://github.com/sponsors/galtzo-floss
 [🖇polar-img]: https://img.shields.io/badge/polar-donate-a51611.svg?style=flat
 [🖇polar]: https://polar.sh/pboling
 [🖇kofi-img]: https://img.shields.io/badge/ko--fi-%E2%9C%93-a51611.svg?style=flat
@@ -66,7 +66,7 @@ I’m developing a new library, [floss_funding][🖇floss-funding-gem], designed
 [🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/?style=for-the-badge
 [🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/?style=for-the-badge
 [🖇osc]: https://opencollective.com/
-[🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-pboling-blue?style=for-the-badge&logo=github
+[🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-galtzo-floss-blue?style=for-the-badge&logo=github
 [🖇buyme-img]: https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20latte&emoji=&slug=pboling&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff
 [🖇paypal-bottom-img]: https://img.shields.io/badge/donate-paypal-a51611.svg?style=for-the-badge&logo=paypal&color=0A0A0A
 [🖇floss-funding.dev]: https://floss-funding.dev

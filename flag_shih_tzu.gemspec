@@ -29,9 +29,9 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter Boling", "Patryk Peszko", "Sebastian Roebke", "David Anderson", "Tim Payton"]
   spec.email = ["floss@galtzo.com"]
 
-  spec.summary = "🍲 Bit fields for ActiveRecord"
+  spec.summary = "🏁 Bit fields for ActiveRecord"
   spec.description = <<-EODOC
-🍲 Bit fields for ActiveRecord:
+🏁 Bit fields for ActiveRecord:
 This gem lets you use a single integer column in an ActiveRecord model
 to store a collection of boolean attributes (flags). Each flag can be used
 almost in the same way you would use any boolean attribute on an
@@ -39,7 +39,7 @@ ActiveRecord object.
   EODOC
   spec.homepage = "https://github.com/galtzo-floss/flag_shih_tzu"
   spec.licenses = ["MIT"]
-  spec.required_ruby_version = ">= 1.9.3"
+  spec.required_ruby_version = ">= 2.4"
 
   # Linux distros often package gems and securely certify them independent
   #   of the official RubyGem certification process. Allowed via ENV["SKIP_GEM_SIGNING"]
@@ -64,7 +64,7 @@ ActiveRecord object.
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
   spec.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/#{spec.name}/#{spec.version}"
-  spec.metadata["funding_uri"] = "https://github.com/sponsors/pboling"
+  spec.metadata["funding_uri"] = "https://github.com/sponsors/galtzo-floss"
   spec.metadata["wiki_uri"] = "#{spec.homepage}/wiki"
   spec.metadata["news_uri"] = "https://www.railsbling.com/tags/#{spec.name}"
   spec.metadata["discord_uri"] = "https://discord.gg/3qme4XHNKN"

@@ -3,7 +3,7 @@
 - [❤️] Though I adore my work, it lacks financial sustainability.
 - [❤️] Please, help me continue enhancing your tools by becoming a sponsor:
   - [💲] https://liberapay.com/pboling/donate
-  - [💲] https://github.com/sponsors/pboling
+  - [💲] https://github.com/sponsors/galtzo-floss
 
 <% if ENV["GIT_HOOK_FOOTER_APPEND_DEBUG"] == "true" %>
     @pwd = <%= @pwd %>
