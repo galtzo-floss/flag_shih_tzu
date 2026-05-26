@@ -232,10 +232,10 @@ and check individual flags.
 Read more about [bit fields][bit_field] here: http://en.wikipedia.org/wiki/Bit_field
 
 
-### Bit width and custom encoders
+### Flag value modes and custom encoders
 
-By default, each flag uses one bit. This keeps the historical boolean storage
-format unchanged:
+By default, each flag uses boolean mode. This keeps the historical one-bit
+storage format unchanged:
 
 ```ruby
 has_flags 1 => :warpdrive,
@@ -247,21 +247,21 @@ This is equivalent to:
 ```ruby
 has_flags(
   {1 => :warpdrive, 2 => :shields},
-  bit_width: 1,
+  value_mode: :boolean,
 )
 ```
 
-For flags that need `true`, `false`, and `nil`, use two bits per flag:
+For flags that need `true`, `false`, and `nil`, use tri-state mode:
 
 ```ruby
 has_flags(
   {1 => :warpdrive, 2 => :shields},
-  bit_width: 2,
+  value_mode: :tri_state,
 )
 ```
 
-With `bit_width: 2`, each flag is encoded in its own two-bit slot. A flag can
-be enabled, disabled, or cleared to `nil`:
+With `value_mode: :tri_state`, each flag is encoded in its own two-bit slot. A
+flag can be enabled, disabled, or cleared to `nil`:
 
 ```ruby
 enterprise.warpdrive = true
@@ -295,9 +295,11 @@ has_flags(
 )
 ```
 
-The built-in encoders cover `bit_width: 1` and `bit_width: 2`. If you set
-`bit_width: 3` or higher, you must provide an encoder so FlagShihTzu does not
-guess what the extra states mean.
+The built-in value modes cover boolean one-bit storage and tri-state two-bit
+storage. You can still pass `bit_width: 1` or `bit_width: 2` directly, but
+`value_mode: :boolean` and `value_mode: :tri_state` are the preferred public
+API. If you set `bit_width: 3` or higher, you must provide an encoder so
+FlagShihTzu does not guess what the extra states mean.
 
 
 ### Using a custom column name

@@ -600,7 +600,7 @@ RSpec.describe FlagShihTzu do
             1 => :warpdrive,
             2 => :shields,
           },
-          bit_width: 2,
+          value_mode: :tri_state,
         )
       end
     end

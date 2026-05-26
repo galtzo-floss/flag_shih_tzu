@@ -13,6 +13,7 @@ module FlagShihTzu
   DEFAULT_COLUMN_NAME = "flags"
   DEFAULT_CHECK_FOR_COLUMN = false
   DEFAULT_FLAG_QUERY_MODE = :bit_operator
+  DEFAULT_VALUE_MODE = :boolean
   DEFAULT_BIT_WIDTH = 1
   FLAG_ADAPTER_CLASS_NAMES = {
     "mysql" => "Mysql2Adapter",
@@ -219,9 +220,11 @@ module FlagShihTzu
           strict: false,
           check_for_column: FlagShihTzu.default_check_for_column,
           allow_overwrite: false,
-          bit_width: DEFAULT_BIT_WIDTH,
+          value_mode: nil,
+          bit_width: nil,
         }.update(opts)
-      opts[:encoder] = flag_encoder_for(opts[:bit_width], opts[:encoder])
+      opts[:value_mode], opts[:bit_width], opts[:encoder] =
+        flag_encoder_config(opts[:value_mode], opts[:bit_width], opts[:encoder])
       if !valid_flag_column_name?(opts[:column])
         warn(%[FlagShihTzu says: Please use a String to designate column names! I see you here: #{caller(1..1).first}])
         opts[:column] = opts[:column].to_s
@@ -565,13 +568,43 @@ To turn off this warning set check_for_column: false in has_flags definition her
       ]
     end
 
-    def flag_encoder_for(bit_width, encoder)
-      return encoder if encoder
-      return BooleanEncoder if bit_width == 1
-      return TriStateEncoder if bit_width == 2
+    def flag_encoder_config(value_mode, bit_width, encoder)
+      value_mode = value_mode.to_sym if value_mode.respond_to?(:to_sym)
+      return custom_flag_encoder_config(value_mode, bit_width, encoder) if encoder
+
+      case value_mode
+      when nil
+        built_in_encoder_config(bit_width || DEFAULT_BIT_WIDTH)
+      when :boolean
+        validate_bit_width_for_value_mode(value_mode, bit_width, DEFAULT_BIT_WIDTH)
+        [:boolean, DEFAULT_BIT_WIDTH, BooleanEncoder]
+      when :tri_state
+        validate_bit_width_for_value_mode(value_mode, bit_width, TriStateEncoder.bit_width)
+        [:tri_state, TriStateEncoder.bit_width, TriStateEncoder]
+      else
+        raise ArgumentError,
+          %[has_flags: unknown value_mode #{value_mode.inspect}]
+      end
+    end
+
+    def built_in_encoder_config(bit_width)
+      return [:boolean, DEFAULT_BIT_WIDTH, BooleanEncoder] if bit_width == DEFAULT_BIT_WIDTH
+      return [:tri_state, TriStateEncoder.bit_width, TriStateEncoder] if bit_width == TriStateEncoder.bit_width
 
       raise ArgumentError,
         %[has_flags: bit_width #{bit_width} requires an encoder]
+    end
+
+    def custom_flag_encoder_config(value_mode, bit_width, encoder)
+      bit_width ||= encoder.bit_width if encoder.respond_to?(:bit_width)
+      [value_mode || :custom, bit_width || DEFAULT_BIT_WIDTH, encoder]
+    end
+
+    def validate_bit_width_for_value_mode(value_mode, bit_width, expected_bit_width)
+      return if bit_width.nil? || bit_width == expected_bit_width
+
+      raise ArgumentError,
+        %[has_flags: value_mode #{value_mode.inspect} requires bit_width #{expected_bit_width}]
     end
 
     def flag_encoder_for_column(colmn)

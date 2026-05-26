@@ -147,6 +147,28 @@ RSpec.describe FlagShihTzu do
             end
           end.to raise_error(ArgumentError, /requires an encoder/)
         end
+
+        it "raises an exception when value mode conflicts with bit width" do
+          expect do
+            Class.new(ActiveRecord::Base) do
+              self.table_name = "spaceships"
+              include FlagShihTzu
+
+              has_flags({1 => :warpdrive}, value_mode: :tri_state, bit_width: 1)
+            end
+          end.to raise_error(ArgumentError, /requires bit_width 2/)
+        end
+
+        it "raises an exception when value mode is unknown" do
+          expect do
+            Class.new(ActiveRecord::Base) do
+              self.table_name = "spaceships"
+              include FlagShihTzu
+
+              has_flags({1 => :warpdrive}, value_mode: :quantum)
+            end
+          end.to raise_error(ArgumentError, /unknown value_mode/)
+        end
       end
 
       context "with custom encoders" do
