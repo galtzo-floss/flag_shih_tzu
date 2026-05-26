@@ -967,7 +967,7 @@ Thanks for RTFM. ☺️
 | Field | Value |
 |---|---|
 | Package | flag_shih_tzu |
-| Description | 🍲 Bit fields for ActiveRecord:<br>This gem lets you use a single integer column in an ActiveRecord model<br>to store a collection of boolean attributes (flags). Each flag can be used<br>almost in the same way you would use any boolean attribute on an<br>ActiveRecord object. |
+| Description | 🏁 Bit fields for ActiveRecord:<br>This gem lets you use a single integer column in an ActiveRecord model<br>to store a collection of boolean attributes (flags). Each flag can be used<br>almost in the same way you would use any boolean attribute on an<br>ActiveRecord object. |
 | Homepage | https://github.com/galtzo-floss/flag_shih_tzu |
 | Source | https://github.com/galtzo-floss/flag_shih_tzu/tree/v0.3.23 |
 | License | `MIT` |
