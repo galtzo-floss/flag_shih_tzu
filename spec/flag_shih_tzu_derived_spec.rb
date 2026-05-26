@@ -84,4 +84,3 @@ RSpec.describe "FlagShihTzu Derived Class" do
     end
   end
 end
-

@@ -1,7 +1,7 @@
 ActiveRecord::Schema.define do
   create_table :spaceships, force: true do |t|
     t.integer :flags, null: false, default: 0
-    t.string :incorrect_flags_column, null: false, default: ''
+    t.string :incorrect_flags_column, null: false, default: ""
   end
 
   create_table :spaceships_with_custom_flags_column, force: true do |t|
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define do
   end
 
   create_table :spaceships_with_non_integer_column, force: true do |t|
-    t.string :flags, null: false, default: 'A string'
+    t.string :flags, null: false, default: "A string"
   end
 end
-

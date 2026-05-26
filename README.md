@@ -157,7 +157,7 @@ I like to document the intent of the `flags` column in the migration when I can.
 
 ```ruby
 change_table :spaceships do |t|
-  t.integer     :flags, :null => false, :default => 0 # flag_shih_tzu-managed bit field
+  t.integer :flags, null: false, default: 0 # flag_shih_tzu-managed bit field
   # Effective booleans which will be stored on the flags column:
   # t.boolean      :warpdrive
   # t.boolean      :shields
@@ -172,8 +172,8 @@ class Spaceship < ActiveRecord::Base
   include FlagShihTzu
 
   has_flags 1 => :warpdrive,
-            2 => :shields,
-            3 => :electrolytes
+    2 => :shields,
+    3 => :electrolytes
 end
 ```
 
@@ -230,14 +230,14 @@ different columns for separate flags:
 
 ```ruby
 has_flags 1 => :warpdrive,
-          2 => :shields,
-          3 => :electrolytes,
-          :column => 'features'
+  2 => :shields,
+  3 => :electrolytes,
+  :column => "features"
 
 has_flags 1 => :spock,
-          2 => :scott,
-          3 => :kirk,
-          :column => 'crew'
+  2 => :scott,
+  3 => :kirk,
+  :column => "crew"
 ```
 
 ### Generated boolean patterned instance methods
@@ -372,7 +372,7 @@ Spaceship.not_electrolytes_condition  # "(spaceships.flags not in (4,5,6,7))"
 These methods also accept a `:table_alias` option that can be used when
 generating SQL that references the same table more than once:
 ```ruby
-Spaceship.shields_condition(:table_alias => 'evil_spaceships') # "(evil_spaceships.flags in (2,3,6,7))"
+Spaceship.shields_condition(table_alias: "evil_spaceships") # "(evil_spaceships.flags in (2,3,6,7))"
 ```
 
 
@@ -390,8 +390,8 @@ instead of `:in_list`, like so:
 
 ```ruby
 has_flags 1 => :warpdrive,
-          2 => :shields,
-          :flag_query_mode => :bit_operator
+  2 => :shields,
+  :flag_query_mode => :bit_operator
 ```
 
 This will modify the generated condition and named_scope methods to use bit
@@ -450,8 +450,8 @@ false to avoid it.
 
 ```ruby
 has_flags 1 => :warpdrive,
-          2 => :shields,
-          :check_for_column => false
+  2 => :shields,
+  :check_for_column => false
 ```
 
 ## 🧪 Running the gem tests

@@ -474,8 +474,8 @@ RSpec.describe "FlagShihTzu Instance Methods" do
           include FlagShihTzu
 
           has_flags 1 => :warpdrive,
-                    2 => :shields,
-                    3 => :electrolytes
+            2 => :shields,
+            3 => :electrolytes
         end
       end.not_to raise_error
 
@@ -484,8 +484,8 @@ RSpec.describe "FlagShihTzu Instance Methods" do
         include FlagShihTzu
 
         has_flags 1 => :warpdrive,
-                  2 => :shields,
-                  3 => :electrolytes
+          2 => :shields,
+          3 => :electrolytes
       end
 
       expect(klass.method_defined?(:warpdrive)).to eq(false)
@@ -498,8 +498,8 @@ RSpec.describe "FlagShihTzu Instance Methods" do
           include FlagShihTzu
 
           has_flags 1 => :warpdrive,
-                    2 => :shields,
-                    3 => :electrolytes
+            2 => :shields,
+            3 => :electrolytes
         end
       end.to raise_error(FlagShihTzu::IncorrectFlagColumnException)
     end
@@ -510,9 +510,9 @@ RSpec.describe "FlagShihTzu Instance Methods" do
         include FlagShihTzu
 
         has_flags 1 => :warpdrive,
-                  2 => :shields,
-                  3 => :electrolytes,
-                  check_for_column: true
+          2 => :shields,
+          3 => :electrolytes,
+          :check_for_column => true
       end
 
       expect(klass.send(:check_flag_column, "flags")).to eq(false)
@@ -526,9 +526,9 @@ RSpec.describe "FlagShihTzu Instance Methods" do
           include FlagShihTzu
 
           has_flags 1 => :warpdrive,
-                    2 => :shields,
-                    3 => :electrolytes,
-                    check_for_column: true
+            2 => :shields,
+            3 => :electrolytes,
+            :check_for_column => true
         end
       end.to raise_error(FlagShihTzu::IncorrectFlagColumnException)
     end
@@ -539,9 +539,9 @@ RSpec.describe "FlagShihTzu Instance Methods" do
         include FlagShihTzu
 
         has_flags 1 => :warpdrive,
-                  2 => :shields,
-                  3 => :electrolytes,
-                  check_for_column: false
+          2 => :shields,
+          3 => :electrolytes,
+          :check_for_column => false
       end
 
       expect(klass.method_defined?(:warpdrive)).to eq(true)
@@ -553,9 +553,9 @@ RSpec.describe "FlagShihTzu Instance Methods" do
         include FlagShihTzu
 
         has_flags 1 => :warpdrive,
-                  2 => :shields,
-                  3 => :electrolytes,
-                  check_for_column: false
+          2 => :shields,
+          3 => :electrolytes,
+          :check_for_column => false
       end
 
       expect(klass.method_defined?(:warpdrive)).to eq(true)
@@ -572,8 +572,8 @@ RSpec.describe "FlagShihTzu Instance Methods" do
           include FlagShihTzu
 
           has_flags 1 => :warpdrive,
-                    2 => :shields,
-                    3 => :electrolytes
+            2 => :shields,
+            3 => :electrolytes
         end
 
         expect(klass.method_defined?(:warpdrive)).to eq(true)
@@ -593,11 +593,14 @@ RSpec.describe "FlagShihTzu Instance Methods" do
         self.table_name = "spaceships"
         include FlagShihTzu
 
-        has_flags({
-          1 => :warpdrive,
-          2 => :shields,
-          3 => :electrolytes
-        }, check_for_column: false)
+        has_flags(
+          {
+            1 => :warpdrive,
+            2 => :shields,
+            3 => :electrolytes,
+          },
+          check_for_column: false,
+        )
       end
 
       expect(klass.method_defined?(:warpdrive)).to eq(true)
@@ -754,4 +757,3 @@ RSpec.describe "FlagShihTzu Instance Methods" do
     end
   end
 end
-

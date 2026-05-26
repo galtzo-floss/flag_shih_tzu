@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # Simple test without Combustion to verify basic setup
-require "bundler/setup"
 require "logger"
 require "active_record"
 if RUBY_PLATFORM == "java" && Gem::Version.new(ActiveRecord::VERSION::STRING) < Gem::Version.new("7.2")
@@ -19,7 +18,7 @@ end
 # Set up database
 ActiveRecord::Base.establish_connection(
   adapter: adapter,
-  database: ":memory:"
+  database: ":memory:",
 )
 
 # Create schema
@@ -32,6 +31,7 @@ end
 # Define model
 class Spaceship < ActiveRecord::Base
   include FlagShihTzu
+
   has_flags 1 => :warpdrive, 2 => :shields
 end
 

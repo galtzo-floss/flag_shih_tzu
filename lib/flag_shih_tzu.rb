@@ -12,9 +12,9 @@ module FlagShihTzu
 
   def self.included(base)
     base.extend(ClassMethods)
-    base.class_attribute :flag_options unless defined?(base.flag_options)
-    base.class_attribute :flag_mapping unless defined?(base.flag_mapping)
-    base.class_attribute :flag_columns unless defined?(base.flag_columns)
+    base.class_attribute(:flag_options) unless defined?(base.flag_options)
+    base.class_attribute(:flag_mapping) unless defined?(base.flag_mapping)
+    base.class_attribute(:flag_columns) unless defined?(base.flag_columns)
   end
 
   # TODO: Inherit from StandardException
@@ -32,17 +32,17 @@ module FlagShihTzu
           column: DEFAULT_COLUMN_NAME,
           flag_query_mode: :in_list, # or :bit_operator
           strict: false,
-          check_for_column: true
+          check_for_column: true,
         }.update(opts)
       if !valid_flag_column_name?(opts[:column])
-        warn %[FlagShihTzu says: Please use a String to designate column names! I see you here: #{caller.first}]
+        warn(%[FlagShihTzu says: Please use a String to designate column names! I see you here: #{caller(1..1).first}])
         opts[:column] = opts[:column].to_s
       end
       colmn = opts[:column]
-      if opts[:check_for_column] && (active_record_class? && !check_flag_column(colmn))
+      if opts[:check_for_column] && active_record_class? && !check_flag_column(colmn)
         warn(
           %[FlagShihTzu says: Flag column #{colmn} appears to be missing!
-To turn off this warning set check_for_column: false in has_flags definition here: #{caller.first}]
+To turn off this warning set check_for_column: false in has_flags definition here: #{caller(1..1).first}],
         )
         return
       end
@@ -67,22 +67,22 @@ To turn off this warning set check_for_column: false in has_flags definition her
       flag_hash.each do |flag_key, flag_name|
         unless valid_flag_key?(flag_key)
           raise ArgumentError,
-                %[has_flags: flag keys should be positive integers, and #{flag_key} is not]
+            %[has_flags: flag keys should be positive integers, and #{flag_key} is not]
         end
         unless valid_flag_name?(flag_name)
           raise ArgumentError,
-                %[has_flags: flag names should be symbols, and #{flag_name} is not]
+            %[has_flags: flag names should be symbols, and #{flag_name} is not]
         end
         # next if method already defined by flag_shih_tzu
         next if flag_mapping[colmn][flag_name] & (1 << (flag_key - 1))
         if method_defined?(flag_name)
           raise ArgumentError,
-                %[has_flags: flag name #{flag_name} already defined, please choose different name]
+            %[has_flags: flag name #{flag_name} already defined, please choose different name]
         end
 
         flag_mapping[colmn][flag_name] = 1 << (flag_key - 1)
 
-        class_eval <<-EVAL, __FILE__, __LINE__ + 1
+        class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
           def #{flag_name}
             flag_enabled?(:#{flag_name}, "#{colmn}")
           end
@@ -117,7 +117,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
         EVAL
 
         if active_record_class?
-          class_eval <<-EVAL, __FILE__, __LINE__ + 1
+          class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
             def self.#{flag_name}_condition(options = {})
               sql_condition_for_flag(
                 :#{flag_name},
@@ -148,7 +148,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
           # Define the named scopes if the user wants them and AR supports it
           if flag_options[colmn][:named_scopes]
             if ActiveRecord::VERSION::MAJOR == 2 && respond_to?(:named_scope)
-              class_eval <<-EVAL, __FILE__, __LINE__ + 1
+              class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
                 named_scope :#{flag_name}, lambda {
                   { conditions: #{flag_name}_condition }
                 }
@@ -161,7 +161,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
               #   when using +named_scope+ instead of +scope+.
               # Prevent deprecation notices on Rails 4
               #   when using +conditions+ instead of +where+.
-              class_eval <<-EVAL, __FILE__, __LINE__ + 1
+              class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
                 scope :#{flag_name}, lambda {
                   where(#{flag_name}_condition)
                 }
@@ -173,7 +173,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
           end
 
           if method_defined?(:saved_changes)
-            class_eval <<-EVAL, __FILE__, __LINE__ + 1
+            class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
               def saved_change_to_#{flag_name}?
                 if colmn_changes = saved_changes["#{colmn}"]
                   flag_bit = self.class.flag_mapping["#{colmn}"][:#{flag_name}]
@@ -188,7 +188,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
         # Define bang methods when requested
         if flag_options[colmn][:bang_methods]
-          class_eval <<-EVAL, __FILE__, __LINE__ + 1
+          class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
             def #{flag_name}!
               enable_flag(:#{flag_name}, "#{colmn}")
             end
@@ -198,11 +198,10 @@ To turn off this warning set check_for_column: false in has_flags definition her
             end
           EVAL
         end
-
       end
 
       if colmn != DEFAULT_COLUMN_NAME
-        class_eval <<-EVAL, __FILE__, __LINE__ + 1
+        class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
 
           def all_#{colmn}
             all_flags("#{colmn}")
@@ -245,7 +244,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
       end
 
       if active_record_class?
-        class_eval <<-EVAL, __FILE__, __LINE__ + 1
+        class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
           def self.#{colmn.singularize}_values_for(*flag_names)
             values = []
             flag_names.each do |flag_name|
@@ -268,11 +267,11 @@ To turn off this warning set check_for_column: false in has_flags definition her
     def check_flag(flag, colmn)
       unless colmn.is_a?(String)
         raise ArgumentError,
-              %[Column name "#{colmn}" for flag "#{flag}" is not a string]
+          %[Column name "#{colmn}" for flag "#{flag}" is not a string]
       end
       if flag_mapping[colmn].nil? || !flag_mapping[colmn].include?(flag)
         raise ArgumentError,
-              %[Invalid flag "#{flag}"]
+          %[Invalid flag "#{flag}"]
       end
     end
 
@@ -289,12 +288,12 @@ To turn off this warning set check_for_column: false in has_flags definition her
         return colmn if mapping.include?(flag)
       end
       raise NoSuchFlagException.new(
-        %[determine_flag_colmn_for: Couldn't determine column for your flags!]
+        %[determine_flag_colmn_for: Couldn't determine column for your flags!],
       )
     end
 
     def chained_flags_with(column = DEFAULT_COLUMN_NAME, *args)
-      if (ActiveRecord::VERSION::MAJOR >= 3)
+      if ActiveRecord::VERSION::MAJOR >= 3
         where(chained_flags_condition(column, *args))
       else
         all(conditions: chained_flags_condition(column, *args))
@@ -316,7 +315,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
     end
 
     def flag_full_column_name_for_assignment(table, column)
-      if (ActiveRecord::VERSION::MAJOR <= 3)
+      if ActiveRecord::VERSION::MAJOR <= 3
         # If you're trying to do multi-table updates with Rails < 4, sorry - you're out of luck.
         connection.quote_column_name(column)
       else
@@ -333,16 +332,16 @@ To turn off this warning set check_for_column: false in has_flags definition her
       val = flag_value_range_for_column(colmn).to_a
       args.each do |flag|
         neg = false
-        if flag.to_s.match(/^not_/)
+        if flag.to_s =~ /^not_/
           neg = true
           flag = flag.to_s.sub(/^not_/, "").to_sym
         end
         check_flag(flag, colmn)
         flag_values = sql_in_for_flag(flag, colmn)
-        if neg
-          val = val - flag_values
+        val = if neg
+          val - flag_values
         else
-          val = val & flag_values
+          val & flag_values
         end
       end
       val
@@ -351,16 +350,15 @@ To turn off this warning set check_for_column: false in has_flags definition her
     def parse_flag_options(*args)
       options = args.shift
       add_options = if args.size >= 1
-                      args.shift
-                    else
-                      options.
-                      keys.
-                      select { |key| !key.is_a?(Integer) }.
-                      inject({}) do |hash, key|
-                        hash[key] = options.delete(key)
-                        hash
-                      end
-                    end
+        args.shift
+      else
+        options
+          .keys
+          .select { |key| !key.is_a?(Integer) }
+          .each_with_object({}) do |key, hash|
+            hash[key] = options.delete(key)
+        end
+      end
       [options, add_options]
     end
 
@@ -369,18 +367,18 @@ To turn off this warning set check_for_column: false in has_flags definition her
       #   then do not fail here
       # If you are using ActiveRecord then you only want to check for the
       #   table if the table exists so it won't fail pre-migration
-      has_ar = (!!defined?(ActiveRecord) && respond_to?(:descends_from_active_record?))
+      has_ar = !!defined?(ActiveRecord) && respond_to?(:descends_from_active_record?)
       # Supposedly Rails 2.3 takes care of this, but this precaution
       #   is needed for backwards compatibility
       has_table = if has_ar
-                    if ::ActiveRecord::VERSION::MAJOR >= 5
-                      connection.data_sources.include?(custom_table_name)
-                    else
-                      connection.tables.include?(custom_table_name)
-                    end
-                  else
-                    true
-                  end
+        if ::ActiveRecord::VERSION::MAJOR >= 5
+          connection.data_sources.include?(custom_table_name)
+        else
+          connection.tables.include?(custom_table_name)
+        end
+      else
+        true
+      end
       if has_table
         found_column = columns.detect { |column| column.name == colmn }
         # If you have not yet run the migration that adds the 'flags' column
@@ -390,18 +388,18 @@ To turn off this warning set check_for_column: false in has_flags definition her
         #   then we must fail, because flag_shih_tzu will not work
         if found_column.nil?
           warn(
-            %[Error: Column "#{colmn}" doesn't exist on table "#{custom_table_name}". Did you forget to run migrations?]
+            %[Error: Column "#{colmn}" doesn't exist on table "#{custom_table_name}". Did you forget to run migrations?],
           )
           return false
         elsif found_column.type != :integer
           raise IncorrectFlagColumnException.new(
-            %[Table "#{custom_table_name}" must have an integer column named "#{colmn}" in order to use FlagShihTzu.]
+            %[Table "#{custom_table_name}" must have an integer column named "#{colmn}" in order to use FlagShihTzu.],
           )
         end
       else
         # ActiveRecord gem may not have loaded yet?
         warn(
-          %[FlagShihTzu#has_flags: Table "#{custom_table_name}" doesn't exist.  Have all migrations been run?]
+          %[FlagShihTzu#has_flags: Table "#{custom_table_name}" doesn't exist.  Have all migrations been run?],
         ) if has_ar
         return false
       end
@@ -446,7 +444,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
       check_flag(flag, colmn)
       lhs_name = flag_full_column_name_for_assignment(custom_table_name, colmn)
       rhs_name = flag_full_column_name(custom_table_name, colmn)
-      "#{lhs_name} = #{rhs_name} #{enabled ? "| " : "& ~" }#{flag_mapping[colmn][flag]}"
+      "#{lhs_name} = #{rhs_name} #{enabled ? "| " : "& ~"}#{flag_mapping[colmn][flag]}"
     end
 
     def valid_flag_key?(flag_key)
@@ -467,7 +465,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
     def named_scope_method
       # Can't use respond_to because both AR 2 and 3
       #   respond to both +scope+ and +named_scope+.
-      ActiveRecord::VERSION::MAJOR == 2 ? :named_scope : :scope
+      (ActiveRecord::VERSION::MAJOR == 2) ? :named_scope : :scope
     end
 
     def active_record_class?
@@ -495,7 +493,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
     colmn = determine_flag_colmn_for(flag) if colmn.nil?
     self.class.check_flag(flag, colmn)
 
-    get_bit_for(flag, colmn) == 0 ? false : true
+    (get_bit_for(flag, colmn) == 0) ? false : true
   end
 
   def flag_disabled?(flag, colmn = nil)
@@ -518,9 +516,9 @@ To turn off this warning set check_for_column: false in has_flags definition her
   end
 
   def selected_flags(colmn = DEFAULT_COLUMN_NAME)
-    all_flags(colmn).
-      map { |flag_name| self.send(flag_name) ? flag_name : nil }.
-      compact
+    all_flags(colmn)
+      .map { |flag_name| send(flag_name) ? flag_name : nil }
+      .compact
   end
 
   # Useful for a form builder
@@ -548,7 +546,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
   end
 
   def has_flag?(colmn = DEFAULT_COLUMN_NAME)
-    not selected_flags(colmn).empty?
+    !selected_flags(colmn).empty?
   end
 
   # returns true if successful
@@ -564,13 +562,13 @@ To turn off this warning set check_for_column: false in has_flags definition her
         disable_flag(flag)
       end
     end
-    if (ActiveRecord::VERSION::MAJOR <= 3)
-      self.class.
-        update_all(sql, self.class.primary_key => id) == 1
+    if ActiveRecord::VERSION::MAJOR <= 3
+      self.class
+        .update_all(sql, self.class.primary_key => id) == 1
     else
-      self.class.
-        where("#{self.class.primary_key} = ?", id).
-        update_all(sql) == 1
+      self.class
+        .where("#{self.class.primary_key} = ?", id)
+        .update_all(sql) == 1
     end
   end
 
@@ -589,12 +587,12 @@ To turn off this warning set check_for_column: false in has_flags definition her
   def chained_flags_with_signature(colmn = DEFAULT_COLUMN_NAME, *args)
     flags_to_collect = args.empty? ? all_flags(colmn) : args
     truthy_and_chosen =
-      selected_flags(colmn).
-        select { |flag| flags_to_collect.include?(flag) }
+      selected_flags(colmn)
+        .select { |flag| flags_to_collect.include?(flag) }
     truthy_and_chosen.concat(
       collect_flags(*flags_to_collect) do |memo, flag|
         memo << "not_#{flag}".to_sym unless truthy_and_chosen.include?(flag)
-      end
+      end,
     )
   end
 
@@ -621,9 +619,8 @@ To turn off this warning set check_for_column: false in has_flags definition her
   private
 
   def collect_flags(*args)
-    args.inject([]) do |memo, flag|
+    args.each_with_object([]) do |flag, memo|
       yield memo, flag
-      memo
     end
   end
 

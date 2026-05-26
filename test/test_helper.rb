@@ -26,12 +26,10 @@ ActiveRecord::Base.establish_connection(db_name)
 load(File.dirname(__FILE__) + "/schema.rb")
 
 class Test::Unit::TestCase
-
-  def assert_array_similarity(expected, actual, message=nil)
+  def assert_array_similarity(expected, actual, message = nil)
     full_message = build_message(message, "<?> expected but was\n<?>.\n", expected, actual)
-    assert_block(full_message) { (expected.size ==  actual.size) && (expected - actual == []) }
+    assert_block(full_message) { (expected.size == actual.size) && (expected - actual == []) }
   end
-
 end
 
 # For code coverage, must be required before all application / gem / library code.

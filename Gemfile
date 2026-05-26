@@ -10,7 +10,7 @@ source "https://gem.coop"
 
 # SO the gem can run the simple test suite against the raw bundled gems without the complex BUNDLE_GEMFILE setup
 gem "activerecord", ">= 2.3.0"
-gem "sqlite3", :platforms => [:ruby]
+gem "sqlite3", platforms: [:ruby]
 
 #### IMPORTANT #######################################################
 # Gemfile is for local development ONLY; Gemfile is NOT loaded in CI #

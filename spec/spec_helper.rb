@@ -10,7 +10,6 @@ rescue LoadError
   # SimpleCov is optional
 end
 
-require "bundler/setup"
 require "logger"
 require "active_record"
 if RUBY_PLATFORM == "java"
@@ -29,7 +28,7 @@ end
 # Set up database connection
 ActiveRecord::Base.establish_connection(
   adapter: adapter,
-  database: ":memory:"
+  database: ":memory:",
 )
 
 # Suppress ActiveRecord logging
@@ -59,7 +58,7 @@ RSpec.configure do |config|
   end
 
   # Wrap each test in a transaction
-  config.around(:each) do |example|
+  config.around do |example|
     ActiveRecord::Base.connection.transaction do
       example.run
       raise ActiveRecord::Rollback

@@ -1,20 +1,19 @@
 # Active Record is not defined as a runtime dependency in the gemspec.
-unless defined?(::ActiveRecord)
+unless defined?(ActiveRecord)
   begin
     # If by some miracle it hasn't been loaded yet, try to load it.
     require "active_record"
   rescue LoadError
     # If it fails to load, then assume the user is try to use flag_shih_tzu with some other database adapter
-    warn "FlagShihTzu probably won't work unless you have some version of Active Record loaded. Versions >= 2.3 are supported."
+    warn("FlagShihTzu probably won't work unless you have some version of Active Record loaded. Versions >= 2.3 are supported.")
   end
 end
 
-if defined?(::ActiveRecord) && ::ActiveRecord::VERSION::MAJOR >= 3
+if defined?(ActiveRecord) && ActiveRecord::VERSION::MAJOR >= 3
 
   module ActiveModel
     # Open ActiveModel::Validations to define some additional ones
     module Validations
-
       # A simple EachValidator that will check for the presence of the flags specified
       class PresenceOfFlagsValidator < EachValidator
         def validate_each(record, attribute, value)
@@ -29,8 +28,8 @@ if defined?(::ActiveRecord) && ::ActiveRecord::VERSION::MAJOR >= 3
         private
 
         def check_flag(record, attribute)
-          unless record.class.flag_columns.include? attribute.to_s
-            raise ArgumentError.new("#{attribute} is not one of the flags columns (#{record.class.flag_columns.join(', ')})")
+          unless record.class.flag_columns.include?(attribute.to_s)
+            raise ArgumentError.new("#{attribute} is not one of the flags columns (#{record.class.flag_columns.join(", ")})")
           end
         end
       end
@@ -65,10 +64,9 @@ if defined?(::ActiveRecord) && ::ActiveRecord::VERSION::MAJOR >= 3
         # * <tt>:strict</tt> - Specifies whether validation should be strict.
         #   See <tt>ActiveModel::Validation#validates!</tt> for more information.
         def validates_presence_of_flags(*attr_names)
-          validates_with PresenceOfFlagsValidator, _merge_attributes(attr_names)
+          validates_with(PresenceOfFlagsValidator, _merge_attributes(attr_names))
         end
       end
-
     end
   end
 end
