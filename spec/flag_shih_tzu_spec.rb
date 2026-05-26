@@ -382,6 +382,21 @@ RSpec.describe FlagShihTzu do
             .to eq('"spaceships"."flags"')
         end
 
+        it "falls back to conservative identifier quoting when adapter class methods are unavailable" do
+          adapter = Class.new
+          allow(Spaceship).to receive(:flag_connection_adapter_class).and_return(adapter)
+
+          expect(Spaceship.send(:flag_full_column_name, "spaceships", 'fl"ags'))
+            .to eq('"spaceships"."fl""ags"')
+        end
+
+        it "uses column-only assignments for jdbcsqlite3" do
+          allow(Spaceship).to receive(:flag_connection_adapter_name).and_return("jdbcsqlite3")
+
+          expect(Spaceship.send(:flag_full_column_name_for_assignment, "spaceships", "flags"))
+            .to eq('"flags"')
+        end
+
         it "defines a sql condition method for flag enabled with 2 columns not enabled" do
           expect(SpaceshipWith2CustomFlagsColumn.not_warpdrive_condition)
             .to eq('("spaceships_with_2_custom_flags_column"."bits" & 1 = 0)')

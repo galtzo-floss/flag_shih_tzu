@@ -28,7 +28,7 @@ module FlagShihTzu
     "mysql" => "mysql2",
     "postgis" => "postgresql",
   }.freeze
-  FLAG_COLUMN_ONLY_ASSIGNMENT_ADAPTERS = ["postgis", "postgresql", "sqlite", "sqlite3"].freeze
+  FLAG_COLUMN_ONLY_ASSIGNMENT_ADAPTERS = ["jdbcsqlite3", "postgis", "postgresql", "sqlite", "sqlite3"].freeze
 
   class Configuration
     attr_accessor :default_check_for_column,
@@ -547,8 +547,12 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
     def remove_existing_flag_methods(flag_name)
       generated_flag_method_names(flag_name).each do |method_name|
-        remove_method(method_name) if method_defined?(method_name, false)
+        remove_method(method_name) if local_instance_method_defined?(method_name)
       end
+    end
+
+    def local_instance_method_defined?(method_name)
+      method_defined?(method_name) && instance_method(method_name).owner == self
     end
 
     def generated_flag_method_names(flag_name)
@@ -626,14 +630,14 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
     def flag_quote_column_name(column)
       adapter_class = flag_connection_adapter_class
-      return adapter_class.quote_column_name(column) if adapter_class
+      return adapter_class.quote_column_name(column) if adapter_class.respond_to?(:quote_column_name)
 
       flag_fallback_quote_name(column)
     end
 
     def flag_quote_table_name(table)
       adapter_class = flag_connection_adapter_class
-      return adapter_class.quote_table_name(table) if adapter_class
+      return adapter_class.quote_table_name(table) if adapter_class.respond_to?(:quote_table_name)
 
       flag_fallback_quote_name(table)
     end
