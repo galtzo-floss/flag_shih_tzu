@@ -27,7 +27,7 @@
     [447, 11, 13, "Layout/ArgumentAlignment: Use one level of indentation for arguments following the first line of a multi-line method call.", 3505727522],
     [448, 11, 26, "Layout/ArgumentAlignment: Use one level of indentation for arguments following the first line of a multi-line method call.", 2872330858]
   ],
-  "flag_shih_tzu.gemspec:370655428": [
+  "flag_shih_tzu.gemspec:1105892336": [
     [27, 12, 7, "Layout/ExtraSpacing: Unnecessary spacing detected.", 394119301],
     [27, 20, 1, "Layout/SpaceAroundOperators: Operator `=` should be surrounded by a single space.", 177560],
     [29, 15, 4, "Layout/ExtraSpacing: Unnecessary spacing detected.", 2085287685],
@@ -43,12 +43,12 @@
     [117, 63, 1, "Layout/SpaceBeforeBlockBraces: Space missing to the left of {.", 177630],
     [145, 35, 6, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3037028536],
     [145, 43, 8, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 326659041],
-    [204, 3, 42, "Gemspec/DependencyVersion: Dependency version specification is required.", 2658745460],
-    [204, 35, 9, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3145433987],
-    [205, 35, 11, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3966733080],
-    [205, 48, 6, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3123912629],
-    [206, 35, 6, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3039951061],
-    [206, 43, 6, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3123912567]
+    [209, 3, 42, "Gemspec/DependencyVersion: Dependency version specification is required.", 2658745460],
+    [209, 35, 9, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3145433987],
+    [210, 35, 11, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3966733080],
+    [210, 48, 6, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3123912629],
+    [211, 35, 6, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3039951061],
+    [211, 43, 6, "Style/StringLiterals: Prefer double-quoted strings unless you need single quotes to avoid extra backslashes for escaping.", 3123912567]
   ],
   "gemfiles/modular/activerecord/r2.4/v5.2.gemfile:1443954917": [
     [5, 1, 1, "Layout/TrailingEmptyLines: 1 trailing blank lines detected.", 177583]

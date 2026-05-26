@@ -177,6 +177,10 @@ ActiveRecord object.
   spec.add_development_dependency("rspec", "~> 3.0")                                # ruby >= 2.3
   if RUBY_PLATFORM == "java"
     spec.add_development_dependency("rspec-rails", ">= 3.0", "< 4.0")
+  elsif RUBY_ENGINE == "truffleruby" && Gem.ruby_version < Gem::Version.new("3.3")
+    spec.add_development_dependency("rspec-rails", ">= 5.0", "< 6.0")
+  elsif Gem.ruby_version < Gem::Version.new("2.5")
+    spec.add_development_dependency("rspec-rails", ">= 3.0", "< 4.0")
   else
     spec.add_development_dependency("rspec-rails", ">= 3.0")                        # ruby >= 2.3
   end
@@ -184,9 +188,10 @@ ActiveRecord object.
   if RUBY_PLATFORM == "java"
     spec.add_development_dependency("activerecord", ">= 4.2", "< 5.0")
     spec.add_development_dependency("activerecord-jdbcsqlite3-adapter", ">= 1.3")
+    spec.add_development_dependency("bigdecimal", ">= 1")
     spec.add_development_dependency("railties", ">= 4.2", "< 5.0")
   elsif RUBY_ENGINE == "truffleruby" && Gem.ruby_version < Gem::Version.new("3.3")
-    spec.add_development_dependency("activerecord", ">= 2.3.0", "< 7.1")
+    spec.add_development_dependency("activerecord", ">= 5.2", "< 7.1")
     spec.add_development_dependency("sqlite3", ">= 1.4", "< 1.5")
   elsif Gem.ruby_version < Gem::Version.new("2.4")
     spec.add_development_dependency("activerecord", ">= 2.3.0")

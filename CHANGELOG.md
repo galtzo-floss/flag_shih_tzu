@@ -66,6 +66,10 @@ Please file a bug if you notice a violation of semantic versioning.
   development dependency declarations.
 - Fixed Ruby 2.3 setup by avoiding `rackup`, whose available versions require
   Ruby 2.4 or newer.
+- Fixed legacy Ruby, JRuby, and TruffleRuby CI by constraining `rspec-rails`
+  and ActiveRecord to versions compatible with those runtimes.
+- Added explicit `bigdecimal` for JRuby dependency sets that no longer receive
+  it as a default-loadable library.
 - Fixed older TruffleRuby CI dependency drift by keeping it below the Rails
   releases that pull native `psych` and `json` versions it cannot compile.
 - Normalized Arel where-clause assertions across ActiveRecord 6.0 and newer.
