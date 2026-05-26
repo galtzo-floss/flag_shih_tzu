@@ -21,7 +21,7 @@ require "rspec"
 require "flag_shih_tzu"
 
 adapter = "sqlite3"
-if RUBY_PLATFORM == "java"
+if RUBY_PLATFORM == "java" && Gem::Version.new(ActiveRecord::VERSION::STRING) < Gem::Version.new("7.2")
   adapter = "jdbcsqlite3"
 end
 

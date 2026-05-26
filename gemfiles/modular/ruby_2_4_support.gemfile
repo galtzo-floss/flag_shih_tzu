@@ -1,0 +1,4 @@
+# frozen_string_literal: true
+
+# Rack 2.2.23 still resolves on Ruby 2.4 but uses String#delete_prefix.
+gem "rack", "< 2.2.10"

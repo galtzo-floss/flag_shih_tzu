@@ -362,7 +362,7 @@ DEPENDENCIES
   addressable (>= 2.8, < 3)
   appraisal2 (~> 3.0, >= 3.0.6)
   benchmark (~> 0.5, >= 0.5.0)
-  bundler (>= 2.3)
+  bundler (>= 2.2)
   bundler-audit (~> 0.9.3)
   debug (>= 1.1)
   erb (~> 6.0, >= 6.0.4)

@@ -80,6 +80,7 @@ end
 appraise "ruby-2-4" do
   eval_gemfile "modular/x_std_libs/r2.4/libs.gemfile"
   eval_gemfile "modular/activerecord/r2.4/v5.2.gemfile"
+  eval_gemfile "modular/ruby_2_4_support.gemfile"
   eval_gemfile "modular/activerecord_support.gemfile"
   eval_gemfile "modular/combustion.gemfile"
   eval_gemfile "modular/truffleruby_support.gemfile"
