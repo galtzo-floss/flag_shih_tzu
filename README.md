@@ -768,9 +768,9 @@ Thanks for RTFM. ☺️
 [🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/galtzo-floss?style=for-the-badge
 [🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/galtzo-floss?style=for-the-badge
 [🖇osc]: https://opencollective.com/galtzo-floss
-[🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-galtzo-floss.svg?style=social&logo=github
-[🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-galtzo-floss-blue?style=for-the-badge&logo=github
-[🖇sponsor]: https://github.com/sponsors/galtzo-floss
+[🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
+[🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-pboling-blue?style=for-the-badge&logo=github
+[🖇sponsor]: https://github.com/sponsors/pboling
 [🖇polar-img]: https://img.shields.io/badge/polar-donate-a51611.svg?style=flat
 [🖇polar]: https://polar.sh/pboling
 [🖇kofi-img]: https://img.shields.io/badge/ko--fi-%E2%9C%93-a51611.svg?style=flat
@@ -817,10 +817,10 @@ Thanks for RTFM. ☺️
 [💖💁🏼‍♂️devto-img]: https://img.shields.io/badge/dev.to-0A0A0A?style=flat&logo=devdotto&logoColor=white
 [💖💁🏼‍♂️aboutme]: https://about.me/peter.boling
 [💖💁🏼‍♂️aboutme-img]: https://img.shields.io/badge/about.me-0A0A0A?style=flat&logo=aboutme&logoColor=white
-[💖🧊berg]: https://codeberg.org/galtzo-floss
-[💖🐙hub]: https://github.org/galtzo-floss
+[💖🧊berg]: https://codeberg.org/pboling
+[💖🐙hub]: https://github.org/pboling
 [💖🛖hut]: https://sr.ht/~galtzo/
-[💖🧪lab]: https://gitlab.com/galtzo-floss
+[💖🧪lab]: https://gitlab.com/pboling
 [👨🏼‍🏫expsup-upwork]: https://www.upwork.com/freelancers/~014942e9b056abdf86?mp_source=share
 [👨🏼‍🏫expsup-upwork-img]: https://img.shields.io/badge/UpWork-13544E?style=for-the-badge&logo=Upwork&logoColor=white
 [👨🏼‍🏫expsup-codementor]: https://www.codementor.io/peterboling?utm_source=github&utm_medium=button&utm_term=peterboling&utm_campaign=github
