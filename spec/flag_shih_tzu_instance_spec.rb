@@ -589,6 +589,71 @@ RSpec.describe FlagShihTzu do
     end
   end
 
+  describe "tri-state flag columns" do
+    let(:tri_state_class) do
+      Class.new(ActiveRecord::Base) do
+        self.table_name = "spaceships"
+        include FlagShihTzu
+
+        has_flags(
+          {
+            1 => :warpdrive,
+            2 => :shields,
+          },
+          bit_width: 2,
+        )
+      end
+    end
+
+    let(:tri_state_ship) { tri_state_class.new }
+
+    it "stores each flag in a two-bit slot" do
+      tri_state_ship.warpdrive = true
+      tri_state_ship.shields = nil
+
+      expect(tri_state_ship.flags).to eq(13)
+      expect(tri_state_ship.warpdrive).to be(true)
+      expect(tri_state_ship.shields).to be_nil
+      expect(tri_state_ship.not_warpdrive).to be(false)
+      expect(tri_state_ship.not_shields).to be_nil
+    end
+
+    it "sets false and nil as distinct values" do
+      tri_state_ship.warpdrive = nil
+      expect(tri_state_ship.flags).to eq(3)
+      expect(tri_state_ship.warpdrive).to be_nil
+      expect(tri_state_ship.warpdrive_nil?).to be(true)
+
+      tri_state_ship.warpdrive = false
+      expect(tri_state_ship.flags).to eq(0)
+      expect(tri_state_ship.warpdrive).to be(false)
+      expect(tri_state_ship.warpdrive_nil?).to be(false)
+    end
+
+    it "builds tri-state SQL predicates and assignments" do
+      expect(tri_state_class.warpdrive_condition).to eq('("spaceships"."flags" & 3 = 1)')
+      expect(tri_state_class.not_warpdrive_condition).to eq('("spaceships"."flags" & 3 = 0)')
+      expect(tri_state_class.warpdrive_nil_condition).to eq('("spaceships"."flags" & 3 = 3)')
+      expect(tri_state_class.set_warpdrive_sql).to eq('"flags" = "spaceships"."flags" & ~3 | 1')
+      expect(tri_state_class.unset_warpdrive_sql).to eq('"flags" = "spaceships"."flags" & ~3 | 0')
+      expect(tri_state_class.clear_warpdrive_sql).to eq('"flags" = "spaceships"."flags" & ~3 | 3')
+    end
+
+    it "uses only the known two-bit slots for in-list values" do
+      expect(tri_state_class.send(:sql_in_for_flag, :warpdrive, "flags")).to eq([1, 5, 9, 13])
+    end
+
+    it "updates tri-state values through hash assignment" do
+      tri_state_ship.flags = {warpdrive: true, shields: nil}
+
+      expect(tri_state_ship.flags).to eq(13)
+      expect(tri_state_ship.flags_as_attributes).to eq(
+        warpdrive: true,
+        shields: nil,
+      )
+    end
+  end
+
   describe "column checking" do
     it "defines flag methods if the column does not exist yet with default check_for_column" do
       expect do

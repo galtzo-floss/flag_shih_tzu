@@ -136,6 +136,78 @@ RSpec.describe FlagShihTzu do
             end
           end.to raise_error(ArgumentError)
         end
+
+        it "raises an exception when bit width above two has no encoder" do
+          expect do
+            Class.new(ActiveRecord::Base) do
+              self.table_name = "spaceships"
+              include FlagShihTzu
+
+              has_flags({1 => :warpdrive}, bit_width: 3)
+            end
+          end.to raise_error(ArgumentError, /requires an encoder/)
+        end
+      end
+
+      context "with custom encoders" do
+        let(:always_nil_encoder) do
+          Class.new do
+            class << self
+              def bit_width
+                1
+              end
+
+              def mask(flag_key)
+                1 << (flag_key - 1)
+              end
+
+              def read(_bits, _flag_mask)
+                nil
+              end
+
+              def write(bits, _flag_mask, _value)
+                bits
+              end
+
+              def disabled_value(_bits, _flag_mask)
+                nil
+              end
+
+              def changed?(_from_bits, _to_bits, _flag_mask)
+                false
+              end
+
+              def sql_value_for(_flag_mask, _enabled)
+                0
+              end
+
+              def sql_operator_for(_enabled)
+                "| "
+              end
+
+              def sql_operand_for(_flag_mask, _enabled)
+                0
+              end
+
+              def matches?(_bits, _flag_mask, _enabled)
+                false
+              end
+            end
+          end
+        end
+
+        it "allows custom encoders to override a built-in bit width" do
+          encoder = always_nil_encoder
+
+          model = Class.new(ActiveRecord::Base) do
+            self.table_name = "spaceships"
+            include FlagShihTzu
+
+            has_flags({1 => :warpdrive}, bit_width: 1, encoder: encoder)
+          end
+
+          expect(model.new.warpdrive).to be_nil
+        end
       end
 
       context "with SQL condition methods" do

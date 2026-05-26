@@ -7,10 +7,13 @@ require "flag_shih_tzu/validators"
 module FlagShihTzu
   # taken from ActiveRecord::ConnectionAdapters::Column
   TRUE_VALUES = [true, 1, "1", "t", "T", "true", "TRUE"]
+  FALSE_VALUES = [false, 0, "0", "f", "F", "false", "FALSE"]
+  NIL_VALUES = [nil, "", "nil", "NULL", "null"]
 
   DEFAULT_COLUMN_NAME = "flags"
   DEFAULT_CHECK_FOR_COLUMN = false
   DEFAULT_FLAG_QUERY_MODE = :bit_operator
+  DEFAULT_BIT_WIDTH = 1
   FLAG_ADAPTER_CLASS_NAMES = {
     "mysql" => "Mysql2Adapter",
     "mysql2" => "Mysql2Adapter",
@@ -67,6 +70,143 @@ module FlagShihTzu
   class NoSuchFlagQueryModeException < StandardError; end
   class NoSuchFlagException < StandardError; end
   class DuplicateFlagColumnException < StandardError; end
+  class InvalidFlagValueException < StandardError; end
+
+  class BooleanEncoder
+    class << self
+      def bit_width
+        1
+      end
+
+      def mask(flag_key)
+        1 << (flag_key - 1)
+      end
+
+      def read(bits, flag_mask)
+        (bits & flag_mask) != 0
+      end
+
+      def write(bits, flag_mask, value)
+        true_value?(value) ? bits | flag_mask : bits & ~flag_mask
+      end
+
+      def disabled_value(bits, flag_mask)
+        !read(bits, flag_mask)
+      end
+
+      def changed?(from_bits, to_bits, flag_mask)
+        (from_bits & flag_mask) != (to_bits & flag_mask)
+      end
+
+      def enabled_sql_value(flag_mask)
+        flag_mask
+      end
+
+      def disabled_sql_value(_flag_mask)
+        0
+      end
+
+      def sql_value_for(flag_mask, enabled)
+        enabled ? enabled_sql_value(flag_mask) : disabled_sql_value(flag_mask)
+      end
+
+      def sql_operator_for(enabled)
+        enabled ? "| " : "& ~"
+      end
+
+      def sql_operand_for(flag_mask, _enabled)
+        flag_mask
+      end
+
+      def matches?(bits, flag_mask, enabled)
+        (bits & flag_mask) == sql_value_for(flag_mask, enabled)
+      end
+
+      private
+
+      def true_value?(value)
+        FlagShihTzu::TRUE_VALUES.include?(value)
+      end
+    end
+  end
+
+  class TriStateEncoder
+    class << self
+      def bit_width
+        2
+      end
+
+      def mask(flag_key)
+        ((1 << bit_width) - 1) << ((flag_key - 1) * bit_width)
+      end
+
+      def read(bits, flag_mask)
+        raw_value = bits & flag_mask
+        return if raw_value == flag_mask
+
+        raw_value != 0
+      end
+
+      def write(bits, flag_mask, value)
+        cleared_bits = bits & ~flag_mask
+        cleared_bits | encoded_value(flag_mask, value)
+      end
+
+      def disabled_value(bits, flag_mask)
+        value = read(bits, flag_mask)
+        value.nil? ? nil : !value
+      end
+
+      def changed?(from_bits, to_bits, flag_mask)
+        (from_bits & flag_mask) != (to_bits & flag_mask)
+      end
+
+      def enabled_sql_value(flag_mask)
+        low_bit(flag_mask)
+      end
+
+      def disabled_sql_value(_flag_mask)
+        0
+      end
+
+      def nil_sql_value(flag_mask)
+        flag_mask
+      end
+
+      def sql_value_for(flag_mask, enabled)
+        return nil_sql_value(flag_mask) if enabled.nil?
+
+        enabled ? enabled_sql_value(flag_mask) : disabled_sql_value(flag_mask)
+      end
+
+      def sql_operator_for(_enabled)
+        "& ~"
+      end
+
+      def sql_operand_for(flag_mask, enabled)
+        "#{flag_mask} | #{sql_value_for(flag_mask, enabled)}"
+      end
+
+      def matches?(bits, flag_mask, enabled)
+        (bits & flag_mask) == sql_value_for(flag_mask, enabled)
+      end
+
+      private
+
+      def encoded_value(flag_mask, value)
+        return enabled_sql_value(flag_mask) if FlagShihTzu::TRUE_VALUES.include?(value)
+        return disabled_sql_value(flag_mask) if FlagShihTzu::FALSE_VALUES.include?(value)
+        return nil_sql_value(flag_mask) if FlagShihTzu::NIL_VALUES.include?(value)
+
+        raise InvalidFlagValueException,
+          %[Invalid tri-state flag value "#{value.inspect}"; expected true, false, or nil]
+      end
+
+      def low_bit(flag_mask)
+        flag_mask & -flag_mask
+      end
+    end
+  end
 
   module ClassMethods
     def has_flags(*args)
@@ -79,7 +219,9 @@ module FlagShihTzu
           strict: false,
           check_for_column: FlagShihTzu.default_check_for_column,
           allow_overwrite: false,
+          bit_width: DEFAULT_BIT_WIDTH,
         }.update(opts)
+      opts[:encoder] = flag_encoder_for(opts[:bit_width], opts[:encoder])
       if !valid_flag_column_name?(opts[:column])
         warn(%[FlagShihTzu says: Please use a String to designate column names! I see you here: #{caller(1..1).first}])
         opts[:column] = opts[:column].to_s
@@ -119,8 +261,9 @@ To turn off this warning set check_for_column: false in has_flags definition her
           raise ArgumentError,
             %[has_flags: flag names should be symbols, and #{flag_name} is not]
         end
+        flag_mask = opts[:encoder].mask(flag_key)
         # next if method already defined by flag_shih_tzu
-        next if flag_mapping[colmn][flag_name] & (1 << (flag_key - 1))
+        next if flag_mapping[colmn][flag_name] & flag_mask
         if method_defined?(flag_name)
           if opts[:allow_overwrite]
             remove_existing_flag_methods(flag_name)
@@ -130,7 +273,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
           end
         end
 
-        flag_mapping[colmn][flag_name] = 1 << (flag_key - 1)
+        flag_mapping[colmn][flag_name] = flag_mask
 
         class_eval(<<-EVAL, __FILE__, __LINE__ + 1)
           def #{flag_name}
@@ -139,29 +282,29 @@ To turn off this warning set check_for_column: false in has_flags definition her
           alias :#{flag_name}? :#{flag_name}
 
           def #{flag_name}=(value)
-            FlagShihTzu::TRUE_VALUES.include?(value) ?
-              enable_flag(:#{flag_name}, "#{colmn}") :
-              disable_flag(:#{flag_name}, "#{colmn}")
+            set_flag_value(:#{flag_name}, value, "#{colmn}")
           end
 
           def not_#{flag_name}
-            !self.#{flag_name}
+            flag_disabled?(:#{flag_name}, "#{colmn}")
           end
           alias :not_#{flag_name}? :not_#{flag_name}
 
           def not_#{flag_name}=(value)
-            FlagShihTzu::TRUE_VALUES.include?(value) ?
-              disable_flag(:#{flag_name}, "#{colmn}") :
-              enable_flag(:#{flag_name}, "#{colmn}")
+            set_flag_value(:#{flag_name}, inverse_flag_value(value, "#{colmn}"), "#{colmn}")
           end
 
           def #{flag_name}_changed?
             if colmn_changes = changes["#{colmn}"]
               flag_bit = self.class.flag_mapping["#{colmn}"][:#{flag_name}]
-              (colmn_changes[0] & flag_bit) != (colmn_changes[1] & flag_bit)
+              self.class.send(:flag_encoder_for_column, "#{colmn}").changed?(colmn_changes[0], colmn_changes[1], flag_bit)
             else
               false
             end
+          end
+
+          def #{flag_name}_nil?
+            flag_enabled?(:#{flag_name}, "#{colmn}").nil?
           end
 
         EVAL
@@ -186,12 +329,25 @@ To turn off this warning set check_for_column: false in has_flags definition her
               )
             end
 
+            def self.#{flag_name}_nil_condition(options = {})
+              sql_condition_for_flag(
+                :#{flag_name},
+                "#{colmn}",
+                nil,
+                options[:table_alias] || table_name
+              )
+            end
+
             def self.set_#{flag_name}_sql
               sql_set_for_flag(:#{flag_name}, "#{colmn}", true)
             end
 
             def self.unset_#{flag_name}_sql
               sql_set_for_flag(:#{flag_name}, "#{colmn}", false)
+            end
+
+            def self.clear_#{flag_name}_sql
+              sql_set_for_flag(:#{flag_name}, "#{colmn}", nil)
             end
           EVAL
 
@@ -218,6 +374,9 @@ To turn off this warning set check_for_column: false in has_flags definition her
                 scope :not_#{flag_name}, lambda {
                   where(not_#{flag_name}_condition)
                 }
+                scope :#{flag_name}_nil, lambda {
+                  where(#{flag_name}_nil_condition)
+                }
               EVAL
             end
           end
@@ -227,7 +386,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
               def saved_change_to_#{flag_name}?
                 if colmn_changes = saved_changes["#{colmn}"]
                   flag_bit = self.class.flag_mapping["#{colmn}"][:#{flag_name}]
-                  (colmn_changes[0] & flag_bit) != (colmn_changes[1] & flag_bit)
+                  self.class.send(:flag_encoder_for_column, "#{colmn}").changed?(colmn_changes[0], colmn_changes[1], flag_bit)
                 else
                   false
                 end
@@ -245,6 +404,10 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
             def not_#{flag_name}!
               disable_flag(:#{flag_name}, "#{colmn}")
+            end
+
+            def clear_#{flag_name}!
+              clear_flag(:#{flag_name}, "#{colmn}")
             end
           EVAL
         end
@@ -364,7 +527,8 @@ To turn off this warning set check_for_column: false in has_flags definition her
           flag, enabled = flag_enabled_query(flag)
           check_flag(flag, colmn)
           flag_value = flag_mapping[colmn][flag]
-          "#{flag_full_column_name(table_name, colmn)} & #{flag_value} = #{enabled ? flag_value : 0}"
+          expected_value = flag_encoder_for_column(colmn).sql_value_for(flag_value, enabled)
+          "#{flag_full_column_name(table_name, colmn)} & #{flag_value} = #{expected_value}"
         end
         return %[(#{conditions.join(" AND ")})]
       end
@@ -393,10 +557,25 @@ To turn off this warning set check_for_column: false in has_flags definition her
         "not_#{flag_name}?".to_sym,
         "not_#{flag_name}=".to_sym,
         "#{flag_name}_changed?".to_sym,
+        "#{flag_name}_nil?".to_sym,
         "saved_change_to_#{flag_name}?".to_sym,
         "#{flag_name}!".to_sym,
         "not_#{flag_name}!".to_sym,
+        "clear_#{flag_name}!".to_sym,
       ]
+    end
+
+    def flag_encoder_for(bit_width, encoder)
+      return encoder if encoder
+      return BooleanEncoder if bit_width == 1
+      return TriStateEncoder if bit_width == 2
+
+      raise ArgumentError,
+        %[has_flags: bit_width #{bit_width} requires an encoder]
+    end
+
+    def flag_encoder_for_column(colmn)
+      flag_options.fetch(colmn).fetch(:encoder)
     end
 
     def flag_full_column_name(table, column)
@@ -462,7 +641,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
     def flag_value_range_for_column(colmn)
       max = flag_mapping[colmn].values.max
-      Range.new(0, (2 * max) - 1)
+      Range.new(0, max | (max - 1))
     end
 
     def chained_flags_values(colmn, *args)
@@ -551,11 +730,13 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
     def sql_condition_for_flag(flag, colmn, enabled = true, custom_table_name = table_name)
       check_flag(flag, colmn)
+      flag_mask = flag_mapping[colmn][flag]
+      encoder = flag_encoder_for_column(colmn)
 
       if flag_options[colmn][:flag_query_mode] == :bit_operator
         # use & bit operator directly in the SQL query.
         # This has the drawback of not using an index on the flags colum.
-        %[(#{flag_full_column_name(custom_table_name, colmn)} & #{flag_mapping[colmn][flag]} = #{enabled ? flag_mapping[colmn][flag] : 0})]
+        %[(#{flag_full_column_name(custom_table_name, colmn)} & #{flag_mask} = #{encoder.sql_value_for(flag_mask, enabled)})]
       elsif flag_options[colmn][:flag_query_mode] == :in_list
         # use IN() operator in the SQL query.
         # This has the drawback of becoming a big query
@@ -569,15 +750,18 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
     # returns an array of integers suitable for a SQL IN statement.
     def sql_in_for_flag(flag, colmn)
-      val = flag_mapping[colmn][flag]
-      flag_value_range_for_column(colmn).select { |bits| bits & val == val }
+      flag_mask = flag_mapping[colmn][flag]
+      encoder = flag_encoder_for_column(colmn)
+      flag_value_range_for_column(colmn).select { |bits| encoder.matches?(bits, flag_mask, true) }
     end
 
     def sql_set_for_flag(flag, colmn, enabled = true, custom_table_name = table_name)
       check_flag(flag, colmn)
       lhs_name = flag_full_column_name_for_assignment(custom_table_name, colmn)
       rhs_name = flag_full_column_name(custom_table_name, colmn)
-      "#{lhs_name} = #{rhs_name} #{enabled ? "| " : "& ~"}#{flag_mapping[colmn][flag]}"
+      flag_mask = flag_mapping[colmn][flag]
+      encoder = flag_encoder_for_column(colmn)
+      "#{lhs_name} = #{rhs_name} #{encoder.sql_operator_for(enabled)}#{encoder.sql_operand_for(flag_mask, enabled)}"
     end
 
     def valid_flag_key?(flag_key)
@@ -611,7 +795,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
     colmn = determine_flag_colmn_for(flag) if colmn.nil?
     self.class.check_flag(flag, colmn)
 
-    set_flags(flags(colmn) | self.class.flag_mapping[colmn][flag], colmn)
+    set_flag_value(flag, true, colmn)
   end
 
   # Performs the bitwise operation so the flag will return +false+.
@@ -619,21 +803,29 @@ To turn off this warning set check_for_column: false in has_flags definition her
     colmn = determine_flag_colmn_for(flag) if colmn.nil?
     self.class.check_flag(flag, colmn)
 
-    set_flags(flags(colmn) & ~self.class.flag_mapping[colmn][flag], colmn)
+    set_flag_value(flag, false, colmn)
+  end
+
+  # Performs the bitwise operation so the flag will return +nil+ when supported.
+  def clear_flag(flag, colmn = nil)
+    colmn = determine_flag_colmn_for(flag) if colmn.nil?
+    self.class.check_flag(flag, colmn)
+
+    set_flag_value(flag, nil, colmn)
   end
 
   def flag_enabled?(flag, colmn = nil)
     colmn = determine_flag_colmn_for(flag) if colmn.nil?
     self.class.check_flag(flag, colmn)
 
-    !(get_bit_for(flag, colmn) == 0)
+    flag_encoder_for_column(colmn).read(flags(colmn), self.class.flag_mapping[colmn][flag])
   end
 
   def flag_disabled?(flag, colmn = nil)
     colmn = determine_flag_colmn_for(flag) if colmn.nil?
     self.class.check_flag(flag, colmn)
 
-    !flag_enabled?(flag, colmn)
+    flag_encoder_for_column(colmn).disabled_value(flags(colmn), self.class.flag_mapping[colmn][flag])
   end
 
   def flags(colmn = DEFAULT_COLUMN_NAME)
@@ -691,14 +883,10 @@ To turn off this warning set check_for_column: false in has_flags definition her
   # third parameter allows you to specify that `self` should
   #   also have its in-memory flag attribute updated.
   def update_flag!(flag, value, update_instance = false)
-    truthy = FlagShihTzu::TRUE_VALUES.include?(value)
-    sql = self.class.set_flag_sql(flag.to_sym, truthy)
+    flag_value = normalized_flag_value(value, determine_flag_colmn_for(flag.to_sym))
+    sql = self.class.set_flag_sql(flag.to_sym, flag_value)
     if update_instance
-      if truthy
-        enable_flag(flag)
-      else
-        disable_flag(flag)
-      end
+      set_flag_value(flag.to_sym, flag_value)
     end
     if ActiveRecord::VERSION::MAJOR <= 3
       self.class
@@ -786,12 +974,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
   def set_flag_attributes(flag_attributes, colmn)
     flag_attributes.each_pair do |flag, value|
-      flag = flag.to_sym
-      if FlagShihTzu::TRUE_VALUES.include?(value)
-        enable_flag(flag, colmn)
-      else
-        disable_flag(flag, colmn)
-      end
+      set_flag_value(flag.to_sym, value, colmn)
     end
   end
 
@@ -803,6 +986,31 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
   def get_bit_for(flag, colmn)
     flags(colmn) & self.class.flag_mapping[colmn][flag]
+  end
+
+  def set_flag_value(flag, value, colmn = nil)
+    colmn = determine_flag_colmn_for(flag) if colmn.nil?
+    self.class.check_flag(flag, colmn)
+
+    flag_mask = self.class.flag_mapping[colmn][flag]
+    self[colmn] = flag_encoder_for_column(colmn).write(flags(colmn), flag_mask, value)
+  end
+
+  def normalized_flag_value(value, colmn)
+    return true if FlagShihTzu::TRUE_VALUES.include?(value)
+    return false if FlagShihTzu::FALSE_VALUES.include?(value)
+    return if FlagShihTzu::NIL_VALUES.include?(value) && flag_encoder_for_column(colmn).bit_width > 1
+
+    false
+  end
+
+  def inverse_flag_value(value, colmn)
+    normalized = normalized_flag_value(value, colmn)
+    normalized.nil? ? nil : !normalized
+  end
+
+  def flag_encoder_for_column(colmn)
+    self.class.send(:flag_encoder_for_column, colmn)
   end
 
   def determine_flag_colmn_for(flag)

@@ -232,6 +232,74 @@ and check individual flags.
 Read more about [bit fields][bit_field] here: http://en.wikipedia.org/wiki/Bit_field
 
 
+### Bit width and custom encoders
+
+By default, each flag uses one bit. This keeps the historical boolean storage
+format unchanged:
+
+```ruby
+has_flags 1 => :warpdrive,
+  2 => :shields
+```
+
+This is equivalent to:
+
+```ruby
+has_flags(
+  {1 => :warpdrive, 2 => :shields},
+  bit_width: 1,
+)
+```
+
+For flags that need `true`, `false`, and `nil`, use two bits per flag:
+
+```ruby
+has_flags(
+  {1 => :warpdrive, 2 => :shields},
+  bit_width: 2,
+)
+```
+
+With `bit_width: 2`, each flag is encoded in its own two-bit slot. A flag can
+be enabled, disabled, or cleared to `nil`:
+
+```ruby
+enterprise.warpdrive = true
+enterprise.shields = nil
+
+enterprise.warpdrive      # true
+enterprise.shields        # nil
+enterprise.shields_nil?   # true
+```
+
+Generated SQL helpers also understand the nil state:
+
+```ruby
+Spaceship.warpdrive_condition      # flags & 3 = 1
+Spaceship.not_warpdrive_condition  # flags & 3 = 0
+Spaceship.warpdrive_nil_condition  # flags & 3 = 3
+Spaceship.clear_warpdrive_sql      # clears the two-bit slot to nil
+```
+
+Changing an existing flag column from one-bit boolean storage to two-bit
+tri-state storage changes the meaning of stored integers. Treat that as a data
+migration, not a model-only change.
+
+Applications with specialized storage needs can provide a custom encoder:
+
+```ruby
+has_flags(
+  {1 => :warpdrive},
+  bit_width: 2,
+  encoder: MyFlagEncoder,
+)
+```
+
+The built-in encoders cover `bit_width: 1` and `bit_width: 2`. If you set
+`bit_width: 3` or higher, you must provide an encoder so FlagShihTzu does not
+guess what the extra states mean.
+
+
 ### Using a custom column name
 
 The default column name to store the flags is `flags`, but you can provide a
