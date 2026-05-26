@@ -146,23 +146,13 @@ workflows:
   # Include VCR/WebMock recording modular gemfiles in generated Appraisals.
   # Enable only for projects that actually require recording support.
   recording: false
-  preset: framework
-  framework_matrix:
-    dimension: activerecord
-    versions:
-    - '5.2'
-    - '6.0'
-    - '6.1'
-    - '7.0'
-    - '7.1'
-    - '7.2'
-    - '8.0'
-    gemfile_pattern: ar-{version}.x
-    appraisal_gemfiles:
-    - modular/activerecord_support.gemfile
+  preset: modern
 appraisal_matrix:
   mode: minor
   exec_cmd: kettle-test
+  standard_appraisal_role: runtime_dependency
+  appraisal_gemfiles:
+  - modular/activerecord_support.gemfile
   gems:
     tier1:
     - name: activerecord
