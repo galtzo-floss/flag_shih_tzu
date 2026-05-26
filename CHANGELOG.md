@@ -20,73 +20,38 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Added `table_alias:` support to generated `not_<flag>_condition` SQL helper
+  methods, matching the existing alias support for positive flag conditions.
+- Added first-class project metadata, documentation links, funding links, and
+  gem signing metadata to the gemspec.
+
 ### Changed
 
-- Applied the current kettle-jem template, including appraisal-isolated CI
-  workflows and generated project metadata.
-- Switched ActiveRecord framework CI to generated Appraisal2 appraisals with
-  a destination-specific sqlite support gemfile.
-- Added the salvaged RSpec/Combustion suite and kettle-jem-appraisals
-  ActiveRecord bucket matrix from the older workspace copy.
-- Pinned ActiveRecord framework gemfiles to their intended minor series.
-- Constrained sqlite in framework appraisals to the adapter range required by
-  ActiveRecord 7.x.
+- Updated project ownership and documentation links from `pboling` to
+  `galtzo-floss`.
+- Raised the effective minimum installable Ruby version to Ruby 2.2 through
+  the new `version_gem` runtime dependency.
+- Expanded the maintained compatibility matrix to cover modern Ruby,
+  JRuby, TruffleRuby, and ActiveRecord releases through ActiveRecord 8.0.
+- Modernized `validates_presence_of_flags` integration for current
+  ActiveModel error APIs.
 
 ### Deprecated
 
 ### Removed
 
+- Removed the obsolete Travis CI setup and legacy appraisal files for
+  ActiveRecord 2.3 through 5.1.
+- Removed Ruby 2.3 and JRuby 9.1 from the tested release matrix.
+
 ### Fixed
 
-- Fixed the Ruby 2.4 appraisal by keeping Rack on the Ruby 2.4-compatible
-  Rack 2.1 line and loading the Ruby 2.5 String prefix backport before
-  ActiveRecord boots.
-- Marked evergreen JRuby 10 workflows experimental while the ActiveRecord JDBC
-  adapter stack is not compatible with JRuby 10.1.
-- Generated the curated local binstubs, including `bin/rake`, from the current
-  local kettle-jem install path.
 - Restored project-specific README sections lost during templating, including
   the Alternatives section and the updated RailsBling URL from PR #104.
-- Fixed CI appraisals by loading `logger` before ActiveRecord 6.x, keeping
-  documentation-only `rdoc` out of the gemspec, and using JRuby's sqlite
-  adapter when running on JRuby.
-- Fixed collapsed ActiveRecord appraisals by separating the broad ActiveRecord
-  runtime dependency from the shared sqlite adapter support gemfile, and moved
-  `combustion` out of the gemspec into appraisal-specific modular gemfiles so
-  it resolves with each appraisal's ActiveRecord constraints.
-- Fixed legacy CI jobs by omitting `kettle-dev` on Ruby 2.3, constraining
-  `sqlite3` on Ruby 2.4, and supporting both ActiveRecord 6.0 where-clause
-  AST shapes.
-- Fixed coverage CI by loading `kettle-soup-cover` before its SimpleCov
-  config and letting the shared coverage config own `SimpleCov.start`.
-- Reset coverage gates to the current covered baseline so coverage CI hard
-  fails on regressions without requiring unreachable 100% coverage.
-- Fixed Ruby 2.3 CI by running `rspec` directly because current `kettle-test`
-  requires Ruby 2.4 or newer.
-- Fixed Ruby 2.4 dependency resolution by capping `sqlite3` below 1.5.
-- Fixed modern JRuby CI by avoiding the legacy JDBC adapter shim on
-  ActiveRecord 7.2 and newer.
-- Added legacy CI dependency constraints for Ruby 2.3, Ruby 2.4, and modern
-  JRuby appraisal bundles.
-- Fixed Ruby 2.4 and JRuby CI dependency drift by pinning the Rack split below
-  Rack 3 on Ruby 2.4 and using a coherent ActiveRecord/JDBC sqlite stack on
-  JRuby.
-- Fixed JRuby gemspec validation by avoiding duplicate `rspec-rails`
-  development dependency declarations.
-- Fixed Ruby 2.3 setup by avoiding `rackup`, whose available versions require
-  Ruby 2.4 or newer.
-- Fixed legacy Ruby, JRuby, and TruffleRuby CI by constraining `rspec-rails`
-  and ActiveRecord to versions compatible with those runtimes.
-- Added explicit `bigdecimal` for JRuby dependency sets that no longer receive
-  it as a default-loadable library.
-- Fixed older TruffleRuby CI dependency drift by keeping it below the Rails
-  releases that pull native `psych` and `json` versions it cannot compile.
-- Normalized Arel where-clause assertions across ActiveRecord 6.0 and newer.
-- Removed the obsolete JRuby 9.1 workflow because it is pinned by
-  `ruby/setup-ruby` to Bundler 1, which cannot install from `gem.coop`.
-- Removed the advanced CodeQL workflow because repository default setup is
-  already enabled.
-- Added the missing RuboCop Gradual baseline required by style CI.
+- Avoided repeated method redefinition warnings when flags are declared across
+  multiple columns.
+- Normalized generated SQL condition behavior across supported ActiveRecord
+  versions, including ActiveRecord 6.0 where-clause AST differences.
 
 ### Security
 
