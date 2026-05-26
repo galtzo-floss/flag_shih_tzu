@@ -87,7 +87,7 @@ RSpec.describe FlagShihTzu do
         end
       end
 
-      context "SQL condition methods" do
+      context "with SQL condition methods" do
         it "defines a sql condition method for flag enabled" do
           expect(Spaceship.warpdrive_condition).to eq('("spaceships"."flags" in (1,3,5,7))')
           expect(Spaceship.shields_condition).to eq('("spaceships"."flags" in (2,3,6,7))')
@@ -201,7 +201,7 @@ RSpec.describe FlagShihTzu do
         end
       end
 
-      context "named scopes" do
+      context "with named scopes" do
         def assert_where_value(expected, scope)
           ast = scope.where_clause.ast
           actual = if ast.respond_to?(:expr)
@@ -297,9 +297,9 @@ RSpec.describe FlagShihTzu do
           spaceship.enable_flag(:electrolytes)
           spaceship.save!
 
-          expect(spaceship.warpdrive).to eq(false)
-          expect(spaceship.shields).to eq(true)
-          expect(spaceship.electrolytes).to eq(true)
+          expect(spaceship.warpdrive).to be(false)
+          expect(spaceship.shields).to be(true)
+          expect(spaceship.electrolytes).to be(true)
 
           if ActiveRecord::VERSION::MAJOR <= 3
             Spaceship.update_all(
@@ -314,9 +314,9 @@ RSpec.describe FlagShihTzu do
 
           spaceship.reload
 
-          expect(spaceship.warpdrive).to eq(true)
-          expect(spaceship.shields).to eq(true)
-          expect(spaceship.electrolytes).to eq(true)
+          expect(spaceship.warpdrive).to be(true)
+          expect(spaceship.shields).to be(true)
+          expect(spaceship.electrolytes).to be(true)
 
           spaceship2 = Spaceship.new
           spaceship2.enable_flag(:warpdrive)
@@ -324,9 +324,9 @@ RSpec.describe FlagShihTzu do
           spaceship2.enable_flag(:electrolytes)
           spaceship2.save!
 
-          expect(spaceship2.warpdrive).to eq(true)
-          expect(spaceship2.shields).to eq(true)
-          expect(spaceship2.electrolytes).to eq(true)
+          expect(spaceship2.warpdrive).to be(true)
+          expect(spaceship2.shields).to be(true)
+          expect(spaceship2.electrolytes).to be(true)
 
           if ActiveRecord::VERSION::MAJOR <= 3
             Spaceship.update_all(
@@ -341,9 +341,9 @@ RSpec.describe FlagShihTzu do
 
           spaceship2.reload
 
-          expect(spaceship2.warpdrive).to eq(true)
-          expect(spaceship2.shields).to eq(false)
-          expect(spaceship2.electrolytes).to eq(true)
+          expect(spaceship2.warpdrive).to be(true)
+          expect(spaceship2.shields).to be(false)
+          expect(spaceship2.electrolytes).to be(true)
         end
 
         it "returns the correct number of items from a named scope" do
@@ -383,8 +383,8 @@ RSpec.describe FlagShihTzu do
         end
 
         it "does not define named scopes if not wanted" do
-          expect(SpaceshipWithoutNamedScopes.respond_to?(:warpdrive)).to eq(false)
-          expect(SpaceshipWithoutNamedScopesOldStyle.respond_to?(:warpdrive)).to eq(false)
+          expect(SpaceshipWithoutNamedScopes.respond_to?(:warpdrive)).to be(false)
+          expect(SpaceshipWithoutNamedScopesOldStyle.respond_to?(:warpdrive)).to be(false)
         end
       end
 
@@ -446,7 +446,7 @@ RSpec.describe FlagShihTzu do
         end
       end
 
-      context "missing tables and columns" do
+      context "with missing tables and columns" do
         it "does not error out when table is not present" do
           expect do
             Planet.class_eval do

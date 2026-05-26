@@ -157,7 +157,7 @@ I like to document the intent of the `flags` column in the migration when I can.
 
 ```ruby
 change_table :spaceships do |t|
-  t.integer :flags, null: false, default: 0 # flag_shih_tzu-managed bit field
+  t.integer(:flags, null: false, default: 0) # flag_shih_tzu-managed bit field
   # Effective booleans which will be stored on the flags column:
   # t.boolean      :warpdrive
   # t.boolean      :shields
@@ -425,7 +425,7 @@ Spaceship.set_flag_sql(:shields, false)  # "flags = flags & ~2"
 And then use it in:
 
 ```ruby
-Spaceship.update_all Spaceship.set_flag_sql(:shields, false)
+Spaceship.update_all(Spaceship.set_flag_sql(:shields, false))
 ```
 
 Beware that using multiple flag manipulation sql statements in the same query
@@ -433,8 +433,8 @@ probably will not have the desired effect (at least on sqlite3, not tested
 on other databases), so you *should not* do this:
 
 ```ruby
-Spaceship.update_all "#{Spaceship.set_flag_sql(:shields, false)},#{
-  Spaceship.set_flag_sql(:warpdrive, true)}"
+Spaceship.update_all("#{Spaceship.set_flag_sql(:shields, false)},#{
+  Spaceship.set_flag_sql(:warpdrive, true)}")
 ```
 
 General rule of thumb: issue only one flag update per update statement.

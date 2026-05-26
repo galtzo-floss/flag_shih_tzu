@@ -54,7 +54,7 @@ RSpec.configure do |config|
 
   # Filter to run only certain ActiveRecord versions if needed
   config.before(:suite) do
-    puts "Running specs with ActiveRecord #{ActiveRecord::VERSION::STRING}"
+    warn "Running specs with ActiveRecord #{ActiveRecord::VERSION::STRING}"
   end
 
   # Wrap each test in a transaction

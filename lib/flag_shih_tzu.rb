@@ -10,18 +10,19 @@ module FlagShihTzu
 
   DEFAULT_COLUMN_NAME = "flags"
 
-  def self.included(base)
-    base.extend(ClassMethods)
-    base.class_attribute(:flag_options) unless defined?(base.flag_options)
-    base.class_attribute(:flag_mapping) unless defined?(base.flag_mapping)
-    base.class_attribute(:flag_columns) unless defined?(base.flag_columns)
+  class << self
+    def included(base)
+      base.extend(ClassMethods)
+      base.class_attribute(:flag_options) unless defined?(base.flag_options)
+      base.class_attribute(:flag_mapping) unless defined?(base.flag_mapping)
+      base.class_attribute(:flag_columns) unless defined?(base.flag_columns)
+    end
   end
 
-  # TODO: Inherit from StandardException
-  class IncorrectFlagColumnException < Exception; end
-  class NoSuchFlagQueryModeException < Exception; end
-  class NoSuchFlagException < Exception; end
-  class DuplicateFlagColumnException < Exception; end
+  class IncorrectFlagColumnException < RuntimeError; end
+  class NoSuchFlagQueryModeException < RuntimeError; end
+  class NoSuchFlagException < RuntimeError; end
+  class DuplicateFlagColumnException < RuntimeError; end
 
   module ClassMethods
     def has_flags(*args)
@@ -493,7 +494,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
     colmn = determine_flag_colmn_for(flag) if colmn.nil?
     self.class.check_flag(flag, colmn)
 
-    (get_bit_for(flag, colmn) == 0) ? false : true
+    !(get_bit_for(flag, colmn) == 0)
   end
 
   def flag_disabled?(flag, colmn = nil)

@@ -114,7 +114,7 @@ ActiveRecord object.
   ]
   spec.bindir = "exe"
   # Listed files are the relative paths from bindir above.
-  spec.executables = %x(git ls-files -- bin/*).split("\n").map { |f| File.basename(f) }
+  spec.executables = enumerate_package_files.call(spec.bindir).map { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   # Utilities

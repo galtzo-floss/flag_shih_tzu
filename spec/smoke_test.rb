@@ -38,16 +38,16 @@ end
 # Simple test
 spaceship = Spaceship.new
 spaceship.warpdrive = true
-puts "✓ Can set warpdrive flag"
+warn "Can set warpdrive flag"
 
-puts "✓ Warpdrive is: #{spaceship.warpdrive}"
-puts "✓ Shields is: #{spaceship.shields}"
+warn "Warpdrive is: #{spaceship.warpdrive}"
+warn "Shields is: #{spaceship.shields}"
 
 spaceship.save!
-puts "✓ Can save spaceship"
+warn "Can save spaceship"
 
 spaceship.reload
-puts "✓ Can reload spaceship"
-puts "✓ Warpdrive after reload: #{spaceship.warpdrive}"
+warn "Can reload spaceship"
+warn "Warpdrive after reload: #{spaceship.warpdrive}"
 
-puts "\n✅ Basic setup works! Now setting up full RSpec suite..."
+warn "\nBasic setup works! Now setting up full RSpec suite..."
