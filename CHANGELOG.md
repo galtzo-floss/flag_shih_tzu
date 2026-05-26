@@ -34,6 +34,12 @@ Please file a bug if you notice a violation of semantic versioning.
   that add and set new flags. Applications that need the legacy query shape can
   set `FlagShihTzu.default_flag_query_mode = :in_list` or pass
   `flag_query_mode: :in_list` to `has_flags`.
+- **BREAKING**: Changed flag column validation from opt-out to opt-in at model
+  load time. `has_flags` no longer checks the database by default, avoiding
+  failures and warnings during setup, migration, seed, asset, and test boot
+  tasks. Applications that want the legacy guardrail can set
+  `FlagShihTzu.default_check_for_column = true` or pass
+  `check_for_column: true` to `has_flags`.
 - Updated project ownership and documentation links from `pboling` to
   `galtzo-floss`.
 - Raised the effective minimum installable Ruby version to Ruby 2.2 through

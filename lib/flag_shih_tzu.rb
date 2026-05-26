@@ -9,6 +9,7 @@ module FlagShihTzu
   TRUE_VALUES = [true, 1, "1", "t", "T", "true", "TRUE"]
 
   DEFAULT_COLUMN_NAME = "flags"
+  DEFAULT_CHECK_FOR_COLUMN = false
   DEFAULT_FLAG_QUERY_MODE = :bit_operator
   FLAG_ADAPTER_CLASS_NAMES = {
     "mysql" => "Mysql2Adapter",
@@ -26,6 +27,7 @@ module FlagShihTzu
   FLAG_COLUMN_ONLY_ASSIGNMENT_ADAPTERS = ["postgis", "postgresql", "sqlite", "sqlite3"].freeze
 
   class << self
+    attr_accessor :default_check_for_column
     attr_accessor :default_flag_query_mode
 
     def included(base)
@@ -50,7 +52,7 @@ module FlagShihTzu
           column: DEFAULT_COLUMN_NAME,
           flag_query_mode: FlagShihTzu.default_flag_query_mode,
           strict: false,
-          check_for_column: true,
+          check_for_column: FlagShihTzu.default_check_for_column,
         }.update(opts)
       if !valid_flag_column_name?(opts[:column])
         warn(%[FlagShihTzu says: Please use a String to designate column names! I see you here: #{caller(1..1).first}])
@@ -704,6 +706,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
     self.class.determine_flag_colmn_for(flag)
   end
 
+  self.default_check_for_column = DEFAULT_CHECK_FOR_COLUMN
   self.default_flag_query_mode = DEFAULT_FLAG_QUERY_MODE
 end
 

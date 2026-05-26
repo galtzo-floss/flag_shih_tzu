@@ -467,7 +467,7 @@ RSpec.describe FlagShihTzu do
   end
 
   describe "column checking" do
-    it "ignores has_flags call if column does not exist yet with default check_for_column" do
+    it "defines flag methods if the column does not exist yet with default check_for_column" do
       expect do
         Class.new(ActiveRecord::Base) do
           self.table_name = "spaceships_without_flags_column"
@@ -488,20 +488,35 @@ RSpec.describe FlagShihTzu do
           3 => :electrolytes
       end
 
-      expect(klass.method_defined?(:warpdrive)).to be(false)
+      expect(klass.method_defined?(:warpdrive)).to be(true)
     end
 
-    it "ignores has_flags call if column is not integer with default check_for_column" do
-      expect do
-        Class.new(ActiveRecord::Base) do
-          self.table_name = "spaceships_with_non_integer_column"
-          include FlagShihTzu
+    it "defines flag methods if the column is not integer with default check_for_column" do
+      klass = Class.new(ActiveRecord::Base) do
+        self.table_name = "spaceships_with_non_integer_column"
+        include FlagShihTzu
 
-          has_flags 1 => :warpdrive,
-            2 => :shields,
-            3 => :electrolytes
-        end
-      end.to raise_error(FlagShihTzu::IncorrectFlagColumnException)
+        has_flags 1 => :warpdrive,
+          2 => :shields,
+          3 => :electrolytes
+      end
+
+      expect(klass.method_defined?(:warpdrive)).to be(true)
+    end
+
+    it "allows the global default column check to be enabled" do
+      FlagShihTzu.default_check_for_column = true
+
+      klass = Class.new(ActiveRecord::Base) do
+        self.table_name = "spaceships_without_flags_column"
+        include FlagShihTzu
+
+        has_flags 1 => :warpdrive,
+          2 => :shields,
+          3 => :electrolytes
+      end
+
+      expect(klass.method_defined?(:warpdrive)).to be(false)
     end
 
     it "ignores has_flags call if column does not exist yet and check_for_column is true" do
@@ -607,6 +622,7 @@ RSpec.describe FlagShihTzu do
 
       expect(klass.method_defined?(:warpdrive)).to be(true)
       # Note: This test might not work exactly as in test-unit due to how connection pooling works
+      expect(connection_established).to be(false)
     end
   end
 

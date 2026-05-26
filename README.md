@@ -526,19 +526,26 @@ Spaceship.update_all("#{Spaceship.set_flag_sql(:shields, false)},#{
 
 General rule of thumb: issue only one flag update per update statement.
 
-### Skipping flag column check
+### Checking flag columns
 
-By default when you call has_flags in your code it will automatically check
-your database to see if you have correct column defined.
+By default, `has_flags` does not check the database while the model class is
+being loaded. This keeps model loading safe during tasks such as `db:create`,
+`db:migrate`, `db:setup`, `db:seed`, asset precompilation, and test bootstraps
+where the database or table may not exist yet.
 
-Sometimes this may not be a wanted behaviour (e.g. when loading model without
-database connection established) so you can set `:check_for_column` option to
-false to avoid it.
+If you want `has_flags` to verify that the flag column exists and is an integer
+when the model is loaded, opt in per declaration:
 
 ```ruby
 has_flags 1 => :warpdrive,
   2 => :shields,
-  :check_for_column => false
+  :check_for_column => true
+```
+
+Or opt in globally before models are loaded:
+
+```ruby
+FlagShihTzu.default_check_for_column = true
 ```
 
 ## 🧪 Running the gem tests
