@@ -3,6 +3,15 @@
 require "spec_helper"
 
 RSpec.describe FlagShihTzu do
+  describe "error hierarchy" do
+    it "uses StandardError for custom errors" do
+      expect(described_class::IncorrectFlagColumnException).to be < StandardError
+      expect(described_class::NoSuchFlagQueryModeException).to be < StandardError
+      expect(described_class::NoSuchFlagException).to be < StandardError
+      expect(described_class::DuplicateFlagColumnException).to be < StandardError
+    end
+  end
+
   describe "Class Methods" do
     describe "#has_flags" do
       context "with invalid configurations" do

@@ -63,10 +63,10 @@ module FlagShihTzu
     end
   end
 
-  class IncorrectFlagColumnException < RuntimeError; end
-  class NoSuchFlagQueryModeException < RuntimeError; end
-  class NoSuchFlagException < RuntimeError; end
-  class DuplicateFlagColumnException < RuntimeError; end
+  class IncorrectFlagColumnException < StandardError; end
+  class NoSuchFlagQueryModeException < StandardError; end
+  class NoSuchFlagException < StandardError; end
+  class DuplicateFlagColumnException < StandardError; end
 
   module ClassMethods
     def has_flags(*args)

@@ -42,6 +42,9 @@ Please file a bug if you notice a violation of semantic versioning.
   tasks. Applications that want the legacy guardrail can set
   `FlagShihTzu.default_check_for_column = true` or pass
   `check_for_column: true` to `has_flags`.
+- **BREAKING**: Changed custom FlagShihTzu error classes to inherit from
+  `StandardError` instead of `Exception`, so normal `rescue` blocks can handle
+  them.
 - Updated project ownership and documentation links from `pboling` to
   `galtzo-floss`.
 - Raised the effective minimum installable Ruby version to Ruby 2.2 through
