@@ -48,6 +48,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Restored project-specific README sections lost during templating, including
   the Alternatives section and the updated RailsBling URL from PR #104.
+- Avoided checking out an Active Record connection while quoting generated flag
+  SQL identifiers.
 - Avoided repeated method redefinition warnings when flags are declared across
   multiple columns.
 - Normalized generated SQL condition behavior across supported ActiveRecord

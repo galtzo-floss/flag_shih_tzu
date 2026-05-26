@@ -9,6 +9,20 @@ module FlagShihTzu
   TRUE_VALUES = [true, 1, "1", "t", "T", "true", "TRUE"]
 
   DEFAULT_COLUMN_NAME = "flags"
+  FLAG_ADAPTER_CLASS_NAMES = {
+    "mysql" => "Mysql2Adapter",
+    "mysql2" => "Mysql2Adapter",
+    "postgis" => "PostgreSQLAdapter",
+    "postgresql" => "PostgreSQLAdapter",
+    "sqlite" => "SQLite3Adapter",
+    "sqlite3" => "SQLite3Adapter",
+    "trilogy" => "TrilogyAdapter",
+  }.freeze
+  FLAG_ADAPTER_REQUIRE_NAMES = {
+    "mysql" => "mysql2",
+    "postgis" => "postgresql",
+  }.freeze
+  FLAG_COLUMN_ONLY_ASSIGNMENT_ADAPTERS = ["postgis", "postgresql", "sqlite", "sqlite3"].freeze
 
   class << self
     def included(base)
@@ -312,16 +326,57 @@ To turn off this warning set check_for_column: false in has_flags definition her
     private
 
     def flag_full_column_name(table, column)
-      "#{connection.quote_table_name(table)}.#{connection.quote_column_name(column)}"
+      "#{flag_quote_table_name(table)}.#{flag_quote_column_name(column)}"
     end
 
     def flag_full_column_name_for_assignment(table, column)
-      if ActiveRecord::VERSION::MAJOR <= 3
+      if ActiveRecord::VERSION::MAJOR <= 3 || FLAG_COLUMN_ONLY_ASSIGNMENT_ADAPTERS.include?(flag_connection_adapter_name)
         # If you're trying to do multi-table updates with Rails < 4, sorry - you're out of luck.
-        connection.quote_column_name(column)
+        flag_quote_column_name(column)
       else
-        connection.quote_table_name_for_assignment(table, column)
+        flag_quote_table_name("#{table}.#{column}")
       end
+    end
+
+    def flag_quote_column_name(column)
+      adapter_class = flag_connection_adapter_class
+      return adapter_class.quote_column_name(column) if adapter_class
+
+      flag_fallback_quote_name(column)
+    end
+
+    def flag_quote_table_name(table)
+      adapter_class = flag_connection_adapter_class
+      return adapter_class.quote_table_name(table) if adapter_class
+
+      flag_fallback_quote_name(table)
+    end
+
+    def flag_connection_adapter_class
+      adapter_name = flag_connection_adapter_name
+      class_name = FLAG_ADAPTER_CLASS_NAMES[adapter_name]
+      return if class_name.nil?
+
+      require "active_record/connection_adapters/#{FLAG_ADAPTER_REQUIRE_NAMES.fetch(adapter_name, adapter_name)}_adapter"
+      ActiveRecord::ConnectionAdapters.const_get(class_name)
+    rescue LoadError, NameError
+      nil
+    end
+
+    def flag_connection_adapter_name
+      if respond_to?(:connection_db_config)
+        connection_db_config.adapter.to_s.downcase
+      elsif connection_pool.respond_to?(:db_config)
+        connection_pool.db_config.adapter.to_s.downcase
+      elsif connection_pool.respond_to?(:spec)
+        connection_pool.spec.config[:adapter].to_s.downcase
+      else
+        connection.adapter_name.to_s.downcase
+      end
+    end
+
+    def flag_fallback_quote_name(name)
+      name.to_s.split(".").map { |part| %("#{part.gsub('"', '""')}") }.join(".")
     end
 
     def flag_value_range_for_column(colmn)

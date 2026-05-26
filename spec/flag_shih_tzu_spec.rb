@@ -175,6 +175,23 @@ RSpec.describe FlagShihTzu do
             .to eq('"flags" = "spaceships"."flags" | 1')
         end
 
+        it "quotes generated flag SQL without checking out a connection" do
+          expect(Spaceship).not_to receive(:connection)
+
+          expect(Spaceship.warpdrive_condition).to eq('("spaceships"."flags" in (1,3,5,7))')
+          expect(Spaceship.send(:sql_set_for_flag, :warpdrive, "flags"))
+            .to eq('"flags" = "spaceships"."flags" | 1')
+        end
+
+        it "falls back to conservative identifier quoting when the adapter class is unavailable" do
+          allow(Spaceship).to receive(:flag_connection_adapter_name).and_return("missing_adapter")
+
+          expect(Spaceship.send(:flag_full_column_name, "spaceships", 'fl"ags'))
+            .to eq('"spaceships"."fl""ags"')
+          expect(Spaceship.send(:flag_full_column_name_for_assignment, "spaceships", "flags"))
+            .to eq('"spaceships"."flags"')
+        end
+
         it "defines a sql condition method for flag enabled with 2 columns not enabled" do
           expect(SpaceshipWith2CustomFlagsColumn.not_warpdrive_condition)
             .to eq('("spaceships_with_2_custom_flags_column"."bits" not in (1,3))')
