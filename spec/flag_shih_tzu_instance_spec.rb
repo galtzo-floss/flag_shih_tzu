@@ -497,6 +497,73 @@ RSpec.describe FlagShihTzu do
         expect(spaceship.warpdrive).to be(false)
       end
     end
+
+    it "assigns an array of selected flags through the default column writer" do
+      spaceship.flags = [:warpdrive, :electrolytes]
+
+      expect(spaceship.flags).to eq(5)
+      expect(spaceship.warpdrive).to be(true)
+      expect(spaceship.shields).to be(false)
+      expect(spaceship.electrolytes).to be(true)
+    end
+
+    it "treats array assignment as the complete selected set" do
+      spaceship.flags = [:warpdrive, :shields, :electrolytes]
+      spaceship.flags = [:shields]
+
+      expect(spaceship.flags).to eq(2)
+      expect(spaceship.warpdrive).to be(false)
+      expect(spaceship.shields).to be(true)
+      expect(spaceship.electrolytes).to be(false)
+    end
+
+    it "accepts not_ tokens in array assignment" do
+      spaceship.flags = [:warpdrive, :shields]
+      spaceship.flags = [:warpdrive, :not_shields]
+
+      expect(spaceship.flags).to eq(1)
+      expect(spaceship.warpdrive).to be(true)
+      expect(spaceship.shields).to be(false)
+    end
+
+    it "assigns a hash of flag attributes through the default column writer" do
+      spaceship.flags = [:warpdrive, :shields, :electrolytes]
+      spaceship.flags = {warpdrive: false, shields: "1"}
+
+      expect(spaceship.flags).to eq(6)
+      expect(spaceship.warpdrive).to be(false)
+      expect(spaceship.shields).to be(true)
+      expect(spaceship.electrolytes).to be(true)
+    end
+
+    it "assigns flag collections through custom column writers" do
+      small_spaceship.bits = [:warpdrive]
+
+      expect(small_spaceship.bits).to eq(1)
+      expect(small_spaceship.warpdrive).to be(true)
+      expect(small_spaceship.hyperspace).to be(false)
+    end
+
+    it "keeps raw integer column assignment available" do
+      spaceship.flags = 3
+
+      expect(spaceship.flags).to eq(3)
+      expect(spaceship.warpdrive).to be(true)
+      expect(spaceship.shields).to be(true)
+      expect(spaceship.electrolytes).to be(false)
+    end
+
+    it "persists flag arrays through Active Record update" do
+      spaceship.save!
+
+      spaceship.update!(flags: [:warpdrive, :electrolytes])
+      spaceship.reload
+
+      expect(spaceship.flags).to eq(5)
+      expect(spaceship.warpdrive).to be(true)
+      expect(spaceship.shields).to be(false)
+      expect(spaceship.electrolytes).to be(true)
+    end
   end
 
   describe "dirty tracking" do

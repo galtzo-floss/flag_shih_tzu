@@ -252,6 +252,10 @@ To turn off this warning set check_for_column: false in has_flags definition her
             all_flags("#{colmn}")
           end
 
+          def #{colmn}=(value)
+            set_flags(value, "#{colmn}")
+          end
+
           def selected_#{colmn}
             selected_flags("#{colmn}")
           end
@@ -425,7 +429,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
     def flag_enabled_query(flag)
       flag_name = flag.to_s
-      return [flag_name.delete_prefix("not_").to_sym, false] if flag_name.start_with?("not_")
+      return [flag_name[4..-1].to_sym, false] if flag_name.start_with?("not_")
 
       [flag, true]
     end
@@ -610,8 +614,19 @@ To turn off this warning set check_for_column: false in has_flags definition her
     self[colmn] || 0
   end
 
+  def flags=(value)
+    set_flags(value)
+  end
+
   def set_flags(value, colmn = DEFAULT_COLUMN_NAME)
-    self[colmn] = value
+    case value
+    when Array
+      set_selected_flags(value, colmn)
+    when Hash
+      set_flag_attributes(value, colmn)
+    else
+      self[colmn] = value
+    end
   end
 
   def all_flags(colmn = DEFAULT_COLUMN_NAME)
@@ -627,13 +642,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
   # Useful for a form builder
   # use selected_#{column}= for custom column names.
   def selected_flags=(chosen_flags)
-    unselect_all_flags
-    return if chosen_flags.nil?
-    chosen_flags.each do |selected_flag|
-      if selected_flag.present?
-        enable_flag(selected_flag.to_sym, DEFAULT_COLUMN_NAME)
-      end
-    end
+    set_selected_flags(chosen_flags, DEFAULT_COLUMN_NAME)
   end
 
   def select_all_flags(colmn = DEFAULT_COLUMN_NAME)
@@ -736,6 +745,29 @@ To turn off this warning set check_for_column: false in has_flags definition her
   end
 
   private
+
+  def set_selected_flags(chosen_flags, colmn)
+    unselect_all_flags(colmn)
+    return if chosen_flags.nil?
+
+    chosen_flags.each do |selected_flag|
+      next unless selected_flag.present?
+
+      flag, enabled = self.class.send(:flag_enabled_query, selected_flag.to_sym)
+      enabled ? enable_flag(flag, colmn) : disable_flag(flag, colmn)
+    end
+  end
+
+  def set_flag_attributes(flag_attributes, colmn)
+    flag_attributes.each_pair do |flag, value|
+      flag = flag.to_sym
+      if FlagShihTzu::TRUE_VALUES.include?(value)
+        enable_flag(flag, colmn)
+      else
+        disable_flag(flag, colmn)
+      end
+    end
+  end
 
   def collect_flags(*args)
     args.each_with_object([]) do |flag, memo|

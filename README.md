@@ -356,6 +356,43 @@ Spaceship.warpdrive.find(:all)
 Spaceship.not_electrolytes.count
 ```
 
+### Setting multiple flags through the column
+
+The flag column writer accepts raw integer values, arrays, and hashes. Raw
+integers are still written directly:
+
+```ruby
+enterprise.flags = 5
+```
+
+Assigning an array sets the column to exactly that selected set of flags:
+
+```ruby
+enterprise.update!(flags: [:warpdrive, :electrolytes])
+```
+
+Unmentioned flags are disabled. You can also include `:not_<flag>` tokens:
+
+```ruby
+enterprise.flags = [:warpdrive, :not_shields]
+```
+
+Assigning a hash updates only the mentioned flags and preserves the rest:
+
+```ruby
+enterprise.flags = {
+  warpdrive: true,
+  shields: false,
+}
+```
+
+Custom flag columns support the same forms through their column writer:
+
+```ruby
+enterprise.features = [:warpdrive]
+enterprise.crew = {spock: true, kirk: false}
+```
+
 ### Reading flags as attributes
 
 Flag values can be read as a hash of boolean attributes:

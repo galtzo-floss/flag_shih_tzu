@@ -28,6 +28,9 @@ Please file a bug if you notice a violation of semantic versioning.
   `<column>_as_attributes` helpers for reading flag bits as boolean attributes.
 - Added first-class project metadata, documentation links, funding links, and
   gem signing metadata to the gemspec.
+- Added array and hash assignment support to flag column writers, so calls like
+  `record.update!(flags: [:warpdrive, :shields])` can set multiple flags
+  without magic bit-field integers.
 
 ### Changed
 
@@ -45,6 +48,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - **BREAKING**: Changed custom FlagShihTzu error classes to inherit from
   `StandardError` instead of `Exception`, so normal `rescue` blocks can handle
   them.
+- **BREAKING**: Changed flag column writers to interpret Array values as the
+  complete selected flag set and Hash values as partial boolean flag updates.
+  Raw integer assignment remains supported.
 - Updated project ownership and documentation links from `pboling` to
   `galtzo-floss`.
 - Raised the effective minimum installable Ruby version to Ruby 2.2 through
