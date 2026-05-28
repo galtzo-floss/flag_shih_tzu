@@ -4,4 +4,3 @@ module FlagShihTzu
   end
   VERSION: String
 end
-

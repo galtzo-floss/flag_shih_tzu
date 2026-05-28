@@ -419,6 +419,8 @@ files:
     strategy: accept_template
   Appraisal.root.gemfile:
     strategy: accept_template
+  Rakefile:
+    strategy: accept_template
   ".github":
     copilot_instructions.md:
       strategy: accept_template
@@ -435,6 +437,9 @@ files:
         strategy: accept_template
       templating_local.gemfile:
         strategy: accept_template
+  spec:
+    spec_helper.rb:
+      strategy: keep_destination
 # To override specific files, add entries like:
 #
 # files:

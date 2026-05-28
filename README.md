@@ -919,7 +919,7 @@ For most applications, prefer the [Pessimistic Version Constraint][📌pvc] with
 For example:
 
 ```ruby
-spec.add_dependency("flag_shih_tzu", "~> 0.0")
+spec.add_dependency("flag_shih_tzu", "~> 1.0")
 ```
 
 <details markdown="1">
@@ -1222,7 +1222,7 @@ Thanks for RTFM. ☺️
 | Package | flag_shih_tzu |
 | Description | 🏁 Bit fields for ActiveRecord:<br>This gem lets you use a single integer column in an ActiveRecord model<br>to store a collection of boolean attributes (flags). Each flag can be used<br>almost in the same way you would use any boolean attribute on an<br>ActiveRecord object. |
 | Homepage | https://github.com/galtzo-floss/flag_shih_tzu |
-| Source | https://github.com/galtzo-floss/flag_shih_tzu/tree/v0.3.23 |
+| Source | https://github.com/galtzo-floss/flag_shih_tzu/tree/v1.0.0 |
 | License | `MIT` |
-| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/flag_shih_tzu, https://www.buymeacoffee.com/pboling |
+| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/galtzo-floss, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/flag_shih_tzu, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->

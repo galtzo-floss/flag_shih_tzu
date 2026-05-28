@@ -2,12 +2,11 @@
 
 # For code coverage, must be required before all application / gem / library code.
 begin
-  unless ENV["NOCOVER"]
-    require "kettle-soup-cover"
-    require "simplecov" if Kettle::Soup::Cover::DO_COV
-  end
-rescue LoadError
-  # SimpleCov is optional
+  require "kettle-soup-cover"
+  require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
+rescue LoadError => error
+  # check the error message and re-raise when unexpected
+  raise error unless error.message.include?("kettle")
 end
 
 if Gem::Version.new(RUBY_VERSION) < Gem::Version.new("2.5")

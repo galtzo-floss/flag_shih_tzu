@@ -6,7 +6,7 @@
 # flag_shih_tzu will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
 
-# flag_shih_tzu Rakefile v7.0.0 - 2026-05-25
+# flag_shih_tzu Rakefile v7.0.0 - 2026-05-28
 # Ruby 2.3 (Safe Navigation) or higher required
 #
 # See LICENSE.md for license information.
@@ -33,7 +33,7 @@
 # rake install:local                          # Build and install flag_shih_tzu-1.0.0.gem in...
 # rake kettle:jem:install                     # Internal target used by `kettle-jem install`
 # rake kettle:jem:selftest                    # Self-test: template flag_shih_tzu against itse...
-# rake kettle:jem:template                    # Internal target used by `kettle-jem template`
+# rake kettle:jem:template                    # Internal target used by scoped `kettle-jem template --only`
 # rake reek                                   # Check for code smells
 # rake reek:update                            # Run reek and store the output into the RE...
 # rake release[remote]                        # Create tag v1.0.0 and build and push kett...
@@ -56,11 +56,8 @@
 require "bundler/gem_tasks" if !Dir[File.join(__dir__, "*.gemspec")].empty?
 # :nocov:
 
-require "rake/testtask"
-
 # Define a base default task early so other files can enhance it.
 desc "Default tasks aggregator"
-
 task :default do
   puts "Default task complete."
 end
@@ -95,16 +92,26 @@ rescue LoadError
 end
 
 ### TEMPLATING TASKS
-# These tasks are installed for the `kettle-jem` executable. Run templating
-# through `kettle-jem template` or `kettle-jem install`; the executable prepares
-# the environment and then delegates here when rake orchestration is needed.
+# These tasks are installed for the `kettle-jem` executable. Run full templating
+# through `kettle-jem install`; use `kettle-jem template --only PATH` only for
+# scoped file updates. The executable prepares the environment and then
+# delegates here when rake orchestration is needed.
+kettle_jem_selftest_unavailable_note = nil
 begin
   require "kettle/jem"
-  Kettle::Jem.install_tasks
+  if Kettle::Jem.respond_to?(:install_tasks)
+    Kettle::Jem.install_tasks
+  else
+    kettle_jem_selftest_unavailable_note = "NOTE: kettle-jem #{Kettle::Jem::Version::VERSION} does not provide rake tasks in this environment"
+  end
 rescue LoadError
+  kettle_jem_selftest_unavailable_note = "NOTE: kettle-jem isn't installed, or is disabled for #{RUBY_VERSION} in the current environment"
+end
+
+if kettle_jem_selftest_unavailable_note
   desc("(stub) kettle:jem:selftest is unavailable")
   task("kettle:jem:selftest") do
-    warn("NOTE: kettle-jem isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
+    warn(kettle_jem_selftest_unavailable_note)
   end
 end
 
