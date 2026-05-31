@@ -28,6 +28,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Fixed generated documentation URLs that incorrectly pointed at a monorepo
+  `gems/flag_shih_tzu` path.
+
 ### Security
 
 ## [1.0.0] - 2026-05-26
