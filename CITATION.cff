@@ -12,9 +12,9 @@ authors:
     orcid: 'https://orcid.org/0009-0008-8519-441X'
 identifiers:
   - type: url
-    value: 'https://github.com/pboling/flag_shih_tzu/tree/main/gems/flag_shih_tzu'
+    value: 'https://github.com/galtzo-floss/flag_shih_tzu'
     description: "flag_shih_tzu"
-repository-code: 'https://github.com/pboling/flag_shih_tzu/tree/main/gems/flag_shih_tzu'
+repository-code: 'https://github.com/galtzo-floss/flag_shih_tzu'
 abstract: >-
   flag_shih_tzu
 license: See license file
