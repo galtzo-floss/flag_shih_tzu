@@ -19,7 +19,6 @@ Appraisal.*.gemfile.lock
 /spec/reports/
 /results/
 .output.txt
-/test/debug.log
 
 # Documentation
 /.yardoc/

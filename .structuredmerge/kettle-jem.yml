@@ -111,7 +111,7 @@ rubygems:
 #
 # ENV override: KJ_REPOSITORY_TOPOLOGY
 repository:
-  topology: standalone
+  topology: "standalone"
 # Framework matrix workflows.
 # When your gem tests against multiple versions of a framework (Rails,
 # ActiveRecord, ActiveSupport, etc.), this section configures how
@@ -337,6 +337,14 @@ templates:
   #
   # ENV override: KETTLE_JEM_TEMPLATE_PROFILE
   profile: full
+# StructuredMerge Git diff driver setup.
+# Default: semantic-diff installs local .gitattributes entries for semantic
+# structured diffs. Use builtin-diff to retain Git's built-in language drivers,
+# global to register driver commands in user config, include-file to write
+# .git/smorg/config, check to verify setup, undo to remove managed entries, or
+# none to opt out.
+# ENV override: KETTLE_JEM_GIT_DRIVERS
+git_drivers: semantic-diff
 # Optional kettle-jem plugins.
 # Each entry is a gem name. During bootstrap, kettle-jem ensures each plugin is
 # added as a development dependency so it is available after bin/setup.

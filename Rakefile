@@ -6,7 +6,7 @@
 # flag_shih_tzu will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
 
-# flag_shih_tzu Rakefile v7.0.0 - 2026-05-28
+# flag_shih_tzu Rakefile v7.0.0 - 2026-05-31
 # Ruby 2.3 (Safe Navigation) or higher required
 #
 # See LICENSE.md for license information.
@@ -60,6 +60,65 @@ require "bundler/gem_tasks" if !Dir[File.join(__dir__, "*.gemspec")].empty?
 desc "Default tasks aggregator"
 task :default do
   puts "Default task complete."
+end
+
+### MONOREPO FAMILY TASKS
+if Dir.exist?(File.join(__dir__, "gems")) && Dir.exist?(File.join(__dir__, "workspace-scripts"))
+  def family_script_path(script_name)
+    File.join(__dir__, "workspace-scripts", script_name)
+  end
+
+  def run_family_script(script_name, *args)
+    script = family_script_path(script_name)
+    raise "Missing family script: #{script}" unless File.file?(script)
+
+    command = [script, *args].compact
+    sh(*command)
+  end
+
+  def family_gem_dirs
+    Dir.glob(File.join(__dir__, "gems", "*", "*.gemspec"))
+      .map { |path| File.dirname(path) }
+      .uniq
+      .sort_by { |path| File.basename(path) }
+  end
+
+  namespace :family do
+    desc "List released Ruby subgems"
+    task :list do
+      family_gem_dirs.each { |path| puts File.basename(path) }
+    end
+
+    desc "Run release readiness checks for the Ruby gem family"
+    task :readiness do
+      run_family_script("10_release_readiness_check.rb")
+    end
+
+    desc "Run tests for the Ruby gem family"
+    task :test do
+      run_family_script("5_test_ruby_gems.sh")
+    end
+
+    desc "Run lint for the Ruby gem family"
+    task :lint do
+      run_family_script("4_lint_ruby_gems.sh")
+    end
+
+    desc "Generate YARD docs for the Ruby gem family"
+    task :docs do
+      run_family_script("6_docs_ruby_gems.sh")
+    end
+
+    desc "Run the Ruby gem family release planner"
+    task :release do
+      run_family_script("11_release_ruby_gems.rb")
+    end
+
+    desc "Execute the Ruby gem family release"
+    task :release_execute do
+      run_family_script("11_release_ruby_gems.rb", "--execute")
+    end
+  end
 end
 
 # External gems that define tasks - add here!

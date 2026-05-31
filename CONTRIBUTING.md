@@ -102,13 +102,29 @@ Git hooks and commit message helpers (exe/kettle-commit-msg)
 - GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
 - GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
 
+Git diff driver setup
+- Local setup writes repository `.gitattributes` entries so this checkout uses StructuredMerge semantic diffs.
+- Global setup registers `diff.smorg-*` commands once in the user Git config; use it when you work across several StructuredMerge-enabled repositories.
+- Include-file setup writes `.git/smorg/config` and includes it from local Git config, keeping command registrations out of the repository files.
+- Git hosting forges generally ignore external diff drivers, so pull request views may still show raw textual diffs even when local `git diff` uses semantic drivers.
+
+```console
+K_JEM_TEMPLATING=true bundle exec kettle-jem install
+```
+
+Troubleshooting Git diffs
+- Use `git diff --no-ext-diff` to compare against Git's built-in diff output.
+- Use `git diff --no-textconv` when a textconv projection obscures the raw file bytes you need to inspect.
+- If Git reports a missing `smorg-*` executable, rerun `bundle install` and the setup command above, then check `git config --get-regexp '^diff\.smorg-'`.
+- To remove managed local entries, run `K_JEM_TEMPLATING=true bundle exec kettle-jem install --undo`; remove global command registrations with `git config --global --unset-all diff.smorg-ruby.command`.
+
 For a quick starting point, this repository’s `mise.toml` defines the shared defaults, and `.env.local` can override them locally. Copy `.env.local.example` to `.env.local`, use `KEY=value` lines, and either activate `mise` in your shell or run commands through `mise exec -C /path/to/project -- ...`.
 
 ## Appraisals
 
 From time to time the [appraisal2][🚎appraisal2] gemfiles in `gemfiles/` will need to be updated.
 Generated appraisal and CI workflow floors are controlled by `ruby.test_minimum`
-in `.kettle-jem.yml`; this project was templated with `ruby.test_minimum: 2.4`.
+in `.structuredmerge/kettle-jem.yml`; this project was templated with `ruby.test_minimum: 2.4`.
 That value describes the lowest Ruby version expected to run the test/development
 toolchain, and it may be higher than the gemspec runtime floor.
 

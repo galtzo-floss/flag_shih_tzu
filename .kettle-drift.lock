@@ -1,7 +1,7 @@
 {
   "- modular/activerecord_support.gemfile\n- modular/combustion.gemfile": [
     {
-      "file": ".kettle-jem.yml",
+      "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
         153,
         164
