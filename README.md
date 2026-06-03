@@ -1,11 +1,4 @@
-[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-floss-i]][🖼️galtzo-floss] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![flag_shih_tzu Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-floss-flag_shih_tzu-i]][🖼️galtzo-floss-flag_shih_tzu]
-
-[🖼️galtzo-floss-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg
-[🖼️galtzo-floss]: https://discord.gg/3qme4XHNKN
-[🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
-[🖼️ruby-lang]: https://www.ruby-lang.org/
-[🖼️galtzo-floss-flag_shih_tzu-i]: https://logos.galtzo.com/assets/images/galtzo-floss/flag_shih_tzu/avatar-192px.svg
-[🖼️galtzo-floss-flag_shih_tzu]: https://github.com/galtzo-floss/flag_shih_tzu
+<a href="https://github.com/galtzo-floss/flag_shih_tzu"><img alt="flag_shih_tzu Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/flag_shih_tzu/avatar-128px.svg" width="14%" align="right"/></a>
 
 # 🏁 FlagShihTzu
 
@@ -40,7 +33,7 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 
 </details>
 
-## 🌻 Synopsis
+## 🌻 Synopsis <a href="https://discord.gg/3qme4XHNKN"><img alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg" width="8%" align="right"/></a> <a href="https://ruby-toolbox.com"><img alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5" src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg" width="8%" align="right"/></a>
 
 An extension for [ActiveRecord](https://rubygems.org/gems/activerecord)
 to store a collection of boolean attributes in a single integer column
@@ -64,7 +57,6 @@ Using FlagShihTzu, you can add new boolean attributes whenever you want,
 without needing any migration. Just add a new flag to the `has_flags` call.
 
 What is a ["Shih Tzu"](http://en.wikipedia.org/wiki/Shih_Tzu)?
-
 
 ## 💡 Info you can shake a stick at
 
@@ -94,8 +86,6 @@ not practical for the current toolchain.
 | 🚚 _Amazing_ test matrix was brought to you by | 🔎 appraisal2 🔎 and the color 💚 green 💚 |
 |------------------------------------------------|--------------------------------------------------------|
 | 👟 Check it out! | ✨ [github.com/appraisal-rb/appraisal2][💎appraisal2] ✨ |
-
-
 
 ### Federated DVCS
 
@@ -152,7 +142,6 @@ gem install flag_shih_tzu
 
 ## ⚙️ Configuration
 
-
 ## 🔧 Basic Usage
 
 FlagShihTzu assumes that your ActiveRecord model already has an [integer field][bit_field]
@@ -207,7 +196,6 @@ has_flags 1 => :warpdrive,
   :allow_overwrite => true
 ```
 
-
 ### Bit Fields: How it stores the values
 
 As said, FlagShihTzu uses a single integer column to store the values for all
@@ -244,7 +232,6 @@ and check individual flags.
                   `---+---+---+                +---+---+---`
 
 Read more about [bit fields][bit_field] here: http://en.wikipedia.org/wiki/Bit_field
-
 
 ### Flag value modes and custom encoders
 
@@ -315,7 +302,6 @@ storage. You can still pass `bit_width: 1` or `bit_width: 2` directly, but
 API. If you set `bit_width: 3` or higher, you must provide an encoder so
 FlagShihTzu does not guess what the extra states mean.
 
-
 ### Using a custom column name
 
 The default column name to store the flags is `flags`, but you can provide a
@@ -373,7 +359,6 @@ on Spaceship:
     Spaceship#electrolytes_changed?
     Spaceship#has_electrolyte?
 
-
 ### Callbacks and Validations
 
 Optionally, you can set the `:bang_methods` option to true to also define the bang methods:
@@ -390,13 +375,11 @@ Alternatively, if you do want to *save a flag* to the database, while still avoi
 * sets a flag on a database record without triggering callbacks or validations
 * optionally syncs the ruby instance with new flag value, by default it does not.
 
-
 Example:
 
 ```ruby
 update_flag!(flag_name, flag_value, update_instance = false)
 ```
-
 
 ### Generated class methods
 
@@ -406,7 +389,6 @@ on Spaceship:
 ```ruby
 Spaceship.flag_columns      # [:features, :crew]
 ```
-
 
 ### Generated named scopes
 
@@ -430,7 +412,6 @@ has_flags 1 => :warpdrive, 2 => :shields, 3 => :electrolytes, :named_scopes => f
 
 In a Rails 3+ application, FlagShihTzu will use `scope` internally to generate
 the scopes. The option on `has_flags` is still named `:named_scopes` however.
-
 
 ### Examples for using the generated methods
 
@@ -514,7 +495,6 @@ enterprise.attributes_with_flags
 # {"id" => 1, "features" => 1, "warpdrive" => true, "shields" => false, ...}
 ```
 
-
 ### Support for manually building conditions
 
 The following class methods may support you when manually building
@@ -534,7 +514,6 @@ generating SQL that references the same table more than once:
 ```ruby
 Spaceship.shields_condition(table_alias: "evil_spaceships") # "(evil_spaceships.flags & 2 = 2)"
 ```
-
 
 ### Choosing a query mode
 
@@ -796,7 +775,6 @@ of his code better, and some of my code better. I've been wanting to do a full
 rewrite of `flag_shih_tzu` ever since I inherited the project from
 [XING](https://github.com/xing), but I haven't had time. So I don't know.
 
-
 ## 🦷 FLOSS Funding
 
 While galtzo-floss tools are free software and will always be, the project would benefit immensely from some funding.
@@ -1004,6 +982,8 @@ To say "thanks!" ☝️ Join the Discord or 👇️ send money.
 [![Sponsor galtzo-floss/flag_shih_tzu on Open Source Collective][🖇osc-all-bottom-img]][🖇osc] 💌 [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal]
 
 ### Please give the project a star ⭐ ♥.
+
+Many parts of this project are actively managed by a [kettle-jem](https://github.com/structuredmerge/structuredmerge-ruby/tree/main/gems/kettle-jem) smart template utilizing [StructuredMerge.org](https://structuredmerge.org) merge contracts.
 
 Thanks for RTFM. ☺️
 

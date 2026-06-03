@@ -6,22 +6,21 @@
 #     kettle-jem:unfreeze
 #
 
-# We run rubocop on the latest version of Ruby,
-#   but in support of the oldest supported version of Ruby
+# Style tasks run on the latest Ruby; RuboCop-LTS selects the compatibility
+# rules for the configured Ruby floor independently from task dependency floors.
 
-gem "reek", "~> 6.5"
+gem "reek", "~> 6.5", ">= 6.5.0"
 
 platform :mri do
-  gem "rubocop-on-rbs", "~> 2.0"                    # ruby >= 3.2.0
+  gem "rubocop-on-rbs", "~> 2.0", ">= 2.0.0"        # ruby >= 3.2.0
   # gem "rubocop", "~> 1.73", ">= 1.73.2" # constrained by standard
   gem "rubocop-packaging", "~> 0.6", ">= 0.6.0"
-  gem "standard", ">= 1.50"
+  gem "standard", "~> 1.54", ">= 1.54.0"
 
   if ENV.fetch("RUBOCOP_LTS_LOCAL", "false").casecmp("false").zero?
-    gem "rubocop-lts", "~> 12.2.0"
-    # "rubocop-lts-rspec" can't add here until other gems are updated.
-    gem "rubocop-rspec", "~> 3.6"
-    gem "rubocop-ruby2_4", "~> 3.0.0"
+    gem "rubocop-lts", "~> 12.3", ">= 12.3.0"
+    gem "rubocop-lts-rspec", "~> 1.0", ">= 1.0.3"
+    gem "rubocop-ruby2_4", "~> 3.0", ">= 3.0.2"
   else
     eval_gemfile("style_local.gemfile")
   end

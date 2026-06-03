@@ -65,7 +65,7 @@ platform :mri do
       path_env: "SMORG_RB_DEV",
       vendored_gems_env: "VENDORED_GEMS",
       vendor_gem_dir_env: "VENDOR_GEM_DIR",
-      debug_env: "SMORG_RB_DEBUG",
+      debug_env: "SMORG_RB_DEBUG"
     )
   end
 
@@ -76,7 +76,7 @@ platform :mri do
       path_env: "KETTLE_RB_DEV",
       vendored_gems_env: "VENDORED_GEMS",
       vendor_gem_dir_env: "VENDOR_GEM_DIR",
-      debug_env: "KETTLE_DEV_DEBUG",
+      debug_env: "KETTLE_DEV_DEBUG"
     )
   end
 end

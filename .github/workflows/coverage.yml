@@ -107,15 +107,15 @@ jobs:
           skip-errors: false
         continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
 
-      # Build will fail here if coverage upload fails
-      #   which will hopefully be noticed for the lack of code coverage comments
+      # Codecov is useful, but coverage report generation above is the
+      # authoritative CI gate. Do not fail CI on SaaS upload/auth problems.
       - name: Upload coverage to CodeCov
         if: ${{ !env.ACT }}
         uses: codecov/codecov-action@e79a6962e0d4c0c17b229090214935d2e33f8354 # v6.0.1
         with:
           use_oidc: true
           disable_search: true
-          fail_ci_if_error: true
+          fail_ci_if_error: false
           files: coverage/lcov.info,coverage/coverage.xml
           verbose: true
 
@@ -132,7 +132,7 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: '89 73'
+          thresholds: '${{ env.K_SOUP_COV_MIN_LINE }} ${{ env.K_SOUP_COV_MIN_BRANCH }}'
         continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
 
       - name: Add Coverage PR Comment

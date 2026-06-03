@@ -14,5 +14,5 @@ eval_nomono_gems(
   path_env: "GALTZO_FLOSS_DEV",
   vendored_gems_env: "GALTZO_FLOSS_VENDORED_GEMS",
   vendor_gem_dir_env: "GALTZO_FLOSS_VENDOR_GEM_DIR",
-  debug_env: "GALTZO_FLOSS_DEBUG",
+  debug_env: "GALTZO_FLOSS_DEBUG"
 )

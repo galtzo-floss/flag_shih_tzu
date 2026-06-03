@@ -194,14 +194,18 @@ appraisal_matrix:
 
 # README top logos.
 # Comma-separated list of optional logo entries for the generated README header.
-# Supported values: related-org, ruby, org, project
-# Default (when key is absent): related-org,ruby,org,project
+# top_logos render above the title; h2_synopsis_logos render inline with the Synopsis H2.
+# Supported values: related-org, ruby, org, project, optionally followed by |width.
+# Examples: org|12%, ruby|96px
+# Default widths: top 1 logo => 14%, top 2 logos => 12%, Synopsis 1 logo => 10%, Synopsis 2 logos => 8%.
+# Default (when keys are absent): top_logos: org,project; h2_synopsis_logos: related-org,ruby
 # Legacy top_logo_mode values map as:
 #   org => related-org,ruby,org
 #   project => related-org,ruby,project
 #   org_and_project => related-org,ruby,org,project
 readme:
-  top_logos: related-org,ruby,project
+  top_logos: project
+  h2_synopsis_logos: related-org,ruby
   # README badges managed by the template.
   badges:
     disabled:
