@@ -22,16 +22,28 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- Refreshed generated project metadata, support documentation, CI workflows,
+  and development dependency floors from the current kettle-jem template.
+
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
+### Security
+
+## [1.0.1] - 2026-06-03
+
+- TAG: [v1.0.1][1.0.1t]
+- COVERAGE: 90.95% -- 412/453 lines in 3 files
+- BRANCH COVERAGE: 76.76% -- 142/185 branches in 3 files
+- 27.78% documented
+
+### Fixed
+
 - Fixed generated documentation URLs that incorrectly pointed at a monorepo
   `gems/flag_shih_tzu` path.
-
-### Security
 
 ## [1.0.0] - 2026-05-26
 
@@ -285,6 +297,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 # Version 0.2.3 - last version maintained by XING AG
 
-[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.0...v1.0.1
+[1.0.1t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.1
 [1.0.0]: https://github.com/galtzo-floss/flag_shih_tzu/compare/baaff102ad48e6c5b4bfb3efb088cec82fa1ddb4...v1.0.0
 [1.0.0t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.0
