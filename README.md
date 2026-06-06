@@ -44,6 +44,11 @@ to store a collection of boolean attributes (flags). Each flag can be used
 almost in the same way you would use any boolean attribute on an
 ActiveRecord object.
 
+New for v1.0: FlagShihTzu also supports multi-bit fields with
+`value_mode: :tri_state`, `bit_width:`, and custom `encoder:` implementations.
+That lets one flag slot represent `true`, `false`, and `nil`, or other
+enum-like states you encode, while still sharing the same integer column.
+
 The benefits:
 
 * No schema migrations needed for new boolean attributes. This helps a lot

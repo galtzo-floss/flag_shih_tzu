@@ -22,6 +22,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- Updated the README synopsis to call out v1.0 multi-bit field support.
+
 - Raised generated `version_gem` and `appraisal2` dependency floors to
   `version_gem` >= 1.1.10 and `appraisal2` >= 3.0.9.
 - Refreshed generated project metadata, support documentation, CI workflows,
