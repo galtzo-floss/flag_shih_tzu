@@ -70,11 +70,15 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.0...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.1...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
 <h3 id="changed">Changed</h3>
+
+<ul>
+  <li>Updated the README synopsis to call out v1.0 multi-bit field support.</li>
+</ul>
 
 <h3 id="deprecated">Deprecated</h3>
 
@@ -83,6 +87,42 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 <h3 id="fixed">Fixed</h3>
 
 <h3 id="security">Security</h3>
+
+<h2 id="101---2026-06-05">
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.0...v1.0.1">1.0.1</a> - 2026-06-05</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.1">v1.0.1</a>
+</li>
+  <li>COVERAGE: 90.95% – 412/453 lines in 3 files</li>
+  <li>BRANCH COVERAGE: 76.76% – 142/185 branches in 3 files</li>
+  <li>27.78% documented</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>Fixed generated documentation URLs that incorrectly pointed at a monorepo<br>
+<code>gems/flag_shih_tzu</code> path.</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+  <li>Raised generated <code>version_gem</code> and <code>appraisal2</code> dependency floors to<br>
+<code>version_gem</code> &gt;= 1.1.10 and <code>appraisal2</code> &gt;= 3.0.9.</li>
+  <li>Refreshed generated project metadata, support documentation, CI workflows,<br>
+and development dependency floors from the current kettle-jem template.</li>
+</ul>
+
+<h3 id="removed-1">Removed</h3>
+
+<ul>
+  <li>Removed the legacy Test::Unit suite now that its coverage is represented by<br>
+the RSpec suite.</li>
+  <li>Removed obsolete direct development dependencies on <code>bundler</code>, <code>rspec</code>,<br>
+<code>rspec_junit_formatter</code>, <code>test-unit</code>, and <code>wwtd</code>.</li>
+</ul>
 
 <h2 id="100---2026-05-26">
 <a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/baaff102ad48e6c5b4bfb3efb088cec82fa1ddb4...v1.0.0">1.0.0</a> - 2026-05-26</h2>
@@ -118,7 +158,7 @@ intentionally want generated flag methods to replace existing instance<br>
 methods.</li>
 </ul>
 
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 
 <ul>
   <li>
@@ -152,7 +192,7 @@ JRuby, TruffleRuby, and ActiveRecord releases through ActiveRecord 8.0.</li>
 ActiveModel error APIs.</li>
 </ul>
 
-<h3 id="removed-1">Removed</h3>
+<h3 id="removed-2">Removed</h3>
 
 <ul>
   <li>Removed the obsolete Travis CI setup and legacy appraisal files for<br>
@@ -160,7 +200,7 @@ ActiveRecord 2.3 through 5.1.</li>
   <li>Removed Ruby 2.3 and JRuby 9.1 from the tested release matrix.</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>Restored project-specific README sections lost during templating, including<br>
@@ -421,7 +461,7 @@ versions, including ActiveRecord 6.0 where-clause AST differences.</li>
 </div></div>
 
       <div id="footer">
-  Generated on Thu May 28 17:28:09 2026 by
+  Generated on Fri Jun  5 23:25:04 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>

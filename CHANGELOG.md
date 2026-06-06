@@ -22,27 +22,15 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- Updated the README synopsis to call out v1.0 multi-bit field support.
-
-- Raised generated `version_gem` and `appraisal2` dependency floors to
-  `version_gem` >= 1.1.10 and `appraisal2` >= 3.0.9.
-- Refreshed generated project metadata, support documentation, CI workflows,
-  and development dependency floors from the current kettle-jem template.
-
 ### Deprecated
 
 ### Removed
-
-- Removed the legacy Test::Unit suite now that its coverage is represented by
-  the RSpec suite.
-- Removed obsolete direct development dependencies on `bundler`, `rspec`,
-  `rspec_junit_formatter`, `test-unit`, and `wwtd`.
 
 ### Fixed
 
 ### Security
 
-## [1.0.1] - 2026-06-03
+## [1.0.1] - 2026-06-05
 
 - TAG: [v1.0.1][1.0.1t]
 - COVERAGE: 90.95% -- 412/453 lines in 3 files
@@ -53,6 +41,22 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Fixed generated documentation URLs that incorrectly pointed at a monorepo
   `gems/flag_shih_tzu` path.
+
+### Changed
+
+- Raised generated `version_gem` and `appraisal2` dependency floors to
+  `version_gem` >= 1.1.10 and `appraisal2` >= 3.0.9.
+- Refreshed generated project metadata, support documentation, CI workflows,
+  and development dependency floors from the current kettle-jem template.
+
+- Updated the README synopsis to call out v1.0 multi-bit field support.
+
+### Removed
+
+- Removed the legacy Test::Unit suite now that its coverage is represented by
+  the RSpec suite.
+- Removed obsolete direct development dependencies on `bundler`, `rspec`,
+  `rspec_junit_formatter`, `test-unit`, and `wwtd`.
 
 ## [1.0.0] - 2026-05-26
 

@@ -253,7 +253,7 @@ This is equivalent to:
 ```ruby
 has_flags(
   {1 => :warpdrive, 2 => :shields},
-  value_mode: :boolean,
+  value_mode: :boolean
 )
 ```
 
@@ -262,7 +262,7 @@ For flags that need `true`, `false`, and `nil`, use tri-state mode:
 ```ruby
 has_flags(
   {1 => :warpdrive, 2 => :shields},
-  value_mode: :tri_state,
+  value_mode: :tri_state
 )
 ```
 
@@ -297,7 +297,7 @@ Applications with specialized storage needs can provide a custom encoder:
 has_flags(
   {1 => :warpdrive},
   bit_width: 2,
-  encoder: MyFlagEncoder,
+  encoder: MyFlagEncoder
 )
 ```
 
@@ -461,7 +461,7 @@ Assigning a hash updates only the mentioned flags and preserves the rest:
 ```ruby
 enterprise.flags = {
   warpdrive: true,
-  shields: false,
+  shields: false
 }
 ```
 
@@ -631,7 +631,7 @@ Recommended removal path:
 
 ```ruby
 Spaceship.where(Spaceship.shields_condition).update_all(
-  Spaceship.set_flag_sql(:shields, false),
+  Spaceship.set_flag_sql(:shields, false)
 )
 ```
 

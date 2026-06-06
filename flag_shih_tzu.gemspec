@@ -23,13 +23,13 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter Boling", "Patryk Peszko", "Sebastian Roebke", "David Anderson", "Tim Payton"]
   spec.email = ["floss@galtzo.com"]
 
-  spec.summary = "🏁 Bit fields for ActiveRecord"
+  spec.summary = "🏁 Single and Multi Bit Fields for ActiveRecord"
   spec.description = <<~EODOC
-    🏁 Bit fields for ActiveRecord:
+    🏁 Single and Multi-Bit Fields for ActiveRecord:
     This gem lets you use a single integer column in an ActiveRecord model
     to store a collection of boolean attributes (flags). Each flag can be used
     almost in the same way you would use any boolean attribute on an
-    ActiveRecord object.
+    ActiveRecord object. Support for multi-bit fields, like tri-state or enums.
   EODOC
   spec.homepage = "https://github.com/galtzo-floss/flag_shih_tzu"
   spec.licenses = ["MIT"]

@@ -196,7 +196,7 @@ RSpec.describe FlagShihTzu do
       expect(spaceship.flags_as_attributes).to eq(
         warpdrive: true,
         shields: false,
-        electrolytes: true,
+        electrolytes: true
       )
     end
 
@@ -206,7 +206,7 @@ RSpec.describe FlagShihTzu do
 
       expect(spaceship.flags_as_attributes("flags", :warpdrive, :shields)).to eq(
         warpdrive: true,
-        shields: false,
+        shields: false
       )
     end
 
@@ -215,7 +215,7 @@ RSpec.describe FlagShihTzu do
 
       expect(small_spaceship.bits_as_attributes).to eq(
         warpdrive: true,
-        hyperspace: false,
+        hyperspace: false
       )
     end
 
@@ -227,7 +227,7 @@ RSpec.describe FlagShihTzu do
         warpdrive: true,
         hyperspace: false,
         jeanlucpicard: false,
-        dajanatroj: true,
+        dajanatroj: true
       )
     end
 
@@ -239,7 +239,7 @@ RSpec.describe FlagShihTzu do
         "flags" => 5,
         "warpdrive" => true,
         "shields" => false,
-        "electrolytes" => true,
+        "electrolytes" => true
       )
     end
   end
@@ -598,9 +598,9 @@ RSpec.describe FlagShihTzu do
         has_flags(
           {
             1 => :warpdrive,
-            2 => :shields,
+            2 => :shields
           },
-          value_mode: :tri_state,
+          value_mode: :tri_state
         )
       end
     end
@@ -649,7 +649,7 @@ RSpec.describe FlagShihTzu do
       expect(tri_state_ship.flags).to eq(13)
       expect(tri_state_ship.flags_as_attributes).to eq(
         warpdrive: true,
-        shields: nil,
+        shields: nil
       )
     end
   end
@@ -802,9 +802,9 @@ RSpec.describe FlagShihTzu do
           {
             1 => :warpdrive,
             2 => :shields,
-            3 => :electrolytes,
+            3 => :electrolytes
           },
-          check_for_column: false,
+          check_for_column: false
         )
       end
 

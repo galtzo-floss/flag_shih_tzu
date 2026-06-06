@@ -2,7 +2,7 @@
 
 module FlagShihTzu
   module Version
-    VERSION = "1.0.0"
+    VERSION = "1.0.1"
   end
   VERSION = Version::VERSION # Traditional Constant Location
 end
