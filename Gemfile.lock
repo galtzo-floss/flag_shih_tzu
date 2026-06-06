@@ -151,7 +151,6 @@ GEM
     parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
-    power_assert (3.0.1)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -338,8 +337,6 @@ GEM
     strscan (3.1.8)
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
-    test-unit (3.7.8)
-      power_assert
     thor (1.5.0)
     timecop (0.9.11)
     timecop-rspec (1.0.3)
@@ -359,7 +356,6 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.1)
     version_gem (1.1.10)
-    wwtd (1.4.1)
     yaml-converter (0.2.0)
       hexapdf (>= 1.8, < 2)
       kramdown (>= 2.4, < 3)
@@ -393,7 +389,6 @@ DEPENDENCIES
   addressable (>= 2.8, < 3)
   appraisal2 (~> 3.0, >= 3.0.9)
   benchmark (~> 0.5, >= 0.5.0)
-  bundler (>= 2.2)
   bundler-audit (~> 0.9.3)
   debug (>= 1.1)
   erb (~> 6.0, >= 6.0.4)
@@ -413,8 +408,6 @@ DEPENDENCIES
   rdoc (~> 6.11)
   reek (~> 6.5, >= 6.5.0)
   require_bench (~> 1.0, >= 1.0.4)
-  rspec (~> 3.0)
-  rspec_junit_formatter (~> 0.6)
   rubocop-lts (~> 12.3, >= 12.3.0)
   rubocop-lts-rspec (~> 1.0, >= 1.0.3)
   rubocop-on-rbs (~> 2.0, >= 2.0.0)
@@ -425,9 +418,7 @@ DEPENDENCIES
   standard (~> 1.54, >= 1.54.0)
   stone_checksums (~> 1.0, >= 1.0.3)
   stringio (>= 3.0)
-  test-unit (>= 3)
   turbo_tests2 (~> 3.1, >= 3.1.1)
-  wwtd (>= 1)
   yaml-converter (~> 0.1)
   yard (~> 0.9, >= 0.9.44)
   yard-fence (~> 0.9, >= 0.9.2)
@@ -494,7 +485,6 @@ CHECKSUMS
   parallel (1.28.0) sha256=33e6de1484baf2524792d178b0913fc8eb94c628d6cfe45599ad4458c638c970
   parallel_tests (5.7.0) sha256=3f1762c46ca2c223b8af8ef877217f9d76974e191bfa934f2580b58bcf1d005c
   parser (3.3.11.1) sha256=d17ace7aabe3e72c3cc94043714be27cc6f852f104d81aa284c2281aecc65d54
-  power_assert (3.0.1) sha256=8ce9876716cc74e863fcd4cdcdc52d792bd983598d1af3447083a3a9a4d34103
   pp (0.6.3) sha256=2951d514450b93ccfeb1df7d021cae0da16e0a7f95ee1e2273719669d0ab9df6
   prettyprint (0.2.0) sha256=2bc9e15581a94742064a3cc8b0fb9d45aae3d03a1baa6ef80922627a0766f193
   prism (1.9.0) sha256=7b530c6a9f92c24300014919c9dcbc055bf4cdf51ec30aed099b06cd6674ef85
@@ -559,7 +549,6 @@ CHECKSUMS
   stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1
   strscan (3.1.8) sha256=aae2db611a225559f21ffbb71765c9a4e60fd262534a9ea84f4f11c7f32f679e
   terminal-table (4.0.0) sha256=f504793203f8251b2ea7c7068333053f0beeea26093ec9962e62ea79f94301d2
-  test-unit (3.7.8) sha256=689d1ca53f4d46f678b4e5d68d8e4294f87fc5e8b9238cc4de7c5727e8d65943
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
   timecop (0.9.11) sha256=41284dc6e5041f2184f781ace766f942108c842f8d8c1386a26e6343decc7542
   timecop-rspec (1.0.3) sha256=005f14841bb606dcaefb060e321b5388e2e59537742bee8b3a9a9a40e598fab9
@@ -571,7 +560,6 @@ CHECKSUMS
   unicode-emoji (4.2.0) sha256=519e69150f75652e40bf736106cfbc8f0f73aa3fb6a65afe62fefa7f80b0f80f
   uri (1.1.1) sha256=379fa58d27ffb1387eaada68c749d1426738bd0f654d812fcc07e7568f5c57c6
   version_gem (1.1.10) sha256=d0575dc9f2949b2db9497051f96e5c36d7c6c2f2e81afd1a73cacccd4690e506
-  wwtd (1.4.1) sha256=e2a326bd2f2e2798f326c46f39adda8f5a054ef44ff539f1444be21f676b1952
   yaml-converter (0.2.0) sha256=0602148de1664ab701c7938a036987576c55e87fb6d4b3cb0fff19c4f7a91386
   yard (0.9.44) sha256=eb087e9b631ccd887b049f303d489963945452d5e2a7eb49a5a74a7cf6887f28
   yard-fence (0.9.2) sha256=9c74b9986777145b93cb3e1fcb842fffec365a1ff9d5dd2ddc6391fc95a68ac8

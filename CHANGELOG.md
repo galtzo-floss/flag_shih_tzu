@@ -31,6 +31,11 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Removed
 
+- Removed the legacy Test::Unit suite now that its coverage is represented by
+  the RSpec suite.
+- Removed obsolete direct development dependencies on `bundler`, `rspec`,
+  `rspec_junit_formatter`, `test-unit`, and `wwtd`.
+
 ### Fixed
 
 ### Security

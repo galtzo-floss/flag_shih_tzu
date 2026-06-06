@@ -809,7 +809,7 @@ RSpec.describe FlagShihTzu do
       end
 
       expect(klass.method_defined?(:warpdrive)).to be(true)
-      # Note: This test might not work exactly as in test-unit due to how connection pooling works
+      # Note: This differs from the legacy suite because modern connection pooling is observable here.
       expect(connection_established).to be(false)
     end
   end
