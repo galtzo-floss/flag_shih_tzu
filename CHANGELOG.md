@@ -22,6 +22,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- Refreshed generated README/package metadata, copyright notices, and
+  template helper files from the current kettle-jem template.
+
 ### Deprecated
 
 ### Removed

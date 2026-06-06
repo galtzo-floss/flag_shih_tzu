@@ -933,27 +933,20 @@ See [LICENSE.md][📄license] for the official copyright notice.
 <summary>Copyright holders</summary>
 
 - Copyright (c) 2009 Alto
-- Copyright (c) 2009-2012 boosty
-- Copyright (c) 2009-2010 Daniel Jagszent
-- Copyright (c) 2009-2010 ladislav.martincik
-- Copyright (c) 2009 Martin Stannard
+- Copyright (c) 2009-2011 boosty
+- Copyright (c) 2009 ladislav.martincik
 - Copyright (c) 2009-2011 pboling
-- Copyright (c) 2009 Sebastian Roebke
-- Copyright (c) 2009 Tobias Bielohlawek
 - Copyright (c) 2009 XING Engineering
 - Copyright (c) 2010 Joost Baaij
 - Copyright (c) 2010 Joost Baaij
-- Copyright (c) 2010 Ryan Wallace
 - Copyright (c) 2011 Arturas Slajus
 - Copyright (c) 2011 Musy Bite
 - Copyright (c) 2011, 2014 Tim Liner
 - Copyright (c) 2012-2013 David DIDIER
 - Copyright (c) 2012-2015, 2017-2018, 2026 Peter H. Boling
 - Copyright (c) 2012 Tatsuhiko Miyagawa
-- Copyright (c) 2013 Blake Thomson
 - Copyright (c) 2013 Keith Pitty
 - Copyright (c) 2013 Peter M. Goldstein
-- Copyright (c) 2013 Thomas Jachmann
 - Copyright (c) 2014 Alexander Tipugin
 - Copyright (c) 2014, 2017-2018, 2025 Jonathan del Strother
 - Copyright (c) 2015 Ivan
@@ -1205,9 +1198,9 @@ Thanks for RTFM. ☺️
 | Field | Value |
 |---|---|
 | Package | flag_shih_tzu |
-| Description | 🏁 Bit fields for ActiveRecord:<br>This gem lets you use a single integer column in an ActiveRecord model<br>to store a collection of boolean attributes (flags). Each flag can be used<br>almost in the same way you would use any boolean attribute on an<br>ActiveRecord object. |
+| Description | 🏁 Single and Multi-Bit Fields for ActiveRecord:<br>This gem lets you use a single integer column in an ActiveRecord model<br>to store a collection of boolean attributes (flags). Each flag can be used<br>almost in the same way you would use any boolean attribute on an<br>ActiveRecord object. Support for multi-bit fields, like tri-state or enums. |
 | Homepage | https://github.com/galtzo-floss/flag_shih_tzu |
-| Source | https://github.com/galtzo-floss/flag_shih_tzu/tree/v1.0.0 |
+| Source | https://github.com/galtzo-floss/flag_shih_tzu/tree/v1.0.1 |
 | License | `MIT` |
 | Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/galtzo-floss, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/flag_shih_tzu, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->
