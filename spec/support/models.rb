@@ -15,7 +15,7 @@ class SpaceshipWithoutNamedScopes < ActiveRecord::Base
 
   has_flags(
     1 => :warpdrive,
-    :named_scopes => false,
+    :named_scopes => false
   )
 end
 
@@ -25,7 +25,7 @@ class SpaceshipWithoutNamedScopesOldStyle < ActiveRecord::Base
 
   has_flags(
     {1 => :warpdrive},
-    named_scopes: false,
+    named_scopes: false
   )
 end
 
@@ -36,7 +36,7 @@ class SpaceshipWithCustomFlagsColumn < ActiveRecord::Base
   has_flags(
     1 => :warpdrive,
     2 => :hyperspace,
-    :column => "bits",
+    :column => "bits"
   )
 end
 
@@ -47,7 +47,7 @@ class SpaceshipWithColumnNameAsSymbol < ActiveRecord::Base
   has_flags(
     1 => :warpdrive,
     2 => :hyperspace,
-    :column => :bits,
+    :column => :bits
   )
 end
 
@@ -57,11 +57,11 @@ class SpaceshipWith2CustomFlagsColumn < ActiveRecord::Base
 
   has_flags(
     {1 => :warpdrive, 2 => :hyperspace},
-    column: "bits",
+    column: "bits"
   )
   has_flags(
     {1 => :jeanlucpicard, 2 => :dajanatroj},
-    column: "commanders",
+    column: "commanders"
   )
 end
 
@@ -72,25 +72,25 @@ class SpaceshipWith3CustomFlagsColumn < ActiveRecord::Base
   has_flags(
     {
       1 => :warpdrive,
-      2 => :hyperspace,
+      2 => :hyperspace
     },
-    column: "engines",
+    column: "engines"
   )
   has_flags(
     {
       1 => :photon,
       2 => :laser,
       3 => :ion_cannon,
-      4 => :particle_beam,
+      4 => :particle_beam
     },
-    column: "weapons",
+    column: "weapons"
   )
   has_flags(
     {
       1 => :power,
-      2 => :anti_ax_routine,
+      2 => :anti_ax_routine
     },
-    column: "hal3000",
+    column: "hal3000"
   )
 end
 
@@ -134,28 +134,28 @@ if ActiveRecord::VERSION::MAJOR >= 3
     has_flags(
       {
         1 => :warpdrive,
-        2 => :hyperspace,
+        2 => :hyperspace
       },
       column: :peace,
-      check_for_column: true,
+      check_for_column: true
     )
     has_flags(
       {
         1 => :photon,
         2 => :laser,
         3 => :ion_cannon,
-        4 => :particle_beam,
+        4 => :particle_beam
       },
       column: :love,
-      check_for_column: true,
+      check_for_column: true
     )
     has_flags(
       {
         1 => :power,
-        2 => :anti_ax_routine,
+        2 => :anti_ax_routine
       },
       column: "happiness",
-      check_for_column: true,
+      check_for_column: true
     )
     validates_presence_of_flags :peace, :love
   end
@@ -174,15 +174,15 @@ if ActiveRecord::VERSION::MAJOR >= 3
 
     has_flags(
       {1 => :warpdrive, 2 => :hyperspace},
-      column: "engines",
+      column: "engines"
     )
     has_flags(
       {1 => :photon, 2 => :laser, 3 => :ion_cannon, 4 => :particle_beam},
-      column: "weapons",
+      column: "weapons"
     )
     has_flags(
       {1 => :power, 2 => :anti_ax_routine},
-      column: "hal3000",
+      column: "hal3000"
     )
 
     validates_presence_of_flags :engines, :weapons

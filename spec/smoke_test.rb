@@ -22,7 +22,7 @@ end
 # Set up database
 ActiveRecord::Base.establish_connection(
   adapter: adapter,
-  database: ":memory:",
+  database: ":memory:"
 )
 
 # Create schema

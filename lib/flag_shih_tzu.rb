@@ -22,11 +22,11 @@ module FlagShihTzu
     "postgresql" => "PostgreSQLAdapter",
     "sqlite" => "SQLite3Adapter",
     "sqlite3" => "SQLite3Adapter",
-    "trilogy" => "TrilogyAdapter",
+    "trilogy" => "TrilogyAdapter"
   }.freeze
   FLAG_ADAPTER_REQUIRE_NAMES = {
     "mysql" => "mysql2",
-    "postgis" => "postgresql",
+    "postgis" => "postgresql"
   }.freeze
   FLAG_COLUMN_ONLY_ASSIGNMENT_ADAPTERS = ["jdbcsqlite3", "postgis", "postgresql", "sqlite", "sqlite3"].freeze
 
@@ -200,7 +200,7 @@ module FlagShihTzu
         return nil_sql_value(flag_mask) if FlagShihTzu::NIL_VALUES.include?(value)
 
         raise InvalidFlagValueException,
-          %[Invalid tri-state flag value "#{value.inspect}"; expected true, false, or nil]
+          %(Invalid tri-state flag value "#{value.inspect}"; expected true, false, or nil)
       end
 
       def low_bit(flag_mask)
@@ -221,19 +221,19 @@ module FlagShihTzu
           check_for_column: FlagShihTzu.default_check_for_column,
           allow_overwrite: false,
           value_mode: nil,
-          bit_width: nil,
+          bit_width: nil
         }.update(opts)
       opts[:value_mode], opts[:bit_width], opts[:encoder] =
         flag_encoder_config(opts[:value_mode], opts[:bit_width], opts[:encoder])
       if !valid_flag_column_name?(opts[:column])
-        warn(%[FlagShihTzu says: Please use a String to designate column names! I see you here: #{caller(1..1).first}])
+        warn(%(FlagShihTzu says: Please use a String to designate column names! I see you here: #{caller(1..1).first}))
         opts[:column] = opts[:column].to_s
       end
       colmn = opts[:column]
       if opts[:check_for_column] && active_record_class? && !check_flag_column(colmn)
         warn(
-          %[FlagShihTzu says: Flag column #{colmn} appears to be missing!
-To turn off this warning set check_for_column: false in has_flags definition here: #{caller(1..1).first}],
+          %(FlagShihTzu says: Flag column #{colmn} appears to be missing!
+To turn off this warning set check_for_column: false in has_flags definition here: #{caller(1..1).first})
         )
         return
       end
@@ -258,11 +258,11 @@ To turn off this warning set check_for_column: false in has_flags definition her
       flag_hash.each do |flag_key, flag_name|
         unless valid_flag_key?(flag_key)
           raise ArgumentError,
-            %[has_flags: flag keys should be positive integers, and #{flag_key} is not]
+            %(has_flags: flag keys should be positive integers, and #{flag_key} is not)
         end
         unless valid_flag_name?(flag_name)
           raise ArgumentError,
-            %[has_flags: flag names should be symbols, and #{flag_name} is not]
+            %(has_flags: flag names should be symbols, and #{flag_name} is not)
         end
         flag_mask = opts[:encoder].mask(flag_key)
         # next if method already defined by flag_shih_tzu
@@ -272,7 +272,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
             remove_existing_flag_methods(flag_name)
           else
             raise ArgumentError,
-              %[has_flags: flag name #{flag_name} already defined, please choose different name]
+              %(has_flags: flag name #{flag_name} already defined, please choose different name)
           end
         end
 
@@ -491,11 +491,11 @@ To turn off this warning set check_for_column: false in has_flags definition her
     def check_flag(flag, colmn)
       unless colmn.is_a?(String)
         raise ArgumentError,
-          %[Column name "#{colmn}" for flag "#{flag}" is not a string]
+          %(Column name "#{colmn}" for flag "#{flag}" is not a string)
       end
       if flag_mapping[colmn].nil? || !flag_mapping[colmn].include?(flag)
         raise ArgumentError,
-          %[Invalid flag "#{flag}"]
+          %(Invalid flag "#{flag}")
       end
     end
 
@@ -512,7 +512,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
         return colmn if mapping.include?(flag)
       end
       raise NoSuchFlagException.new(
-        %[determine_flag_colmn_for: Couldn't determine column for your flags!],
+        %(determine_flag_colmn_for: Couldn't determine column for your flags!)
       )
     end
 
@@ -558,17 +558,17 @@ To turn off this warning set check_for_column: false in has_flags definition her
     def generated_flag_method_names(flag_name)
       [
         flag_name,
-        "#{flag_name}?".to_sym,
-        "#{flag_name}=".to_sym,
-        "not_#{flag_name}".to_sym,
-        "not_#{flag_name}?".to_sym,
-        "not_#{flag_name}=".to_sym,
-        "#{flag_name}_changed?".to_sym,
-        "#{flag_name}_nil?".to_sym,
-        "saved_change_to_#{flag_name}?".to_sym,
-        "#{flag_name}!".to_sym,
-        "not_#{flag_name}!".to_sym,
-        "clear_#{flag_name}!".to_sym,
+        :"#{flag_name}?",
+        :"#{flag_name}=",
+        :"not_#{flag_name}",
+        :"not_#{flag_name}?",
+        :"not_#{flag_name}=",
+        :"#{flag_name}_changed?",
+        :"#{flag_name}_nil?",
+        :"saved_change_to_#{flag_name}?",
+        :"#{flag_name}!",
+        :"not_#{flag_name}!",
+        :"clear_#{flag_name}!"
       ]
     end
 
@@ -587,7 +587,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
         [:tri_state, TriStateEncoder.bit_width, TriStateEncoder]
       else
         raise ArgumentError,
-          %[has_flags: unknown value_mode #{value_mode.inspect}]
+          %(has_flags: unknown value_mode #{value_mode.inspect})
       end
     end
 
@@ -596,7 +596,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
       return [:tri_state, TriStateEncoder.bit_width, TriStateEncoder] if bit_width == TriStateEncoder.bit_width
 
       raise ArgumentError,
-        %[has_flags: bit_width #{bit_width} requires an encoder]
+        %(has_flags: bit_width #{bit_width} requires an encoder)
     end
 
     def custom_flag_encoder_config(value_mode, bit_width, encoder)
@@ -608,7 +608,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
       return if bit_width.nil? || bit_width == expected_bit_width
 
       raise ArgumentError,
-        %[has_flags: value_mode #{value_mode.inspect} requires bit_width #{expected_bit_width}]
+        %(has_flags: value_mode #{value_mode.inspect} requires bit_width #{expected_bit_width})
     end
 
     def flag_encoder_for_column(colmn)
@@ -737,19 +737,21 @@ To turn off this warning set check_for_column: false in has_flags definition her
         #   then we must fail, because flag_shih_tzu will not work
         if found_column.nil?
           warn(
-            %[Error: Column "#{colmn}" doesn't exist on table "#{custom_table_name}". Did you forget to run migrations?],
+            %(Error: Column "#{colmn}" doesn't exist on table "#{custom_table_name}". Did you forget to run migrations?)
           )
           return false
         elsif found_column.type != :integer
           raise IncorrectFlagColumnException.new(
-            %[Table "#{custom_table_name}" must have an integer column named "#{colmn}" in order to use FlagShihTzu.],
+            %(Table "#{custom_table_name}" must have an integer column named "#{colmn}" in order to use FlagShihTzu.)
           )
         end
       else
         # ActiveRecord gem may not have loaded yet?
-        warn(
-          %[FlagShihTzu#has_flags: Table "#{custom_table_name}" doesn't exist.  Have all migrations been run?],
-        ) if has_ar
+        if has_ar
+          warn(
+            %(FlagShihTzu#has_flags: Table "#{custom_table_name}" doesn't exist.  Have all migrations been run?)
+          )
+        end
         return false
       end
 
@@ -757,7 +759,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
 
       # Quietly ignore NoDatabaseErrors - presumably we're being run during, eg, `rails db:create`.
       # NoDatabaseError was only introduced in Rails 4.1, which is why this error-handling is a bit convoluted.
-    rescue StandardError => e
+    rescue => e
       if defined?(ActiveRecord::NoDatabaseError) && e.is_a?(ActiveRecord::NoDatabaseError)
         true
       else
@@ -954,8 +956,8 @@ To turn off this warning set check_for_column: false in has_flags definition her
         .select { |flag| flags_to_collect.include?(flag) }
     truthy_and_chosen.concat(
       collect_flags(*flags_to_collect) do |memo, flag|
-        memo << "not_#{flag}".to_sym unless truthy_and_chosen.include?(flag)
-      end,
+        memo << :"not_#{flag}" unless truthy_and_chosen.include?(flag)
+      end
     )
   end
 

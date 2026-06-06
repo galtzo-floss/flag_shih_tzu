@@ -16,7 +16,7 @@ if defined?(ActiveRecord) && ActiveRecord::VERSION::MAJOR >= 3
     module Validations
       # A simple EachValidator that will check for the presence of the flags specified
       class PresenceOfFlagsValidator < EachValidator
-        def validate_each(record, attribute, value)
+        def validate_each(record, attribute, _value)
           value = record.send(:read_attribute_for_validation, attribute)
           check_flag(record, attribute)
 

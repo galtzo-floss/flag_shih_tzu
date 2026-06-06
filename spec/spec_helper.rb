@@ -31,7 +31,7 @@ end
 # Set up database connection
 ActiveRecord::Base.establish_connection(
   adapter: adapter,
-  database: ":memory:",
+  database: ":memory:"
 )
 
 # Suppress ActiveRecord logging
