@@ -1,6 +1,20 @@
 # frozen_string_literal: true
 
 # kettle-jem:freeze
+# To retain chunks of comments & code during kettle-jem templating:
+# Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
+# kettle-jem will then preserve content between those markers across template runs.
+# kettle-jem:unfreeze
+
+# HOW TO UPDATE APPRAISALS (Appraisal2 RuboCop hooks normalize generated gemfiles on modern Ruby):
+#   bin/rake appraisal:update
+
+begin
+  require "appraisal2/rubocop"
+rescue LoadError
+end
+
+# kettle-jem:freeze
 # To retain chunks of comments & code during flag_shih_tzu templating:
 # Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
 # flag_shih_tzu will then preserve content between those markers across template runs.
@@ -111,6 +125,8 @@ appraise "ruby-2-7" do
 end
 
 appraise "ruby-3-0" do
+  eval_gemfile "modular/json/truffleruby_22_3.gemfile"
+  eval_gemfile "modular/json/truffleruby_23_0.gemfile"
   eval_gemfile "modular/x_std_libs/r3.1/libs.gemfile"
   eval_gemfile "modular/activerecord_runtime.gemfile"
   eval_gemfile "modular/activerecord_support.gemfile"
@@ -127,6 +143,7 @@ appraise "ruby-3-1" do
 end
 
 appraise "ruby-3-2" do
+  eval_gemfile "modular/json/truffleruby_23_1.gemfile"
   eval_gemfile "modular/x_std_libs/r3/libs.gemfile"
   eval_gemfile "modular/activerecord/r3/v8.0.gemfile"
   eval_gemfile "modular/activerecord_support_modern.gemfile"
