@@ -59,7 +59,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Ruby & RubyGems
-        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
+        uses: ruby/setup-ruby@12fd324f1d0b43274fdc8130f6980590a667c455 # v1.312.0
         with:
           ruby-version: "${{ matrix.ruby }}"
           rubygems: "${{ matrix.rubygems }}"
@@ -87,10 +87,9 @@ jobs:
           test -s coverage/lcov.info
           test -s coverage/coverage.xml
 
-      # Do SaaS coverage uploads first
       - name: Upload coverage to Coveralls
         if: ${{ !env.ACT }}
-        uses: coverallsapp/github-action@5cbfd81b66ca5d10c19b062c04de0199c215fb6e # v2.3.7
+        uses: coverallsapp/github-action@648a8eb78e6d50909eff900e4ec85cab4524a45b # v2.3.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           file: coverage/lcov.info
@@ -107,11 +106,9 @@ jobs:
           skip-errors: false
         continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
 
-      # Codecov is useful, but coverage report generation above is the
-      # authoritative CI gate. Do not fail CI on SaaS upload/auth problems.
       - name: Upload coverage to CodeCov
         if: ${{ !env.ACT }}
-        uses: codecov/codecov-action@e79a6962e0d4c0c17b229090214935d2e33f8354 # v6.0.1
+        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0
         with:
           use_oidc: true
           disable_search: true
@@ -119,7 +116,6 @@ jobs:
           files: coverage/lcov.info,coverage/coverage.xml
           verbose: true
 
-      # Then PR comments
       - name: Code Coverage Summary Report
         if: ${{ !env.ACT && github.event_name == 'pull_request' }}
         uses: irongut/CodeCoverageSummary@51cc3a756ddcd398d447c044c02cb6aa83fdae95 # v1.3.0

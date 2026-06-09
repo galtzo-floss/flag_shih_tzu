@@ -325,7 +325,7 @@ yard_host: flag-shih-tzu.galtzo.com
 # Full URL used for gemspec metadata["homepage_uri"].
 # Defaults to https://flag-shih-tzu.galtzo.com.
 # ENV override: KJ_HOMEPAGE_URI
-homepage_uri: "https://github.com/galtzo-floss/flag_shih_tzu"
+homepage_uri: "https://flag-shih-tzu.galtzo.com"
 # Template source inventory.
 # The packaged inventory is the canonical kettle-jem project template. It
 # includes the detailed GitHub Actions workflow set, modular gemfiles,
