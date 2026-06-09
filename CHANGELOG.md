@@ -31,6 +31,7 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Restored `docs/CNAME` so the generated documentation site keeps its custom domain.
 - Restored the generated documentation custom-domain CNAME and aligned
   `homepage_uri` metadata with `flag-shih-tzu.galtzo.com`.
 
