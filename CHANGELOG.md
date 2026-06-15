@@ -22,8 +22,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- Refreshed generated README/package metadata, copyright notices, and
-  template helper files from the current kettle-jem template.
+- Refreshed generated README/package metadata, copyright notices, template
+  helper files, documentation custom-domain metadata, CI workflow pins, and
+  development dependency floors from the latest `kettle-jem` template.
 
 ### Deprecated
 
@@ -31,9 +32,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Restored `docs/CNAME` so the generated documentation site keeps its custom domain.
-- Restored the generated documentation custom-domain CNAME and aligned
-  `homepage_uri` metadata with `flag-shih-tzu.galtzo.com`.
 
 ### Security
 

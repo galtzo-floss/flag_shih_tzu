@@ -246,14 +246,14 @@ To turn off this warning set check_for_column: false in has_flags definition her
       self.flag_mapping ||= {}
       # If we already have an instance of the same column in the flag_mapping,
       #   then there is a double definition on a column
-      if opts[:strict] && !self.flag_mapping[colmn].nil?
+      if opts[:strict] && !flag_mapping[colmn].nil?
         raise DuplicateFlagColumnException
       end
       flag_mapping[colmn] ||= {}
 
       # keep track of which flag columns are defined on this class
       self.flag_columns ||= []
-      self.flag_columns << colmn
+      flag_columns << colmn
 
       flag_hash.each do |flag_key, flag_name|
         unless valid_flag_key?(flag_key)
@@ -706,7 +706,7 @@ To turn off this warning set check_for_column: false in has_flags definition her
           .select { |key| !key.is_a?(Integer) }
           .each_with_object({}) do |key, hash|
             hash[key] = options.delete(key)
-        end
+          end
       end
       [options, add_options]
     end

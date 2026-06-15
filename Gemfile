@@ -24,7 +24,7 @@ git_source(:codeberg) { |repo_name| "https://codeberg.org/#{repo_name}" }
 git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 
 # Local workspace dependency wiring for *_local.gemfile overrides
-gem "nomono", "~> 1.0", ">= 1.0.2", require: false # ruby >= 2.2
+gem "nomono", "~> 1.0", ">= 1.0.4", require: false # ruby >= 2.2
 
 # Templating (env-switched: SMORG_RB_DEV=/path/to/structuredmerge/ruby/gems for local paths)
 eval_gemfile "gemfiles/modular/templating.gemfile" if ENV.fetch("K_JEM_TEMPLATING", "false").casecmp("true").zero?
