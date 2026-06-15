@@ -2,7 +2,7 @@
 
 source "https://gem.coop"
 
-gemspec :path => "../"
+gemspec path: "../"
 
 eval_gemfile("modular/activerecord/r2/v7.0.gemfile")
 
