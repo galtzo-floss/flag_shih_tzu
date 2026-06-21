@@ -98,7 +98,7 @@ GEM
       geom2d (~> 0.4, >= 0.4.1)
       openssl (>= 2.2.1)
       strscan (>= 3.1.2)
-    i18n (1.15.1)
+    i18n (1.15.2)
       concurrent-ruby (~> 1.0)
     io-console (0.8.2)
     irb (1.18.0)
@@ -110,7 +110,7 @@ GEM
     kettle-dev (2.2.13)
       kettle-test (~> 2.0, >= 2.0.4)
       version_gem (~> 1.1, >= 1.1.11)
-    kettle-soup-cover (3.0.0.rc1)
+    kettle-soup-cover (3.0.0.rc2)
       simplecov (>= 1.0.pre)
       simplecov-cobertura (>= 4.0.pre)
       simplecov-console (~> 0.9, >= 0.9.5)
@@ -405,7 +405,7 @@ DEPENDENCIES
   gitmoji-regex (~> 2.0, >= 2.0.2)
   irb (~> 1.17)
   kettle-dev (~> 2.2, >= 2.2.13)
-  kettle-soup-cover (~> 3.0.a, >= 3.0.0.rc1)
+  kettle-soup-cover (~> 3.0.a, >= 3.0.0.rc2)
   kettle-test (~> 2.0, >= 2.0.5)
   kramdown (~> 2.5, >= 2.5.1)
   kramdown-parser-gfm (~> 1.1)
@@ -476,12 +476,12 @@ CHECKSUMS
   geom2d (0.4.1) sha256=ea0998ea90c4f2752e24fe13d85a4f89bee689d151316140ebcc6369bf634ed9
   gitmoji-regex (2.0.2) sha256=7d8648cedbd3674e086a2c37d9e8078ce109751cb1e687de077e0252f0113d94
   hexapdf (1.9.1) sha256=2d1f6a3622e6bc2a70a707d4c3f3fa44f5552ecd9d899f6283abb07398a84884
-  i18n (1.15.1) sha256=505ec5de1f4e6c8a2cb028ef9700ca495f117911643455721dee5abdca797255
+  i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.19.9) sha256=9b9025b7cdddafa38d316eca0b2358488e42d417045c1b90d216a9fefe46b79a
   kettle-dev (2.2.13) sha256=f396b331c7b15ede36aecc1d52f33ce5ad048f713d1051d4bfe96a43538a3e36
-  kettle-soup-cover (3.0.0.rc1) sha256=ec678a573c9c3e75cb091da3251079834db715aaba31785d84c0a2c8d8c5f72d
+  kettle-soup-cover (3.0.0.rc2) sha256=7741120cf7d81d765fd1dc9bcbe537eb0c90721c171edf0b89e0fbc16f82ef34
   kettle-test (2.0.5) sha256=98fd96f03c4470cd2cb0b1cef339455064d8a68bc180f70864d85fd74f41d978
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729

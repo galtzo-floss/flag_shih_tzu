@@ -851,7 +851,7 @@ I’m developing a new library, [floss_funding][🖇floss-funding-gem], designed
 
 **[Floss-Funding.dev][🖇floss-funding.dev]: 👉️ No network calls. 👉️ No tracking. 👉️ No oversight. 👉️ Minimal crypto hashing. 💡 Easily disabled nags**
 
-[![OpenCollective Backers][🖇osc-backers-i]][🖇osc-backers] [![OpenCollective Sponsors][🖇osc-sponsors-i]][🖇osc-sponsors] [![Sponsor Me on Github][🖇sponsor-img]][🖇sponsor] [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay] [![Donate on PayPal][🖇paypal-img]][🖇paypal] [![Buy me a coffee][🖇buyme-small-img]][🖇buyme] [![Donate on Polar][🖇polar-img]][🖇polar] [![Donate to my FLOSS efforts at ko-fi.com][🖇kofi-img]][🖇kofi] [![Donate to my FLOSS efforts using Patreon][🖇patreon-img]][🖇patreon]
+[![OpenCollective Backers][🖇osc-backers-i]][🖇osc-backers] [![OpenCollective Sponsors][🖇osc-sponsors-i]][🖇osc-sponsors] [![Sponsor Me on Github][🖇sponsor-img]][🖇sponsor] [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay] [![Donate on PayPal][🖇paypal-img]][🖇paypal] [![Buy me a coffee][🖇buyme-small-img]][🖇buyme] [![Donate to my FLOSS efforts at ko-fi.com][🖇kofi-img]][🖇kofi]
 
 ## 🔐 Security
 
@@ -1018,12 +1018,8 @@ Thanks for RTFM. ☺️
 [🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
 [🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-pboling-blue?style=for-the-badge&logo=github
 [🖇sponsor]: https://github.com/sponsors/pboling
-[🖇polar-img]: https://img.shields.io/badge/polar-donate-a51611.svg?style=flat
-[🖇polar]: https://polar.sh/pboling
 [🖇kofi-img]: https://img.shields.io/badge/ko--fi-%E2%9C%93-a51611.svg?style=flat
 [🖇kofi]: https://ko-fi.com/pboling
-[🖇patreon-img]: https://img.shields.io/badge/patreon-donate-a51611.svg?style=flat
-[🖇patreon]: https://patreon.com/galtzo
 [🖇buyme-small-img]: https://img.shields.io/badge/buy_me_a_coffee-%E2%9C%93-a51611.svg?style=flat
 [🖇buyme-img]: https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20latte&emoji=&slug=pboling&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff
 [🖇buyme]: https://www.buymeacoffee.com/pboling
@@ -1218,9 +1214,9 @@ Thanks for RTFM. ☺️
 | Field | Value |
 |---|---|
 | Package | flag_shih_tzu |
-| Description | <<~EODOC |
+| Description | 🏁 Single and Multi-Bit Fields for ActiveRecord:<br>This gem lets you use a single integer column in an ActiveRecord model<br>to store a collection of boolean attributes (flags). Each flag can be used<br>almost in the same way you would use any boolean attribute on an<br>ActiveRecord object. Support for multi-bit fields, like tri-state or enums. |
 | Homepage | https://github.com/galtzo-floss/flag_shih_tzu |
 | Source | https://github.com/galtzo-floss/flag_shih_tzu |
 | License | `MIT` |
-| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/galtzo-floss, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/flag_shih_tzu, https://www.buymeacoffee.com/pboling |
+| Funding | https://github.com/sponsors/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/galtzo-floss, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/flag_shih_tzu, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->
