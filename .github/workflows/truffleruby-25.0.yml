@@ -53,12 +53,18 @@ jobs:
 
       - name: Setup Ruby & RubyGems
         if: ${{ !env.ACT }}
-        uses: ruby/setup-ruby@89f90524b88a01fe6e0b732220432cc6142926af # v1.313.0
+        uses: ruby/setup-ruby@9eb537ca036ebaed86729dcb9309076e4c5c3b74 # v1.314.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: ${{ matrix.rubygems }}
           bundler: ${{ matrix.bundler }}
-          bundler-cache: true
+          bundler-cache: false
+
+      - name: Bundle install for TruffleRuby 25.0
+        if: ${{ !env.ACT }}
+        run: |
+          bundle config set --local path vendor/bundle
+          bundle install --jobs 1
 
       - name: "[Attempt 1] Appraisal for ${{ matrix.ruby }}@${{ matrix.appraisal }}"
         id: bundleAppraisalAttempt1
