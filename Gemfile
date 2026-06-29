@@ -8,9 +8,8 @@
 
 source "https://gem.coop"
 
-# SO the gem can run the simple test suite against the raw bundled gems without the complex BUNDLE_GEMFILE setup
-gem "activerecord", ">= 2.3.0"
-gem "sqlite3", platforms: [:ruby]
+git_source(:codeberg) { |repo_name| "https://codeberg.org/#{repo_name}" }
+git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 
 #### IMPORTANT #######################################################
 # Gemfile is for local development ONLY; Gemfile is NOT loaded in CI #
@@ -18,10 +17,6 @@ gem "sqlite3", platforms: [:ruby]
 
 # Include dependencies from flag_shih_tzu.gemspec
 gemspec
-
-git_source(:codeberg) { |repo_name| "https://codeberg.org/#{repo_name}" }
-
-git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 
 # Local workspace dependency wiring for *_local.gemfile overrides
 nomono_requirements = ["~> 1.0", ">= 1.0.6"]
