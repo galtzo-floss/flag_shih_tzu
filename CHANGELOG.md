@@ -20,15 +20,30 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.3] - 2026-07-02
+
+- TAG: [v1.0.3][1.0.3t]
+- COVERAGE: 90.75% -- 412/454 lines in 3 files
+- BRANCH COVERAGE: 76.76% -- 142/185 branches in 3 files
+- 27.78% documented
+
+### Added
+
 - Added support for JRuby 10.1 and TruffleRuby 34.0.
 
 ### Changed
 
 - Retemplated project metadata and CI/development automation with `kettle-jem` v7.0.0.
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 
@@ -37,8 +52,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - Restore kettle-soup-cover SimpleCov startup so `kettle-test` reports merged
   line and branch coverage from turbo_tests2 workers.
 - Package configured license files in gem release file lists.
-
-### Security
 
 ## [1.0.2] - 2026-06-14
 
@@ -333,7 +346,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 # Version 0.2.3 - last version maintained by XING AG
 
-[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.2...v1.0.3
+[1.0.3t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.3
 [1.0.2]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.1...v1.0.2
 [1.0.2t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.2
 [1.0.1]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.0...v1.0.1

@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.2...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.3...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -84,6 +84,39 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="security">Security</h3>
 
+<h2 id="103---2026-07-02">
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.2...v1.0.3">1.0.3</a> - 2026-07-02</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.3">v1.0.3</a>
+</li>
+  <li>COVERAGE: 90.75% – 412/454 lines in 3 files</li>
+  <li>BRANCH COVERAGE: 76.76% – 142/185 branches in 3 files</li>
+  <li>27.78% documented</li>
+</ul>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>Added support for JRuby 10.1 and TruffleRuby 34.0.</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+  <li>Retemplated project metadata and CI/development automation with <code>kettle-jem</code> v7.0.0.</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>Restore root Gemfile ActiveRecord test dependencies so <code>kettle-test</code> runs the<br>
+RSpec suite outside appraisal-specific bundles.</li>
+  <li>Restore kettle-soup-cover SimpleCov startup so <code>kettle-test</code> reports merged<br>
+line and branch coverage from turbo_tests2 workers.</li>
+  <li>Package configured license files in gem release file lists.</li>
+</ul>
+
 <h2 id="102---2026-06-14">
 <a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.1...v1.0.2">1.0.2</a> - 2026-06-14</h2>
 
@@ -95,7 +128,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>27.78% documented</li>
 </ul>
 
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 
 <ul>
   <li>Refreshed generated README/package metadata, copyright notices, template<br>
@@ -114,14 +147,14 @@ development dependency floors from the latest <code>kettle-jem</code> template.<
   <li>27.78% documented</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>Fixed generated documentation URLs that incorrectly pointed at a monorepo<br>
 <code>gems/flag_shih_tzu</code> path.</li>
 </ul>
 
-<h3 id="changed-2">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 
 <ul>
   <li>Raised generated <code>version_gem</code> and <code>appraisal2</code> dependency floors to<br>
@@ -153,7 +186,7 @@ the RSpec suite.</li>
   <li>27.78% documented</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <ul>
   <li>Added <code>table_alias:</code> support to generated <code>not_&lt;flag&gt;_condition</code> SQL helper<br>
@@ -176,7 +209,7 @@ intentionally want generated flag methods to replace existing instance<br>
 methods.</li>
 </ul>
 
-<h3 id="changed-3">Changed</h3>
+<h3 id="changed-4">Changed</h3>
 
 <ul>
   <li>
@@ -218,7 +251,7 @@ ActiveRecord 2.3 through 5.1.</li>
   <li>Removed Ruby 2.3 and JRuby 9.1 from the tested release matrix.</li>
 </ul>
 
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 
 <ul>
   <li>Restored project-specific README sections lost during templating, including<br>
@@ -479,7 +512,7 @@ versions, including ActiveRecord 6.0 where-clause AST differences.</li>
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jun 14 21:00:47 2026 by
+  Generated on Thu Jul  2 11:44:29 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>
