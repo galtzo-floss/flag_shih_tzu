@@ -20,10 +20,12 @@ Kernel.send(:gem, "nomono", *nomono_activation_requirements)
 require "nomono/bundler"
 
 local_gems = %w[yard-fence yard-timekeeper yard-yaml]
+declared_gems = instance_variable_get(:@dependencies).to_a.map(&:name)
+local_gems_to_eval = local_gems - %w[flag_shih_tzu] - declared_gems
 
 # export GALTZO_FLOSS_DEV=/path/to/galtzo-floss
 eval_nomono_gems(
-  gems: local_gems,
+  gems: local_gems_to_eval,
   prefix: "GALTZO_FLOSS",
   path_env: "GALTZO_FLOSS_DEV",
   vendored_gems_env: "GALTZO_FLOSS_VENDORED_GEMS",

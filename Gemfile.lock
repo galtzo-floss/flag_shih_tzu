@@ -17,12 +17,12 @@ GEM
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
     ansi (1.6.0)
-    appraisal2 (3.1.3)
+    appraisal2 (3.1.4)
       bundler (>= 1.17.3)
       rake (>= 10)
       thor (>= 0.14)
-    appraisal2-rubocop (0.2.2)
-      appraisal2 (>= 3.1.1)
+    appraisal2-rubocop (0.2.3)
+      appraisal2 (>= 3.1.4)
       rubocop (>= 1.0)
       version_gem (~> 1.1, >= 1.1.13)
     ast (2.4.3)
@@ -91,7 +91,7 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.20.0)
-    kettle-dev (2.2.25)
+    kettle-dev (2.3.0)
       emoji_regex (>= 15.0)
       kettle-rb (~> 0.1, >= 0.1.1)
       kettle-test (~> 2.0, >= 2.0.4)
@@ -181,11 +181,10 @@ GEM
     rspec-mocks (3.13.8)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-pending_for (0.1.20)
+    rspec-pending_for (0.1.21)
       rspec-core (~> 3.0)
       ruby_engine (~> 2.0)
       ruby_version (~> 1.0)
-      version_gem (~> 1.1, >= 1.1.8)
     rspec-stubbed_env (1.0.5)
     rspec-support (3.13.7)
     rspec_junit_formatter (0.6.0)
@@ -368,8 +367,8 @@ PLATFORMS
 
 DEPENDENCIES
   addressable (>= 2.8, < 3)
-  appraisal2 (~> 3.1, >= 3.1.3)
-  appraisal2-rubocop (~> 0.2, >= 0.2.2)
+  appraisal2 (~> 3.1, >= 3.1.4)
+  appraisal2-rubocop (~> 0.2, >= 0.2.3)
   benchmark (~> 0.5, >= 0.5.0)
   bundler-audit (~> 0.9.3)
   cgi (~> 0.5)
@@ -379,7 +378,7 @@ DEPENDENCIES
   gem_bench (~> 2.0, >= 2.0.5)
   gitmoji-regex (~> 2.0, >= 2.0.3)
   irb (~> 1.17)
-  kettle-dev (~> 2.2, >= 2.2.25)
+  kettle-dev (~> 2.3, >= 2.3.0)
   kettle-soup-cover (~> 3.0.a, >= 3.0.0.rc5)
   kettle-test (~> 2.0, >= 2.0.9)
   kramdown (~> 2.5, >= 2.5.1)
@@ -416,8 +415,8 @@ DEPENDENCIES
 CHECKSUMS
   addressable (2.9.0) sha256=7fdf6ac3660f7f4e867a0838be3f6cf722ace541dd97767fa42bc6cfa980c7af
   ansi (1.6.0) sha256=ac9ea0c0ea8d32fb4e271348e609963ac78882f34b73836c2a02b3622e666658
-  appraisal2 (3.1.3) sha256=1f71cc64246904a40e2273b0a47e399c4727924b807d3c1e124cd7482d07ed07
-  appraisal2-rubocop (0.2.2) sha256=9c18481f102cc2c157b9f87ee1b435cd5f42c0781cb39e8144af291374d06a98
+  appraisal2 (3.1.4) sha256=f88c27e600adf4bd5bf06c0ab0afd1de6ce4361497760ce35e86e782036286f4
+  appraisal2-rubocop (0.2.3) sha256=06fd36e7d4e88742193e38d48c196b8d96cff37168bf789405c08a7d771abc2c
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   backports (3.25.3) sha256=94298d32dc3c40ca15633b54e282780b49e2db0c045f602ea1907e4f63a17235
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
@@ -449,7 +448,7 @@ CHECKSUMS
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.20.0) sha256=9362bc6e55a952b056abf9167cf053358181c904cb70cd6eee0808ea830fc32b
-  kettle-dev (2.2.25) sha256=efb4c6efbc3164c9c199e7da14edc54d6f9c02a3a0edf3c214d3fd97a0f0294b
+  kettle-dev (2.3.0) sha256=60103802e21425f8afe22e0377bdf95c68c5ae41a074833926d7afebe1798a44
   kettle-rb (0.1.1) sha256=2e793d817f5150339770c547a2c72ed0c1a23b5e5a3ef46f462500dcb10dec4d
   kettle-soup-cover (3.0.0.rc5) sha256=3c8e5551a1c900fb95503d69f815205a1138f168500acdd4559c3a5ef1817da5
   kettle-test (2.0.9) sha256=df8e8aa70a497ab636391c65d08f617c34e4cdfcb8d0e03907d38854e1465758
@@ -486,7 +485,7 @@ CHECKSUMS
   rspec-core (3.13.6) sha256=a8823c6411667b60a8bca135364351dda34cd55e44ff94c4be4633b37d828b2d
   rspec-expectations (3.13.5) sha256=33a4d3a1d95060aea4c94e9f237030a8f9eae5615e9bd85718fe3a09e4b58836
   rspec-mocks (3.13.8) sha256=086ad3d3d17533f4237643de0b5c42f04b66348c28bf6b9c2d3f4a3b01af1d47
-  rspec-pending_for (0.1.20) sha256=2130c6c959d05b61de1955e7dd986418aec4888b6f80f0711a1f88540a09d3cb
+  rspec-pending_for (0.1.21) sha256=c87fda50c20f8faca72d9cfa6a936abffd37860343f14aced95bbb29b8ae96bf
   rspec-stubbed_env (1.0.5) sha256=5a34bb8879c41c33a75dac5bb41e224aaa7be8d651f5619e826f7d48311f971e
   rspec-support (3.13.7) sha256=0640e5570872aafefd79867901deeeeb40b0c9875a36b983d85f54fb7381c47c
   rspec_junit_formatter (0.6.0) sha256=40dde674e6ae4e6cc0ff560da25497677e34fefd2338cc467a8972f602b62b15
