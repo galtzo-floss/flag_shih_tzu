@@ -34,6 +34,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Restore root Gemfile ActiveRecord test dependencies so `kettle-test` runs the
   RSpec suite outside appraisal-specific bundles.
+- Restore kettle-soup-cover SimpleCov startup so `kettle-test` reports merged
+  line and branch coverage from turbo_tests2 workers.
 - Package configured license files in gem release file lists.
 
 ### Security

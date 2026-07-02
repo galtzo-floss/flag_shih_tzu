@@ -3,7 +3,11 @@
 # For code coverage, must be required before all application / gem / library code.
 begin
   require "kettle-soup-cover"
-  require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
+  if Kettle::Soup::Cover::DO_COV
+    require "simplecov" # Loads project-local .simplecov.
+    require "kettle/soup/cover/config"
+    SimpleCov.start
+  end
 rescue LoadError => error
   # check the error message and re-raise when unexpected
   raise error unless error.message.include?("kettle")
