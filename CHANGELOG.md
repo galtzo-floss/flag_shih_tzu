@@ -32,6 +32,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Restore root Gemfile ActiveRecord test dependencies so `kettle-test` runs the
+  RSpec suite outside appraisal-specific bundles.
 - Package configured license files in gem release file lists.
 
 ### Security
