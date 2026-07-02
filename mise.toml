@@ -2,7 +2,6 @@
 # Local overrides belong in .env.local (loaded via dotenvy through mise).
 
 [env]
-DEBUG = "false"
 FLOSS_CFG_FUND_DEBUG = "false"
 FLOSS_CFG_FUND_LOGFILE = "tmp/log/debug.log"
 FUNDING_ORG = "galtzo-floss"
