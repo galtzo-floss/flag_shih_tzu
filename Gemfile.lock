@@ -8,7 +8,7 @@ GIT
 PATH
   remote: .
   specs:
-    flag_shih_tzu (1.0.2)
+    flag_shih_tzu (1.0.3)
       version_gem (~> 1.1, >= 1.1.13)
 
 GEM
@@ -77,7 +77,7 @@ GEM
       bundler (>= 1.14)
       version_gem (~> 1.1, >= 1.1.4)
     geom2d (0.4.1)
-    gitmoji-regex (2.0.3)
+    gitmoji-regex (2.0.4)
       version_gem (~> 1.1, >= 1.1.13)
     hexapdf (1.9.1)
       cmdparse (~> 3.0, >= 3.0.3)
@@ -328,7 +328,7 @@ GEM
       rspec (~> 3.0)
       timecop (>= 0.7, < 1)
     tsort (0.2.0)
-    turbo_tests2 (3.1.5)
+    turbo_tests2 (3.1.6)
       parallel_tests (>= 3.3.0, < 6)
       rspec (>= 3.10)
       version_gem (~> 1.1, >= 1.1.13)
@@ -376,7 +376,7 @@ DEPENDENCIES
   erb (~> 6.0, >= 6.0.4)
   flag_shih_tzu!
   gem_bench (~> 2.0, >= 2.0.5)
-  gitmoji-regex (~> 2.0, >= 2.0.3)
+  gitmoji-regex (~> 2.0, >= 2.0.4)
   irb (~> 1.17)
   kettle-dev (~> 2.3, >= 2.3.0)
   kettle-soup-cover (~> 3.0.a, >= 3.0.0.rc5)
@@ -402,7 +402,7 @@ DEPENDENCIES
   standard (~> 1.54, >= 1.54.0)
   stone_checksums (~> 1.0, >= 1.0.4)
   stringio (>= 3.0)
-  turbo_tests2 (~> 3.1, >= 3.1.5)
+  turbo_tests2 (~> 3.1, >= 3.1.6)
   webrick (~> 1.9)
   yaml-converter (~> 0.2, >= 0.2.2)
   yard (~> 0.9, >= 0.9.44)
@@ -440,10 +440,10 @@ CHECKSUMS
   dry-types (1.9.1) sha256=baebeecdb9f8395d6c9d227b62011279440943e3ef2468fe8ccc1ba11467f178
   emoji_regex (15.0.0) sha256=a508b2c0bee561169564e0aec96085020c900520d335e5533fd8e78e59493829
   erb (6.0.4) sha256=38e3803694be357fe2bfe312487c74beaf9fb4e5beb3e22498952fe1645b95d9
-  flag_shih_tzu (1.0.2)
+  flag_shih_tzu (1.0.3)
   gem_bench (2.0.5) sha256=0dc0fb44a5a5eb7b2f5c1c68a5b0164d72007132822c012bac3abe976b199ead
   geom2d (0.4.1) sha256=ea0998ea90c4f2752e24fe13d85a4f89bee689d151316140ebcc6369bf634ed9
-  gitmoji-regex (2.0.3) sha256=12906fd5306e733c7220434f646e6a442f5d3a0ec297d8079999fee56ab47ea7
+  gitmoji-regex (2.0.4) sha256=01410d3217940bd0e7b2299ec805245afe8d0f06a5d6d38f623d63a63c0ac34f
   hexapdf (1.9.1) sha256=2d1f6a3622e6bc2a70a707d4c3f3fa44f5552ecd9d899f6283abb07398a84884
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
@@ -530,7 +530,7 @@ CHECKSUMS
   timecop (0.9.11) sha256=41284dc6e5041f2184f781ace766f942108c842f8d8c1386a26e6343decc7542
   timecop-rspec (1.0.3) sha256=005f14841bb606dcaefb060e321b5388e2e59537742bee8b3a9a9a40e598fab9
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
-  turbo_tests2 (3.1.5) sha256=bb64259ac92a466a78635b0af555500108122dc3a6d86af109304970caeb8c2b
+  turbo_tests2 (3.1.6) sha256=90836ad27d4fe86e7624a0d5d6d44aae0383a13846fa7aaf747c279e27283bba
   unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
   unicode-emoji (4.2.0) sha256=519e69150f75652e40bf736106cfbc8f0f73aa3fb6a65afe62fefa7f80b0f80f
   version_gem (1.1.13) sha256=77f3035ac45877cd14610648fec2d23bd8c10fa13dfcf63a588825aa98587260
