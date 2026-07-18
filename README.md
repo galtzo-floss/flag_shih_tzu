@@ -722,9 +722,8 @@ For appraisal-specific checks, run through Appraisal with
 BUNDLE_GEMFILE=Appraisal.root.gemfile bundle exec appraisal kja-ar-8-0-r3 bundle exec kettle-test
 ```
 
-Older development workflows used `bin/test.bash`, RVM, and hand-managed
-database setup. That script is still present for historical reference, but the
-templated CI path is now the Appraisal/RSpec flow.
+Older RVM-based development workflows have been removed. The templated CI path
+is now the Appraisal/RSpec flow.
 
 ## 👥 Authors
 

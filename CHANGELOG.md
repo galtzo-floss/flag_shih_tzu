@@ -26,6 +26,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Removed
 
+- Removed the stale RVM-based `bin/test.bash` helper.
+
 ### Fixed
 
 ### Security
