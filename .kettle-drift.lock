@@ -21,9 +21,9 @@
     {
       "file": ".github/workflows/dep-heads.yml",
       "lines": [
-        44,
-        51,
-        58
+        43,
+        97,
+        151
       ]
     }
   ],
@@ -32,25 +32,28 @@
       "file": ".github/workflows/heads.yml",
       "lines": [
         43,
-        50,
-        57
+        104,
+        162
+      ]
+    }
+  ],
+  "exec_cmd: \"kettle-test\"\n# Run directly from the generated appraisal Gemfile so setup-ruby": [
+    {
+      "file": ".github/workflows/dep-heads.yml",
+      "lines": [
+        44,
+        98,
+        152
       ]
     }
   ],
   "exec_cmd: \"kettle-test\"\nrubygems: default": [
     {
-      "file": ".github/workflows/dep-heads.yml",
-      "lines": [
-        52,
-        59
-      ]
-    },
-    {
       "file": ".github/workflows/heads.yml",
       "lines": [
         44,
-        51,
-        58
+        105,
+        163
       ]
     }
   ]

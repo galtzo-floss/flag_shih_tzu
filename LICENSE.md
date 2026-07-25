@@ -3,7 +3,7 @@
 This project is made available under the following license.
 Choose the option that best fits your use case:
 
-- [MIT](MIT.md)
+- [MIT](https://github.com/galtzo-floss/flag_shih_tzu/blob/main/MIT.md)
 
 ## Copyright Notice
 
@@ -30,7 +30,6 @@ Choose the option that best fits your use case:
 - Copyright (c) 2017 shiro16
 - Copyright (c) 2018 Peter Boling
 - Copyright (c) 2018 xpol
-- Copyright (c) 2018 Yusuke Ebihara
 - Copyright (c) 2019 Amy Martin
 - Copyright (c) 2025 Annibelle Boling
 - Copyright (c) 2025 horiken

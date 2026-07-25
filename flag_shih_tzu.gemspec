@@ -69,34 +69,21 @@ Gem::Specification.new do |spec|
       File.file?(path) && ![".", ".."].include?(File.basename(path))
     end
   end
+  package_metadata_files = %w[
+    CHANGELOG.md
+    LICENSE.md
+    README.md
+    sig/flag_shih_tzu.rbs
+  ].select { |path| File.exist?(path) }
 
   # Specify which files are part of the released package.
   spec.files = [
-    # Root license files
-    "LICENSE.md",
-    "MIT.md",
+    # Root package metadata
+    *package_metadata_files,
     # Code / tasks / data (NOTE: exe/ is specified via spec.bindir and spec.executables below)
     *enumerate_package_files.call("lib"),
     # Executables and executable support scripts
-    *enumerate_package_files.call("exe"),
-    # Public certs for gem signing
-    *enumerate_package_files.call("certs"),
-    # Signatures
-    *enumerate_package_files.call("sig")
-  ]
-
-  # Automatically included with gem package, no need to list again in files.
-  spec.extra_rdoc_files = Dir[
-    # Files (alphabetical)
-    "CHANGELOG.md",
-    "CITATION.cff",
-    "CODE_OF_CONDUCT.md",
-    "CONTRIBUTING.md",
-    "FUNDING.md",
-    "LICENSE.md",
-    "README.md",
-    "RUBOCOP.md",
-    "SECURITY.md"
+    *enumerate_package_files.call("exe")
   ]
   spec.rdoc_options += [
     "--title",
@@ -115,7 +102,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Utilities
-  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.13")              # ruby >= 2.2.0
+  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.14")              # ruby >= 2.2.0
 
   # NOTE: It is preferable to list development dependencies in the gemspec due to increased
   #       visibility and discoverability.
@@ -131,7 +118,7 @@ Gem::Specification.new do |spec|
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
   # Dev, Test, & Release Tasks
-  spec.add_development_dependency("kettle-dev", "~> 2.3", ">= 2.3.0")     # ruby >= 2.4
+  spec.add_development_dependency("kettle-dev", "~> 2.3", ">= 2.3.7")     # ruby >= 2.4
 
   # Security
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
@@ -143,14 +130,18 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("require_bench", "~> 1.0", ">= 1.0.4")            # ruby >= 2.2.0
 
   # Testing
-  spec.add_development_dependency("appraisal2", "~> 3.1", ">= 3.1.4")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
-  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.9")             # ruby >= 2.4
-  spec.add_development_dependency("turbo_tests2", "~> 3.1", ">= 3.1.6")            # ruby >= 2.4.0, default kettle-test runner
+  spec.add_development_dependency("appraisal2", "~> 3.2", ">= 3.2.0")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
+  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.15")            # ruby >= 2.4
+  spec.add_development_dependency("turbo_tests2", "~> 3.2", ">= 3.2.1")           # ruby >= 2.4.0, default kettle-test runner
 
   # Releasing
   spec.add_development_dependency("ruby-progressbar", "~> 1.13")                    # ruby >= 0
-  spec.add_development_dependency("stone_checksums", "~> 1.0", ">= 1.0.4")          # ruby >= 2.2.0
+  spec.add_development_dependency("stone_checksums", "~> 1.0", ">= 1.0.6")          # ruby >= 2.2.0
 
+  # Development tasks
+  # The cake is a lie. erb v2.2, the oldest release, was never compatible with Ruby 2.3.
+  # This means we have no choice but to use the erb that shipped with Ruby 2.3
+  # /opt/hostedtoolcache/Ruby/2.3.8/x64/lib/ruby/gems/2.3.0/gems/erb-2.2.2/lib/erb.rb:670:in `prepare_trim_mode': undefined method `match?' for "-":String (NoMethodError)
   # spec.add_development_dependency("erb", ">= 2.2")                                  # ruby >= 2.3.0, not SemVer, old rubies get dropped in a patch.
   spec.add_development_dependency("gitmoji-regex", "~> 2.0", ">= 2.0.4")            # ruby >= 2.4
 end
