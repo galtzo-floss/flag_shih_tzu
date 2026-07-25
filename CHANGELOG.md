@@ -49,6 +49,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Root development bundle now includes the ActiveRecord test harness fragments,
+  so `bundle exec kettle-test` can load the suite outside appraisal-specific
+  Gemfiles.
+
 ### Security
 
 ## [1.0.3] - 2026-07-02
