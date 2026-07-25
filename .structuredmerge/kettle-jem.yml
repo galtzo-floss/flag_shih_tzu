@@ -582,7 +582,7 @@ kettle-jem:
     "SECURITY.md.example": "ee9411aa85f36d88363fdaea7a1baea4362b6ec112cf2688e711b05de1d3144c"
     "bin/setup.example": "0ac35089c95a91d8973fe7a318bf9fd98b9f8e00db92c5d9ca6cd858abb8d41b"
     "certs/pboling.pem.example": "18956f60643666cc181e2743b3b3691bec08c5326f514f60af54d0cdb9ebc554"
-    "gem.gemspec.example": "ecf007a966126541535f8f166d9de892b7e742965aa593ac6730eeffc6cbc927"
+    "gem.gemspec.example": "b8409c8b9db0908855e0e5c9920d6e4a15959b65b54da610734e24400511e627"
     "gemfiles/modular/benchmark/r4/v0.5.gemfile.example": "5bc3190090ae456df1a8cce28dd47a7fb293495f6d845ec7e53a7a8b50f14ae1"
     "gemfiles/modular/benchmark/vHEAD.gemfile.example": "ca6cd52c55c3082759c6ddc97638970f12d953aec1822470823d316086aa6e25"
     "gemfiles/modular/cgi/r4/v0.5.gemfile.example": "c2d14a39377a2435419ceaca22a3421ebd899e9cba943df8a90b576a33624870"

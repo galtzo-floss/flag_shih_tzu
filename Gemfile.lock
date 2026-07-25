@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    flag_shih_tzu (1.0.3)
+    flag_shih_tzu (1.0.4)
       version_gem (~> 1.1, >= 1.1.14)
 
 GEM
@@ -70,8 +70,8 @@ GEM
       bundler (>= 1.14)
       version_gem (~> 1.1, >= 1.1.4)
     geom2d (0.4.1)
-    gitmoji-regex (2.0.4)
-      version_gem (~> 1.1, >= 1.1.13)
+    gitmoji-regex (2.0.5)
+      version_gem (~> 1.1, >= 1.1.14)
     hexapdf (1.9.1)
       cmdparse (~> 3.0, >= 3.0.3)
       geom2d (~> 0.4, >= 0.4.1)
@@ -384,7 +384,7 @@ DEPENDENCIES
   erb (~> 6.0, >= 6.0.6)
   flag_shih_tzu!
   gem_bench (~> 2.0, >= 2.0.5)
-  gitmoji-regex (~> 2.0, >= 2.0.4)
+  gitmoji-regex (~> 2.0, >= 2.0.5)
   irb (~> 1.17)
   kettle-dev (~> 2.3, >= 2.3.7)
   kettle-soup-cover (~> 3.0, >= 3.0.5)
@@ -447,10 +447,10 @@ CHECKSUMS
   dry-types (1.9.1) sha256=baebeecdb9f8395d6c9d227b62011279440943e3ef2468fe8ccc1ba11467f178
   emoji_regex (15.0.0) sha256=a508b2c0bee561169564e0aec96085020c900520d335e5533fd8e78e59493829
   erb (6.0.6) sha256=a9b24986700f5bf127c4f297c5403c3ca41b83b0a316c0cd09a096b56e644ae5
-  flag_shih_tzu (1.0.3)
+  flag_shih_tzu (1.0.4)
   gem_bench (2.0.5) sha256=0dc0fb44a5a5eb7b2f5c1c68a5b0164d72007132822c012bac3abe976b199ead
   geom2d (0.4.1) sha256=ea0998ea90c4f2752e24fe13d85a4f89bee689d151316140ebcc6369bf634ed9
-  gitmoji-regex (2.0.4) sha256=01410d3217940bd0e7b2299ec805245afe8d0f06a5d6d38f623d63a63c0ac34f
+  gitmoji-regex (2.0.5) sha256=79a785fa564521491ded1e8b9d775557197bb114017cd8dc5dfcb992f87e448f
   hexapdf (1.9.1) sha256=2d1f6a3622e6bc2a70a707d4c3f3fa44f5552ecd9d899f6283abb07398a84884
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
