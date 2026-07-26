@@ -481,7 +481,7 @@ files:
 
 kettle-jem:
   version: "7.1.0"
-  applied_at: "2026-07-25"
+  applied_at: "2026-07-26"
   changelog_replay:
     last_entry_key: "kettle-jem-template-20260725-002"
     last_entry_date: "2026-07-25"
