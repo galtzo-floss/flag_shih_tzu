@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.4] - 2026-07-25
+
+- TAG: [v1.0.4][1.0.4t]
+- COVERAGE: 90.75% -- 412/454 lines in 3 files
+- BRANCH COVERAGE: 76.76% -- 142/185 branches in 3 files
+- 27.78% documented
+
+### Changed
+
 - kettle-jem-template-20260716-001 - Shim gemspec manifests now include
   `LICENSE.md` instead of nonexistent `LICENSE.txt`.
 - kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
@@ -47,8 +64,6 @@ Please file a bug if you notice a violation of semantic versioning.
   constants. Managed version specs are removed when `version_gem` is disabled
   or incompatible with the project's runtime Ruby floor.
 
-### Deprecated
-
 ### Removed
 
 - Removed the stale RVM-based `bin/test.bash` helper.
@@ -58,8 +73,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - Root development bundle now includes the ActiveRecord test harness fragments,
   so `bundle exec kettle-test` can load the suite outside appraisal-specific
   Gemfiles.
-
-### Security
 
 ## [1.0.3] - 2026-07-02
 
@@ -377,7 +390,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 # Version 0.2.3 - last version maintained by XING AG
 
-[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.3...v1.0.4
+[1.0.4t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.4
 [1.0.3]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.2...v1.0.3
 [1.0.3t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.3
 [1.0.2]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.1...v1.0.2
