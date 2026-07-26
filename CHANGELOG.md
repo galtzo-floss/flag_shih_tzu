@@ -22,6 +22,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Documentation linting now has its generated `yard-lint` dependency and severity config available in the local bundle.
 
+- kettle-jem-template-20260726-001 - Projects now include YARD lint
+  configuration and documentation dependencies so documentation issues fail
+  before generated docs are refreshed.
 
 ### Changed
 
@@ -30,6 +33,9 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Removed
 
 ### Fixed
+
+- kettle-jem-template-20260726-002 - Generated version files now document their
+  version namespace and constants, reducing warning-only YARD lint output.
 
 ### Security
 
