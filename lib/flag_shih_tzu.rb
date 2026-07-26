@@ -948,7 +948,6 @@ To turn off this warning set check_for_column: false in has_flags definition her
   #         :not_scheduled_appointment]
   #     User.chained_flags_with("flags", *user.chained_flags_with_signature)
   #     => the set of Users that have the same flags set as user.
-  #
   def chained_flags_with_signature(colmn = DEFAULT_COLUMN_NAME, *args)
     flags_to_collect = args.empty? ? all_flags(colmn) : args
     truthy_and_chosen =
@@ -973,7 +972,6 @@ To turn off this warning set check_for_column: false in has_flags definition her
   #         :first,
   #         :last)
   #     end
-  #
   def as_flag_collection(colmn = DEFAULT_COLUMN_NAME, *args)
     flags_to_collect = args.empty? ? all_flags(colmn) : args
     collect_flags(*flags_to_collect) do |memo, flag|

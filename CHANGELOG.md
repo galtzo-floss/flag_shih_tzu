@@ -20,6 +20,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Documentation linting now has its generated `yard-lint` dependency and severity config available in the local bundle.
+
+
 ### Changed
 
 ### Deprecated
