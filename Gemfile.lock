@@ -398,8 +398,7 @@ GEM
       standard-custom (~> 1.0, >= 1.0.2)
       standard-performance (~> 1.9, >= 1.9.0)
       version_gem (~> 1.1, >= 1.1.13)
-    stone_checksums (1.0.6)
-      version_gem (~> 1.1, >= 1.1.13)
+    stone_checksums (1.0.7)
     stringio (3.2.0)
     strings-ansi (0.2.0)
     strscan (3.1.8)
@@ -500,7 +499,7 @@ DEPENDENCIES
   ruby-progressbar (~> 1.13)
   sqlite3 (>= 2.1)
   standard (~> 1.56, >= 1.56.0)
-  stone_checksums (~> 1.0, >= 1.0.6)
+  stone_checksums (~> 1.0, >= 1.0.7)
   stringio (>= 3.0)
   turbo_tests2 (~> 3.2, >= 3.2.1)
   webrick (~> 1.9)
@@ -650,7 +649,7 @@ CHECKSUMS
   standard-performance (1.9.0) sha256=49483d31be448292951d80e5e67cdcb576c2502103c7b40aec6f1b6e9c88e3f2
   standard-rspec (0.5.0) sha256=64d396524a65af47f5331b423d8cdd313e0267401647bb7892489ca89dad2973
   standard-rubocop-lts (2.0.10) sha256=89708a505b7d8b24d2ac399a7520fcb9e764abc2ecb4289b631b5fe0e3b76617
-  stone_checksums (1.0.6) sha256=c775f830513d6c6ab26e31d1a5fbecd4c4e39002663d4d9f8fa96e97990b5298
+  stone_checksums (1.0.7) sha256=faf7a175da7c4f32777c5292a0128b06eec183b3cc3a0b382529b21800300626
   stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1
   strings-ansi (0.2.0) sha256=90262d760ea4a94cc2ae8d58205277a343409c288cbe7c29416b1826bd511c88
   strscan (3.1.8) sha256=aae2db611a225559f21ffbb71765c9a4e60fd262534a9ea84f4f11c7f32f679e
