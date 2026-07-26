@@ -42,5 +42,11 @@ eval_gemfile "gemfiles/modular/optional.gemfile"
 ### Std Lib Extracted Gems
 eval_gemfile "gemfiles/modular/x_std_libs.gemfile"
 
+# Current ActiveRecord test/runtime matrix for local default bundle
+eval_gemfile "gemfiles/modular/activerecord_runtime.gemfile"
+eval_gemfile "gemfiles/modular/activerecord_support_modern.gemfile"
+eval_gemfile "gemfiles/modular/combustion.gemfile"
+eval_gemfile "gemfiles/modular/truffleruby_support.gemfile"
+
 # See unlocked_deps appraisal for more details on irb inclusion
 gem "irb", "~> 1.17" # ruby >= 2.7
