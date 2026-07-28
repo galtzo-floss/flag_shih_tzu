@@ -5,7 +5,7 @@ kettle_remote = ENV.fetch("KETTLE_DEV_DEV", "false").casecmp("false").zero?
 
 if structuredmerge_remote
   # Parser dependencies for released installs.
-  gem "tree_sitter_language_pack", "~> 1.13", ">= 1.13.3"
+  gem "tree_sitter_language_pack", "~> 1.13", ">= 1.13.5"
   # Merge recipes for released installs.
   gem "kettle-jem", ">= 7.0"
 end
