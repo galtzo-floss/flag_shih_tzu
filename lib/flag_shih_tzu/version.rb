@@ -4,7 +4,7 @@ module FlagShihTzu
   # Version namespace for this gem.
   module Version
     # Current gem version.
-    VERSION = "1.0.4"
+    VERSION = "1.0.5"
   end
   # Current gem version exposed at the traditional constant location.
   VERSION = Version::VERSION # Traditional Constant Location
