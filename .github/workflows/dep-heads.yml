@@ -67,6 +67,9 @@ jobs:
           rubygems: ${{ matrix.rubygems }}
           bundler: ${{ matrix.bundler }}
           bundler-cache: true
+          # Direct appraisal Gemfiles can contain Bundler GIT/PATH lockfile
+          # sections that rv clean-install does not currently parse.
+          use-setup-ruby: "3.2 3.3 3.4 4.0"
 
       - name: Restore RSpec status log
         if: "${{!env.ACT}}"
@@ -121,6 +124,9 @@ jobs:
           rubygems: ${{ matrix.rubygems }}
           bundler: ${{ matrix.bundler }}
           bundler-cache: true
+          # Direct appraisal Gemfiles can contain Bundler GIT/PATH lockfile
+          # sections that rv clean-install does not currently parse.
+          use-setup-ruby: "3.2 3.3 3.4 4.0"
 
       - name: Restore RSpec status log
         if: "${{!env.ACT}}"
@@ -176,6 +182,9 @@ jobs:
           rubygems: ${{ matrix.rubygems }}
           bundler: ${{ matrix.bundler }}
           bundler-cache: true
+          # Direct appraisal Gemfiles can contain Bundler GIT/PATH lockfile
+          # sections that rv clean-install does not currently parse.
+          use-setup-ruby: "3.2 3.3 3.4 4.0"
 
       - name: Restore RSpec status log
         if: "${{!env.ACT}}"
