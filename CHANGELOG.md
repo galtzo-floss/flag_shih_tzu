@@ -62,6 +62,10 @@ Please file a bug if you notice a violation of semantic versioning.
   missing canonical version spec when a project only has shim namespace version
   specs.
 
+- kettle-jem-template-20260729-001 - Generated JRuby 9.4 workflows now use the
+  legacy manual bundle install path, avoiding setup-time Bundler full-index
+  failures against `gem.coop`.
+
 ### Security
 
 ## [1.0.4] - 2026-07-25
