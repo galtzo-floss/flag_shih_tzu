@@ -66,6 +66,11 @@ Please file a bug if you notice a violation of semantic versioning.
   legacy manual bundle install path, avoiding setup-time Bundler full-index
   failures against `gem.coop`.
 
+- kettle-jem-template-20260729-002 - VersionGem bootstrap now preserves
+  and templates dedicated `version_gem.rb` entrypoints even when the gemspec
+  dependency is intentionally omitted, and generated anonymous-loader specs
+  cover both `version.rb` and `version_gem.rb`.
+
 ### Security
 
 ## [1.0.4] - 2026-07-25
