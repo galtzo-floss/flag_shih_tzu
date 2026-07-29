@@ -4,6 +4,22 @@
 # Loaded by the associated non-local gemfile when STRUCTUREDMERGE_DEV or KETTLE_DEV_DEV
 # is not "false".
 
+# Bootstrapping nomono here cannot rely on a plain `gem "nomono", ...` line.
+# Bundler records that dependency during Gemfile evaluation, but it does not
+# activate that exact version before the immediate `require "nomono/bundler"`.
+nomono_activation_requirements = ["~> 1.1", ">= 1.1.1"]
+nomono_lockfile = File.expand_path("../../Gemfile.lock", __dir__)
+if File.file?(nomono_lockfile)
+  require "bundler"
+  nomono_locked_spec = Bundler::LockfileParser
+    .new(Bundler.read_file(nomono_lockfile))
+    .specs
+    .find { |spec| spec.name == "nomono" }
+  nomono_locked = nomono_locked_spec &&
+    Gem::Requirement.new(nomono_activation_requirements).satisfied_by?(nomono_locked_spec.version)
+  nomono_activation_requirements = ["= #{nomono_locked_spec.version}"] if nomono_locked
+end
+Kernel.send(:gem, "nomono", *nomono_activation_requirements)
 require "nomono/bundler"
 
 structuredmerge_local_gems = %w[
@@ -44,7 +60,7 @@ kettle_dev_local_gems = %w[
 ]
 declared_gems = instance_variable_get(:@dependencies).to_a.map(&:name)
 structuredmerge_local_gems_to_eval = structuredmerge_local_gems - %w[flag_shih_tzu] - declared_gems
-kettle_dev_local_gems_to_eval = kettle_dev_local_gems - %w[flag_shih_tzu] - declared_gems
+kettle_dev_local_gems_to_eval = kettle_dev_local_gems - %w[flag_shih_tzu] - (declared_gems - %w[kettle-dev])
 
 platform :mri do
   if ENV.fetch("STRUCTUREDMERGE_DEV", "false").casecmp("false") != 0

@@ -58,6 +58,10 @@ Please file a bug if you notice a violation of semantic versioning.
   setup-ruby Bundler install path for direct appraisal Gemfiles, avoiding rv
   lockfile parser failures on Git and path dependencies.
 
+- kettle-jem-template-20260728-005 - VersionGem bootstrap now creates the
+  missing canonical version spec when a project only has shim namespace version
+  specs.
+
 ### Security
 
 ## [1.0.4] - 2026-07-25
