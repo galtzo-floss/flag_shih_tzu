@@ -6,7 +6,7 @@
 # Bootstrapping nomono here cannot rely on a plain `gem "nomono", ...` line.
 # Bundler records that dependency during Gemfile evaluation, but it does not
 # activate that exact version before the immediate `require "nomono/bundler"`.
-nomono_activation_requirements = ["~> 1.1", ">= 1.1.1"]
+nomono_activation_requirements = ["~> 1.1", ">= 1.1.2"]
 nomono_lockfile = File.expand_path("../../Gemfile.lock", __dir__)
 if File.file?(nomono_lockfile)
   require "bundler"
