@@ -18,6 +18,7 @@ if Gem::Version.new(RUBY_VERSION) < Gem::Version.new("2.5")
 end
 
 require "logger"
+require "kettle/test/rspec"
 require "active_record"
 if RUBY_PLATFORM == "java"
   require "activerecord-jdbcsqlite3-adapter"

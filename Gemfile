@@ -32,6 +32,10 @@ eval_gemfile "gemfiles/modular/debug.gemfile"
 # Code Coverage (env-switched: KETTLE_DEV_DEV=true for local paths)
 eval_gemfile "gemfiles/modular/coverage.gemfile"
 
+# ActiveRecord test/runtime support
+eval_gemfile "gemfiles/modular/activerecord_runtime.gemfile"
+eval_gemfile "gemfiles/modular/activerecord_support_modern.gemfile"
+
 # Linting
 eval_gemfile "gemfiles/modular/style.gemfile"
 

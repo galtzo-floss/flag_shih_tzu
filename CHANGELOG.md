@@ -45,6 +45,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Root release bundles now include ActiveRecord test support and load
+  `kettle/test/rspec`, so `kettle-changelog` can generate coverage during
+  release.
+
 - kettle-jem-template-20260726-002 - Generated version files now document their
   version namespace and constants, reducing warning-only YARD lint output.
 

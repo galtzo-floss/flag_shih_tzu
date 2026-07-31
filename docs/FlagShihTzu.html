@@ -193,7 +193,7 @@
         <dt id="VERSION-constant" class="">VERSION =
           <div class="docstring">
   <div class="discussion">
-    <p>Traditional Constant Location</p>
+    <p>Current gem version exposed at the traditional constant location.</p>
 
 
   </div>
@@ -1023,15 +1023,15 @@
       <pre class="lines">
 
 
+975
+976
 977
 978
 979
-980
-981
-982</pre>
+980</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 977</span>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 975</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_flag_collection'>as_flag_collection</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_flags_to_collect'>flags_to_collect</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>?</span> <span class='id identifier rubyid_all_flags'>all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_args'>args</span>
@@ -1059,14 +1059,14 @@
       <pre class="lines">
 
 
+992
+993
 994
 995
-996
-997
-998</pre>
+996</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 994</span>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 992</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_attributes_with_flags'>attributes_with_flags</span>
   <span class='id identifier rubyid_flags_as_attributes'>flags_as_attributes</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id identifier rubyid_flag'>flag</span><span class='comma'>,</span> <span class='id identifier rubyid_enabled'>enabled</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_attrs'>attrs</span><span class='op'>|</span>
@@ -1114,6 +1114,7 @@ User.chained_flags_with(&quot;flags&quot;, *user.chained_flags_with_signature)
       <pre class="lines">
 
 
+951
 952
 953
 954
@@ -1123,11 +1124,10 @@ User.chained_flags_with(&quot;flags&quot;, *user.chained_flags_with_signature)
 958
 959
 960
-961
-962</pre>
+961</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 952</span>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 951</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_chained_flags_with_signature'>chained_flags_with_signature</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#DEFAULT_COLUMN_NAME-constant" title="FlagShihTzu::DEFAULT_COLUMN_NAME (constant)">DEFAULT_COLUMN_NAME</a></span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_flags_to_collect'>flags_to_collect</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>?</span> <span class='id identifier rubyid_all_flags'>all_flags</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_args'>args</span>
@@ -1476,18 +1476,18 @@ User.chained_flags_with(&quot;flags&quot;, *user.chained_flags_with_signature)
       <pre class="lines">
 
 
+982
+983
 984
 985
 986
 987
 988
 989
-990
-991
-992</pre>
+990</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 984</span>
+      <pre class="code"><span class="info file"># File 'lib/flag_shih_tzu.rb', line 982</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flags_as_attributes'>flags_as_attributes</span><span class='lparen'>(</span><span class='id identifier rubyid_colmn'>colmn</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_columns'>columns</span> <span class='op'>=</span> <span class='id identifier rubyid_colmn'>colmn</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_flag_columns'>flag_columns</span> <span class='op'>:</span> <span class='lbracket'>[</span><span class='id identifier rubyid_colmn'>colmn</span><span class='rbracket'>]</span>
