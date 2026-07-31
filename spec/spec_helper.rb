@@ -19,6 +19,7 @@ end
 
 require "logger"
 require "kettle/test/rspec"
+# `kettle/test/rspec` installs harness helpers documented in spec/README.md.
 require "active_record"
 if RUBY_PLATFORM == "java"
   require "activerecord-jdbcsqlite3-adapter"

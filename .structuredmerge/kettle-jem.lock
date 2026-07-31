@@ -621,7 +621,7 @@ files:
   ".structuredmerge/kettle-jem.yml":
     recipe: template_source_application_structuredmerge_kettle_jem_yml
     action: write
-    dest_sha256: 13d6fee0f4804d484de6466efa3eb89c516970ed32dcac93f535ae3c03c37e02
+    dest_sha256: fe04747dcdbb30eea00b8a3d644a2b38acd9be92743563f38fc9dc36c70e754a
     input_fingerprint: aaa17bb57e11a257eb900b41eeb74d1b878c38b558c8470e8c482968027e875e
     template_sources:
     - ".structuredmerge/kettle-jem.yml.example"
@@ -670,7 +670,7 @@ files:
   CHANGELOG.md:
     recipe: template_source_application_CHANGELOG_md
     action: write
-    dest_sha256: a69b63bb8ce0367fd984ef3223a589ee6ba79fabcb60d263f941f476f7683301
+    dest_sha256: 90797cc7d26a97b573c0afa8e2ba9fa68da79c009837fb009bc8a3beec0cf90f
     input_fingerprint: 646cc6481daecfbec28173a5da2b9a5541b52b62461fb5b83c23e99e48c4e045
     template_sources:
     - CHANGELOG.md.example
@@ -1139,7 +1139,7 @@ files:
   spec/spec_helper.rb:
     recipe: template_source_application_spec_spec_helper_rb
     action: write
-    dest_sha256: '055430251736197af81f5b58ddb3886c2046939ab59ba2546900243523d5e778'
-    input_fingerprint: fd06341c3f628471e21df181121113f3fc6313cc3d84a2d34e25ed937404874d
+    dest_sha256: e457ccbc6f8e7a8ed14e84e7a93dc2d80caecded8442ea8cfafb4aef34db5149
+    input_fingerprint: 8ae805e9d40a18865f4a117918931cef8e35215ef1610b51885ee8b97f906bb5
     template_sources:
     - spec/spec_helper.rb.example
