@@ -147,7 +147,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("anonymous_loader", "~> 0.1", ">= 0.1.3")         # ruby >= 2.2.0
   spec.add_development_dependency("appraisal2", "~> 3.2", ">= 3.2.0")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
   spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.17")            # ruby >= 2.4
-  spec.add_development_dependency("turbo_tests2", "~> 3.2", ">= 3.2.3")           # ruby >= 2.4.0, default kettle-test runner
+  spec.add_development_dependency("turbo_tests2", "~> 3.2", ">= 3.2.4")           # ruby >= 2.4.0, default kettle-test runner
 
   # Releasing
   spec.add_development_dependency("ruby-progressbar", "~> 1.13")                    # ruby >= 0
