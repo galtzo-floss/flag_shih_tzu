@@ -29,6 +29,10 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260727-001 - Spec harness documentation now lists the
   RSpec helpers provided by `kettle-test`.
 
+- kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
+  project's RubyForum tag as `mailing_list_uri`, and support docs link to the
+  tagged RubyForum community alongside Discord.
+
 ### Changed
 
 - kettle-jem-template-20260728-001 - Generated Ruby workflows now use clearer
@@ -70,6 +74,13 @@ Please file a bug if you notice a violation of semantic versioning.
   and templates dedicated `version_gem.rb` entrypoints even when the gemspec
   dependency is intentionally omitted, and generated anonymous-loader specs
   cover both `version.rb` and `version_gem.rb`.
+
+- kettle-jem-template-20260729-003 - Old-Ruby gems below the VersionGem runtime
+  floor now get managed minimal `version.rb` files and anonymous-loader version
+  specs without adding `version_gem`.
+- kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs
+  relative to the gemspec directory, so packaged template assets are included
+  even when the gemspec is loaded from another working directory.
 
 ### Security
 

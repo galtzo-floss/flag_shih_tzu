@@ -113,16 +113,13 @@ The _amazing_ test matrix is powered by the kettle-dev stack.
 <details markdown="1">
  <summary>Find this repo on federated forges (Coming soon!)</summary>
 
-| Federated [DVCS][💎d-in-dvcs] Repository | Status | Issues | PRs | Wiki | CI | Discussions |
-|-------------------------------------------------|-----------------------------------------------------------------------|---------------------------|--------------------------|---------------------------|--------------------------|------------------------------|
-| 🧪 [galtzo-floss/flag_shih_tzu on GitLab][📜src-gl] | The Truth | [💚][🤝gl-issues] | [💚][🤝gl-pulls] | [💚][📜gl-wiki] | 🐭 Tiny Matrix | ➖ |
-| 🧊 [galtzo-floss/flag_shih_tzu on CodeBerg][📜src-cb] | An Ethical Mirror ([Donate][🤝cb-donate]) | [💚][🤝cb-issues] | [💚][🤝cb-pulls] | ➖ | ⭕️ No Matrix | ➖ |
-| 🐙 [galtzo-floss/flag_shih_tzu on GitHub][📜src-gh] | Another Mirror | [💚][🤝gh-issues] | [💚][🤝gh-pulls] | [💚][📜gh-wiki] | 💯 Full Matrix | [💚][gh-discussions] |
-| 🎮️ [Discord Server][✉️discord-invite] | [![Live Chat on Discord][✉️discord-invite-img-ftb]][✉️discord-invite] | [Let's][✉️discord-invite] | [talk][✉️discord-invite] | [about][✉️discord-invite] | [this][✉️discord-invite] | [library!][✉️discord-invite] |
+| Federated [DVCS][💎d-in-dvcs] Repository | Status | Issues | PRs | Wiki | CI |
+|-------------------------------------------------|-------------------------------------------|-------------------|------------------|-----------------|----------------|
+| 🧪 [galtzo-floss/flag_shih_tzu on GitLab][📜src-gl] | The Truth | [💚][🤝gl-issues] | [💚][🤝gl-pulls] | [💚][📜gl-wiki] | 🐭 Tiny Matrix |
+| 🧊 [galtzo-floss/flag_shih_tzu on CodeBerg][📜src-cb] | An Ethical Mirror ([Donate][🤝cb-donate]) | [💚][🤝cb-issues] | [💚][🤝cb-pulls] | ➖ | ⭕️ No Matrix |
+| 🐙 [galtzo-floss/flag_shih_tzu on GitHub][📜src-gh] | Another Mirror | [💚][🤝gh-issues] | [💚][🤝gh-pulls] | [💚][📜gh-wiki] | 💯 Full Matrix |
 
 </details>
-
-[gh-discussions]: https://github.com/galtzo-floss/flag_shih_tzu/discussions
 
 ### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/flag_shih_tzu)](https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&utm_medium=referral&utm_campaign=readme)
 
@@ -141,6 +138,7 @@ The maintainers of this and thousands of other packages are working with Tidelif
 
 Alternatively:
 
+- [![Ruby Users Forum][✉️ruby-forum-img]][✉️ruby-forum]
 - [![Live Chat on Discord][✉️discord-invite-img-ftb]][✉️discord-invite]
 - [![Get help from me on Upwork][👨🏼‍🏫expsup-upwork-img]][👨🏼‍🏫expsup-upwork]
 - [![Get help from me on Codementor][👨🏼‍🏫expsup-codementor-img]][👨🏼‍🏫expsup-codementor]
@@ -985,11 +983,12 @@ I'm hoping to be able to pay for my kids' health insurance this month,
 so if you value the work I am doing, I need your support.
 Please consider sponsoring me or the project.
 
-To join the community or get help 👇️ Join the Discord.
+To join the community or get help, use the RubyForum or Discord.
 
+[![Ruby Users Forum][✉️ruby-forum-img]][✉️ruby-forum]
 [![Live Chat on Discord][✉️discord-invite-img-ftb]][✉️discord-invite]
 
-To say "thanks!" ☝️ Join the Discord or 👇️ send money.
+To say "thanks!" ☝️ Join the community or 👇️ send money.
 
 [![Sponsor galtzo-floss/flag_shih_tzu on Open Source Collective][🖇osc-all-bottom-img]][🖇osc] 💌 [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal]
 
@@ -1030,8 +1029,9 @@ Thanks for RTFM. ☺️
 [✉️discord-invite-img-ftb]: https://img.shields.io/discord/1373797679469170758?style=for-the-badge&logo=discord
 [✉️ruby-friends-img]: https://img.shields.io/badge/daily.dev-%F0%9F%92%8E_Ruby_Friends-0A0A0A?style=for-the-badge&logo=dailydotdev&logoColor=white
 [✉️ruby-friends]: https://app.daily.dev/squads/rubyfriends
-[✉️ruby-forum-img]: https://img.shields.io/badge/RubyForum-Help-CC342D?style=for-the-badge&logo=ruby&logoColor=white
-[✉️ruby-forum]: https://www.rubyforum.org/c/help/8
+[✉️ruby-forum-top-img]: https://img.shields.io/discourse/topics?server=https%3A%2F%2Fwww.rubyforum.org&style=flat&logo=discourse&label=Ruby%20Users%20Forum
+[✉️ruby-forum-img]: https://img.shields.io/discourse/topics?server=https%3A%2F%2Fwww.rubyforum.org&style=for-the-badge&logo=discourse&label=Ruby%20Users%20Forum
+[✉️ruby-forum]: https://www.rubyforum.org/tag/flag-shih-tzu
 
 [✇bundle-group-pattern]: https://gist.github.com/pboling/4564780
 [⛳️gem-namespace]: https://github.com/galtzo-floss/flag_shih_tzu

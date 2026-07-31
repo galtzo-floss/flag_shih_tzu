@@ -3,8 +3,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        165,
-        176
+        176,
+        187
       ]
     }
   ],
@@ -12,8 +12,8 @@
     {
       "file": "README.md",
       "lines": [
-        230,
-        234
+        228,
+        232
       ]
     }
   ],
