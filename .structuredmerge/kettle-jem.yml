@@ -476,9 +476,6 @@ files:
         strategy: accept_template
       templating_local.gemfile:
         strategy: accept_template
-  spec:
-    spec_helper.rb:
-      strategy: keep_destination
 # To override specific files, add entries like:
 #
 # files:
