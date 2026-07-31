@@ -151,7 +151,7 @@ Gem::Specification.new do |spec|
 
   # Releasing
   spec.add_development_dependency("ruby-progressbar", "~> 1.13")                    # ruby >= 0
-  spec.add_development_dependency("stone_checksums", "~> 1.0", ">= 1.0.7")          # ruby >= 2.2.0
+  spec.add_development_dependency("stone_checksums", "~> 1.0", ">= 1.0.8")          # ruby >= 2.2.0
 
   # Development tasks
   # The cake is a lie. erb v2.2, the oldest release, was never compatible with Ruby 2.3.
