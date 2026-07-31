@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.5] - 2026-07-31
+
+- TAG: [v1.0.5][1.0.5t]
+- COVERAGE: 90.75% -- 412/454 lines in 3 files
+- BRANCH COVERAGE: 76.76% -- 142/185 branches in 3 files
+- 30.00% documented
+
+### Added
+
 - Documentation linting now has its generated `yard-lint` dependency and severity config available in the local bundle.
 
 - kettle-jem-template-20260726-001 - Projects now include YARD lint
@@ -38,10 +57,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260728-001 - Generated Ruby workflows now use clearer
   setup-ruby-flash planning and can prepare appraisal-only jobs without
   installing the main Gemfile bundle.
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 
@@ -85,8 +100,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs
   relative to the gemspec directory, so packaged template assets are included
   even when the gemspec is loaded from another working directory.
-
-### Security
 
 ## [1.0.4] - 2026-07-25
 
@@ -448,7 +461,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 # Version 0.2.3 - last version maintained by XING AG
 
-[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.4...HEAD
+[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.5...HEAD
+[1.0.5]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.4...v1.0.5
+[1.0.5t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.5
 [1.0.4]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.3...v1.0.4
 [1.0.4t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.4
 [1.0.3]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.2...v1.0.3
