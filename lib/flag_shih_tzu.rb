@@ -1,8 +1,8 @@
 # Would like to support other database adapters so no more hard dependency on Active Record.
 require "version_gem"
-require_relative "flag_shih_tzu/version"
 
 require "flag_shih_tzu/validators"
+require_relative "flag_shih_tzu/version"
 
 module FlagShihTzu
   # taken from ActiveRecord::ConnectionAdapters::Column
