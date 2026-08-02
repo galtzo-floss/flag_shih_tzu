@@ -657,14 +657,14 @@ files:
     recipe: template_source_application_Appraisal_root_gemfile
     action: write
     dest_sha256: 8724e3f6faea995be655ac49369bec64a70710112b1f65707fa38f1fd2fd3254
-    input_fingerprint: d72fc0b9f3b39aa40acb21b6723496466f1c0eaa9d441746a371a71b97ff8914
+    input_fingerprint: 74c63178f4e1e42986253e43318f22e9c6ef56eb95e246fc2958f232c6cbefaf
     template_sources:
     - Appraisal.root.gemfile.example
   Appraisals:
     recipe: template_source_application_Appraisals
     action: write
     dest_sha256: 5fe7edac2635a15310170a1f9c8a3a69af2f959d67632d66ddf7ef6123181e68
-    input_fingerprint: dd1464a241dbc71009ab9e7cdf6ca7f3466e6345d934b12e91687b2edf90aed1
+    input_fingerprint: 431dce149cdd3fd8c7c03ead175207fc26f9b63f626ad6ded2b69383fcd794cf
     template_sources:
     - Appraisals.example
   CHANGELOG.md:
@@ -1140,6 +1140,6 @@ files:
     recipe: template_source_application_spec_spec_helper_rb
     action: write
     dest_sha256: e457ccbc6f8e7a8ed14e84e7a93dc2d80caecded8442ea8cfafb4aef34db5149
-    input_fingerprint: f2a999c688d48357b055139e9d7afdf086b792b4c104ac54541ea32381c89f9a
+    input_fingerprint: c64f1444908c8797846cffd634b4fae4e05498fe80ffb2824919b7e706bcf840
     template_sources:
     - spec/spec_helper.rb.example
