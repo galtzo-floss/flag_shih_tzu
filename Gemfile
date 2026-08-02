@@ -18,10 +18,10 @@ git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 # Include dependencies from flag_shih_tzu.gemspec
 gemspec
 
-gem "kettle-family", "~> 1.2", ">= 1.2.14"
+gem "kettle-family", "~> 1.2", ">= 1.2.22"
 
 # Local workspace dependency wiring for *_local.gemfile overrides
-gem "nomono", "~> 1.1", ">= 1.1.2", require: false # ruby >= 3.2.0
+gem "nomono", "~> 1.1", ">= 1.1.3", require: false # ruby >= 3.2.0
 
 # Templating (env-switched: STRUCTUREDMERGE_DEV=/path/to/structuredmerge/ruby/gems for local paths)
 eval_gemfile "gemfiles/modular/templating.gemfile" if ENV.fetch("K_JEM_TEMPLATING", "false").casecmp("true").zero?
@@ -31,10 +31,6 @@ eval_gemfile "gemfiles/modular/debug.gemfile"
 
 # Code Coverage (env-switched: KETTLE_DEV_DEV=true for local paths)
 eval_gemfile "gemfiles/modular/coverage.gemfile"
-
-# ActiveRecord test/runtime support
-eval_gemfile "gemfiles/modular/activerecord_runtime.gemfile"
-eval_gemfile "gemfiles/modular/activerecord_support_modern.gemfile"
 
 # Linting
 eval_gemfile "gemfiles/modular/style.gemfile"
