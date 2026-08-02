@@ -283,14 +283,14 @@ PATH
   specs:
     yard-fence (0.9.7)
       rdoc (>= 6.11, < 8)
-      version_gem (~> 1.1, >= 1.1.14)
+      version_gem (~> 1.1, >= 1.1.15)
       yard (~> 0.9, >= 0.9.37)
 
 PATH
   remote: /var/home/pboling/src/my/galtzo-floss/yard-timekeeper
   specs:
     yard-timekeeper (0.2.5)
-      version_gem (~> 1.1, >= 1.1.14)
+      version_gem (~> 1.1, >= 1.1.15)
 
 PATH
   remote: /var/home/pboling/src/my/galtzo-floss/yard-yaml
