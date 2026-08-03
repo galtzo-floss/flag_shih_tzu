@@ -70,6 +70,25 @@
 #
 # Everything else should be set explicitly here or via ENV.
 
+# Direct dependency ownership decisions.
+# On first templating, kettle-jem discovers dependencies declared directly by
+# Gemfile/gemspec and also by modular Gemfiles, and writes them here for review.
+# Resolve each entry by choosing one supported action, then add a reason.
+#
+# Every entry must include gem, direct, modular, action, and reason:
+# dependency_conflicts:
+#   resolve:
+#     - gem: yard-relative_markdown_links
+#       direct: shields-badge.gemspec
+#       modular: gemfiles/modular/documentation.gemfile
+#       action: remove_modular_gem
+#       reason: "The gemspec owns the project's documentation integration."
+# Supported actions:
+#   remove_modular_gem       - remove the modular Gemfile's direct gem call.
+#   remove_x_std_lib_eval    - remove x_std_libs eval references for the gem.
+#   keep_both                - retain both declarations when ranges overlap.
+dependency_conflicts:
+  resolve: []
 # This project's identifying emoji.
 # Used as the leading emoji in the README H1 heading and in the gemspec
 # summary and description. Every gem should have its own unique emoji.
