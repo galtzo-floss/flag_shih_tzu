@@ -30,7 +30,6 @@ GEM
       public_suffix (>= 2.0.2, < 8.0)
     anonymous_loader (0.1.3)
       version_gem (~> 1.1, >= 1.1.14)
-    ansi (1.6.0)
     appraisal2 (3.2.0)
       bundler (>= 1.17.3)
       rake (>= 10)
@@ -128,8 +127,6 @@ GEM
       kettle-test (~> 2.0, >= 2.0.18)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
-    kettle-drift (1.0.11)
-      version_gem (~> 1.1, >= 1.1.15)
     kettle-family (1.2.23)
       command_kit (~> 0.6)
       command_kit-completion (~> 0.1)
@@ -144,13 +141,6 @@ GEM
     kettle-ndjson (0.1.10)
       version_gem (~> 1.1, >= 1.1.14)
     kettle-rb (0.1.8)
-    kettle-soup-cover (3.0.9)
-      kettle-wash (~> 0.1, >= 0.1.3)
-      simplecov (>= 1.0)
-      simplecov-cobertura (>= 4.0)
-      simplecov-console (~> 0.9, >= 0.9.5)
-      simplecov-rcov (~> 0.3, >= 0.3.7)
-      simplecov_lcov_formatter (~> 0.9, >= 0.9.0)
     kettle-test (2.0.19)
       appraisal2 (~> 3.0, >= 3.0.6)
       backports (~> 3.0)
@@ -162,8 +152,6 @@ GEM
       silent_stream (~> 1.0, >= 1.0.12)
       timecop-rspec (~> 1.0, >= 1.0.3)
       turbo_tests2 (~> 3.1, >= 3.1.12)
-    kettle-wash (0.1.5)
-      version_gem (~> 1.1, >= 1.1.15)
     kramdown (2.5.2)
       rexml (>= 3.4.4)
     kramdown-parser-gfm (1.1.0)
@@ -347,18 +335,6 @@ GEM
     silent_stream (1.0.12)
       logger (~> 1.2)
       version_gem (>= 1.1.8, < 3)
-    simplecov (1.0.3)
-    simplecov-cobertura (4.0.0)
-      rexml
-      simplecov (~> 1.0)
-    simplecov-console (0.9.5)
-      ansi
-      simplecov
-      terminal-table
-    simplecov-rcov (0.3.7)
-      simplecov (>= 0.4.1)
-    simplecov_lcov_formatter (0.9.0)
-      simplecov (>= 0.18)
     sqlite3 (2.9.5-aarch64-linux-gnu)
     sqlite3 (2.9.5-aarch64-linux-musl)
     sqlite3 (2.9.5-arm-linux-gnu)
@@ -393,8 +369,6 @@ GEM
     stringio (3.2.0)
     strings-ansi (0.2.0)
     strscan (3.1.8)
-    terminal-table (4.0.0)
-      unicode-display_width (>= 1.1.1, < 4)
     thor (1.5.0)
     timecop (0.9.11)
     timecop-rspec (1.0.3)
@@ -467,9 +441,7 @@ DEPENDENCIES
   gitmoji-regex (~> 2.0, >= 2.0.11)
   irb (~> 1.17)
   kettle-dev (~> 2.5, >= 2.5.17)
-  kettle-drift (~> 1.0, >= 1.0.11)
   kettle-family (~> 1.2, >= 1.2.23)
-  kettle-soup-cover (~> 3.0, >= 3.0.9)
   kettle-test (~> 2.0, >= 2.0.19)
   kramdown (~> 2.5, >= 2.5.2)
   kramdown-parser-gfm (~> 1.1)
@@ -505,7 +477,6 @@ CHECKSUMS
   activesupport (8.1.3.1) sha256=85458765f25ea48b9019c46b6bb3fa5683197bf4280d9f06710a6e8d7a831376
   addressable (2.9.0) sha256=7fdf6ac3660f7f4e867a0838be3f6cf722ace541dd97767fa42bc6cfa980c7af
   anonymous_loader (0.1.3) sha256=084a18e2439144d955447dc11dfc982f41fcd1583ad32d4d55151325dc44cb55
-  ansi (1.6.0)
   appraisal2 (3.2.0) sha256=ccd0b767ac4060cd7af6d16747459b6990f49c39c7b4fb1f7d1146b1e97c492f
   appraisal2-rubocop (1.0.0) sha256=b71410fbb014befda5340605a605b7f6f3f012739baf0acc5b4351b592c3258d
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
@@ -549,14 +520,11 @@ CHECKSUMS
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
   kettle-dev (2.5.17) sha256=9dc2355f5c3eb73345ec412a394faa72744e8f8384fe8f4955ddb0f04d0a0efe
-  kettle-drift (1.0.11)
   kettle-family (1.2.23) sha256=5f7e15dc381a66d9099b79ac828fc9bb807a0b8abd986cb0036da7c9c7e733fc
   kettle-gha-pins (0.3.5) sha256=ae57654eb79e50d3a3b44784ad5fdfdbae901623a050b88962cb28c4d45403e0
   kettle-ndjson (0.1.10) sha256=906c83606bb3a4dd24f49cfbcf10a26e1a245cd1daaf9c8a95ee0caec83eba37
   kettle-rb (0.1.8) sha256=a15023eaa5470de7b7c2a6a8017c430f20395b67a43cf35d555e35f02a5391d8
-  kettle-soup-cover (3.0.9)
   kettle-test (2.0.19) sha256=c3628b910100976bc021d98921489ba77e06f61e1d8a873a0ac3f9dbd5565d70
-  kettle-wash (0.1.5)
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
   language_server-protocol (3.17.0.6) sha256=5ef2c0c138f8267e1bc631d3328347d354f96724b0af22f2c79516120443b7f0
@@ -626,11 +594,6 @@ CHECKSUMS
   ruby_version (1.0.3) sha256=5930f9950746b7e6c973184398ee364ee7440b170fef7922b9f5cdf317f1ccb5
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   silent_stream (1.0.12) sha256=377c43aa10033fe90c33b39ea8cd97d79f2d1c4856df598efc56f3091f3ae782
-  simplecov (1.0.3)
-  simplecov-cobertura (4.0.0)
-  simplecov-console (0.9.5)
-  simplecov-rcov (0.3.7)
-  simplecov_lcov_formatter (0.9.0)
   sqlite3 (2.9.5-aarch64-linux-gnu) sha256=78075b6337d3d182c6d2b4691049ed45cd220826160c9ea18946bf6a1de200dc
   sqlite3 (2.9.5-aarch64-linux-musl) sha256=18c801185deb4adc01ddb281e8f672a39e3d1729979ca91e39439cd3eac0402d
   sqlite3 (2.9.5-arm-linux-gnu) sha256=1bdfca0c7d63998c60b0f4a8e3c8df2d33800ccc4abd2d612eddbbbc92a4c48b
@@ -647,7 +610,6 @@ CHECKSUMS
   stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1
   strings-ansi (0.2.0) sha256=90262d760ea4a94cc2ae8d58205277a343409c288cbe7c29416b1826bd511c88
   strscan (3.1.8) sha256=aae2db611a225559f21ffbb71765c9a4e60fd262534a9ea84f4f11c7f32f679e
-  terminal-table (4.0.0)
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
   timecop (0.9.11) sha256=41284dc6e5041f2184f781ace766f942108c842f8d8c1386a26e6343decc7542
   timecop-rspec (1.0.3) sha256=005f14841bb606dcaefb060e321b5388e2e59537742bee8b3a9a9a40e598fab9
