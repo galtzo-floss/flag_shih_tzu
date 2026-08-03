@@ -128,6 +128,8 @@ GEM
       kettle-test (~> 2.0, >= 2.0.18)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
+    kettle-drift (1.0.11)
+      version_gem (~> 1.1, >= 1.1.15)
     kettle-family (1.2.23)
       command_kit (~> 0.6)
       command_kit-completion (~> 0.1)
@@ -424,10 +426,6 @@ GEM
       kramdown-parser-gfm (~> 1.1)
       version_gem (~> 1.1, >= 1.1.14)
     yard (0.9.45)
-    yard-fence (0.9.7)
-      rdoc (>= 6.11, < 8)
-      version_gem (~> 1.1, >= 1.1.14)
-      yard (~> 0.9, >= 0.9.37)
     yard-junk (0.1.0)
       benchmark
       ostruct
@@ -438,11 +436,6 @@ GEM
       zeitwerk (~> 2.6)
     yard-relative_markdown_links (0.6.0)
       nokogiri (>= 1.14.3, < 2)
-    yard-timekeeper (0.2.5)
-      version_gem (~> 1.1, >= 1.1.14)
-    yard-yaml (0.2.4)
-      version_gem (~> 1.1, >= 1.1.14)
-      yaml-converter (~> 0.2)
     zeitwerk (2.8.3)
     zlib (3.2.3)
 
@@ -474,6 +467,7 @@ DEPENDENCIES
   gitmoji-regex (~> 2.0, >= 2.0.11)
   irb (~> 1.17)
   kettle-dev (~> 2.5, >= 2.5.17)
+  kettle-drift (~> 1.0, >= 1.0.11)
   kettle-family (~> 1.2, >= 1.2.23)
   kettle-soup-cover (~> 3.0, >= 3.0.9)
   kettle-test (~> 2.0, >= 2.0.19)
@@ -501,12 +495,9 @@ DEPENDENCIES
   webrick (~> 1.9)
   yaml-converter (~> 0.2, >= 0.2.4)
   yard (~> 0.9, >= 0.9.45)
-  yard-fence (~> 0.9, >= 0.9.7)
   yard-junk (~> 0.1, >= 0.1.0)
   yard-lint (~> 1.10, >= 1.10.2)
   yard-relative_markdown_links (~> 0.6)
-  yard-timekeeper (~> 0.2, >= 0.2.5)
-  yard-yaml (~> 0.2, >= 0.2.4)
 
 CHECKSUMS
   activemodel (8.1.3.1) sha256=99cc02ce2faec371d14440949d85787ebd23a907c9baef0a9d4bcd4d21888f88
@@ -558,6 +549,7 @@ CHECKSUMS
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
   kettle-dev (2.5.17) sha256=9dc2355f5c3eb73345ec412a394faa72744e8f8384fe8f4955ddb0f04d0a0efe
+  kettle-drift (1.0.11)
   kettle-family (1.2.23) sha256=5f7e15dc381a66d9099b79ac828fc9bb807a0b8abd986cb0036da7c9c7e733fc
   kettle-gha-pins (0.3.5) sha256=ae57654eb79e50d3a3b44784ad5fdfdbae901623a050b88962cb28c4d45403e0
   kettle-ndjson (0.1.10) sha256=906c83606bb3a4dd24f49cfbcf10a26e1a245cd1daaf9c8a95ee0caec83eba37
@@ -672,12 +664,9 @@ CHECKSUMS
   webrick (1.9.2) sha256=beb4a15fc474defed24a3bda4ffd88a490d517c9e4e6118c3edce59e45864131
   yaml-converter (0.2.4) sha256=f243899c6608eda947c1be994a361a3fc9b1dafd92bd07c9f2c3366d0e3d1852
   yard (0.9.45) sha256=52e211493f7cb8a3ebf7e104a25a1e73937a3103092545d34cb88fafebb3dc51
-  yard-fence (0.9.7) sha256=028854d1a9d50157cca389dfbb46355686d46f49505bee3c083a34d0a676921c
   yard-junk (0.1.0) sha256=e85fe2ec1afa47313decd333447b53458cb1ed49b510b70015fdc3041a94bcdd
   yard-lint (1.10.2) sha256=3e595709d088a8cc827e706a4146b447eb6a907ee375d06c11077369d00717f6
   yard-relative_markdown_links (0.6.0) sha256=3e5ffa85cbad9bac70bee5421774b190fb25d3bdf489323a5b3534f647d1a70e
-  yard-timekeeper (0.2.5) sha256=f9cee32ce1d17dbbfbd161e66b1ee4611aad93d3a91a89a5a114d956c6a24bb2
-  yard-yaml (0.2.4) sha256=78c4040090268b3f5cf4a8f5a48a6ea592af3c06436e1ec8d31c78be9b34aec9
   zeitwerk (2.8.3) sha256=2c85125a8467ce069e20123d1e709a08955c9d29c118c25b46b7b7fafdbb92e5
   zlib (3.2.3) sha256=5bd316698b32f31a64ab910a8b6c282442ca1626a81bbd6a1674e8522e319c20
 
