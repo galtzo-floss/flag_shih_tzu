@@ -88,6 +88,8 @@
 #   remove_x_std_lib_eval    - remove x_std_libs eval references for the gem.
 #   keep_both                - retain both declarations when ranges overlap.
 dependency_conflicts:
+  # Set true only after every discovered conflict has an intentional action.
+  reviewed: false
   resolve: []
 # This project's identifying emoji.
 # Used as the leading emoji in the README H1 heading and in the gemspec
