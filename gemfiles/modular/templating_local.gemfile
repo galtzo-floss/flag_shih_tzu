@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
+# Local path overrides for templating development.
+# Loaded by the associated non-local gemfile when STRUCTUREDMERGE_DEV or KETTLE_DEV_DEV
+# is not "false".
+
 # Bootstrapping nomono here cannot rely on a plain `gem "nomono", ...` line.
 # Bundler records that dependency during Gemfile evaluation, but it does not
 # activate that exact version before the immediate `require "nomono/bundler"`.
@@ -22,3 +28,68 @@ if !nomono_already_activated || !nomono_requirement.satisfied_by?(nomono_already
 end
 Kernel.send(:gem, "nomono", *nomono_activation_requirements)
 require "nomono/bundler"
+
+structuredmerge_local_gems = %w[
+  tree_haver
+  ast-merge
+  ast-merge-git
+  ast-template
+  bash-merge
+  binary-merge
+  commonmarker-merge
+  citrus-toml-merge
+  dotenv-merge
+  go-merge
+  json-merge
+  kettle-jem
+  kramdown-merge
+  markdown-merge
+  markly-merge
+  parslet-toml-merge
+  plain-merge
+  prism-merge
+  psych-merge
+  rbs-merge
+  ruby-merge
+  rust-merge
+  smorg-rb
+  typescript-merge
+  toml-merge
+  yaml-merge
+  zip-merge
+  ast-crispr
+  ast-crispr-markdown-markly
+  ast-crispr-ruby-prism
+]
+
+kettle_dev_local_gems = %w[
+  kettle-dev kettle-family kettle-test kettle-soup-cover kettle-drift
+]
+declared_gems = instance_variable_get(:@dependencies).to_a.map(&:name)
+structuredmerge_local_gems_to_eval = structuredmerge_local_gems - %w[] - declared_gems
+kettle_dev_local_gems_to_eval = kettle_dev_local_gems - %w[] - (declared_gems - %w[kettle-dev])
+
+platform :mri do
+  if ENV.fetch("STRUCTUREDMERGE_DEV", "false").casecmp("false") != 0
+    eval_nomono_gems(
+      gems: structuredmerge_local_gems_to_eval,
+      prefix: "STRUCTUREDMERGE",
+      path_env: "STRUCTUREDMERGE_DEV",
+      vendored_gems_env: "VENDORED_GEMS",
+      vendor_gem_dir_env: "VENDOR_GEM_DIR",
+      debug_env: "STRUCTUREDMERGE_DEBUG"
+    )
+  end
+
+  if ENV.fetch("KETTLE_DEV_DEV", "false").casecmp("false") != 0
+    eval_nomono_gems(
+      gems: kettle_dev_local_gems_to_eval,
+      prefix: "KETTLE_DEV",
+      path_env: "KETTLE_DEV_DEV",
+      vendored_gems_env: "VENDORED_GEMS",
+      vendor_gem_dir_env: "VENDOR_GEM_DIR",
+      debug_env: "KETTLE_DEV_DEBUG",
+      root: ["src", "my", "kettle-dev"]
+    )
+  end
+end
