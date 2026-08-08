@@ -161,6 +161,12 @@ gem install flag_shih_tzu
 
 ## ⚙️ Configuration
 
+Define one non-null integer column with a default of `0`, include
+`FlagShihTzu` in the ActiveRecord model, and declare stable positive bit
+positions with `has_flags`. The optional `column`, `bit_width`, `value_mode`,
+and query-mode options are configured in that declaration; bit positions must
+not be changed after data has been stored.
+
 ## 🔧 Basic Usage
 
 FlagShihTzu assumes that your ActiveRecord model already has an [integer field][bit_field]
