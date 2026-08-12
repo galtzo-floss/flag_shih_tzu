@@ -33,3 +33,7 @@ RBS:
 
 Layout/IndentationConsistency:
   Exclude: ['*.md']
+# Appraisal uses this filename for the moving HEAD dependency fixture.
+Naming/FileName:
+  Exclude:
+    - '**/vHEAD.gemfile'

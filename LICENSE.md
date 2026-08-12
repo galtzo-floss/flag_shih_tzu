@@ -33,3 +33,4 @@ Choose the option that best fits your use case:
 - Copyright (c) 2019 Amy Martin
 - Copyright (c) 2025 Annibelle Boling
 - Copyright (c) 2025 horiken
+- Copyright (c) 2026 Mubelotix

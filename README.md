@@ -82,7 +82,7 @@ What is a ["Shih Tzu"](http://en.wikipedia.org/wiki/Shih_Tzu)?
 
 ### Compatibility
 
-Compatible with MRI Ruby 2.4+, and concordant releases of JRuby, and TruffleRuby.
+Compatible with MRI Ruby 2.4+, JRuby, and TruffleRuby.
 CI workflows and Appraisals are generated for MRI Ruby 2.4+.
 This test floor is configured by `ruby.test_minimum` in `.kettle-jem.yml` and
 may be higher than the gem's runtime compatibility floor when legacy Rubies are
@@ -863,8 +863,7 @@ See [SECURITY.md][🔐security].
 ## 🤝 Contributing
 
 If you need some ideas of where to help, you could work on adding more code coverage,
-or if it is already 💯 (see [below](#code-coverage)) check [issues][🤝gh-issues] or [PRs][🤝gh-pulls],
-or use the gem and think about how it could be better.
+check [issues][🤝gh-issues] or [PRs][🤝gh-pulls], or use the gem and think about how it could be better.
 
 We [![Keep A Changelog][📗keep-changelog-img]][📗keep-changelog] so if you make changes, remember to update it.
 
@@ -903,11 +902,11 @@ Also see GitLab Contributors: [https://gitlab.com/galtzo-floss/flag_shih_tzu/-/g
 <details markdown="1">
  <summary>⭐️ Star History</summary>
 
-<a href="https://star-history.dera.page/galtzo-floss/flag_shih_tzu&Date">
+<a href="https://star-history.dera.page/#galtzo-floss/flag_shih_tzu&type=date&legend=top-left">
  <picture>
- <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=galtzo-floss/flag_shih_tzu&type=Date&theme=dark" />
- <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=galtzo-floss/flag_shih_tzu&type=Date" />
- <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=galtzo-floss/flag_shih_tzu&type=Date" />
+ <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=galtzo-floss/flag_shih_tzu&type=date&theme=dark&legend=top-left" />
+ <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=galtzo-floss/flag_shih_tzu&type=date&legend=top-left" />
+ <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=galtzo-floss/flag_shih_tzu&type=date&legend=top-left" />
  </picture>
 </a>
 
@@ -977,6 +976,7 @@ See [LICENSE.md][📄license] for the official copyright notice.
 - Copyright (c) 2019 Amy Martin
 - Copyright (c) 2025 Annibelle Boling
 - Copyright (c) 2025 horiken
+- Copyright (c) 2026 Mubelotix
 
 </details>
 

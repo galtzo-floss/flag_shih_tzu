@@ -3,11 +3,12 @@
 structuredmerge_remote = ENV.fetch("STRUCTUREDMERGE_DEV", "false").casecmp("false").zero?
 kettle_remote = ENV.fetch("KETTLE_DEV_DEV", "false").casecmp("false").zero?
 
-tslp_dev = ENV.fetch("TSLP_DEV", nil)
+tslp_dev = ENV.fetch("TSLP_DEV", nil).to_s
+tslp_dev = nil if tslp_dev.empty? || %w[false 0 no off].include?(tslp_dev.downcase)
 if tslp_dev.to_s.empty?
   if structuredmerge_remote
     # Parser dependencies for released installs.
-    gem "tree_sitter_language_pack", "~> 1.13", ">= 1.13.7"
+    gem "tree_sitter_language_pack", "~> 1.14", ">= 1.14.3"
   end
 else
   # Explicit local override for unreleased TSLP debugging.
@@ -21,7 +22,7 @@ end
 
 if kettle_remote
   # Template/plugin checks for released installs.
-  gem "kettle-drift", "~> 1.0", ">= 1.0.11", require: false
+  gem "kettle-drift", "~> 1.0", ">= 1.0.12", require: false
 end
 
 # Set STRUCTUREDMERGE_DEV=/path/to/structuredmerge/ruby/gems for local development with path-based dependencies.
