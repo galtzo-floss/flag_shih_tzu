@@ -1203,9 +1203,16 @@ Thanks for RTFM. ☺️
 [📄license-compat]: https://www.apache.org/legal/resolved.html#category-a
 [📄license-compat-img]: https://img.shields.io/badge/Apache_Compatible:_Category_A-%E2%9C%93-259D6C.svg?style=flat&logo=Apache
 [🧪fossa]: https://app.fossa.com/projects/git%2Bgithub.com%2Fpboling%2Fflag_shih_tzu?ref=badge_shield
-[🧪fossa-img]: https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpboling%2Fflag_shih_tzu.svg?type=shield
+[🧪fossa-img]: https://app.fossa.com/api/projects/git+github.com%2Fpboling%2Fflag_shih_tzu.svg?type=shield
 [📄ilo-declaration]: https://www.ilo.org/declaration/lang--en/index.htm
 [📄ilo-declaration-img]: https://img.shields.io/badge/ILO_Fundamental_Principles-✓-259D6C.svg?style=flat
+[🖼️galtzo-floss]: https://github.com/galtzo-floss
+[🖇polar-img]: https://img.shields.io/badge/polar-donate-a51611.svg?style=flat
+[🖇polar]: https://polar.sh/pboling
+[bit_field]: http://en.wikipedia.org/wiki/Bit_field
+[bitwise_operation]: http://en.wikipedia.org/wiki/Bitwise_operation
+[bitfield]: http://en.wikipedia.org/wiki/Bit_field
+[bit_operation]: http://en.wikipedia.org/wiki/Bitwise_operation
 [🚎yard-current]: http://rubydoc.info/gems/flag_shih_tzu
 [🚎yard-head]: https://flag-shih-tzu.galtzo.com
 [💎stone_checksums]: https://github.com/galtzo-floss/stone_checksums

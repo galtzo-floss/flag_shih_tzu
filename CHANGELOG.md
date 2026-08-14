@@ -56,6 +56,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Restore the ActiveRecord test dependencies required by the default development bundle.
 
+- Restore README link definitions required by the pre-release Markdown reference validator.
+
 ### Security
 
 ## [1.0.5] - 2026-07-31
