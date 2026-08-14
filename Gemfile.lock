@@ -476,7 +476,7 @@ DEPENDENCIES
   erb (~> 6.0, >= 6.0.7)
   flag_shih_tzu!
   gem_bench (~> 2.0, >= 2.0.5)
-  gitmoji-regex (~> 2.0, >= 2.0.11)
+  gitmoji-regex (~> 2.0, >= 2.0.12)
   irb (~> 1.17)
   kettle-changelog (~> 1.0, >= 1.0.2)
   kettle-dev (~> 3.0, >= 3.0.6)
