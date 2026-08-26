@@ -121,7 +121,9 @@ The _amazing_ test matrix is powered by the kettle-dev stack.
 
 </details>
 
-### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/flag_shih_tzu)](https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&utm_medium=referral&utm_campaign=readme)
+### Enterprise Support
+
+[![Tidelift](https://tidelift.com/badges/package/rubygems/flag_shih_tzu)](https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&utm_medium=referral&utm_campaign=readme)
 
 Available as part of the Tidelift Subscription.
 
@@ -953,15 +955,13 @@ See [LICENSE.md][📄license] for the official copyright notice.
 - Copyright (c) 2009 Alto
 - Copyright (c) 2009-2011 boosty
 - Copyright (c) 2009 ladislav.martincik
-- Copyright (c) 2009-2011 pboling
+- Copyright (c) 2009-2015, 2017-2018, 2026 Peter H. Boling
 - Copyright (c) 2009 XING Engineering
-- Copyright (c) 2010 Joost Baaij
 - Copyright (c) 2010 Joost Baaij
 - Copyright (c) 2011 Arturas Slajus
 - Copyright (c) 2011 Musy Bite
 - Copyright (c) 2011, 2014 Tim Liner
 - Copyright (c) 2012-2013 David DIDIER
-- Copyright (c) 2012-2015, 2017-2018, 2026 Peter H. Boling
 - Copyright (c) 2012 Tatsuhiko Miyagawa
 - Copyright (c) 2013 Keith Pitty
 - Copyright (c) 2013 Peter M. Goldstein
@@ -971,12 +971,10 @@ See [LICENSE.md][📄license] for the official copyright notice.
 - Copyright (c) 2015 jfcaiceo
 - Copyright (c) 2016 Xinran Xiao
 - Copyright (c) 2017 shiro16
-- Copyright (c) 2018 Peter Boling
 - Copyright (c) 2018 xpol
 - Copyright (c) 2019 Amy Martin
 - Copyright (c) 2025 Annibelle Boling
 - Copyright (c) 2025 horiken
-- Copyright (c) 2026 Mubelotix
 
 </details>
 
@@ -1203,16 +1201,9 @@ Thanks for RTFM. ☺️
 [📄license-compat]: https://www.apache.org/legal/resolved.html#category-a
 [📄license-compat-img]: https://img.shields.io/badge/Apache_Compatible:_Category_A-%E2%9C%93-259D6C.svg?style=flat&logo=Apache
 [🧪fossa]: https://app.fossa.com/projects/git%2Bgithub.com%2Fpboling%2Fflag_shih_tzu?ref=badge_shield
-[🧪fossa-img]: https://app.fossa.com/api/projects/git+github.com%2Fpboling%2Fflag_shih_tzu.svg?type=shield
+[🧪fossa-img]: https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpboling%2Fflag_shih_tzu.svg?type=shield
 [📄ilo-declaration]: https://www.ilo.org/declaration/lang--en/index.htm
 [📄ilo-declaration-img]: https://img.shields.io/badge/ILO_Fundamental_Principles-✓-259D6C.svg?style=flat
-[🖼️galtzo-floss]: https://github.com/galtzo-floss
-[🖇polar-img]: https://img.shields.io/badge/polar-donate-a51611.svg?style=flat
-[🖇polar]: https://polar.sh/pboling
-[bit_field]: http://en.wikipedia.org/wiki/Bit_field
-[bitwise_operation]: http://en.wikipedia.org/wiki/Bitwise_operation
-[bitfield]: http://en.wikipedia.org/wiki/Bit_field
-[bit_operation]: http://en.wikipedia.org/wiki/Bitwise_operation
 [🚎yard-current]: http://rubydoc.info/gems/flag_shih_tzu
 [🚎yard-head]: https://flag-shih-tzu.galtzo.com
 [💎stone_checksums]: https://github.com/galtzo-floss/stone_checksums

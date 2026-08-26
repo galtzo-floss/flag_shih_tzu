@@ -266,6 +266,15 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 14. Run `bundle exec rake release` which will create a git tag for the version,
     push git commits and tags, and push the `.gem` file to the gem host configured in the gemspec.
 
+The automated `kettle-release` flow runs the build and release tasks with a
+temporary `BUNDLE_LOCKFILE`. Bundler can rewrite a tracked lockfile while
+reconciling the host platform even after the release lockfile has been
+normalized with `bundle lock --add-platform`; that rewrite trips the clean-tree
+guard in `bundler/gem_tasks`. The disposable lockfile preserves the committed
+release inputs while allowing Bundler's runtime reconciliation. Do not replace
+this with `BUNDLE_FROZEN=true`: frozen mode fails when Bundler needs that
+reconciliation.
+
 [📜src-gl]: https://gitlab.com/galtzo-floss/flag_shih_tzu
 [📜src-cb]: https://codeberg.org/galtzo-floss/flag_shih_tzu
 [📜src-gh]: https://github.com/galtzo-floss/flag_shih_tzu
