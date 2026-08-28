@@ -25,9 +25,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260801-001 - Generated README gem dashboard links now
   use ClickGems instead of BestGems.
 
-- [kc] kettle-jem/prepare: updated 35 project files:
+- [kc] kettle-jem/prepare: updated 41 project files:
   - configuration (1)
-  - dependencies (31)
+  - dependencies (37)
   - other (3)
 
 - [kc] kettle-jem/template: updated 8 project files:
