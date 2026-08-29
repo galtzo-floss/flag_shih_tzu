@@ -1,14 +1,5 @@
 # frozen_string_literal: true
 
-# kettle-jem:freeze
-# To retain chunks of comments & code during kettle-jem templating:
-# Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
-# kettle-jem will then preserve content between those markers across template runs.
-# ActiveRecord is the library under test and must be present in the default bundle.
-eval_gemfile "gemfiles/modular/activerecord_runtime.gemfile"
-eval_gemfile "gemfiles/modular/activerecord_support_modern.gemfile"
-# kettle-jem:unfreeze
-
 source "https://gem.coop"
 
 git_source(:github) { |repo_name| "git@github.com:#{repo_name}.git" }
@@ -21,6 +12,10 @@ git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 
 # Include dependencies from flag_shih_tzu.gemspec
 gemspec
+
+# Default local test bundle
+eval_gemfile "gemfiles/modular/activerecord_runtime.gemfile"
+eval_gemfile "gemfiles/modular/activerecord_support_modern.gemfile"
 
 gem "kettle-family", "~> 1.2", ">= 1.2.64"
 

@@ -212,6 +212,10 @@ workflows:
   # Enable only for projects that actually require recording support.
   recording: false
   preset: modern
+test_bundle:
+  gemfiles:
+  - gemfiles/modular/activerecord_runtime.gemfile
+  - gemfiles/modular/activerecord_support_modern.gemfile
 appraisal_matrix:
   mode: minor
   exec_cmd: kettle-test
