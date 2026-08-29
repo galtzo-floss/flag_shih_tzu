@@ -61,6 +61,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Restore README link definitions required by the pre-release Markdown reference validator.
 
+- Restore the ActiveRecord test bundle removed by an earlier template pass.
+
 ### Security
 
 ## [1.0.5] - 2026-07-31
