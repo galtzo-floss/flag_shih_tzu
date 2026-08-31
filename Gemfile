@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
+# kettle-jem:freeze
+# To retain chunks of comments & code during kettle-jem templating:
+# Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
+# kettle-jem will then preserve content between those markers across template runs.
+# kettle-jem:unfreeze
+
 source "https://gem.coop"
 
-git_source(:github) { |repo_name| "git@github.com:#{repo_name}.git" }
 git_source(:codeberg) { |repo_name| "https://codeberg.org/#{repo_name}" }
 git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 
@@ -13,17 +18,16 @@ git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 # Include dependencies from flag_shih_tzu.gemspec
 gemspec
 
-# Default local test bundle
-eval_gemfile "gemfiles/modular/activerecord_runtime.gemfile"
-eval_gemfile "gemfiles/modular/activerecord_support_modern.gemfile"
-
-gem "kettle-family", "~> 1.2", ">= 1.2.64"
+gem "kettle-family", "~> 1.2", ">= 1.2.74"
 
 # Local workspace dependency wiring for *_local.gemfile overrides
 gem "nomono", "~> 1.1", ">= 1.1.5", require: false # ruby >= 3.2.0
 
 # Templating (env-switched: STRUCTUREDMERGE_DEV=/path/to/structuredmerge/ruby/gems for local paths)
 eval_gemfile "gemfiles/modular/templating.gemfile" if ENV.fetch("K_JEM_TEMPLATING", "false").casecmp("true").zero?
+# Default local test bundle
+eval_gemfile "gemfiles/modular/activerecord_runtime.gemfile"
+eval_gemfile "gemfiles/modular/activerecord_support_modern.gemfile"
 
 # Debugging
 eval_gemfile "gemfiles/modular/debug.gemfile"
