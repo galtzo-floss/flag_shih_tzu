@@ -13,27 +13,6 @@ PATH
     flag_shih_tzu (1.0.6)
       version_gem (~> 1.1, >= 1.1.15)
 
-PATH
-  remote: /var/home/pboling/src/my/galtzo-floss/yard-fence
-  specs:
-    yard-fence (0.9.9)
-      rdoc (>= 6.11, < 8)
-      version_gem (~> 1.1, >= 1.1.15)
-      yard (~> 0.9, >= 0.9.37)
-
-PATH
-  remote: /var/home/pboling/src/my/galtzo-floss/yard-timekeeper
-  specs:
-    yard-timekeeper (0.2.7)
-      version_gem (~> 1.1, >= 1.1.15)
-
-PATH
-  remote: /var/home/pboling/src/my/galtzo-floss/yard-yaml
-  specs:
-    yard-yaml (0.2.6)
-      version_gem (~> 1.1, >= 1.1.15)
-      yaml-converter (~> 0.2)
-
 GEM
   remote: https://gem.coop/
   specs:
@@ -601,6 +580,10 @@ GEM
       tree_haver (= 7.1.6)
       version_gem (~> 1.1, >= 1.1.15)
     yard (0.9.45)
+    yard-fence (0.9.8)
+      rdoc (>= 6.11, < 8)
+      version_gem (~> 1.1, >= 1.1.15)
+      yard (~> 0.9, >= 0.9.37)
     yard-junk (0.1.0)
       benchmark
       ostruct
@@ -611,6 +594,11 @@ GEM
       zeitwerk (~> 2.6)
     yard-relative_markdown_links (0.6.0)
       nokogiri (>= 1.14.3, < 2)
+    yard-timekeeper (0.2.6)
+      version_gem (~> 1.1, >= 1.1.15)
+    yard-yaml (0.2.5)
+      version_gem (~> 1.1, >= 1.1.15)
+      yaml-converter (~> 0.2)
     zeitwerk (2.8.3)
     zlib (3.2.3)
 
@@ -669,12 +657,12 @@ DEPENDENCIES
   webrick (~> 1.9)
   yaml-converter (~> 0.2, >= 0.2.5)
   yard (~> 0.9, >= 0.9.45)
-  yard-fence!
+  yard-fence (~> 0.9, >= 0.9.8)
   yard-junk (~> 0.1, >= 0.1.0)
   yard-lint (~> 1.11, >= 1.11.0)
   yard-relative_markdown_links (~> 0.6)
-  yard-timekeeper!
-  yard-yaml!
+  yard-timekeeper (~> 0.2, >= 0.2.6)
+  yard-yaml (~> 0.2, >= 0.2.5)
 
 CHECKSUMS
   activemodel (8.1.3.1)
@@ -695,7 +683,7 @@ CHECKSUMS
   bash-merge (7.1.6)
   benchmark (0.5.0)
   bigdecimal (4.1.2)
-  bundler (4.0.19)
+  bundler (4.0.19) sha256=b48056e4c77fb3853cc47775b5447ede44aaa4f53c32f168014ab4fe86587d47
   bundler-audit (0.9.3)
   cgi (0.5.2)
   citrus (3.0.2)
@@ -877,12 +865,12 @@ CHECKSUMS
   yaml-converter (0.2.5)
   yaml-merge (7.1.6)
   yard (0.9.45)
-  yard-fence (0.9.9)
+  yard-fence (0.9.8)
   yard-junk (0.1.0)
   yard-lint (1.11.0)
   yard-relative_markdown_links (0.6.0)
-  yard-timekeeper (0.2.7)
-  yard-yaml (0.2.6)
+  yard-timekeeper (0.2.6)
+  yard-yaml (0.2.5)
   zeitwerk (2.8.3)
   zlib (3.2.3)
 
