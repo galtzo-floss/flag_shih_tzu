@@ -18,6 +18,7 @@ template_state:
     - gemfiles/modular/templating_local.gemfile
     kettle-jem/template:
     - ".simplecov"
+    - Rakefile
     - flag_shih_tzu.gemspec
     - gemfiles/modular/templating.gemfile
   checksums:
