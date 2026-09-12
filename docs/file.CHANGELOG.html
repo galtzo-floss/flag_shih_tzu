@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.5...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.6...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -83,6 +83,65 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 <h3 id="fixed">Fixed</h3>
 
 <h3 id="security">Security</h3>
+
+<h2 id="106---2026-09-11">
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.5...v1.0.6">1.0.6</a> - 2026-09-11</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.6">v1.0.6</a>
+</li>
+  <li>COVERAGE: 90.75% – 412/454 lines in 3 files</li>
+  <li>BRANCH COVERAGE: 76.76% – 142/185 branches in 3 files</li>
+  <li>30.00% documented</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+  <li>
+    <p>kettle-jem-template-20260801-001 - Generated README gem dashboard links now<br>
+use ClickGems instead of BestGems.</p>
+  </li>
+  <li>[kc] kettle-jem/prepare: updated 8 project files:
+    <ul>
+      <li>dependencies (8)</li>
+    </ul>
+  </li>
+  <li>[kc] kettle-jem/template: updated 4 project files:
+    <ul>
+      <li>code and tests (1)</li>
+      <li>dependencies (2)</li>
+      <li>other (1)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>kettle-jem-template-20260801-002 - Generated RSpec helpers now normalize<br>
+managed configuration block bindings structurally, preventing mixed block<br>
+parameter names from producing invalid configuration after a merge.</li>
+  <li>kettle-jem-template-20260801-003 - Generated project metadata and<br>
+documentation now normalize configured underscore hostnames to valid<br>
+hyphenated hostnames.</li>
+  <li>
+    <p>kettle-jem-template-20260801-004 - Generated organization README logos now<br>
+use GitHub’s stable organization avatar endpoint instead of assuming a<br>
+matching Galtzo-hosted asset exists.</p>
+  </li>
+  <li>
+    <p>kettle-jem-template-20260802-001 - Devcontainer JSON files now merge as JSONC,<br>
+preserving comments and trailing commas during template updates.</p>
+  </li>
+  <li>
+    <p>Restore the ActiveRecord test dependencies required by the default development bundle.</p>
+  </li>
+  <li>
+    <p>Restore README link definitions required by the pre-release Markdown reference validator.</p>
+  </li>
+  <li>Restore the ActiveRecord test bundle removed by an earlier template pass.</li>
+</ul>
 
 <h2 id="105---2026-07-31">
 <a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.4...v1.0.5">1.0.5</a> - 2026-07-31</h2>
@@ -117,7 +176,7 @@ tagged RubyForum community alongside Discord.</p>
   </li>
 </ul>
 
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 
 <ul>
   <li>kettle-jem-template-20260728-001 - Generated Ruby workflows now use clearer<br>
@@ -125,7 +184,7 @@ setup-ruby-flash planning and can prepare appraisal-only jobs without<br>
 installing the main Gemfile bundle.</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>
@@ -163,15 +222,6 @@ specs.</p>
 legacy manual bundle install path, avoiding setup-time Bundler full-index<br>
 failures against <code>gem.coop</code>.</p>
   </li>
-  <li>
-    <p>kettle-jem-template-20260729-002 - VersionGem bootstrap now preserves<br>
-and templates dedicated <code>version_gem.rb</code> entrypoints even when the gemspec<br>
-dependency is intentionally omitted, and generated anonymous-loader specs<br>
-cover both <code>version.rb</code> and <code>version_gem.rb</code>.</p>
-  </li>
-  <li>kettle-jem-template-20260729-003 - Old-Ruby gems below the VersionGem runtime<br>
-floor now get managed minimal <code>version.rb</code> files and anonymous-loader version<br>
-specs without adding <code>version_gem</code>.</li>
   <li>kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs<br>
 relative to the gemspec directory, so packaged template assets are included<br>
 even when the gemspec is loaded from another working directory.</li>
@@ -188,21 +238,15 @@ even when the gemspec is loaded from another working directory.</li>
   <li>27.78% documented</li>
 </ul>
 
-<h3 id="changed-2">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 
 <ul>
-  <li>kettle-jem-template-20260716-001 - Shim gemspec manifests now include<br>
-<code>LICENSE.md</code> instead of nonexistent <code>LICENSE.txt</code>.</li>
   <li>kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer<br>
 repository-only files by default to reduce downstream distro packaging churn.</li>
-  <li>kettle-jem-template-20260720-001 - Generated READMEs can now render<br>
-template-managed corporate sponsor logos from project or family config.</li>
   <li>kettle-jem-template-20260720-002 - Generated development Gemfiles now use the<br>
 released <code>tree_sitter_language_pack</code> gem 1.13.3 or newer by default.</li>
   <li>kettle-jem-template-20260720-003 - Generated StructuredMerge Git diff driver<br>
 config now uses the installed <code>smorg-rb</code> Ruby driver name.</li>
-  <li>kettle-jem-template-20260720-004 - Generated multi-engine workflow files now<br>
-omit JRuby and TruffleRuby jobs when project config declares MRI-only engines.</li>
   <li>kettle-jem-template-20260720-005 - Generated README Support &amp; Community rows<br>
 now include a RubyForum help badge.</li>
   <li>
@@ -224,7 +268,7 @@ or incompatible with the project’s runtime Ruby floor.</li>
   <li>Removed the stale RVM-based <code>bin/test.bash</code> helper.</li>
 </ul>
 
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 
 <ul>
   <li>Root development bundle now includes the ActiveRecord test harness fragments,<br>
@@ -249,13 +293,13 @@ Gemfiles.</li>
   <li>Added support for JRuby 10.1 and TruffleRuby 34.0.</li>
 </ul>
 
-<h3 id="changed-3">Changed</h3>
+<h3 id="changed-4">Changed</h3>
 
 <ul>
   <li>Retemplated project metadata and CI/development automation with <code>kettle-jem</code> v7.0.0.</li>
 </ul>
 
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 
 <ul>
   <li>Restore root Gemfile ActiveRecord test dependencies so <code>kettle-test</code> runs the<br>
@@ -276,7 +320,7 @@ line and branch coverage from turbo_tests2 workers.</li>
   <li>27.78% documented</li>
 </ul>
 
-<h3 id="changed-4">Changed</h3>
+<h3 id="changed-5">Changed</h3>
 
 <ul>
   <li>Refreshed generated README/package metadata, copyright notices, template<br>
@@ -295,14 +339,14 @@ development dependency floors from the latest <code>kettle-jem</code> template.<
   <li>27.78% documented</li>
 </ul>
 
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="fixed-5">Fixed</h3>
 
 <ul>
   <li>Fixed generated documentation URLs that incorrectly pointed at a monorepo<br>
 <code>gems/flag_shih_tzu</code> path.</li>
 </ul>
 
-<h3 id="changed-5">Changed</h3>
+<h3 id="changed-6">Changed</h3>
 
 <ul>
   <li>Raised generated <code>version_gem</code> and <code>appraisal2</code> dependency floors to<br>
@@ -357,7 +401,7 @@ intentionally want generated flag methods to replace existing instance<br>
 methods.</li>
 </ul>
 
-<h3 id="changed-6">Changed</h3>
+<h3 id="changed-7">Changed</h3>
 
 <ul>
   <li>
@@ -399,7 +443,7 @@ ActiveRecord 2.3 through 5.1.</li>
   <li>Removed Ruby 2.3 and JRuby 9.1 from the tested release matrix.</li>
 </ul>
 
-<h3 id="fixed-5">Fixed</h3>
+<h3 id="fixed-6">Fixed</h3>
 
 <ul>
   <li>Restored project-specific README sections lost during templating, including<br>

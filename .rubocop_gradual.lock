@@ -1,5 +1,5 @@
 {
-  "flag_shih_tzu.gemspec:1321630805": [
+  "flag_shih_tzu.gemspec:3789221850": [
     [50, 24, 9, "Lint/LtsRuby/UnavailableMethod: Symbol#end_with? is unavailable before Ruby 2.7.", 308216808],
     [56, 16, 16, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 3147164910],
     [57, 16, 19, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 279056797],
