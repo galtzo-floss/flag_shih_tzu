@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:pboling/rubocop-packaging.git
+  remote: https://github.com/pboling/rubocop-packaging.git
   revision: 3539ba858d379740d638566faee9e56b2b854145
   ref: 3539ba858d379740d638566faee9e56b2b854145
   specs:
