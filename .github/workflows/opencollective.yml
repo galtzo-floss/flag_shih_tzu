@@ -20,7 +20,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup Ruby & RubyGems
-        uses: appraisal-rb/setup-ruby-flash@8562306866e7e0348dab54cd26e36821809d6d23 # v2.4
+        uses: appraisal-rb/setup-ruby-flash@551b71d06063fd347329fd95112e8c368829b7c8 # v2.5
         with:
           ruby-version: ruby
           rubygems: default
