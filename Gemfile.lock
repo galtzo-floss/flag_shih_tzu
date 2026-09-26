@@ -13,27 +13,6 @@ PATH
     flag_shih_tzu (1.0.6)
       version_gem (~> 1.1, >= 1.1.15)
 
-PATH
-  remote: /var/home/pboling/src/my/galtzo-floss/yard-fence
-  specs:
-    yard-fence (0.9.9)
-      rdoc (>= 6.11, < 8)
-      version_gem (~> 1.1, >= 1.1.15)
-      yard (~> 0.9, >= 0.9.37)
-
-PATH
-  remote: /var/home/pboling/src/my/galtzo-floss/yard-timekeeper
-  specs:
-    yard-timekeeper (0.2.7)
-      version_gem (~> 1.1, >= 1.1.15)
-
-PATH
-  remote: /var/home/pboling/src/my/galtzo-floss/yard-yaml
-  specs:
-    yard-yaml (0.2.6)
-      version_gem (~> 1.1, >= 1.1.15)
-      yaml-converter (~> 0.2)
-
 GEM
   remote: https://gem.coop/
   specs:
@@ -608,6 +587,10 @@ GEM
       tree_haver (= 7.1.9)
       version_gem (~> 1.1, >= 1.1.15)
     yard (0.9.45)
+    yard-fence (0.9.9)
+      rdoc (>= 6.11, < 8)
+      version_gem (~> 1.1, >= 1.1.15)
+      yard (~> 0.9, >= 0.9.37)
     yard-junk (0.1.0)
       benchmark
       ostruct
@@ -618,6 +601,11 @@ GEM
       zeitwerk (~> 2.6)
     yard-relative_markdown_links (0.6.0)
       nokogiri (>= 1.14.3, < 2)
+    yard-timekeeper (0.2.7)
+      version_gem (~> 1.1, >= 1.1.15)
+    yard-yaml (0.2.6)
+      version_gem (~> 1.1, >= 1.1.15)
+      yaml-converter (~> 0.2)
     zeitwerk (2.8.3)
     zlib (3.2.3)
 
@@ -677,12 +665,12 @@ DEPENDENCIES
   webrick (~> 1.9)
   yaml-converter (~> 0.2, >= 0.2.5)
   yard (~> 0.9, >= 0.9.45)
-  yard-fence!
+  yard-fence (~> 0.9, >= 0.9.8)
   yard-junk (~> 0.1, >= 0.1.0)
   yard-lint (~> 1.11, >= 1.11.0)
   yard-relative_markdown_links (~> 0.6)
-  yard-timekeeper!
-  yard-yaml!
+  yard-timekeeper (~> 0.2, >= 0.2.6)
+  yard-yaml (~> 0.2, >= 0.2.5)
 
 CHECKSUMS
   activemodel (8.1.4) sha256=9a0906c127bd118aa5f06157db12b8f750da83dccee72db2f658547a0ae7a0e8
@@ -886,12 +874,12 @@ CHECKSUMS
   yaml-converter (0.2.6) sha256=f270e8bcf19a20830056c77acf3bf942545e445455f20825af6a6884384611e9
   yaml-merge (7.1.9) sha256=fab35e05ea9905494ff754363ab8173c7528e6b4e0c364ecba11cb1cf974fe25
   yard (0.9.45) sha256=52e211493f7cb8a3ebf7e104a25a1e73937a3103092545d34cb88fafebb3dc51
-  yard-fence (0.9.9)
+  yard-fence (0.9.9) sha256=62c4d419e0da092a67b4d0f7115e54df44662bae6e705f3bcafb8f1cc33195b2
   yard-junk (0.1.0) sha256=e85fe2ec1afa47313decd333447b53458cb1ed49b510b70015fdc3041a94bcdd
   yard-lint (1.12.0) sha256=e9899cfb09e9cdc33bf300933981f87abea9bebd9a83d679209a5d4ce3b0a937
   yard-relative_markdown_links (0.6.0) sha256=3e5ffa85cbad9bac70bee5421774b190fb25d3bdf489323a5b3534f647d1a70e
-  yard-timekeeper (0.2.7)
-  yard-yaml (0.2.6)
+  yard-timekeeper (0.2.7) sha256=a97a8cf15cd97ad0121189b05084233fd859894446457269522cd7b551e9383e
+  yard-yaml (0.2.6) sha256=4d4ecb669655403766c1167e4bdaab0a3921a66f263f1fb0ace9d6ea4699cb1c
   zeitwerk (2.8.3) sha256=2c85125a8467ce069e20123d1e709a08955c9d29c118c25b46b7b7fafdbb92e5
   zlib (3.2.3) sha256=5bd316698b32f31a64ab910a8b6c282442ca1626a81bbd6a1674e8522e319c20
 
