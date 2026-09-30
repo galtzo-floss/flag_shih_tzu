@@ -46,6 +46,12 @@ local_gems = %w[rubocop-lts rubocop-lts-rspec rubocop-ruby2_4 standard-rubocop-l
 declared_gems = instance_variable_get(:@dependencies).to_a.map(&:name)
 local_gems_to_eval = local_gems - %w[] - declared_gems
 
+# The generated RuboCop config loads this plugin in both local and released
+# style modes, so the local bundle must provide it too.
+gem "rubocop-packaging",
+  github: "pboling/rubocop-packaging",
+  ref: "3539ba858d379740d638566faee9e56b2b854145"
+
 # export VENDORED_GEMS=rubocop-lts,rubocop-lts-rspec,rubocop-ruby2_4,standard-rubocop-lts
 platform :mri do
   eval_nomono_gems(
