@@ -15,20 +15,8 @@ source "https://gem.coop"
 
 gemspec
 
-# TruffleRuby ships older json default gems; keep the root bundle on those versions.
-if respond_to?(:generator_only)
-  generator_only do
-    eval_gemfile "gemfiles/modular/json/truffleruby_22_3.gemfile"
-    eval_gemfile "gemfiles/modular/json/truffleruby_23_0.gemfile"
-    eval_gemfile "gemfiles/modular/json/truffleruby_23_1.gemfile"
-  end
-else
-  eval_gemfile "gemfiles/modular/json/truffleruby_22_3.gemfile"
-  eval_gemfile "gemfiles/modular/json/truffleruby_23_0.gemfile"
-  eval_gemfile "gemfiles/modular/json/truffleruby_23_1.gemfile"
-end
-
-if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("3.2")
+# The style toolchain includes dependencies that require Ruby 3.3 or newer.
+if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("3.3")
   if respond_to?(:generator_only)
     generator_only do
       eval_gemfile "gemfiles/modular/style.gemfile"
