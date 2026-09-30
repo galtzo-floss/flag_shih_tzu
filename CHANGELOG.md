@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.7] - 2026-09-30
+
+- TAG: [v1.0.7][1.0.7t]
+- COVERAGE: 90.75% -- 412/454 lines in 3 files
+- BRANCH COVERAGE: 76.76% -- 142/185 branches in 3 files
+- 30.00% documented
+
+### Added
+
 - kettle-jem-template-20260913-001 - Templating now also surfaces a review
   entry in `dependency_conflicts.resolve` when a direct development
   dependency doesn't support one or more of this project's declared
@@ -38,14 +57,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - documentation (1)
   - other (2)
   - workflows (30)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [1.0.6] - 2026-09-11
 
@@ -505,7 +516,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 # Version 0.2.3 - last version maintained by XING AG
 
-[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.6...HEAD
+[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.7...HEAD
+[1.0.7]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.6...v1.0.7
+[1.0.7t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.7
 [1.0.6]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.5...v1.0.6
 [1.0.6t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.6
 [1.0.5]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.4...v1.0.5

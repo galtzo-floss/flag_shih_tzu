@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.6...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.7...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -84,6 +84,47 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="security">Security</h3>
 
+<h2 id="107---2026-09-30">
+<a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.6...v1.0.7">1.0.7</a> - 2026-09-30</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.7">v1.0.7</a>
+</li>
+  <li>COVERAGE: 90.75% – 412/454 lines in 3 files</li>
+  <li>BRANCH COVERAGE: 76.76% – 142/185 branches in 3 files</li>
+  <li>30.00% documented</li>
+</ul>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>kettle-jem-template-20260913-001 - Templating now also surfaces a review<br>
+entry in <code>dependency_conflicts.resolve</code> when a direct development<br>
+dependency doesn’t support one or more of this project’s declared<br>
+<code>engines:</code> and has no template-managed modular home (e.g. <code>sqlite3</code> on<br>
+<code>jruby</code>). Review each entry and pick a resolution per the project’s own<br>
+engine support needs.</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+  <li>[kc] kettle-jem/prepare: updated 14 project files:
+    <ul>
+      <li>dependencies (14)</li>
+    </ul>
+  </li>
+  <li>[kc] kettle-jem/template: updated 37 project files:
+    <ul>
+      <li>code and tests (2)</li>
+      <li>dependencies (2)</li>
+      <li>documentation (1)</li>
+      <li>other (2)</li>
+      <li>workflows (30)</li>
+    </ul>
+  </li>
+</ul>
+
 <h2 id="106---2026-09-11">
 <a href="https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.5...v1.0.6">1.0.6</a> - 2026-09-11</h2>
 
@@ -95,7 +136,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>30.00% documented</li>
 </ul>
 
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 
 <ul>
   <li>
@@ -154,7 +195,7 @@ preserving comments and trailing commas during template updates.</p>
   <li>30.00% documented</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <ul>
   <li>
@@ -176,7 +217,7 @@ tagged RubyForum community alongside Discord.</p>
   </li>
 </ul>
 
-<h3 id="changed-2">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 
 <ul>
   <li>kettle-jem-template-20260728-001 - Generated Ruby workflows now use clearer<br>
@@ -238,7 +279,7 @@ even when the gemspec is loaded from another working directory.</li>
   <li>27.78% documented</li>
 </ul>
 
-<h3 id="changed-3">Changed</h3>
+<h3 id="changed-4">Changed</h3>
 
 <ul>
   <li>kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer<br>
@@ -287,13 +328,13 @@ Gemfiles.</li>
   <li>27.78% documented</li>
 </ul>
 
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 
 <ul>
   <li>Added support for JRuby 10.1 and TruffleRuby 34.0.</li>
 </ul>
 
-<h3 id="changed-4">Changed</h3>
+<h3 id="changed-5">Changed</h3>
 
 <ul>
   <li>Retemplated project metadata and CI/development automation with <code>kettle-jem</code> v7.0.0.</li>
@@ -320,7 +361,7 @@ line and branch coverage from turbo_tests2 workers.</li>
   <li>27.78% documented</li>
 </ul>
 
-<h3 id="changed-5">Changed</h3>
+<h3 id="changed-6">Changed</h3>
 
 <ul>
   <li>Refreshed generated README/package metadata, copyright notices, template<br>
@@ -346,7 +387,7 @@ development dependency floors from the latest <code>kettle-jem</code> template.<
 <code>gems/flag_shih_tzu</code> path.</li>
 </ul>
 
-<h3 id="changed-6">Changed</h3>
+<h3 id="changed-7">Changed</h3>
 
 <ul>
   <li>Raised generated <code>version_gem</code> and <code>appraisal2</code> dependency floors to<br>
@@ -378,7 +419,7 @@ the RSpec suite.</li>
   <li>27.78% documented</li>
 </ul>
 
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 
 <ul>
   <li>Added <code>table_alias:</code> support to generated <code>not_&lt;flag&gt;_condition</code> SQL helper<br>
@@ -401,7 +442,7 @@ intentionally want generated flag methods to replace existing instance<br>
 methods.</li>
 </ul>
 
-<h3 id="changed-7">Changed</h3>
+<h3 id="changed-8">Changed</h3>
 
 <ul>
   <li>
