@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Declare SQLite support on MRI platforms, including Windows, so the Windows current-Ruby test bundle installs sqlite3.
+
 ### Security
 
 ## [1.0.7] - 2026-09-30
