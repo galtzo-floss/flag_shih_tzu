@@ -30,6 +30,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Declare SQLite support on MRI platforms, including Windows, so the Windows current-Ruby test bundle installs sqlite3.
 
+- Keep SQLite in TruffleRuby bundles because the shared spec helper requires it.
+
 ### Security
 
 ## [1.0.7] - 2026-09-30
