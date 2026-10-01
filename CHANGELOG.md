@@ -22,27 +22,15 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- [kc] kettle-jem/prepare: updated 5 project files:
-  - dependencies (5)
-
-- [kc] kettle-jem/template: updated 3 project files:
-  - code and tests (1)
-  - documentation (1)
-  - other (1)
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
-- Declare SQLite support on MRI platforms, including Windows, so the Windows current-Ruby test bundle installs sqlite3.
-
-- Keep SQLite in TruffleRuby bundles because the shared spec helper requires it.
-
 ### Security
 
-## [1.0.7] - 2026-09-30
+## [1.0.7] - 2026-10-01
 
 - TAG: [v1.0.7][1.0.7t]
 - COVERAGE: 90.75% -- 412/454 lines in 3 files
@@ -60,15 +48,20 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- [kc] kettle-jem/prepare: updated 14 project files:
-  - dependencies (14)
-
-- [kc] kettle-jem/template: updated 37 project files:
-  - code and tests (2)
+- [kc] kettle-jem/prepare: updated 19 project files:
+  - dependencies (19)
+- [kc] kettle-jem/template: updated 40 project files:
+  - code and tests (3)
   - dependencies (2)
-  - documentation (1)
-  - other (2)
+  - documentation (2)
+  - other (3)
   - workflows (30)
+
+### Fixed
+
+- Declare SQLite support on MRI platforms, including Windows, so the Windows current-Ruby test bundle installs sqlite3.
+
+- Keep SQLite in TruffleRuby bundles because the shared spec helper requires it.
 
 ## [1.0.6] - 2026-09-11
 
