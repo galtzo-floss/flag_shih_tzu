@@ -276,26 +276,49 @@ this with `BUNDLE_FROZEN=true`: frozen mode fails when Bundler needs that
 reconciliation.
 
 [📜src-gl]: https://gitlab.com/galtzo-floss/flag_shih_tzu
+
 [📜src-cb]: https://codeberg.org/galtzo-floss/flag_shih_tzu
+
 [📜src-gh]: https://github.com/galtzo-floss/flag_shih_tzu
+
 [🧪build]: https://github.com/galtzo-floss/flag_shih_tzu/actions
+
 [🤝conduct]: https://github.com/galtzo-floss/flag_shih_tzu/blob/main/CODE_OF_CONDUCT.md
+
 [🖐contrib-rocks]: https://contrib.rocks
+
 [🖐contributors]: https://github.com/galtzo-floss/flag_shih_tzu/graphs/contributors
+
 [🚎contributors-gl]: https://gitlab.com/galtzo-floss/flag_shih_tzu/-/graphs/main
+
 [🖐contributors-img]: https://contrib.rocks/image?repo=galtzo-floss/flag_shih_tzu
+
 [💎gem-coop]: https://gem.coop
+
 [🔒️rubygems-security-guide]: https://guides.rubygems.org/security/#building-gems
+
 [🔒️rubygems-checksums-pr]: https://github.com/rubygems/rubygems/pull/6022
+
 [🔒️rubygems-guides-pr]: https://github.com/rubygems/guides/pull/325
+
 [💎stone_checksums]: https://github.com/galtzo-floss/stone_checksums
+
 [📗keep-changelog]: https://keepachangelog.com/en/1.0.0/
+
 [📗keep-changelog-img]: https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat
+
 [📌semver-breaking]: https://github.com/semver/semver/issues/716#issuecomment-869336139
+
 [📌major-versions-not-sacred]: https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html
+
 [🚎appraisal2]: https://github.com/appraisal-rb/appraisal2
+
 [🏃‍♂️runner-tool-cache]: https://github.com/ruby/ruby-builder/releases/tag/toolcache
+
 [✉️discord-invite]: https://discord.gg/3qme4XHNKN
+
 [✉️discord-invite-img]: https://img.shields.io/discord/1373797679469170758?style=flat&logo=discord
+
 [✉️ruby-forum]: https://www.rubyforum.org/tag/flag-shih-tzu
+
 [✉️ruby-forum-img]: https://img.shields.io/discourse/topics?server=https%3A%2F%2Fwww.rubyforum.org&style=flat&logo=discourse&label=Ruby%20Users%20Forum

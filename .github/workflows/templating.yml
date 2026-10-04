@@ -82,5 +82,18 @@ jobs:
         if: ${{ steps.bundleAppraisalAttempt1.outcome == 'failure' }}
         run: bundle exec appraisal ${{ matrix.appraisal }} install
 
+      - name: Cache tree-sitter-language-pack grammars
+        if: "${{!env.ACT}}"
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          # TSLP hot-loads grammars on demand into a versioned cache dir.
+          # Caching it keeps the self-test off the network in the common case;
+          # a miss falls back to the in-run prefetch (kettle-jem tslp_prefetch
+          # phase) with retries and attributable diagnostics.
+          path: ~/.cache/tree-sitter-language-pack
+          key: tslp-grammars-${{runner.os}}-${{hashFiles('gemfiles/templating.gemfile.lock','Gemfile.lock')}}
+          restore-keys: |
+            tslp-grammars-${{runner.os}}-
+
       - name: Templating self-test for ${{ matrix.ruby }} via ${{ matrix.exec_cmd }}
         run: bundle exec appraisal ${{ matrix.appraisal }} bundle exec ${{ matrix.exec_cmd }}
