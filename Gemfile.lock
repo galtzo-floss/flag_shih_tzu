@@ -201,11 +201,11 @@ GEM
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-family (1.3.4)
+    kettle-family (1.3.5)
       command_kit (~> 0.6)
       command_kit-completion (~> 0.1)
       kettle-changelog (~> 1.0, >= 1.0.8)
-      kettle-dev (~> 3.1, >= 3.1.5)
+      kettle-dev (~> 3.1, >= 3.1.7)
       kettle-gha-pins (~> 0.3, >= 0.3.16)
       kettle-jem (~> 7.1, >= 7.1.28)
       kettle-test (~> 2.0, >= 2.0.23)
@@ -731,7 +731,7 @@ CHECKSUMS
   json-merge (7.1.10)
   kettle-changelog (1.0.8) sha256=08ded13e84276e58cd6375c1750ee6dab45fd2f67c0f0fed623a7267ddb9e300
   kettle-dev (3.1.7) sha256=23e4b9d678d307a1ad314122b028087430811da0c3ee99131849ff6aa6795c87
-  kettle-family (1.3.4) sha256=182fef2b3eb83f30b6ddee6bf5561e8210f5160b815faef55012244b2c09ee7b
+  kettle-family (1.3.5) sha256=792328eae94386c84873cf04ba6e22a3b8285b2b2c30299fb45994a9bdfce472
   kettle-gha-pins (0.3.16) sha256=4ee906232dae309e8dbd1fca8e993bbfdad20f24892fc73776c9960081bbbbdb
   kettle-jem (7.1.29)
   kettle-ndjson (0.1.18) sha256=0608518194739eafee1d2e84871a3f9759350ced5ed7aaaa1a81c72e7d17468c
