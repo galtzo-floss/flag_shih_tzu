@@ -201,6 +201,8 @@ GEM
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
       version_gem (~> 1.1, >= 1.1.15)
+    kettle-drift (1.0.16)
+      version_gem (~> 1.1, >= 1.1.15)
     kettle-family (1.3.10)
       command_kit (~> 0.6)
       command_kit-completion (~> 0.1)
@@ -286,6 +288,7 @@ GEM
       markdown-merge (= 7.1.10)
       markly (~> 0.9)
       version_gem (~> 1.1, >= 1.1.15)
+    mini_portile2 (2.8.9)
     minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
@@ -294,6 +297,9 @@ GEM
       docopt_ng (~> 0.7.1)
       reline (~> 0.6)
     mutex_m (0.3.0)
+    nokogiri (1.19.4)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.19.4-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.19.4-aarch64-linux-musl)
@@ -343,6 +349,9 @@ GEM
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.4.2)
+    rake-compiler-dock (1.12.0)
+    rb_sys (0.9.130)
+      rake-compiler-dock (= 1.12.0)
     rbs (4.2.0)
       logger
       prism (>= 1.6.0)
@@ -501,6 +510,8 @@ GEM
     simplecov_lcov_formatter (0.9.0)
       simplecov (>= 0.18)
     sorbet-runtime (0.6.13550)
+    sqlite3 (2.9.6)
+      mini_portile2 (~> 2.8.0)
     sqlite3 (2.9.6-aarch64-linux-gnu)
     sqlite3 (2.9.6-aarch64-linux-musl)
     sqlite3 (2.9.6-arm64-darwin)
@@ -560,6 +571,9 @@ GEM
       parslet (~> 2.0)
       tree_sitter_language_pack (>= 1.17.0, < 2.0)
       version_gem (~> 1.1, >= 1.1.15)
+    tree_sitter_language_pack (1.21.1)
+      rb_sys (>= 0.9.130, < 0.10)
+      sorbet-runtime (~> 0.5)
     tree_sitter_language_pack (1.21.1-aarch64-linux)
       sorbet-runtime (~> 0.5)
     tree_sitter_language_pack (1.21.1-arm64-darwin)
@@ -635,15 +649,17 @@ DEPENDENCIES
   gem_bench (~> 2.0, >= 2.0.5)
   gitmoji-regex (~> 2.0, >= 2.0.15)
   irb (~> 1.17)
-  kettle-changelog (~> 1.0, >= 1.0.8)
-  kettle-dev (~> 3.1, >= 3.1.6)
-  kettle-family (~> 1.3, >= 1.3.4)
-  kettle-soup-cover (~> 3.0, >= 3.0.11)
-  kettle-test (~> 2.0, >= 2.0.23)
+  kettle-changelog (~> 1.0, >= 1.0.9)
+  kettle-dev (~> 3.1, >= 3.1.11)
+  kettle-drift (~> 1.0, >= 1.0.16)
+  kettle-family (~> 1.3, >= 1.3.10)
+  kettle-jem (~> 7.1, >= 7.1.29)
+  kettle-soup-cover (~> 3.0, >= 3.0.12)
+  kettle-test (~> 2.0, >= 2.0.24)
   kramdown (~> 2.5, >= 2.5.2)
   kramdown-parser-gfm (~> 1.1)
   mutex_m (~> 0.2)
-  nomono (~> 1.1, >= 1.1.6)
+  nomono (~> 1.1, >= 1.1.7)
   ostruct (~> 0.6)
   rake (~> 13.0)
   rbs (>= 3.0)
@@ -658,10 +674,11 @@ DEPENDENCIES
   rubocop-ruby2_4 (~> 3.0, >= 3.0.7)
   ruby-progressbar (~> 1.13)
   sqlite3 (>= 2.1)
-  standard (~> 1.56, >= 1.56.0)
+  standard (~> 1.57, >= 1.57.0)
   stone_checksums (~> 1.0, >= 1.0.9)
   stringio (>= 3.0)
-  turbo_tests2 (~> 3.2, >= 3.2.13)
+  tree_sitter_language_pack (~> 1.16, >= 1.16.2)
+  turbo_tests2 (~> 3.2, >= 3.2.14)
   webrick (~> 1.9)
   yaml-converter (~> 0.2, >= 0.2.7)
   yard (~> 0.9, >= 0.9.45)
@@ -691,6 +708,7 @@ CHECKSUMS
   bash-merge (7.1.10) sha256=57863745519f027dd57ddb422678c90dc8d53cdd057a8b15cdf47867a494902c
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
   bigdecimal (4.1.3) sha256=61ebe1e5e559bdc3cc6f2c0ee7f427321fc838f59611c294356eb04d6e21cf66
+  bundler (4.1.0.beta2)
   bundler-audit (0.9.3) sha256=81c8766c71e47d0d28a0f98c7eed028539f21a6ea3cd8f685eb6f42333c9b4e9
   cgi (0.5.2) sha256=61ca30298171190fd4fa0d8018e57ada456eae9b7a2b78526debf7f0a0e6f8bb
   citrus (3.0.2) sha256=4ec2412fc389ad186735f4baee1460f7900a8e130ffe3f216b30d4f9c684f650
@@ -731,6 +749,7 @@ CHECKSUMS
   json-merge (7.1.10) sha256=f90ec2df9512ed67cd4b3d27af773f8126a0bb30f0838a87a3d401a397061a75
   kettle-changelog (1.0.9) sha256=4d3466e190909ce1581a53fd8e30c66aa1b9d1cae19066c4dde6fef053ef29e4
   kettle-dev (3.1.11) sha256=f693eb9596762ac1e43312a78a9835af63b220c7c5352e9481a14784651eb610
+  kettle-drift (1.0.16)
   kettle-family (1.3.10) sha256=c320a64688660411e10d31cadc37d3e36031cb798faa7048671b2f53429708a3
   kettle-gha-pins (0.3.17) sha256=19cb7ec00459c72143430eb86969a077f701d0a1980f50f8ffcd6d01965da65f
   kettle-jem (7.1.29) sha256=7a4b4d08fd4341719aa2ce1e83c17df42b466d6d7d3615a5857ac8e73825e148
@@ -747,9 +766,11 @@ CHECKSUMS
   markdown-merge (7.1.10) sha256=24df8bb1bdccc8d08db31e2f42f27ba553c5f7bdc30582374ab330105660f8d2
   markly (0.19.0) sha256=cd2c0e86eaf3660ed2a3a94104877f8bd41adda78e7c295c017d03de0d4044ca
   markly-merge (7.1.10) sha256=1a719463d5c53446f555b6dd3f478a0f28f73486757c5ca8b9cd67149fa29709
+  mini_portile2 (2.8.9)
   minitest (6.0.6) sha256=153ea36d1d987a62942382b61075745042a2b3123b1cd48f4c3675af9cc7d6f1
   mister_bin (0.9.0) sha256=624fe401db4faf1978e84c17e0b320827697a13a6cba4fe656001269079be7d3
   mutex_m (0.3.0) sha256=cfcb04ac16b69c4813777022fdceda24e9f798e48092a2b817eb4c0a782b0751
+  nokogiri (1.19.4)
   nokogiri (1.19.4-aarch64-linux-gnu) sha256=1269fb644a6de405057a53dd5c762b1209b43ca7424f839454d3dbc677c31a8f
   nokogiri (1.19.4-aarch64-linux-musl) sha256=35c65b9ce72b3bb03207bdbe7067915019dc18c1b9b59139684bd6690fdd01af
   nokogiri (1.19.4-arm64-darwin) sha256=a46db9853286e6597b36ebc6953817d15acf3a299583eb3f89fdc6f91dd63527
@@ -774,6 +795,8 @@ CHECKSUMS
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.4.2) sha256=cb825b2bd5f1f8e91ca37bddb4b9aaf345551b4731da62949be002fa89283701
+  rake-compiler-dock (1.12.0)
+  rb_sys (0.9.130)
   rbs (4.2.0) sha256=51f7b886dcc05bc09e10b901daa6a81829f6adc03101d6ca9ea4aac6103e0674
   rbs-merge (7.1.10) sha256=ff74448d43dc1e999360ae9224b065592e261fab82bbc8fab254aa5eee69c853
   rdoc (7.2.0) sha256=8650f76cd4009c3b54955eb5d7e3a075c60a57276766ebf36f9085e8c9f23192
@@ -824,6 +847,7 @@ CHECKSUMS
   simplecov-rcov (0.3.7) sha256=372f50bf6df6b6350b7d0c840f2f8bdabe021861a43c26877b747c9ac96139fc
   simplecov_lcov_formatter (0.9.0) sha256=4c1839bb31dcf7a8f7a6474c94ed228aa03b994e9dd5e1965e58b4121b049bed
   sorbet-runtime (0.6.13550) sha256=2e1e14d9259063c2020d05652184b831b6a42b2e9d15109954358699e5c25cea
+  sqlite3 (2.9.6)
   sqlite3 (2.9.6-aarch64-linux-gnu) sha256=d8b1f7d23efd7abac285775a9566562fc7debfef79d594e3a20354406fb7907c
   sqlite3 (2.9.6-aarch64-linux-musl) sha256=3579e1c98cdc7ff5c3722847bb63ed4e1efb7ff675cb5e1e48ef2d4da5fb3bc9
   sqlite3 (2.9.6-arm64-darwin) sha256=849b5d7f795e60fe25076d62c72dd722beb45b3850b516ad978d60ee848ec15b
@@ -848,6 +872,7 @@ CHECKSUMS
   toml-merge (7.1.10) sha256=f30c47b8b7ed11fdc8a1376c3f391c709efd09638cabfc89a7e80eaa08cc2611
   toml-rb (4.2.2) sha256=b41cf36117bafab84c72017697ab49fe49a065e2bcfa6dffb704389fb7b0a60a
   tree_haver (7.1.10) sha256=47f2121d709fce1df3952b4e03a60b43a5812a08d24f0d5a02ea67f95b2e69ed
+  tree_sitter_language_pack (1.21.1)
   tree_sitter_language_pack (1.21.1-aarch64-linux) sha256=f94549dbb9682a953f60b38e0c5ab6bff51462ca9e8bc88e0b6c5a283000a36c
   tree_sitter_language_pack (1.21.1-arm64-darwin) sha256=4c2ac3442304707ecb14dcccf2c80c4eb5f5c9c4e242792f89e1e3e034375c75
   tree_sitter_language_pack (1.21.1-x86_64-darwin) sha256=e4daca8206d8baa0b2388d33e8f3309756c07474e30dc749b997940a45d8af74
@@ -874,4 +899,4 @@ CHECKSUMS
   zeitwerk (2.8.3) sha256=2c85125a8467ce069e20123d1e709a08955c9d29c118c25b46b7b7fafdbb92e5
 
 BUNDLED WITH
-  4.0.20
+  4.1.0.beta2

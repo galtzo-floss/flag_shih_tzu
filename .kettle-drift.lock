@@ -3,8 +3,17 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        209,
-        224
+        222,
+        237
+      ]
+    }
+  ],
+  "- ruby: \"ruby\"\nappraisal: \"current\"": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        40,
+        46
       ]
     }
   ],
@@ -12,8 +21,17 @@
     {
       "file": "README.md",
       "lines": [
-        236,
-        240
+        253,
+        257
+      ]
+    }
+  ],
+  "config: .licenserc.yaml\nmode: \"check\"": [
+    {
+      "file": ".github/workflows/license-eye.yml",
+      "lines": [
+        49,
+        62
       ]
     }
   ],
