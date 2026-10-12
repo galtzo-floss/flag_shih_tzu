@@ -5,6 +5,9 @@ permissions:
 
 env:
   K_SOUP_COV_DO: false
+  # TruffleRuby intermittently stalls the parallel test worker pool; keep
+  # this lane serial while maintained runtimes exercise the parallel runner.
+  TURBO_TESTS2_MAX_PROCESSES: 1
 
 on:
   push:
@@ -30,6 +33,7 @@ jobs:
     if: "(github.event_name != 'push' || (!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]'))) && (github.event_name != 'pull_request' || startsWith(github.head_ref, 'engines/') || startsWith(github.head_ref, 'truffleruby/') || startsWith(github.head_ref, 'feature/release') || startsWith(github.event.pull_request.title, 'Release '))"
     name: Specs ${{ matrix.ruby }}@${{ matrix.appraisal }}
     runs-on: ubuntu-22.04
+    timeout-minutes: 30
     continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
     env: # $BUNDLE_GEMFILE must be set at job level, so it is set for all steps
       BUNDLE_GEMFILE: ${{ github.workspace }}/Appraisal.root.gemfile
