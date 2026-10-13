@@ -183,7 +183,7 @@ GEM
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (3.0.2)
+    json (3.1.0)
     json-merge (7.1.10)
       ast-merge (= 7.1.10)
       tree_haver (= 7.1.10)
@@ -258,13 +258,13 @@ GEM
       simplecov-rcov (~> 0.3, >= 0.3.7)
       simplecov_lcov_formatter (~> 0.9, >= 0.9.0)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-test (2.0.24)
+    kettle-test (2.0.25)
       appraisal2 (~> 3.0, >= 3.0.6)
       backports (~> 3.0)
       rspec (~> 3.0)
       rspec-block_is_expected (~> 1.0, >= 1.0.6)
       rspec-pending_for (~> 0.1, >= 0.1.20)
-      rspec-stubbed_env (~> 1.0, >= 1.0.6)
+      rspec-stubbed_env (~> 1.0, >= 1.0.17)
       rspec_junit_formatter (~> 0.6)
       silent_stream (~> 1.0, >= 1.0.12)
       timecop-rspec (~> 1.0, >= 1.0.3)
@@ -387,7 +387,7 @@ GEM
       rspec-core (~> 3.0)
       ruby_engine (~> 2.0)
       ruby_version (~> 1.0)
-    rspec-stubbed_env (1.0.16)
+    rspec-stubbed_env (1.0.17)
     rspec-support (3.13.7)
     rspec_junit_formatter (0.6.0)
       rspec-core (>= 2, < 4, != 2.12.0)
@@ -502,7 +502,7 @@ GEM
       simplecov (>= 0.4.1)
     simplecov_lcov_formatter (0.9.0)
       simplecov (>= 0.18)
-    sorbet-runtime (0.6.13550)
+    sorbet-runtime (0.6.13554)
     sqlite3 (2.9.6-aarch64-linux-gnu)
     sqlite3 (2.9.6-aarch64-linux-musl)
     sqlite3 (2.9.6-arm64-darwin)
@@ -733,7 +733,7 @@ CHECKSUMS
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
   io-console (0.9.4) sha256=a403304f32928ee85e56d457b4612ca43f2703b561a3258844992bd24085fbb1
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
-  json (3.0.2) sha256=8e6d7e7b11384c21230430cef90b71f14849a34a1f4452796670f7c981bd19df
+  json (3.1.0) sha256=3ce7ccf8fde58960177a3a756c31f292a4c1e1dedee884547096a5b0604e3bd8
   json-merge (7.1.10) sha256=f90ec2df9512ed67cd4b3d27af773f8126a0bb30f0838a87a3d401a397061a75
   kettle-changelog (1.0.9) sha256=4d3466e190909ce1581a53fd8e30c66aa1b9d1cae19066c4dde6fef053ef29e4
   kettle-dev (3.1.12) sha256=ba68e984ffa3e6e21630076451f162c7cd28b46bf27873a8a7ad95bb904079d3
@@ -744,7 +744,7 @@ CHECKSUMS
   kettle-ndjson (0.1.19) sha256=ec9bf7c6559dc527331589f324a91c15e85345c820c1aeb02bd585dae86f08b1
   kettle-rb (0.1.17) sha256=70e23641ad50453c95b1d7215281754bb3bf55114dc535ce94d3a198879c7b7f
   kettle-soup-cover (3.0.12) sha256=bce9a259d67a0d12a9d61d1195d0ee4137aa0c1887935e0982d98ac7ab3f4949
-  kettle-test (2.0.24) sha256=90de5fff9d8c92ebade0bece7b1b5602e6325873c1a98ae4f5880c6aed95556c
+  kettle-test (2.0.25) sha256=08f4c461bed95ba7f4a2f95f9cd7f5b5b7585f812345f740db174ea4bd340661
   kettle-wash (0.1.10) sha256=f0ad247a2b90bb0e7f7d1b45e47b266d4c20af611954aad49756b1b949015ffd
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
@@ -795,7 +795,7 @@ CHECKSUMS
   rspec-expectations (3.13.5) sha256=33a4d3a1d95060aea4c94e9f237030a8f9eae5615e9bd85718fe3a09e4b58836
   rspec-mocks (3.13.8) sha256=086ad3d3d17533f4237643de0b5c42f04b66348c28bf6b9c2d3f4a3b01af1d47
   rspec-pending_for (0.1.28) sha256=c499acef2b528398ee7441d48930d536e6bf4301d7f8e2b9ac78e204fea9eef3
-  rspec-stubbed_env (1.0.16) sha256=7ea81332e37f637c3b6289b1c7afc8e6ea0a1c3e3ab36ff2c9611b0416367d52
+  rspec-stubbed_env (1.0.17) sha256=6e31613aa6b742b08de461b9f08147c0ffa6ad9c013181e31e784df731d0dc52
   rspec-support (3.13.7) sha256=0640e5570872aafefd79867901deeeeb40b0c9875a36b983d85f54fb7381c47c
   rspec_junit_formatter (0.6.0) sha256=40dde674e6ae4e6cc0ff560da25497677e34fefd2338cc467a8972f602b62b15
   rubocop (1.91.0) sha256=9c82b7bf391c5d7e3798c5b9996e22a1fe3bd7468e351dfdeb96140c058296d0
@@ -830,7 +830,7 @@ CHECKSUMS
   simplecov-console (0.9.5) sha256=b1108bcfff5f210143e2b8301698c367b01586f20d25a73e95475a5df6fc6ff6
   simplecov-rcov (0.3.7) sha256=372f50bf6df6b6350b7d0c840f2f8bdabe021861a43c26877b747c9ac96139fc
   simplecov_lcov_formatter (0.9.0) sha256=4c1839bb31dcf7a8f7a6474c94ed228aa03b994e9dd5e1965e58b4121b049bed
-  sorbet-runtime (0.6.13550) sha256=2e1e14d9259063c2020d05652184b831b6a42b2e9d15109954358699e5c25cea
+  sorbet-runtime (0.6.13554) sha256=9333b02ed12e06a42006dfbfd9bda950a5fdbaa06af1687196b0b4384e99990e
   sqlite3 (2.9.6-aarch64-linux-gnu) sha256=d8b1f7d23efd7abac285775a9566562fc7debfef79d594e3a20354406fb7907c
   sqlite3 (2.9.6-aarch64-linux-musl) sha256=3579e1c98cdc7ff5c3722847bb63ed4e1efb7ff675cb5e1e48ef2d4da5fb3bc9
   sqlite3 (2.9.6-arm64-darwin) sha256=849b5d7f795e60fe25076d62c72dd722beb45b3850b516ad978d60ee848ec15b
