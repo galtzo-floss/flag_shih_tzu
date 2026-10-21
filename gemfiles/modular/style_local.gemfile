@@ -42,9 +42,48 @@ else
   require "nomono/bundler"
 end
 
+local_gem_requirements = {
+  "rubocop-lts" => ["~> 12.3", ">= 12.3.3"],
+  "rubocop-lts-rspec" => ["~> 1.0", ">= 1.0.7"],
+  "rubocop-ruby2_4" => ["~> 3.0", ">= 3.0.7"],
+  "standard-rubocop-lts" => ["~> 2.0", ">= 2.0.14"]
+}
+
 local_gems = %w[rubocop-lts rubocop-lts-rspec rubocop-ruby2_4 standard-rubocop-lts]
 declared_gems = instance_variable_get(:@dependencies).to_a.map(&:name)
-local_gems_to_eval = local_gems - %w[] - declared_gems
+
+# Filter local_gems: only include gems whose local checkout version satisfies
+# the declared requirement. Unsatisfied gems fall back to the registry.
+def local_gem_satisfies?(gem_name, requirements, dev_root)
+  return false unless dev_root && File.directory?(dev_root)
+
+  # Resolve the actual gem name (handle token substitution)
+  actual_name = gem_name.dup
+  actual_name = ENV["RUBOCOP_RUBY_GEM"] if gem_name == "rubocop-ruby2_4"
+  return false if actual_name.nil? || actual_name.empty?
+
+  # Find the gemspec
+  gemspec_path = Dir.glob(File.join(dev_root, actual_name, "*.gemspec")).first
+  return false unless gemspec_path && File.file?(gemspec_path)
+
+  # Parse version from gemspec
+  spec = Gem::Specification.load(gemspec_path)
+  return false unless spec && spec.version
+
+  # Check if version satisfies all requirements
+  requirements.all? do |req|
+    Gem::Requirement.new(req).satisfied_by?(spec.version)
+  end
+rescue => e
+  warn "Warning: could not check local version for #{gem_name}: #{e.message}"
+  false
+end
+
+dev_root = ENV["RUBOCOP_LTS_DEV"]
+local_gems_to_eval = local_gems.select do |gem|
+  reqs = local_gem_requirements[gem]
+  reqs && local_gem_satisfies?(gem, reqs, dev_root)
+end - %w[] - declared_gems
 
 # The generated RuboCop config loads this plugin in both local and released
 # style modes, so the local bundle must provide it too.
@@ -56,6 +95,7 @@ gem "rubocop-packaging",
 platform :mri do
   eval_nomono_gems(
     gems: local_gems_to_eval,
+    requirements: local_gem_requirements,
     prefix: "RUBOCOP_LTS",
     path_env: "RUBOCOP_LTS_DEV",
     vendored_gems_env: "VENDORED_GEMS",

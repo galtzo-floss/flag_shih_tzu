@@ -4,6 +4,8 @@ permissions:
   contents: read
 
 env:
+  # Kill stalled test workers instead of hanging until the CI job timeout.
+  TURBO_TESTS2_WATCHDOG_SECONDS: 900
   K_SOUP_COV_DO: false
 
 on:
@@ -30,6 +32,7 @@ jobs:
     if: "github.event_name != 'push' || (!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]'))"
     name: Specs ${{ matrix.ruby }}@${{ matrix.appraisal }}${{ matrix.name_extra || '' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
     env: # $BUNDLE_GEMFILE must be set at job level, so it is set for all steps
       BUNDLE_GEMFILE: ${{ github.workspace }}/Appraisal.root.gemfile
@@ -73,9 +76,12 @@ jobs:
       # Effectively an automatic retry of the previous step.
       - name: "[Attempt 2] Appraisal for ${{ matrix.ruby }}@${{ matrix.appraisal }}"
         id: bundleAppraisalAttempt2
-        # If bundleAppraisalAttempt1 failed, try again here; Otherwise skip.
+        # If bundleAppraisalAttempt1 failed, clean lock/vendor and retry; Otherwise skip.
         if: ${{ !env.ACT && steps.bundleAppraisalAttempt1.outcome == 'failure' }}
-        run: bundle exec appraisal ${{ matrix.appraisal }} install
+        run: |
+          rm -f gemfiles/${{ matrix.appraisal }}.gemfile.lock
+          rm -rf vendor/bundle "$HOME/.bundle/cache"
+          bundle exec appraisal ${{ matrix.appraisal }} install
 
       - name: Restore RSpec status log
         if: "${{!env.ACT}}"
@@ -134,8 +140,12 @@ jobs:
 
       - name: "[Attempt 2] Appraisal for ${{ matrix.ruby }}@${{ matrix.appraisal }}"
         id: bundleAppraisalAttempt2
+        # If bundleAppraisalAttempt1 failed, clean lock/vendor and retry; Otherwise skip.
         if: ${{ !env.ACT && steps.bundleAppraisalAttempt1.outcome == 'failure' }}
-        run: bundle exec appraisal ${{ matrix.appraisal }} install
+        run: |
+          rm -f gemfiles/${{ matrix.appraisal }}.gemfile.lock
+          rm -rf vendor/bundle "$HOME/.bundle/cache"
+          bundle exec appraisal ${{ matrix.appraisal }} install
 
       - name: Restore RSpec status log
         if: "${{!env.ACT}}"

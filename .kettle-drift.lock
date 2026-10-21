@@ -12,8 +12,8 @@
     {
       "file": ".github/workflows/current.yml",
       "lines": [
-        40,
-        46
+        41,
+        47
       ]
     }
   ],
@@ -39,8 +39,8 @@
     {
       "file": ".github/workflows/current.yml",
       "lines": [
-        43,
-        49
+        44,
+        50
       ]
     }
   ]

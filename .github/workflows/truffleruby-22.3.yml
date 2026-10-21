@@ -5,9 +5,13 @@ permissions:
 
 env:
   K_SOUP_COV_DO: false
-  # TruffleRuby intermittently stalls the parallel test worker pool; keep
-  # this lane serial while maintained runtimes exercise the parallel runner.
-  TURBO_TESTS2_MAX_PROCESSES: 1
+  # Cap worker concurrency to bound memory use on this JVM runtime.
+  # Previous worker failures were caused by memory exhaustion, not parallelism;
+  # retain two workers rather than disabling parallel execution.
+  TURBO_TESTS2_MAX_PROCESSES: 2
+  # Allow longer silent test windows before the worker watchdog fires.
+  # TruffleRuby can need more time than the default 900s threshold.
+  TURBO_TESTS2_WATCHDOG_SECONDS: 1500
 
 on:
   push:
@@ -79,7 +83,10 @@ jobs:
         id: bundleAppraisalAttempt2
         # If bundleAppraisalAttempt1 failed, try again here; Otherwise skip.
         if: ${{ steps.bundleAppraisalAttempt1.outcome == 'failure' && !env.ACT }}
-        run: bundle exec appraisal ${{ matrix.appraisal }} install
+        run: |
+          rm -f gemfiles/${{ matrix.appraisal }}.gemfile.lock
+          rm -rf vendor/bundle "$HOME/.bundle/cache"
+          bundle exec appraisal ${{ matrix.appraisal }} install
 
       - name: Restore RSpec status log
         if: "${{!env.ACT}}"
