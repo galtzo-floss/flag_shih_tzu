@@ -19,7 +19,7 @@ PATH
     turbo_tests2 (4.0.1)
       rspec (>= 3.10)
       runtime_groups (~> 0.1, >= 0.1.3)
-      version_gem (~> 1.1, >= 1.1.15)
+      version_gem (~> 1.1, >= 1.1.17)
 
 PATH
   remote: /var/home/pboling/src/my/galtzo-floss/yard-fence
@@ -39,7 +39,7 @@ PATH
   remote: /var/home/pboling/src/my/galtzo-floss/yard-yaml
   specs:
     yard-yaml (0.2.7)
-      version_gem (~> 1.1, >= 1.1.15)
+      version_gem (~> 1.1, >= 1.1.17)
       yaml-converter (~> 0.2)
 
 PATH
@@ -161,6 +161,14 @@ PATH
       version_gem (~> 1.1, >= 1.1.17)
 
 PATH
+  remote: /var/home/pboling/src/my/structuredmerge/ruby/gems/ast-crispr-yaml-psych
+  specs:
+    ast-crispr-yaml-psych (7.1.19)
+      ast-crispr (= 7.1.19)
+      psych-merge (= 7.1.19)
+      version_gem (~> 1.1, >= 1.1.17)
+
+PATH
   remote: /var/home/pboling/src/my/structuredmerge/ruby/gems/ast-crispr
   specs:
     ast-crispr (7.1.19)
@@ -216,6 +224,21 @@ PATH
       ast-merge (= 7.1.19)
       toml-merge (= 7.1.19)
       toml-rb (~> 4.1)
+      version_gem (~> 1.1, >= 1.1.17)
+
+PATH
+  remote: /var/home/pboling/src/my/structuredmerge/ruby/gems/commonmarker-merge
+  specs:
+    commonmarker-merge (7.1.19)
+      commonmarker (~> 2.2)
+      markdown-merge (= 7.1.19)
+      version_gem (~> 1.1, >= 1.1.17)
+
+PATH
+  remote: /var/home/pboling/src/my/structuredmerge/ruby/gems/config-merge
+  specs:
+    config-merge (7.1.19)
+      ast-merge (= 7.1.19)
       version_gem (~> 1.1, >= 1.1.17)
 
 PATH
@@ -285,6 +308,14 @@ PATH
       tree_haver (~> 7.1, >= 7.1.8)
       version_gem (~> 1.1, >= 1.1.17)
       yaml-merge (~> 7.1, >= 7.1.8)
+
+PATH
+  remote: /var/home/pboling/src/my/structuredmerge/ruby/gems/kramdown-merge
+  specs:
+    kramdown-merge (7.1.19)
+      kramdown (~> 2.5)
+      markdown-merge (= 7.1.19)
+      version_gem (~> 1.1, >= 1.1.17)
 
 PATH
   remote: /var/home/pboling/src/my/structuredmerge/ruby/gems/markdown-merge
@@ -486,6 +517,12 @@ GEM
     command_kit-completion (0.3.0)
       command_kit (~> 0.1)
       completely (~> 0.6)
+    commonmarker (2.10.1-aarch64-linux)
+    commonmarker (2.10.1-aarch64-linux-musl)
+    commonmarker (2.10.1-arm64-darwin)
+    commonmarker (2.10.1-x86_64-darwin)
+    commonmarker (2.10.1-x86_64-linux)
+    commonmarker (2.10.1-x86_64-linux-musl)
     completely (0.8.0)
       colsole (~> 1.0.0)
       erb
@@ -876,6 +913,7 @@ DEPENDENCIES
   ast-crispr-markdown-markly!
   ast-crispr-ruby-prism!
   ast-crispr-toml!
+  ast-crispr-yaml-psych!
   ast-merge!
   ast-merge-git!
   ast-template!
@@ -886,6 +924,8 @@ DEPENDENCIES
   bundler-audit (~> 0.9.3)
   cgi (~> 0.5)
   citrus-toml-merge!
+  commonmarker-merge!
+  config-merge!
   debug (>= 1.11.1)
   dotenv-merge!
   erb (~> 6.0, >= 6.0.7)
@@ -906,6 +946,7 @@ DEPENDENCIES
   kettle-soup-cover!
   kettle-test (~> 2.0, >= 2.0.29)!
   kramdown (~> 2.5, >= 2.5.2)
+  kramdown-merge!
   kramdown-parser-gfm (~> 1.1)
   markdown-merge!
   markly-merge!
@@ -967,6 +1008,7 @@ CHECKSUMS
   ast-crispr-markdown-markly (7.1.19)
   ast-crispr-ruby-prism (7.1.19)
   ast-crispr-toml (7.1.19)
+  ast-crispr-yaml-psych (7.1.19)
   ast-merge (7.1.19)
   ast-merge-git (7.1.19)
   ast-template (7.1.19)
@@ -985,8 +1027,16 @@ CHECKSUMS
   colsole (1.0.1) sha256=7632a300ace2db877c024ffe413c684954cf37e41264b75ace9f456c9d657b02
   command_kit (0.6.0) sha256=e57f29cf5aee4f571c210041d910ff87f85749e42dfe75139c57cc93d84afa90
   command_kit-completion (0.3.0) sha256=d9c498555125bcdd0c9d869f2a64a25a2f0205102a7f28c81c7937ae633ea737
+  commonmarker (2.10.1-aarch64-linux)
+  commonmarker (2.10.1-aarch64-linux-musl)
+  commonmarker (2.10.1-arm64-darwin)
+  commonmarker (2.10.1-x86_64-darwin)
+  commonmarker (2.10.1-x86_64-linux)
+  commonmarker (2.10.1-x86_64-linux-musl)
+  commonmarker-merge (7.1.19)
   completely (0.8.0) sha256=e493cd5d84805f47917a41f277ecbfe5f35363bed670be5a957d3acaed8c6c5e
   concurrent-ruby (1.3.8) sha256=b2f1be836e968ccc78ccfce277ea79c72a88633f22306782c16ff23fb415d1e1
+  config-merge (7.1.19)
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
   date (3.6.0) sha256=18ac945c4e24ebd93534f8eab8c2fd8c5604b3e977105b3798d62a1e8d27b580
   debug (1.11.1) sha256=2e0b0ac6119f2207a6f8ac7d4a73ca8eb4e440f64da0a3136c30343146e952b6
@@ -1030,6 +1080,7 @@ CHECKSUMS
   kettle-test (2.0.29)
   kettle-wash (0.1.14) sha256=b3ae515c1068f3eb4e41cdaf00a9c94defaf0584980be415871d8619b37fcafc
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
+  kramdown-merge (7.1.19)
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
   language_server-protocol (3.17.0.6) sha256=5ef2c0c138f8267e1bc631d3328347d354f96724b0af22f2c79516120443b7f0
   lint_roller (1.1.0) sha256=2c0c845b632a7d172cb849cc90c1bce937a28c5c8ccccb50dfd46a485003cc87

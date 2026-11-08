@@ -45,34 +45,38 @@ local_gem_requirements = {"anonymous_loader" => ["~> 0.1", ">= 0.1.5"], "apprais
 structuredmerge_local_gems = %w[
   tree_haver
   ast-merge
+  config-merge
+  ast-crispr
+  ast-crispr-ruby-prism
+  ast-crispr-markdown-markly
+  ast-crispr-toml
+  ast-crispr-yaml-psych
   ast-merge-git
-  ast-template
+  plain-merge
   bash-merge
-  binary-merge
-  citrus-toml-merge
   dotenv-merge
-  go-merge
+  rbs-merge
   html-merge
   json-merge
-  kettle-jem
-  markdown-merge
-  markly-merge
-  parslet-toml-merge
-  plain-merge
-  prism-merge
-  psych-merge
-  rbs-merge
-  ruby-merge
-  rust-merge
-  smorg-rb
-  typescript-merge
-  toml-merge
   yaml-merge
+  toml-merge
+  markdown-merge
+  ruby-merge
+  go-merge
+  rust-merge
+  typescript-merge
+  ast-template
+  binary-merge
   zip-merge
-  ast-crispr
-  ast-crispr-toml
-  ast-crispr-markdown-markly
-  ast-crispr-ruby-prism
+  psych-merge
+  citrus-toml-merge
+  parslet-toml-merge
+  commonmarker-merge
+  kramdown-merge
+  markly-merge
+  prism-merge
+  kettle-jem
+  smorg-rb
 ]
 
 kettle_dev_local_gems = %w[
