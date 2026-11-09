@@ -195,7 +195,7 @@ GEM
       version_gem (~> 1.1, >= 1.1.17)
     kettle-drift (1.0.19)
       version_gem (~> 1.1, >= 1.1.17)
-    kettle-family (1.3.39)
+    kettle-family (1.3.40)
       ast-crispr (~> 7.1, >= 7.1.11)
       ast-crispr-ruby-prism (~> 7.1, >= 7.1.10)
       ast-crispr-toml (~> 7.1, >= 7.1.11)
@@ -752,7 +752,7 @@ CHECKSUMS
   kettle-deps-floor (0.1.2) sha256=4dba214a3ec9f3a2c254711d10763e8ed524f6e4078dfcea13743df54f613189
   kettle-dev (3.1.28) sha256=0d1cb4a6f7e4b4ea879147d1c6d468026f95ff844c9b8a06775950c64c0858fb
   kettle-drift (1.0.19) sha256=c4947944d84839b01fafffd934210c7cc6b438886ff93a663d609ab620b2eb11
-  kettle-family (1.3.39) sha256=c5336befc1d12b8c942e1c23d7a654075864be9f6d81c7e05aaf9c31c91adbd5
+  kettle-family (1.3.40) sha256=99c967770d8ff06d7bb1e20353d914126bdbc7a6ffdeb69e94625f5dde839ded
   kettle-gha-pins (0.3.21) sha256=c0f08ef9fb6065cb1f1b77c44fdb117c7152255aef4ecd385b027312e874e508
   kettle-jem (7.1.42) sha256=e5d7ab6fbfebe9fda9d529a5352ae0613857144727b8e38145fca8fd69bff022
   kettle-ndjson (0.1.23) sha256=114ea69068a2221dd1dd58950e80b3e91620ab8bf56d7a2c460f257bcf96afb1
