@@ -217,11 +217,12 @@ without needing any migration. Just add a new flag to the <code>has_flags</code>
 
 <h3 id="compatibility">Compatibility</h3>
 
-<p>Compatible with MRI Ruby 2.4+, JRuby, and TruffleRuby.<br>
+<p>The gem’s declared runtime compatibility floor is MRI Ruby 2.4+, with concordant releases of JRuby and TruffleRuby.<br>
 CI workflows and Appraisals are generated for MRI Ruby 2.4+.<br>
-This test floor is configured by <code>ruby.test_minimum</code> in <code>.kettle-jem.yml</code> and<br>
-may be higher than the gem’s runtime compatibility floor when legacy Rubies are<br>
-not practical for the current toolchain.</p>
+The current MRI CI lane runs on Linux and macOS.<br>
+The test floor is configured by <code>ruby.test_minimum</code> in <code>.kettle-jem.yml</code>.<br>
+When it is higher than the runtime floor, older runtime-compatible Rubies are<br>
+not covered by the generated CI or Appraisal matrix.</p>
 
 <p><a href="https://github.com/kettle-dev"><img alt="kettle-dev Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/kettle-dev/avatar-128px.svg" width="14%" align="right"></a></p>
 
@@ -293,68 +294,6 @@ not practical for the current toolchain.</p>
 
 </details>
 
-<h3 id="runtime-and-platform-support">Runtime and Platform Support</h3>
-
-<p>Support tiers describe what this project’s CI actually exercises, not what may<br>
-work in an untested environment:</p>
-
-<ul>
-  <li>
-<strong>Parallel support</strong>: CI runs the test suite with multiple workers available.</li>
-  <li>
-<strong>Unsupported</strong>: the engine/platform combination is not covered by CI and is<br>
- not a project compatibility claim.</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th>Ruby engine/version</th>
-      <th>Linux</th>
-      <th>macOS</th>
-      <th>Windows</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>MRI 3.1-3.4</td>
-      <td>Parallel support</td>
-      <td>Unsupported</td>
-      <td>Unsupported</td>
-      <td>Versioned Ruby workflows run on Linux.</td>
-    </tr>
-    <tr>
-      <td>MRI current</td>
-      <td>Parallel support</td>
-      <td>Parallel support</td>
-      <td>Unsupported</td>
-      <td>Current Ruby workflow covers the declared OS platforms.</td>
-    </tr>
-    <tr>
-      <td>MRI head</td>
-      <td>Parallel support</td>
-      <td>Unsupported</td>
-      <td>Unsupported</td>
-      <td>CI is allowed to fail while Ruby is in development.</td>
-    </tr>
-    <tr>
-      <td>JRuby (all CI lanes)</td>
-      <td>Parallel support</td>
-      <td>Unsupported</td>
-      <td>Unsupported</td>
-      <td>Engine workflows run on Linux; macOS and Windows are not exercised by CI.</td>
-    </tr>
-    <tr>
-      <td>TruffleRuby (all CI lanes)</td>
-      <td>Parallel support</td>
-      <td>Unsupported</td>
-      <td>Unsupported</td>
-      <td>Never shipped a Windows build (zero Windows assets across 66 releases scanned 2026-10-10); setup-ruby hard-fails (<a href="https://github.com/ruby/setup-ruby/blob/master/README.md">source</a>)</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="federated-dvcs">Federated DVCS</h3>
 
 <details>
@@ -406,34 +345,14 @@ work in an untested environment:</p>
 
 <h3 id="enterprise-support">Enterprise Support</h3>
 
-<p><a href="https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&amp;utm_medium=referral&amp;utm_campaign=readme"><img src="https://tidelift.com/badges/package/rubygems/flag_shih_tzu" alt="Tidelift"></a></p>
+<p>For enterprise support from the maintainer, use <a href="https://www.upwork.com/freelancers/~014942e9b056abdf86?mp_source=share">Upwork</a> or <a href="https://www.codementor.io/peterboling?utm_source=github&amp;utm_medium=button&amp;utm_term=peterboling&amp;utm_campaign=github">CodeMentor</a>.</p>
 
-<p>Available as part of the Tidelift Subscription.</p>
+<p>Other support channels:</p>
 
-<details>
-  <summary>Need enterprise-level guarantees?</summary>
-
-  <p>The maintainers of this and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source packages you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact packages you use.</p>
-
-  <p><a href="https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&amp;utm_medium=referral&amp;utm_campaign=readme"><img src="https://img.shields.io/badge/Tidelift_and_Sonar-Enterprise_Support-FD3456?style=for-the-badge&amp;logo=sonar&amp;logoColor=white" alt="Get help from me on Tidelift"></a></p>
-
-  <ul>
-    <li>💡Subscribe for support guarantees covering <em>all</em> your FLOSS dependencies</li>
-    <li>💡Tidelift is part of <a href="https://blog.tidelift.com/tidelift-joins-sonar">Sonar</a>
-</li>
-    <li>💡Tidelift pays maintainers to maintain the software you depend on!<br>📊<code>@</code>Pointy Haired Boss: An <a href="https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&amp;utm_medium=referral&amp;utm_campaign=readme">enterprise support</a> subscription is “<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">never gonna let you down</a>”, and <em>supports</em> open source maintainers</li>
-  </ul>
-
-  <p>Alternatively:</p>
-
-  <ul>
-    <li><a href="https://www.rubyforum.org/tag/flag-shih-tzu"><img src="https://img.shields.io/discourse/topics?server=https%3A%2F%2Fwww.rubyforum.org&amp;style=for-the-badge&amp;logo=discourse&amp;label=Ruby%20Users%20Forum" alt="Ruby Users Forum"></a></li>
-    <li><a href="https://discord.gg/3qme4XHNKN"><img src="https://img.shields.io/discord/1373797679469170758?style=for-the-badge&amp;logo=discord" alt="Live Chat on Discord"></a></li>
-    <li><a href="https://www.upwork.com/freelancers/~014942e9b056abdf86?mp_source=share"><img src="https://img.shields.io/badge/UpWork-13544E?style=for-the-badge&amp;logo=Upwork&amp;logoColor=white" alt="Get help from me on Upwork"></a></li>
-    <li><a href="https://www.codementor.io/peterboling?utm_source=github&amp;utm_medium=button&amp;utm_term=peterboling&amp;utm_campaign=github"><img src="https://img.shields.io/badge/CodeMentor-Get_Help-1abc9c?style=for-the-badge&amp;logo=CodeMentor&amp;logoColor=white" alt="Get help from me on Codementor"></a></li>
-  </ul>
-
-</details>
+<ul>
+  <li><a href="https://www.rubyforum.org/tag/flag-shih-tzu"><img src="https://img.shields.io/discourse/topics?server=https%3A%2F%2Fwww.rubyforum.org&amp;style=for-the-badge&amp;logo=discourse&amp;label=Ruby%20Users%20Forum" alt="Ruby Users Forum"></a></li>
+  <li><a href="https://discord.gg/3qme4XHNKN"><img src="https://img.shields.io/discord/1373797679469170758?style=for-the-badge&amp;logo=discord" alt="Live Chat on Discord"></a></li>
+</ul>
 
 <h2 id="-installation">✨ Installation</h2>
 
@@ -1066,28 +985,18 @@ Raising a monthly budget of… “dollars” would make the project more sustain
 wide array of funding channels to account for your preferences.<br>
 Currently, <a href="https://opencollective.com/galtzo-floss">Open Collective</a> is our preferred funding platform.</p>
 
+<h3 id="corporate-sponsorship">Corporate Sponsorship</h3>
+
 <p><strong>If you’re working in a company that’s making significant use of galtzo-floss tools we’d<br>
 appreciate it if you suggest to your company to become a galtzo-floss sponsor.</strong></p>
+
+<h3 id="individual-support">Individual Support</h3>
 
 <p>You can support the development of galtzo-floss tools via<br>
 <a href="https://github.com/sponsors/pboling">GitHub Sponsors</a>,<br>
 <a href="https://liberapay.com/pboling/donate">Liberapay</a>,<br>
-<a href="https://www.paypal.com/paypalme/peterboling">PayPal</a>,<br>
-<a href="https://opencollective.com/galtzo-floss">Open Collective</a><br>
-and <a href="https://tidelift.com/subscription/pkg/rubygems-flag_shih_tzu?utm_source=rubygems-flag_shih_tzu&amp;utm_medium=referral&amp;utm_campaign=readme">Tidelift</a>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>📍 NOTE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>If doing a sponsorship in the form of donation is problematic for your company <br> from an accounting standpoint, we’d recommend the use of Tidelift, <br> where you can get a support-like subscription instead.</td>
-    </tr>
-  </tbody>
-</table>
+<a href="https://opencollective.com/galtzo-floss">Open Collective</a>,<br>
+and <a href="https://www.paypal.com/paypalme/peterboling">PayPal</a>.</p>
 
 <h3 id="open-collective-for-individuals">Open Collective for Individuals</h3>
 
@@ -1276,7 +1185,7 @@ Please consider sponsoring me or the project.</p>
 | Homepage | https://github.com/galtzo-floss/flag_shih_tzu |<br>
 | Source | https://github.com/galtzo-floss/flag_shih_tzu |<br>
 | License | <code>MIT</code> |<br>
-| Funding | https://github.com/sponsors/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/galtzo-floss, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/flag_shih_tzu, https://www.buymeacoffee.com/pboling |<br>
+| Funding | https://github.com/sponsors/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/galtzo-floss, https://thanks.dev/u/gh/pboling, https://www.buymeacoffee.com/pboling |<br>
 <!-- kettle-jem:metadata:end --></p>
 
 </div></div>
