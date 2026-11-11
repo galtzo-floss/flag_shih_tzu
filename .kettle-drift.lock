@@ -1,4 +1,13 @@
 {
+  "- code and tests (1)\n- dependencies (2)": [
+    {
+      "file": "CHANGELOG.md",
+      "lines": [
+        29,
+        92
+      ]
+    }
+  ],
   "- modular/activerecord_support.gemfile\n- modular/combustion.gemfile": [
     {
       "file": ".structuredmerge/kettle-jem.yml",
