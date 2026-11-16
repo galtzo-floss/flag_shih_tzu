@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.8] - 2026-11-15
+
+- TAG: [v1.0.8][1.0.8t]
+- COVERAGE: 90.75% -- 412/454 lines in 3 files
+- BRANCH COVERAGE: 76.76% -- 142/185 branches in 3 files
+- 30.00% documented
+
+### Changed
+
 - [kc] kettle-jem/prepare: updated 8 project files:
   - dependencies (8)
 
@@ -31,14 +48,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - documentation (1)
   - other (1)
   - workflows (8)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [1.0.7] - 2026-11-09
 
@@ -528,7 +537,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 # Version 0.2.3 - last version maintained by XING AG
 
-[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.7...HEAD
+[Unreleased]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.8...HEAD
+[1.0.8]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.7...v1.0.8
+[1.0.8t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.8
 [1.0.7]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.6...v1.0.7
 [1.0.7t]: https://github.com/galtzo-floss/flag_shih_tzu/releases/tag/v1.0.7
 [1.0.6]: https://github.com/galtzo-floss/flag_shih_tzu/compare/v1.0.5...v1.0.6
