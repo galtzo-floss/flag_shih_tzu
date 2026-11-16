@@ -6,6 +6,8 @@ gemspec path: "../"
 
 eval_gemfile("modular/x_std_libs/r2.6/libs.gemfile")
 
+eval_gemfile("modular/rspec_junit_formatter/r2/v0.6.gemfile")
+
 eval_gemfile("modular/activerecord/r2.6/v6.1.gemfile")
 
 eval_gemfile("modular/activerecord_support.gemfile")

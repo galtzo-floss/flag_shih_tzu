@@ -1,10 +1,10 @@
 {
-  "- code and tests (1)\n- dependencies (2)": [
+  "- [kc] kettle-jem/prepare: updated 8 project files:\n- dependencies (8)": [
     {
       "file": "CHANGELOG.md",
       "lines": [
-        29,
-        93
+        25,
+        89
       ]
     }
   ],
