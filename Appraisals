@@ -128,7 +128,6 @@ appraise "ruby-3-0" do
   eval_gemfile "modular/json/truffleruby_23_0.gemfile"
   eval_gemfile "modular/x_std_libs/r3.1/libs.gemfile"
   eval_gemfile "modular/rspec_junit_formatter/r3.2/v0.6.gemfile"
-  eval_gemfile "modular/rspec_junit_formatter/r2/v0.6.gemfile"
   eval_gemfile "modular/activerecord_runtime.gemfile"
   eval_gemfile "modular/activerecord_support.gemfile"
   eval_gemfile "modular/combustion.gemfile"
@@ -138,7 +137,6 @@ end
 appraise "ruby-3-1" do
   eval_gemfile "modular/x_std_libs/r3.1/libs.gemfile"
   eval_gemfile "modular/rspec_junit_formatter/r3.2/v0.6.gemfile"
-  eval_gemfile "modular/rspec_junit_formatter/r2/v0.6.gemfile"
   eval_gemfile "modular/activerecord/r3.1/v7.2.gemfile"
   eval_gemfile "modular/activerecord_support.gemfile"
   eval_gemfile "modular/combustion.gemfile"
@@ -149,7 +147,6 @@ appraise "ruby-3-2" do
   eval_gemfile "modular/json/truffleruby_23_1.gemfile"
   eval_gemfile "modular/x_std_libs/r3/libs.gemfile"
   eval_gemfile "modular/rspec_junit_formatter/r3.2/v0.6.gemfile"
-  eval_gemfile "modular/rspec_junit_formatter/r2/v0.6.gemfile"
   eval_gemfile "modular/activerecord/r3/v8.0.gemfile"
   eval_gemfile "modular/activerecord_support_modern.gemfile"
   eval_gemfile "modular/combustion.gemfile"
@@ -159,7 +156,6 @@ end
 appraise "ruby-3-3" do
   eval_gemfile "modular/x_std_libs/r3/libs.gemfile"
   eval_gemfile "modular/rspec_junit_formatter/r3/v0.8.gemfile"
-  eval_gemfile "modular/rspec.gemfile"
   eval_gemfile "modular/activerecord_runtime.gemfile"
   eval_gemfile "modular/activerecord_support_modern.gemfile"
   eval_gemfile "modular/combustion.gemfile"
@@ -169,7 +165,6 @@ end
 appraise "ruby-3-4" do
   eval_gemfile "modular/x_std_libs/r3/libs.gemfile"
   eval_gemfile "modular/rspec_junit_formatter/r3/v0.8.gemfile"
-  eval_gemfile "modular/rspec.gemfile"
   eval_gemfile "modular/activerecord_runtime.gemfile"
   eval_gemfile "modular/activerecord_support_modern.gemfile"
   eval_gemfile "modular/combustion.gemfile"
