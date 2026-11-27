@@ -3,17 +3,8 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        51,
-        107
-      ]
-    }
-  ],
-  "- code and tests (1)\n- dependencies (3)": [
-    {
-      "file": "CHANGELOG.md",
-      "lines": [
-        29,
-        55
+        52,
+        108
       ]
     }
   ],
@@ -22,7 +13,7 @@
       "file": "CHANGELOG.md",
       "lines": [
         30,
-        56
+        57
       ]
     }
   ],
@@ -31,7 +22,7 @@
       "file": "CHANGELOG.md",
       "lines": [
         31,
-        57
+        58
       ]
     }
   ],
